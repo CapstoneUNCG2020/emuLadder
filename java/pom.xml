@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.uncg</groupId>
-	<artifactId>capstone</artifactId>
+	<artifactId>emuLadder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>capstone</name>
+	<name>emuLadder</name>
 	<description>Capstone project for CSC 490</description>
 
 	<properties>

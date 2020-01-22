@@ -1,4 +1,4 @@
-package com.uncg.capstone;
+package com.uncg.emuLadder;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
