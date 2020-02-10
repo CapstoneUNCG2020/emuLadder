@@ -3,7 +3,7 @@ package com.uncg.emuLadder.service;
 import com.uncg.emuLadder.model.database.AccountCredentials;
 import com.uncg.emuLadder.model.request.SignInRequestData;
 import com.uncg.emuLadder.model.response.SignInResponseData;
-import com.uncg.emuLadder.repository.SignInRepository;
+import com.uncg.emuLadder.repository.AccountCredentialsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
 public class SignInService implements IService<SignInRequestData, SignInResponseData> {
 
     private final Logger logger = LoggerFactory.getLogger((getClass()));
-    private final SignInRepository repository;
+    private final AccountCredentialsRepository repository;
 
     @Override
     public SignInResponseData service(SignInRequestData requestData) {
@@ -37,7 +37,7 @@ public class SignInService implements IService<SignInRequestData, SignInResponse
     }
 
     @Autowired
-    public SignInService(SignInRepository repository) {
+    public SignInService(AccountCredentialsRepository repository) {
         this.repository = repository;
     }
 }

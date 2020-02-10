@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SignInRepository extends JpaRepository<AccountCredentials, String> {
+public interface AccountCredentialsRepository extends JpaRepository<AccountCredentials, String> {
 }
