@@ -16,7 +16,7 @@ public class SignUpController {
     private final SignUpHandler handler;
 
     @PostMapping("/signUp")
-    public SignUpResponseData signIn(@RequestBody SignUpRequestData requestData) {
+    public SignUpResponseData signUp(@RequestBody SignUpRequestData requestData) {
         return handler.handle(requestData);
     }
 
