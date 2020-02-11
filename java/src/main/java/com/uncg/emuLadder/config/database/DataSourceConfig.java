@@ -34,8 +34,6 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource getDataSource() {
-        Formatter f = new Formatter();
-
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.url(
                 new Formatter().format("%s://%s:%d/%s", driver, url, port, databaseName).toString()
