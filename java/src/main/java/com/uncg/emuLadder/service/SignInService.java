@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -33,6 +32,9 @@ public class SignInService implements IService<SignInRequestData, SignInResponse
             logger.error("Could not find email.");
             responseData.setSuccess(false);
         }
+
+        if (responseData.isSuccess()) logger.info("Sign in successful for {}", requestData.getEmail());
+        else logger.info("Could not sign in for {}", requestData.getEmail());
 
         return responseData;
     }

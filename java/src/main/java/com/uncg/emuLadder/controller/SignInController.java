@@ -21,7 +21,7 @@ public class SignInController {
 
     @PostMapping("/signIn")
     public SignInResponseData signIn(@RequestBody SignInRequestData requestData) {
-        logger.info("request data: {}", requestData);
+        logger.info("Attempting sign in for {}", requestData.getEmail());
 
         return handler.handle(requestData);
     }
