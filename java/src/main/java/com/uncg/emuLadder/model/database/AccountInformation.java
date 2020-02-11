@@ -1,20 +1,24 @@
 package com.uncg.emuLadder.model.database;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name="AccountInformation")
+@Table
 public class AccountInformation {
     @Id
     private String email;
 
+    @Column(name="user_name")
     private String username;
 
+    @Column(name="first_name")
     private String firstName;
 
+    @Column(name="last_name")
     private String lastName;
 
     public String getEmail() {
