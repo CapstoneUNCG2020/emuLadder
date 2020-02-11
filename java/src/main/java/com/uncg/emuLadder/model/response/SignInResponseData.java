@@ -19,7 +19,7 @@ public class SignInResponseData {
             return true;
         }
 
-        if (o != null) {
+        if (o == null) {
             return false;
         }
 
