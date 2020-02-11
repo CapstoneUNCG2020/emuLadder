@@ -1,0 +1,11 @@
+database:
+    driver:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        driver: jdbc:mysql
+    credentials: 
+        username: emuLadder
+        password: whatisourpassword
+    description:
+        url: emuLadder.clannzsjouuv.us-east-1.rds.amazonaws.com
+        port: 3306
+        databaseName: emuladder

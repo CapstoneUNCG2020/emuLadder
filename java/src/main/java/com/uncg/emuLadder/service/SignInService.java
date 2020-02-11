@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -25,11 +26,11 @@ public class SignInService implements IService<SignInRequestData, SignInResponse
         SignInResponseData responseData = new SignInResponseData();
 
         try {
-            AccountCredentials credentials = repository.findById(requestData.getUsername()).get();
+            AccountCredentials credentials = repository.findById(requestData.getEmail()).get();
 
             responseData.setSuccess(requestData.getPassword().equals(credentials.getPassword()));
         } catch (NoSuchElementException ex) {
-            logger.error("Could not find username.");
+            logger.error("Could not find email.");
             responseData.setSuccess(false);
         }
 
