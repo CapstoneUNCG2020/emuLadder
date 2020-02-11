@@ -13,14 +13,6 @@ public class DataSourceConfigTest {
     @Before
     public void setUp() {
         config = new DataSourceConfig();
-
-        ReflectionTestUtils.setField(config, "driver", "driver");
-        ReflectionTestUtils.setField(config, "url", "url");
-        ReflectionTestUtils.setField(config, "databaseName", "databaseName");
-        ReflectionTestUtils.setField(config, "port", 1);
-        ReflectionTestUtils.setField(config, "driverClassName", "driverClassName");
-        ReflectionTestUtils.setField(config, "username", "username");
-        ReflectionTestUtils.setField(config, "password", "password");
     }
 
     @Test
