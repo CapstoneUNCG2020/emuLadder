@@ -1,0 +1,1 @@
+DELETE FROM AccountCredentials WHERE email=$email

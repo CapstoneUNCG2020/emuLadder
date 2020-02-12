@@ -1,5 +1,7 @@
 package com.uncg.emuLadder.model.request;
 
+import com.uncg.emuLadder.model.database.AccountInformation;
+import com.uncg.emuLadder.util.EqualsTestUtil;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -67,34 +69,7 @@ public class SignUpRequestDataTest {
 
     @Test
     public void testEquals() {
-        SignUpRequestData requestData2 = new SignUpRequestData();
-
-        assertEquals(requestData, requestData2);
-
-        requestData.setFirstName(FIRST_NAME);
-        requestData2.setFirstName(FIRST_NAME);
-
-        assertEquals(requestData, requestData2);
-
-        requestData.setLastName(LAST_NAME);
-        requestData2.setLastName(LAST_NAME);
-
-        assertEquals(requestData, requestData2);
-
-        requestData.setUsername(USER_NAME);
-        requestData2.setUsername(USER_NAME);
-
-        assertEquals(requestData, requestData2);
-
-        requestData.setEmail(EMAIL);
-        requestData2.setEmail(EMAIL);
-
-        assertEquals(requestData, requestData2);
-
-        requestData.setPassword(PASSWORD);
-        requestData2.setPassword(PASSWORD);
-
-        assertEquals(requestData, requestData2);
+        EqualsTestUtil.testEquals(SignUpRequestData.class);
     }
 
     @Test

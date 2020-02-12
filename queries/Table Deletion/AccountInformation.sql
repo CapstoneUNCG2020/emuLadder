@@ -1,0 +1,1 @@
+DELETE FROM AccountInformation WHERE email=$email

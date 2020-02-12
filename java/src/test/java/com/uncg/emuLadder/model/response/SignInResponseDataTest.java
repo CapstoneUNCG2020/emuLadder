@@ -1,5 +1,7 @@
 package com.uncg.emuLadder.model.response;
 
+import com.uncg.emuLadder.model.database.AccountInformation;
+import com.uncg.emuLadder.util.EqualsTestUtil;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,14 +25,7 @@ public class SignInResponseDataTest {
 
     @Test
     public void testEquals() {
-        SignInResponseData responseData2 = new SignInResponseData();
-
-        assertEquals(responseData, responseData2);
-
-        responseData.setSuccess(true);
-        responseData2.setSuccess(true);
-
-        assertEquals(responseData, responseData2);
+        EqualsTestUtil.testEquals(SignInResponseData.class);
     }
 
     @Test

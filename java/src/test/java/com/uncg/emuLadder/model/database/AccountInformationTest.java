@@ -1,5 +1,6 @@
 package com.uncg.emuLadder.model.database;
 
+import com.uncg.emuLadder.util.EqualsTestUtil;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -58,29 +59,7 @@ public class AccountInformationTest {
 
     @Test
     public void testEquals() {
-        AccountInformation information2 = new AccountInformation();
-
-        assertEquals(information, information2);
-
-        information.setEmail(EMAIL);
-        information2.setEmail(EMAIL);
-
-        assertEquals(information, information2);
-
-        information.setUsername(USER_NAME);
-        information2.setUsername(USER_NAME);
-
-        assertEquals(information, information2);
-
-        information.setFirstName(FIRST_NAME);
-        information2.setFirstName(FIRST_NAME);
-
-        assertEquals(information, information2);
-
-        information.setLastName(LAST_NAME);
-        information2.setLastName(LAST_NAME);
-
-        assertEquals(information, information2);
+        EqualsTestUtil.testEquals(AccountInformation.class);
     }
 
     @Test

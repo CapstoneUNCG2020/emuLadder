@@ -1,5 +1,6 @@
 package com.uncg.emuLadder.model.database;
 
+import com.uncg.emuLadder.util.EqualsTestUtil;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -40,19 +41,7 @@ public class AccountCredentialsTest {
 
     @Test
     public void testEquals() {
-        AccountCredentials credentials2 = new AccountCredentials();
-
-        assertEquals(credentials, credentials2);
-
-        credentials.setEmail(EMAIL);
-        credentials2.setEmail(EMAIL);
-
-        assertEquals(credentials, credentials2);
-
-        credentials.setPassword(PASSWORD);
-        credentials2.setPassword(PASSWORD);
-
-        assertEquals(credentials, credentials2);
+        EqualsTestUtil.testEquals(AccountCredentials.class);
     }
 
     @Test
