@@ -1,6 +1,9 @@
-CREATE TABLE players (
-	contest_id INT,
-	player_id INT,
-	FOREIGN KEY (contest_id) REFERENCES contest_information(contest_id),
-	FOREIGN KEY (player_id) REFERENCES player_information(player_id)
+CREATE TABLE Players (
+	playerId INT AUTO_INCREMENT,
+	PRIMARY KEY (playerId),
+	firstName VARCHAR(50),
+	lastName VARCHAR(50),
+	displayName VARCHAR(50),
+	image VARCHAR(50),
+	salary INT
 );
