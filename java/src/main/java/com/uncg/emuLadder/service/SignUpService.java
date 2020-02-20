@@ -1,7 +1,7 @@
 package com.uncg.emuLadder.service;
 
 import com.uncg.emuLadder.model.database.AccountCredentials;
-import com.uncg.emuLadder.model.database.AccountInformation;
+import com.uncg.emuLadder.model.database.Accounts;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
 import com.uncg.emuLadder.model.response.SignUpResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
@@ -28,16 +28,16 @@ public class SignUpService implements IService<SignUpRequestData, SignUpResponse
         if (informationRepository.findById(requestData.getEmail()).isPresent()) {
             responseData.setSuccess(false);
         } else {
-            final AccountInformation accountInformation = new AccountInformation();
-            accountInformation.setEmail(requestData.getEmail());
-            accountInformation.setFirstName(requestData.getFirstName());
-            accountInformation.setLastName(requestData.getLastName());
-            accountInformation.setUsername(requestData.getUsername());
+            final Accounts accounts = new Accounts();
+            accounts.setEmail(requestData.getEmail());
+            accounts.setFirstName(requestData.getFirstName());
+            accounts.setLastName(requestData.getLastName());
+            accounts.setUserId(requestData.getUsername());
 
-            informationRepository.saveAndFlush(accountInformation);
+            informationRepository.saveAndFlush(accounts);
 
             final AccountCredentials accountCredentials = new AccountCredentials();
-            accountCredentials.setEmail(requestData.getEmail());
+            accountCredentials.setUserId(requestData.getEmail());
             accountCredentials.setPassword(requestData.getPassword());
 
             credentialsRepository.saveAndFlush(accountCredentials);

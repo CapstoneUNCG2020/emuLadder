@@ -1,6 +1,5 @@
 package com.uncg.emuLadder.model.response;
 
-import com.uncg.emuLadder.model.database.AccountInformation;
 import com.uncg.emuLadder.util.EqualsTestUtil;
 import org.junit.Before;
 import org.junit.Test;

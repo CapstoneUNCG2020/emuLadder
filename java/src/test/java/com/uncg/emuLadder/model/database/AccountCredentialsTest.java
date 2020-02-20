@@ -27,9 +27,9 @@ public class AccountCredentialsTest {
 
     @Test
     public void setEmail() {
-        credentials.setEmail(EMAIL);
+        credentials.setUserId(EMAIL);
 
-        assertEquals(EMAIL, credentials.getEmail());
+        assertEquals(EMAIL, credentials.getUserId());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class AccountCredentialsTest {
 
         assertEquals(initialHash, credentials.hashCode());
 
-        credentials.setEmail(EMAIL);
+        credentials.setUserId(EMAIL);
         credentials.setPassword(PASSWORD);
 
         assertEquals(finalHash, credentials.hashCode());
@@ -61,7 +61,7 @@ public class AccountCredentialsTest {
     public void testToString() {
         String str = credentials.toString();
 
-        assertTrue(str.contains("email"));
+        assertTrue(str.contains("userId"));
         assertTrue(str.contains("password"));
     }
 }

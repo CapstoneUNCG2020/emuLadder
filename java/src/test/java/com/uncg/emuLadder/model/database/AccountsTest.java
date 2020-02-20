@@ -7,59 +7,59 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class AccountInformationTest {
+public class AccountsTest {
 
     private static String EMAIL;
     private static String FIRST_NAME;
     private static String LAST_NAME;
-    private static String USER_NAME;
+    private static String USER_ID;
 
-    private AccountInformation information;
+    private Accounts accounts;
 
     @BeforeClass
     public static void setUpBeforeClass() {
         EMAIL = "test@gmail.com";
         FIRST_NAME = "firstName";
         LAST_NAME = "lastName";
-        USER_NAME = "userName";
+        USER_ID = "userName";
     }
 
     @Before
     public void setUp() {
-        information = new AccountInformation();
+        accounts = new Accounts();
     }
 
     @Test
     public void setEmail() {
-        information.setEmail(EMAIL);
+        accounts.setEmail(EMAIL);
 
-        assertEquals(EMAIL, information.getEmail());
+        assertEquals(EMAIL, accounts.getEmail());
     }
 
     @Test
     public void setUsername() {
-        information.setUsername(USER_NAME);
+        accounts.setUserId(USER_ID);
 
-        assertEquals(USER_NAME, information.getUsername());
+        assertEquals(USER_ID, accounts.getUserId());
     }
 
     @Test
     public void setFirstName() {
-        information.setFirstName(FIRST_NAME);
+        accounts.setFirstName(FIRST_NAME);
 
-        assertEquals(FIRST_NAME, information.getFirstName());
+        assertEquals(FIRST_NAME, accounts.getFirstName());
     }
 
     @Test
     public void setLastName() {
-        information.setLastName(LAST_NAME);
+        accounts.setLastName(LAST_NAME);
 
-        assertEquals(LAST_NAME, information.getLastName());
+        assertEquals(LAST_NAME, accounts.getLastName());
     }
 
     @Test
     public void testEquals() {
-        EqualsTestUtil.testEquals(AccountInformation.class);
+        EqualsTestUtil.testEquals(Accounts.class);
     }
 
     @Test
@@ -67,22 +67,22 @@ public class AccountInformationTest {
         int initialHash = 923521;
         int finalHash = -1216270246;
 
-        assertEquals(initialHash, information.hashCode());
+        assertEquals(initialHash, accounts.hashCode());
 
-        information.setEmail(EMAIL);
-        information.setUsername(USER_NAME);
-        information.setFirstName(FIRST_NAME);
-        information.setLastName(LAST_NAME);
+        accounts.setEmail(EMAIL);
+        accounts.setUserId(USER_ID);
+        accounts.setFirstName(FIRST_NAME);
+        accounts.setLastName(LAST_NAME);
 
-        assertEquals(finalHash, information.hashCode());
+        assertEquals(finalHash, accounts.hashCode());
     }
 
     @Test
     public void testToString() {
-        String str = information.toString();
+        String str = accounts.toString();
 
         assertTrue(str.contains("email"));
-        assertTrue(str.contains("username"));
+        assertTrue(str.contains("userId"));
         assertTrue(str.contains("firstName"));
         assertTrue(str.contains("lastName"));
     }

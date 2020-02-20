@@ -1,7 +1,7 @@
 package com.uncg.emuLadder.service;
 
 import com.uncg.emuLadder.model.database.AccountCredentials;
-import com.uncg.emuLadder.model.database.AccountInformation;
+import com.uncg.emuLadder.model.database.Accounts;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
 import com.uncg.emuLadder.model.response.SignUpResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
@@ -54,9 +54,9 @@ public class SignUpServiceTest {
 
     @Test
     public void testServiceUserAlreadyExists() {
-        AccountInformation accountInformation = new AccountInformation();
+        Accounts accounts = new Accounts();
 
-        when(informationRepository.findById(any())).thenReturn(Optional.of(accountInformation));
+        when(informationRepository.findById(any())).thenReturn(Optional.of(accounts));
 
         response = service.service(requestData);
 

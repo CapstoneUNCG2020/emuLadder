@@ -9,16 +9,16 @@ import java.util.Objects;
 @Table
 public class AccountCredentials {
     @Id
-    private String email;
+    private String userId;
 
     private String password;
 
-    public String getEmail() {
-        return email;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPassword() {
@@ -44,19 +44,19 @@ public class AccountCredentials {
         }
 
         AccountCredentials that = (AccountCredentials) o;
-        return Objects.equals(email, that.email) &&
+        return Objects.equals(userId, that.userId) &&
                 Objects.equals(password, that.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, password);
+        return Objects.hash(userId, password);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("AccountCredentials{");
-        sb.append("email='").append(email).append('\'');
+        sb.append("userId='").append(userId).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append('}');
         return sb.toString();

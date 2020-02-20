@@ -1,19 +1,15 @@
 package com.uncg.emuLadder.model.database;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table
-public class AccountInformation {
-    @Id
+public class Accounts {
     private String email;
 
-    @Column(name="user_name")
-    private String username;
+    @Id
+    private String userId;
 
     private String firstName;
 
@@ -27,12 +23,12 @@ public class AccountInformation {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -65,23 +61,23 @@ public class AccountInformation {
             return false;
         }
 
-        AccountInformation other = (AccountInformation) obj;
+        Accounts other = (Accounts) obj;
         return Objects.equals(email, other.email) &&
-                Objects.equals(username, other.username) &&
+                Objects.equals(userId, other.userId) &&
                 Objects.equals(firstName, other.firstName) &&
                 Objects.equals(lastName, other.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, username, firstName, lastName);
+        return Objects.hash(email, userId, firstName, lastName);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("AccountInformation{");
+        final StringBuilder sb = new StringBuilder("Accounts{");
         sb.append("email='").append(email).append('\'');
-        sb.append(", username='").append(username).append('\'');
+        sb.append(", userId='").append(userId).append('\'');
         sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append('}');
