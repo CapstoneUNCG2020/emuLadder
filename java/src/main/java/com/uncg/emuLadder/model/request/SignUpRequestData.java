@@ -7,7 +7,7 @@ public class SignUpRequestData {
     private String lastName;
     private String email;
     private String password;
-    private String username;
+    private String userId;
 
     public String getFirstName() {
         return firstName;
@@ -41,12 +41,12 @@ public class SignUpRequestData {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -68,12 +68,12 @@ public class SignUpRequestData {
                 Objects.equals(lastName, other.lastName) &&
                 Objects.equals(email, other.email) &&
                 Objects.equals(password, other.password) &&
-                Objects.equals(username, other.username);
+                Objects.equals(userId, other.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, email, password, username);
+        return Objects.hash(firstName, lastName, email, password, userId);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class SignUpRequestData {
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", password='").append(password).append('\'');
-        sb.append(", username='").append(username).append('\'');
+        sb.append(", username='").append(userId).append('\'');
         sb.append('}');
         return sb.toString();
     }
