@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SignInController {
     private final SignInHandler handler;
 
-    final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @PostMapping("/signIn")
     public SignInResponseData signIn(@RequestBody SignInRequestData requestData) {
