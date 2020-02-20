@@ -27,9 +27,9 @@ public class SignInRequestDataTest {
 
     @Test
     public void setEmail() {
-        requestData.setEmail(EMAIL);
+        requestData.setUserId(EMAIL);
 
-        assertEquals(EMAIL, requestData.getEmail());
+        assertEquals(EMAIL, requestData.getUserId());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class SignInRequestDataTest {
 
         assertEquals(initialHash, requestData.hashCode());
 
-        requestData.setEmail(EMAIL);
+        requestData.setUserId(EMAIL);
         requestData.setPassword(PASSWORD);
 
         assertEquals(finalHash, requestData.hashCode());

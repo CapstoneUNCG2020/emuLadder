@@ -25,16 +25,16 @@ public class SignInService implements IService<SignInRequestData, SignInResponse
         SignInResponseData responseData = new SignInResponseData();
 
         try {
-            AccountCredentials credentials = repository.findById(requestData.getEmail()).get();
+            AccountCredentials credentials = repository.findById(requestData.getUserId()).get();
 
             responseData.setSuccess(requestData.getPassword().equals(credentials.getPassword()));
         } catch (NoSuchElementException ex) {
-            logger.error("Could not find email.");
+            logger.error("Could not find user ID.");
             responseData.setSuccess(false);
         }
 
-        if (responseData.isSuccess()) logger.info("Sign in successful for {}", requestData.getEmail());
-        else logger.info("Could not sign in for {}", requestData.getEmail());
+        if (responseData.isSuccess()) logger.info("Sign in successful for {}", requestData.getUserId());
+        else logger.info("Could not sign in for {}", requestData.getUserId());
 
         return responseData;
     }

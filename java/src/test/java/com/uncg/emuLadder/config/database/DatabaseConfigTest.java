@@ -2,21 +2,20 @@ package com.uncg.emuLadder.config.database;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.junit.Assert.*;
 
-public class DataSourceConfigTest {
+public class DatabaseConfigTest {
 
-    private DataSourceConfig config;
+    private DatabaseConfig config;
 
     @Before
     public void setUp() {
-        config = new DataSourceConfig();
+        config = new DatabaseConfig();
     }
 
     @Test
-    public void getDataSource() {
+    public void getDatabase() {
         assertNotNull(config.getDataSource());
     }
 }

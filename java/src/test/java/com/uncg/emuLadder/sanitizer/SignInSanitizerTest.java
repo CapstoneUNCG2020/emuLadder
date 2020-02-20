@@ -33,33 +33,33 @@ public class SignInSanitizerTest {
 
     @Test
     public void testSanitizeEmailXss() {
-        requestData.setEmail(EMAIL + XSS);
+        requestData.setUserId(EMAIL + XSS);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
 
-        assertEquals(EMAIL, response.getEmail());
+        assertEquals(EMAIL, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 
     @Test
     public void testSanitizePasswordXss() {
-        requestData.setEmail(EMAIL);
+        requestData.setUserId(EMAIL);
         requestData.setPassword(PASSWORD + XSS);
 
         response = sanitizer.sanitize(requestData);
 
-        assertEquals(EMAIL, response.getEmail());
+        assertEquals(EMAIL, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
     @Test
     public void testSanitizeNoXss() {
-        requestData.setEmail(EMAIL);
+        requestData.setUserId(EMAIL);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
 
-        assertEquals(EMAIL, response.getEmail());
+        assertEquals(EMAIL, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 }

@@ -44,7 +44,7 @@ public class SignInServiceTest {
 
         requestData = new SignInRequestData();
         String email = "email";
-        requestData.setEmail(email);
+        requestData.setUserId(email);
         requestData.setPassword(PASSWORD);
 
         accountCredentials = new AccountCredentials();

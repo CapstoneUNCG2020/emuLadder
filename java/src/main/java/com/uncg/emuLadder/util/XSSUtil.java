@@ -20,7 +20,6 @@ public final class XSSUtil {
             return "";
         } else {
             String value = (new GsonBuilder()).disableHtmlEscaping().create().toJson(object);
-            LOGGER.info("ipValue: {}, isBlank: {}", value, StringUtils.isBlank(value));
             return stripXSS(value);
         }
     }

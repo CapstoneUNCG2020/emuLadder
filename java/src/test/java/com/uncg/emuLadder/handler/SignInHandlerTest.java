@@ -38,7 +38,7 @@ public class SignInHandlerTest {
         handler = new SignInHandler(service, sanitizer);
 
         requestData = new SignInRequestData();
-        requestData.setEmail(EMAIL);
+        requestData.setUserId(EMAIL);
         requestData.setPassword(PASSWORD);
 
         responseData = new SignInResponseData();

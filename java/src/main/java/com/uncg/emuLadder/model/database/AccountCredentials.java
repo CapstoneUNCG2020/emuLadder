@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "AccountCredentials")
 public class AccountCredentials {
     @Id
     private String userId;
