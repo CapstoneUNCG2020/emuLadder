@@ -3,10 +3,10 @@ package com.uncg.emuLadder.util;
 import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Type;
 import java.util.regex.Pattern;
+import org.apache.commons.lang3.StringUtils;
 
 public final class XSSUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(XSSUtil.class);
@@ -29,7 +29,7 @@ public final class XSSUtil {
     }
 
     private static String stripXSS(String ipValue) {
-        if (StringUtils.isEmpty(ipValue)) {
+        if (StringUtils.isBlank(ipValue)) {
             LOGGER.info("Input String is blank, returning Empty String.");
             return "";
         } else {

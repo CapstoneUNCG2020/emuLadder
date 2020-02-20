@@ -42,6 +42,13 @@ public class XSSUtilTest {
     }
 
     @Test
+    public void testStringXSS() {
+        response = XSSUtil.stripXSS("string");
+
+        assertEquals(toString("string"), response);
+    }
+
+    @Test
     public void testStripXSSContainsXSS() {
         response = XSSUtil.stripXSS(OBJ + XSS);
 
