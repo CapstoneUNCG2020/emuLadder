@@ -2,11 +2,9 @@ package com.uncg.emuLadder.model.database;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "AccountCredentials")
 public class AccountCredentials {
     @Id
     private String userId;
