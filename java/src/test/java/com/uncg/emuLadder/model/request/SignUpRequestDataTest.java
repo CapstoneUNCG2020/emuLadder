@@ -61,9 +61,9 @@ public class SignUpRequestDataTest {
 
     @Test
     public void setUsername() {
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
 
-        assertEquals(USER_NAME, requestData.getUsername());
+        assertEquals(USER_NAME, requestData.getUserId());
     }
 
     @Test
@@ -80,7 +80,7 @@ public class SignUpRequestDataTest {
 
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setEmail(EMAIL);
         requestData.setPassword(PASSWORD);
 

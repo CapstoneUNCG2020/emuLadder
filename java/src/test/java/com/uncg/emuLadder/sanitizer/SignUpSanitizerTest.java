@@ -42,7 +42,7 @@ public class SignUpSanitizerTest {
         requestData.setEmail(EMAIL + XSS);
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
@@ -50,7 +50,7 @@ public class SignUpSanitizerTest {
         assertEquals(EMAIL, response.getEmail());
         assertEquals(FIRST_NAME, response.getFirstName());
         assertEquals(LAST_NAME, response.getLastName());
-        assertEquals(USER_NAME, response.getUsername());
+        assertEquals(USER_NAME, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 
@@ -59,7 +59,7 @@ public class SignUpSanitizerTest {
         requestData.setEmail(EMAIL);
         requestData.setFirstName(FIRST_NAME + XSS);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
@@ -67,7 +67,7 @@ public class SignUpSanitizerTest {
         assertEquals(EMAIL, response.getEmail());
         assertEquals(FIRST_NAME, response.getFirstName());
         assertEquals(LAST_NAME, response.getLastName());
-        assertEquals(USER_NAME, response.getUsername());
+        assertEquals(USER_NAME, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 
@@ -76,7 +76,7 @@ public class SignUpSanitizerTest {
         requestData.setEmail(EMAIL);
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME + XSS);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
@@ -84,7 +84,7 @@ public class SignUpSanitizerTest {
         assertEquals(EMAIL, response.getEmail());
         assertEquals(FIRST_NAME, response.getFirstName());
         assertEquals(LAST_NAME, response.getLastName());
-        assertEquals(USER_NAME, response.getUsername());
+        assertEquals(USER_NAME, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 
@@ -93,7 +93,7 @@ public class SignUpSanitizerTest {
         requestData.setEmail(EMAIL);
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME + XSS);
+        requestData.setUserId(USER_NAME + XSS);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
@@ -101,7 +101,7 @@ public class SignUpSanitizerTest {
         assertEquals(EMAIL, response.getEmail());
         assertEquals(FIRST_NAME, response.getFirstName());
         assertEquals(LAST_NAME, response.getLastName());
-        assertEquals(USER_NAME, response.getUsername());
+        assertEquals(USER_NAME, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 
@@ -110,7 +110,7 @@ public class SignUpSanitizerTest {
         requestData.setEmail(EMAIL);
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setPassword(PASSWORD + XSS);
 
         response = sanitizer.sanitize(requestData);
@@ -118,7 +118,7 @@ public class SignUpSanitizerTest {
         assertEquals(EMAIL, response.getEmail());
         assertEquals(FIRST_NAME, response.getFirstName());
         assertEquals(LAST_NAME, response.getLastName());
-        assertEquals(USER_NAME, response.getUsername());
+        assertEquals(USER_NAME, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 
@@ -127,7 +127,7 @@ public class SignUpSanitizerTest {
         requestData.setEmail(EMAIL);
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setPassword(PASSWORD);
 
         response = sanitizer.sanitize(requestData);
@@ -135,7 +135,7 @@ public class SignUpSanitizerTest {
         assertEquals(EMAIL, response.getEmail());
         assertEquals(FIRST_NAME, response.getFirstName());
         assertEquals(LAST_NAME, response.getLastName());
-        assertEquals(USER_NAME, response.getUsername());
+        assertEquals(USER_NAME, response.getUserId());
         assertEquals(PASSWORD, response.getPassword());
     }
 

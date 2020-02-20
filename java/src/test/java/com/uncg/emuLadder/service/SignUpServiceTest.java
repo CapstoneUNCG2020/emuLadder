@@ -5,7 +5,7 @@ import com.uncg.emuLadder.model.database.Accounts;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
 import com.uncg.emuLadder.model.response.SignUpResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
-import com.uncg.emuLadder.repository.AccountInformationRepository;
+import com.uncg.emuLadder.repository.AccountsRepository;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 public class SignUpServiceTest {
 
     private SignUpService service;
-    private AccountInformationRepository informationRepository;
+    private AccountsRepository informationRepository;
     private AccountCredentialsRepository credentialsRepository;
 
     private SignUpRequestData requestData;
@@ -30,7 +30,7 @@ public class SignUpServiceTest {
 
     @Before
     public void setUp() {
-        informationRepository = mock(AccountInformationRepository.class);
+        informationRepository = mock(AccountsRepository.class);
         credentialsRepository = mock(AccountCredentialsRepository.class);
 
         service = new SignUpService(informationRepository, credentialsRepository);
@@ -43,7 +43,7 @@ public class SignUpServiceTest {
         String lastName = "lastName";
         requestData.setLastName(lastName);
         String username = "userName";
-        requestData.setUsername(username);
+        requestData.setUserId(username);
         String password = "pwd";
         requestData.setPassword(password);
 

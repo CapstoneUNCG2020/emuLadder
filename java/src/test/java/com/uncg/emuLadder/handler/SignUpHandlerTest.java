@@ -47,7 +47,7 @@ public class SignUpHandlerTest {
         requestData.setEmail(EMAIL);
         requestData.setFirstName(FIRST_NAME);
         requestData.setLastName(LAST_NAME);
-        requestData.setUsername(USER_NAME);
+        requestData.setUserId(USER_NAME);
         requestData.setPassword(PASSWORD);
 
         responseData = new SignUpResponseData();
