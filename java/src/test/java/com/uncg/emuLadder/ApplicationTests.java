@@ -1,13 +1,17 @@
 package com.uncg.emuLadder;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
 
-@SpringBootTest
-class ApplicationTests {
+import static org.junit.Assert.assertNotNull;
 
-	@Test
-	void contextLoads() {
-	}
-
+public class ApplicationTests {
+    @Test
+    public void testConstructor() {
+        final Application application = new Application();
+        assertNotNull(application);
+    }
+    @Test
+    public void testMain() {
+        Application.main(new String[]{});
+    }
 }

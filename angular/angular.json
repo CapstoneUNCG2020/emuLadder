@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/capstone",
+            "outputPath": "dist/emuLadder",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "capstone:build"
+            "browserTarget": "emuLadder:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "capstone:build:production"
+              "browserTarget": "emuLadder:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "capstone:build"
+            "browserTarget": "emuLadder:build"
           }
         },
         "test": {
@@ -106,15 +106,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "capstone:serve"
+            "devServerTarget": "emuLadder:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "capstone:serve:production"
+              "devServerTarget": "emuLadder:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "capstone"
+  "defaultProject": "emuLadder"
 }
