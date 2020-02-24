@@ -7,12 +7,20 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ContestManagementComponent } from './contest-management/contest-management.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CreateContestComponent } from './create-contest/create-contest.component';
+import { DraftingPageComponent } from './drafting-page/drafting-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    ContestManagementComponent,
+    NavBarComponent,
+    CreateContestComponent,
+    DraftingPageComponent
   ],
   imports: [
     BrowserModule,
