@@ -12,8 +12,6 @@ export class DraftingPageComponent implements OnInit {
 
   // Symbols for seeing which item is being sorted by
   private sortSymbols = ['▲', '▼'];
-  private apSortFields = ['a-p-n', 'a-p-p', 'a-p-r', 'a-p-s'];
-  private spSortFields = ['s-p-n', 's-p-p', 's-p-r', 's-p-s'];
 
   private contest: Contest;
   private availablePlayers: Array<Player>;
