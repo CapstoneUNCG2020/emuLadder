@@ -120,4 +120,14 @@ export class DraftingPageComponent implements OnInit {
 
     return timer.join(':');
   }
+
+  addPlayer(player: Player): void {
+    this.availablePlayers.splice(this.availablePlayers.indexOf(player), 1);
+    this.selectedPlayers.push(player);
+  }
+
+  removePlayer(player: Player): void {
+    this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
+    this.availablePlayers.push(player);
+  }
 }
