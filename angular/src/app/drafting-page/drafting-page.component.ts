@@ -122,12 +122,20 @@ export class DraftingPageComponent implements OnInit {
   }
 
   addPlayer(player: Player): void {
-    this.availablePlayers.splice(this.availablePlayers.indexOf(player), 1);
-    this.selectedPlayers.push(player);
+    if (this.currentSalary - player.salary >= 0) {
+      this.availablePlayers.splice(this.availablePlayers.indexOf(player), 1);
+      this.selectedPlayers.push(player);
+
+      this.currentSalary -= player.salary;
+    } else {
+      console.log('not enough money');
+    }
   }
 
   removePlayer(player: Player): void {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
     this.availablePlayers.push(player);
+
+    this.currentSalary += player.salary;
   }
 }
