@@ -1,21 +1,59 @@
 import { Game } from './game';
 import { WeekDay } from '@angular/common';
 import { Player } from './player';
+import { DateUtil } from '../util/date-util';
 
 export class Contest {
+    /**
+     * Name of the contest.
+     */
     name: string;
-    type: string;
-    maxEntries: number;
-    currentEntries: number;
-    entryFee: number;
-    prizeAmount: number;
-    startTime: Date;
-    game: Game;
-    startingSalary: number;
-    players: Array<Player>;
 
-    private static DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
-    private static MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    /**
+     * Type of Contest: Multiplayer or Head-to-Head.
+     */
+    type: string;
+
+    /**
+     * Maximum number of users who can sign up for
+     * this contest.
+     */
+    maxEntries: number;
+
+    /**
+     * Current number of users who have signed up for this contest.
+     */
+    currentEntries: number;
+
+    /**
+     * The price to enter this contest.
+     */
+    entryFee: number;
+
+    /**
+     * The amount of the prize that will be received if the user wins.
+     */
+    prizeAmount: number;
+
+    /**
+     * When the contest officially starts.
+     */
+    startTime: Date;
+
+    /**
+     * The game that the contest is covering.
+     */
+    game: Game;
+
+    /**
+     * The amount of money each user has to spend while drafting.
+     */
+    startingSalary: number;
+
+    /**
+     * The players that are participating in this contest.
+     */
+    players: Array<Player>;
 
     public getStartTime(): string {
         let t = this.startTime;
@@ -24,6 +62,6 @@ export class Contest {
         let date = t.getDate();
         let time = t.toLocaleTimeString();
 
-        return Contest.DAYS[day] + ', ' + Contest.MONTHS[month] + ' ' + date + ' at ' + time;   
+        return DateUtil.DAYS[day] + ', ' + DateUtil.MONTHS[month] + ' ' + date + ' at ' + time;   
     }
 }
