@@ -1,5 +1,6 @@
 import { Game } from './game';
 import { WeekDay } from '@angular/common';
+import { Player } from './player';
 
 export class Contest {
     name: string;
@@ -11,6 +12,7 @@ export class Contest {
     startTime: Date;
     game: Game;
     startingSalary: number;
+    players: Array<Player>;
 
     private static DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
     private static MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
