@@ -4,10 +4,10 @@
 
         <table>
             <tr>
-                <td>Head-to-Head</td>
-                <td>0/2</td>
-                <td style="color: #8ecccc">$0</td>
-                <td>$0</td>
+                <td>{{ contest.type }}</td>
+                <td>{{ contest.currentEntries }}/{{ contest.maxEntries }}</td>
+                <td style="color: #8ecccc">${{ contest.entryFee }}</td>
+                <td>${{ contest.prizeAmount }}</td>
             </tr>
             <tr>
                 <td>Contest Type</td>
@@ -21,13 +21,13 @@
     <div id='contest-times'>
         <table>
             <tr>
-                <th>4:19:17:51</th>
+                <th>{{ countdown }}</th>
             </tr>
             <tr>
-                <td>Contest starts Thu 7:00 PM ET</td>
+                <td>Contest starts {{ contest.getStartTime() }}</td>
             </tr>
             <tr>
-                <a href="">Rules & Scoring</a>
+                <a [href]="contest.game.rulesLink">Rules & Scoring</a>
             </tr>
         </table>
     </div>
@@ -52,103 +52,18 @@
                     Add
                 </th>
             </tr>
-            <tr>
+            <tr *ngFor="let player of availablePlayers">
                 <td>
-                    Bjergsen
+                    {{ player.name }}
                 </td>
                 <td>
-                    Mid
+                    {{ player.position }}
                 </td>
                 <td>
-                    1st
+                    {{ player.rank }}
                 </td>
                 <td>
-                    $14,000
-                </td>
-                <td>
-                    <button>+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bjergsen
-                </td>
-                <td>
-                    Mid
-                </td>
-                <td>
-                    1st
-                </td>
-                <td>
-                    $14,000
-                </td>
-                <td>
-                    <button>+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bjergsen
-                </td>
-                <td>
-                    Mid
-                </td>
-                <td>
-                    1st
-                </td>
-                <td>
-                    $14,000
-                </td>
-                <td>
-                    <button>+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bjergsen
-                </td>
-                <td>
-                    Mid
-                </td>
-                <td>
-                    1st
-                </td>
-                <td>
-                    $14,000
-                </td>
-                <td>
-                    <button>+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bjergsen
-                </td>
-                <td>
-                    Mid
-                </td>
-                <td>
-                    1st
-                </td>
-                <td>
-                    $14,000
-                </td>
-                <td>
-                    <button>+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Bjergsen
-                </td>
-                <td>
-                    Mid
-                </td>
-                <td>
-                    1st
-                </td>
-                <td>
-                    $14,000
+                    ${{ player.salary.toLocaleString() }}
                 </td>
                 <td>
                     <button>+</button>
@@ -166,7 +81,7 @@
                 <table>
                     <tr>
                         <td>
-                            $36,000
+                            ${{ currentSalary.toLocaleString() }}
                         </td>
                     </tr>
                     <tr>
@@ -195,18 +110,18 @@
                     Remove
                 </th>
             </tr>
-            <tr>
+            <tr *ngFor="let player of selectedPlayers">
                 <td>
-                    Mid
+                    {{ player.position }}
                 </td>
                 <td>
-                    Bjergsen
+                    {{ player.name }}
                 </td>
                 <td>
-                    1st
+                    {{ player.rank }}
                 </td>
                 <td>
-                    $14,000
+                    ${{ player.salary }}
                 </td>
                 <td>
                     <button>-</button>
