@@ -20,9 +20,7 @@ export class DraftingPageComponent implements OnInit {
 
   ngOnInit() {
     this.contest = this.testContest();
-    this.availablePlayers = this.testPlayers();
-    this.selectedPlayers = new Array<Player>();
-    this.currentSalary = this.contest.startingSalary;
+    this.resetPlayers();
 
     // Updates every second
     setInterval(() => {this.countdown = this.getCountdown();}, 1000);
@@ -56,6 +54,8 @@ export class DraftingPageComponent implements OnInit {
     game.rulesLink = 'leagueOfLegends';
 
     contest.game = game;
+
+    contest.players = this.testPlayers();
 
     return contest;
   }
@@ -121,6 +121,13 @@ export class DraftingPageComponent implements OnInit {
     return timer.join(':');
   }
 
+  /**
+   * Adds a player to the selected players list and removes them
+   * from being able to be selected, as well as removing their salary 
+   * amount from current salary.
+   * 
+   * @param player - the player being selected
+   */
   addPlayer(player: Player): void {
     if (this.currentSalary - player.salary >= 0) {
       this.availablePlayers.splice(this.availablePlayers.indexOf(player), 1);
@@ -128,14 +135,32 @@ export class DraftingPageComponent implements OnInit {
 
       this.currentSalary -= player.salary;
     } else {
+      // TODO: Add error message
       console.log('not enough money');
     }
   }
 
+  /**
+   * Removes a player from the selected players list and returns their 
+   * availability and their salary back to the user. 
+   * 
+   * @param player - the player being selected
+   */
   removePlayer(player: Player): void {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
     this.availablePlayers.push(player);
 
     this.currentSalary += player.salary;
+  }
+
+  /**
+   * Resets the available players list to all available players,
+   * removes all players from being selected, and resets current
+   * salary back to the starting amount.
+   */
+  resetPlayers() {
+    this.availablePlayers = Object.assign([], this.contest.players);
+    this.selectedPlayers = new Array<Player>();
+    this.currentSalary = this.contest.startingSalary;
   }
 }

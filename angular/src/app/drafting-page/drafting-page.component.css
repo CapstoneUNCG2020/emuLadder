@@ -23,6 +23,15 @@ body {
     margin: 0;
 }
 
+.header-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+}
+
 /* ------------------------------ TABLE SETUP ---------------------------------------------------- */
 
 table {
