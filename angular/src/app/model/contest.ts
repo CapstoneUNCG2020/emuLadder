@@ -10,6 +10,7 @@ export class Contest {
     prizeAmount: number;
     startTime: Date;
     game: Game;
+    startingSalary: number;
 
     private static DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
     private static MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
