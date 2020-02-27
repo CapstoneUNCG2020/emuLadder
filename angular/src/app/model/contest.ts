@@ -21,8 +21,6 @@ export class Contest {
         let date = t.getDate();
         let time = t.toLocaleTimeString();
 
-        let now = new Date();
-
         return Contest.DAYS[day] + ', ' + Contest.MONTHS[month] + ' ' + date + ' at ' + time;   
     }
 }
