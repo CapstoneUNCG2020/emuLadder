@@ -20,6 +20,7 @@ export class DraftingPageComponent implements OnInit {
   private currentSalary: number;
   private apSort: string;
   private spSort: string;
+  private errorMessage: string;
 
   constructor() { }
 
@@ -148,14 +149,19 @@ export class DraftingPageComponent implements OnInit {
    */
   addPlayer(player: Player): void {
     let canAdd = true;
+    let error: string;
     
-    canAdd = canAdd && this.currentSalary - player.salary >= 0;
+    if (this.currentSalary - player.salary < 0) {
+      canAdd = false;
+      error = 'Not enough money';
+    }
     
     /* Check to see if already hired someone of that position */
     if (canAdd) {
       this.selectedPlayers.forEach(p => {
-        if (p.position = player.position) {
+        if (p.position == player.position) {
           canAdd = false;
+          error = p.position + ' player already selected';
         }
       });
     }
@@ -163,12 +169,11 @@ export class DraftingPageComponent implements OnInit {
     if (canAdd) {
       this.availablePlayers.splice(this.availablePlayers.indexOf(player), 1);
       this.selectedPlayers.push(player);
-
       this.currentSalary -= player.salary;
+      this.errorMessage = undefined;
       if (this.spSort != undefined) this.sort(this.spSort, false);
     } else {
-      // TODO: Add error message
-      console.log('not enough money');
+      this.errorMessage = 'Could not add player: ' + error;
     }
   }
 
@@ -184,8 +189,6 @@ export class DraftingPageComponent implements OnInit {
 
     this.currentSalary += player.salary;
     if (this.apSort != undefined) {
-      console.log(this.apSort);
-      
       this.sort(this.apSort, false);
     }
   }
@@ -219,6 +222,8 @@ export class DraftingPageComponent implements OnInit {
       element.innerHTML = curr;
       this.spSort = undefined;
     }
+
+    this.errorMessage = undefined;
   }
 
   /**
