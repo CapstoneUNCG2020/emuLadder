@@ -92,6 +92,14 @@ export class DraftingPageComponent implements OnInit {
 
     players.push(player);
 
+    player = new Player();
+    player.name = 'Player 4';
+    player.position = 'Mid';
+    player.rank = 4;
+    player.salary = 8000;
+
+    players.push(player);
+
     return players;
   }
 
@@ -139,7 +147,20 @@ export class DraftingPageComponent implements OnInit {
    * @param player - the player being selected
    */
   addPlayer(player: Player): void {
-    if (this.currentSalary - player.salary >= 0) {
+    let canAdd = true;
+    
+    canAdd = canAdd && this.currentSalary - player.salary >= 0;
+    
+    /* Check to see if already hired someone of that position */
+    if (canAdd) {
+      this.selectedPlayers.forEach(p => {
+        if (p.position = player.position) {
+          canAdd = false;
+        }
+      });
+    }
+
+    if (canAdd) {
       this.availablePlayers.splice(this.availablePlayers.indexOf(player), 1);
       this.selectedPlayers.push(player);
 
