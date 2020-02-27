@@ -1,5 +1,4 @@
 import { Game } from './game';
-import { WeekDay } from '@angular/common';
 import { Player } from './player';
 import { DateUtil } from '../util/date-util';
 
@@ -55,6 +54,10 @@ export class Contest {
      */
     players: Array<Player>;
 
+    /**
+     * Displays the start time in a user friendly format:
+     * { DayofWeek, Month Date at LocalTime }
+     */
     public getStartTime(): string {
         let t = this.startTime;
         let day = t.getDay();
