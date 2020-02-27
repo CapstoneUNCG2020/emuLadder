@@ -104,10 +104,7 @@ table th {
     opacity: 70%;
 }
 
-#contest-times a {
-    text-decoration: none;
-    color: #8ecccc;
-}
+/* --------------------------------------- ERROR MESSAGES ------------------------------------------ */
 
 #error-messages {
     grid-column: span 2;

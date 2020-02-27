@@ -27,7 +27,7 @@
                 <td>Contest starts {{ contest.getStartTime() }}</td>
             </tr>
             <tr>
-                <a [href]="contest.game.rulesLink">Rules & Scoring</a>
+                <button class="header-btn" style="color: #8ecccc" (click)="goToRules()">Rules & Scoring</button>
             </tr>
         </table>
     </div>

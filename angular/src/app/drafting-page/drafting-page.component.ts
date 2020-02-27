@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contest } from '../model/contest';
 import { Player } from '../model/player';
 import { Game } from '../model/game';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-drafting-page',
@@ -22,7 +23,7 @@ export class DraftingPageComponent implements OnInit {
   private spSort: string;
   private errorMessage: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.contest = this.testContest();
@@ -319,5 +320,13 @@ export class DraftingPageComponent implements OnInit {
     }
 
     element.innerHTML = curr;
+  }
+
+  /**
+   * Go to the page with the rules for this selected game.
+   */
+  goToRules(): void {
+    let baseUrl = '/rules/';
+    this.router.navigateByUrl(baseUrl + this.contest.game.rulesLink);
   }
 }
