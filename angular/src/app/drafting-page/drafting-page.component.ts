@@ -121,7 +121,12 @@ export class DraftingPageComponent implements OnInit {
     factor /= 60;
     let seconds = Math.floor(ms / factor);
 
-    let timer = [days, hours, minutes, seconds];
+    let timer = [days.toString(), hours.toString(), minutes.toString(), seconds.toString()];
+
+    /* Pad hours, minutes. seconds with 0's */
+    if (hours < 10) timer[1] = '0' + timer[1];
+    if (minutes < 10) timer[2] = '0' + timer[2];
+    if (seconds < 10) timer[3] = '0' + timer[3];
 
     return timer.join(':');
   }
