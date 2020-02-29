@@ -16,8 +16,8 @@
 
 .scrolldown {
     width:100%;
-    height:250px;
-    background:url('scrollDownWhite/scrollDownWhite.png') center center no-repeat;;
+    height:300px;
+    background:url('scrollDownWhite/scrollDownWhite.png') center no-repeat;;
 }
 
 .topnav {
@@ -54,9 +54,19 @@
     padding-right: 10px;
 }
 
+.topnav a.active:hover {
+    background-color: #ddd;
+    color: black;
+}
+
 .topnav a.left {
     background-color: black;
     color: #8ECCCC;
     display:inline;
     margin-left: 900px;
+}
+
+.topnav a.left:hover {
+    background-color: #ddd;
+    color: black;
 }
