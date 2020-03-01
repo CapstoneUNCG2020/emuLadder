@@ -1,72 +1,141 @@
 .background {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 1920px;
-    height: 1080px;
-    background: transparent url('emuLadderBackground/emuLadderBackground.png') 0% 0% no-repeat padding-box;
-    opacity: 1;
+    background: transparent url('emuLadderBackground/emuLadderBackground.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .midemuladder {
+    bottom:112px;
     width:100%; 
-    height:100%; 
-    background:url('emuLadderAIWHITEOUT/emuLadderAIWHITEOUT.png') center center no-repeat;
+    height:900px;
+    background:url('emuLadderAIWHITEOUT/emuLadderAIWHITEOUT.png') center no-repeat;
   }
 
 .scrolldown {
     width:100%;
-    height:300px;
+    height:165px;
     background:url('scrollDownWhite/scrollDownWhite.png') center no-repeat;;
 }
 
-.topnav {
+
+/* navbar */
+.navbar-default {
     background-color: black;
-    overflow: hidden;
-    height: 90px;
-    width: 1920px;
-    margin:0;
-    position: fixed;
+    border-color: black;
 }
 
-.topnav a {
-    float: left;
+/* Title */
+.navbar-default .navbar-brand {
+    color: #777;
+    margin-left:35px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+    background-color: #DDD;
+}
+
+/* Link */
+.navbar-default .navbar-nav > li > a {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
     font-size: 40px;
     font-weight: bold;
     margin-left:40px;
 }
 
-.topnav a:hover {
-    background-color: #ddd;
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
     color: black;
+    background-color: #DDD;
 }
 
-.topnav a.active {
-    background-color: black;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    padding-left: 20px;
-    padding-right: 10px;
-}
-
-.topnav a.active:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.topnav a.left {
-    background-color: black;
+/* Link custom*/
+.navbar-default .navbar-nav > bi > a {
     color: #8ECCCC;
-    display:inline;
-    margin-left: 900px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:1500px;
 }
 
-.topnav a.left:hover {
-    background-color: #ddd;
+.navbar-default .navbar-nav > bi > a:hover,
+.navbar-default .navbar-nav > bi > a:focus {
+    color: black;
+    background-color: #DDD;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #777;
+    background-color: #D5D5D5;
+}
+
+/* Caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
     color: black;
 }
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: black;
+
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: #333;
+    }
+}
+
+/* for dropdowns only */
+.navbar-default .navbar-nav .dropdown-menu  { 
+    background-color: #DDD;
+    font-size:25px;
+  }
+
+  .navbar-default .navbar-nav .dropdown-menu > li > a  { 
+    color: white;
+  }
+
+  .navbar-default .navbar-nav .dropdown-menu > li > a:hover, .navbar-custom .navbar-nav .dropdown-menu > li > a:focus  { 
+    color: black;
+    background-color: #DDD;
+  }
