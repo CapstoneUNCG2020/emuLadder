@@ -102,6 +102,30 @@ export class DraftingPageComponent implements OnInit {
 
     players.push(player);
 
+    player = new Player();
+    player.name = 'Player 5';
+    player.position = 'Front';
+    player.rank = 6;
+    player.salary = 9000;
+
+    players.push(player);
+
+    player = new Player();
+    player.name = 'Player 6';
+    player.position = 'Back';
+    player.rank = 5;
+    player.salary = 10000;
+
+    players.push(player);
+
+    player = new Player();
+    player.name = 'Player 7';
+    player.position = 'Mid';
+    player.rank = 7;
+    player.salary = 12000;
+
+    players.push(player);
+
     return players;
   }
 
