@@ -9,6 +9,7 @@
 .navbar a {
   float: left;
   font-size: 16px;
+  font-variant: small-caps;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -24,6 +25,7 @@
 /* Dropdown button */
 .dropdown .dropbtn {
   font-size: 16px;
+  font-variant: small-caps;
   border: none;
   outline: none;
   color: white;
