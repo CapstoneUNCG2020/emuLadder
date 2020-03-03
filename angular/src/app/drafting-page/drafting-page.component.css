@@ -150,6 +150,7 @@ table th {
     border-radius: 15px;
     width: 100%;
     font-size: 200%;
+    font-variant: small-caps;
     color: white;
     margin-top: 10px;
 }
