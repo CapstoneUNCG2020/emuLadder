@@ -353,4 +353,8 @@ export class DraftingPageComponent implements OnInit {
     let baseUrl = '/rules/';
     this.router.navigateByUrl(baseUrl + this.contest.game.rulesLink);
   }
+
+  saveLineup(): void {
+    this.router.navigateByUrl('contests');
+  }
 }
