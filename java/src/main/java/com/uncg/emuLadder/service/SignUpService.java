@@ -3,7 +3,7 @@ package com.uncg.emuLadder.service;
 import com.uncg.emuLadder.model.database.AccountCredentials;
 import com.uncg.emuLadder.model.database.Accounts;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
-import com.uncg.emuLadder.model.response.SignUpResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
 import com.uncg.emuLadder.repository.AccountsRepository;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * Service class for Sign Up operations.
  */
 @Component
-public class SignUpService implements IService<SignUpRequestData, SignUpResponseData> {
+public class SignUpService implements IService<SignUpRequestData, BooleanResponseData> {
 
     private final AccountsRepository accountsRepository;
     private final AccountCredentialsRepository credentialsRepository;
@@ -23,8 +23,8 @@ public class SignUpService implements IService<SignUpRequestData, SignUpResponse
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
-    public SignUpResponseData service(SignUpRequestData requestData) {
-        SignUpResponseData responseData = new SignUpResponseData();
+    public BooleanResponseData service(SignUpRequestData requestData) {
+        BooleanResponseData responseData = new BooleanResponseData();
 
         if (accountsRepository.findById(requestData.getUserId()).isPresent()) {
             responseData.setSuccess(false);

@@ -2,7 +2,7 @@ package com.uncg.emuLadder.model.response;
 
 import java.util.Objects;
 
-public class SignUpResponseData {
+public class BooleanResponseData {
     private boolean success;
 
     public boolean isSuccess() {
@@ -27,7 +27,7 @@ public class SignUpResponseData {
             return false;
         }
 
-        SignUpResponseData that = (SignUpResponseData) o;
+        BooleanResponseData that = (BooleanResponseData) o;
         return success == that.success;
     }
 
@@ -38,7 +38,7 @@ public class SignUpResponseData {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("SignUpResponseData{");
+        final StringBuilder sb = new StringBuilder("SignInResponseData{");
         sb.append("success=").append(success);
         sb.append('}');
         return sb.toString();

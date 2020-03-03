@@ -3,7 +3,7 @@ package com.uncg.emuLadder.service;
 import com.uncg.emuLadder.model.database.AccountCredentials;
 import com.uncg.emuLadder.model.database.Accounts;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
-import com.uncg.emuLadder.model.response.SignUpResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
 import com.uncg.emuLadder.repository.AccountsRepository;
 import org.junit.Before;
@@ -25,8 +25,8 @@ public class SignUpServiceTest {
 
     private AccountCredentials accountCredentials;
 
-    private SignUpResponseData responseData;
-    private SignUpResponseData response;
+    private BooleanResponseData responseData;
+    private BooleanResponseData response;
 
     @Before
     public void setUp() {
@@ -49,7 +49,7 @@ public class SignUpServiceTest {
 
         accountCredentials = new AccountCredentials();
 
-        responseData = new SignUpResponseData();
+        responseData = new BooleanResponseData();
     }
 
     @Test

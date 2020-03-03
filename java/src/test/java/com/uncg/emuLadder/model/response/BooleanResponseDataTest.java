@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class SignInResponseDataTest {
+public class BooleanResponseDataTest {
 
-    private SignInResponseData responseData;
+    private BooleanResponseData responseData;
 
     @Before
     public void setUp() {
-        responseData = new SignInResponseData();
+        responseData = new BooleanResponseData();
     }
 
     @Test
@@ -24,7 +24,7 @@ public class SignInResponseDataTest {
 
     @Test
     public void testEquals() {
-        EqualsTestUtil.testEquals(SignInResponseData.class);
+        EqualsTestUtil.testEquals(BooleanResponseData.class);
     }
 
     @Test

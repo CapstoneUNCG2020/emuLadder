@@ -2,7 +2,7 @@ package com.uncg.emuLadder.service;
 
 import com.uncg.emuLadder.model.database.AccountCredentials;
 import com.uncg.emuLadder.model.request.SignInRequestData;
-import com.uncg.emuLadder.model.response.SignInResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -29,7 +29,7 @@ public class SignInServiceTest {
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     private Optional<AccountCredentials> optional;
 
-    private SignInResponseData response;
+    private BooleanResponseData response;
 
     @BeforeClass
     public static void setUpBeforeClass() {
