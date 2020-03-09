@@ -1,0 +1,79 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  direction: right;
+  z-index: 1;
+  top: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  right: 0;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.1s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar input[type=text] {
+  padding: 8px;
+  border: none;
+  margin-top: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-size: 17px;
+  background-color: #d3d3d3; 
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar .invitebtn {
+	list-style-type: none;
+	margin-left: 110px;
+	margin-top: 600px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-right .5s;
+  padding: 16px;
+  text-align: right;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
