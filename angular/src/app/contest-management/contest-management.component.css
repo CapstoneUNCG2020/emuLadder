@@ -43,12 +43,12 @@
     width: 100%;
 }
 
-.player-details tr:nth-child(1), .player-details tr:nth-child(3) {
+.player-details tr:nth-child(2), .player-details tr:nth-child(4) {
     width: 100%;
     text-align: center;
 }
 
-.player-details tr:nth-child(2) td:nth-child(2), .player-details tr:nth-child(2) td:nth-child(3) {
+.player-details tr:nth-child(3) td:nth-child(2), .player-details tr:nth-child(3) td:nth-child(3) {
     opacity: 70%;
 }
 
