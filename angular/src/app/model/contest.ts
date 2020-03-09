@@ -54,6 +54,10 @@ export class Contest {
      */
     players: Array<Player>;
 
+    constructor() {
+        this.players = new Array<Player>();
+    }
+
     /**
      * Displays the start time in a user friendly format:
      * { DayofWeek, Month Date at LocalTime }
