@@ -24,42 +24,49 @@ export class ContestManagementComponent implements OnInit {
     let p = new Player();
     p.name = "Player 1";
     p.salary = 12000;
+    p.id = 0;
 
     c.players.push(p);
 
     p = new Player();
     p.name = "Player 2";
     p.salary = 7000;
+    p.id = 0;
 
     c.players.push(p);
 
     p = new Player();
     p.name = "Player 3";
     p.salary = 15000;
+    p.id = 0;
 
     c.players.push(p);
 
     p = new Player();
     p.name = "Player 4";
     p.salary = 20000;
+    p.id = 0;
 
     c.players.push(p);
 
     p = new Player();
     p.name = "Player 5";
     p.salary = 11000;
+    p.id = 0;
 
     c.players.push(p);
 
     p = new Player();
     p.name = "Player 6";
     p.salary = 2000;
+    p.id = 0;
 
     c.players.push(p);
 
     p = new Player();
     p.name = "Player 7";
     p.salary = 120000;
+    p.id = 0;
 
     c.players.push(p);
 

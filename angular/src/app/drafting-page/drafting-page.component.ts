@@ -75,6 +75,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Mid';
     player.rank = 2;
     player.salary = 17000;
+    player.id = 0;
 
     players.push(player);
 
@@ -83,6 +84,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Front';
     player.rank = 3;
     player.salary = 15000;
+    player.id = 0;
 
     players.push(player);
 
@@ -91,6 +93,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Back';
     player.rank = 1;
     player.salary = 20000;
+    player.id = 0;
 
     players.push(player);
 
@@ -99,6 +102,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Mid';
     player.rank = 4;
     player.salary = 8000;
+    player.id = 0;
 
     players.push(player);
 
@@ -107,6 +111,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Front';
     player.rank = 6;
     player.salary = 9000;
+    player.id = 0;
 
     players.push(player);
 
@@ -115,6 +120,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Back';
     player.rank = 5;
     player.salary = 10000;
+    player.id = 0;
 
     players.push(player);
 
@@ -123,6 +129,7 @@ export class DraftingPageComponent implements OnInit {
     player.position = 'Mid';
     player.rank = 7;
     player.salary = 12000;
+    player.id = 0;
 
     players.push(player);
 
