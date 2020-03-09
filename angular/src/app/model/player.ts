@@ -18,4 +18,9 @@ export class Player {
      * How much the player costs.
      */
     salary: number;
+
+    /**
+     * The unique player ID
+     */
+    id: number;
 }
