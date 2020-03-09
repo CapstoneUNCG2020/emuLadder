@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contest } from '../model/contest';
 import { Player } from '../model/player';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contest-management',
@@ -11,7 +12,7 @@ export class ContestManagementComponent implements OnInit {
 
   contests: Array<Contest>;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.contests = new Array<Contest>();
@@ -83,4 +84,7 @@ export class ContestManagementComponent implements OnInit {
     return this.valueOf(sum);
   }
 
+  editContest(contest: Contest) {
+    this.router.navigateByUrl('drafting');
+  }
 }
