@@ -1,1 +1,67 @@
-<p>contest-management works!</p>
+<div class="body">
+    <div class="header">
+        <table>
+            <tr>
+                <th>Contests</th>
+                <td>
+                    <table class="detail-table">
+                        <tr>
+                            <td>$ {{ getEntryFees() }}</td>
+                            <td>{{ contests.length }}</td>
+                        </tr>
+                        <tr>
+                            <td>Entry Fees</td>
+                            <td>Entries</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div *ngFor="let contest of contests">
+        <hr />
+        <table class="contest-details">
+            <tr>
+                <th>{{ contest.name }}</th>
+                <td>
+                    <div>
+                        <table class="detail-table">
+                            <tr>
+                                <td>${{ valueOf(contest.entryFee) }}</td>
+                                <td>${{ valueOf(contest.prizeAmount) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Entry Fee</td>
+                                <td>Prize Amount</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table class="player-details-table">
+            <tr>
+                <td *ngFor="let player of contest.players">
+                    <div class="player-details">
+                        <table>
+                            <tr>
+                                <td colspan="3">{{ player.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>TSM v C9</td>
+                                <td>1/25</td>
+                                <td>5:50pm</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">${{ valueOf(player.salary) }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="btn">
+            <button>Edit Lineup</button>
+        </div>
+    </div>
+</div>
