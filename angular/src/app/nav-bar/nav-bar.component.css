@@ -1,5 +1,5 @@
 .body {
-    background-image: url('./assets/emuLadderBackground/emuLadderBackground.png');
+    background-image: url('./assets/emuLadderBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -12,7 +12,7 @@
 }
 
 .midemuladder {
-    background-image:url('./assets/emuLadderAIWHITEOUT/emuLadderAIWHITEOUT.png');
+    background-image:url('./assets/emuLadderAIWHITEOUT.png');
     height: auto;
     max-width: 100%;
     background-position: center top;
@@ -22,7 +22,7 @@
 .scrolldown {
     max-width:100%;
     height:auto;
-    background:url('./assets/scrollDownWhite/scrollDownWhite.png') center no-repeat;
+    background:url('./assets/scrollDownWhite.png') center no-repeat;
 }
 
 /* Add a black background color to the top navigation */
