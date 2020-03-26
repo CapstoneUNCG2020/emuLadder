@@ -12,6 +12,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { DraftingPageComponent } from './drafting-page/drafting-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { GameCardComponent } from './landing-page/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     NavBarComponent,
     CreateContestComponent,
     DraftingPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    GameCardComponent
   ],
   imports: [
     BrowserModule,
