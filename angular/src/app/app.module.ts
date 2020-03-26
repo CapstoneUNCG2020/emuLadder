@@ -11,6 +11,7 @@ import { ContestManagementComponent } from './contest-management/contest-managem
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { DraftingPageComponent } from './drafting-page/drafting-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DraftingPageComponent } from './drafting-page/drafting-page.component';
     ContestManagementComponent,
     NavBarComponent,
     CreateContestComponent,
-    DraftingPageComponent
+    DraftingPageComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
