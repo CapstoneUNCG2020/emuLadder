@@ -6,20 +6,22 @@
     font-family: Arial, Helvetica, sans-serif;
     display: grid;
     margin: 0;
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     position: absolute;
+}
+
+.header {
+    text-align: center;
 }
 
 .header img {
     width: 150px;
     height: 40px;
     background:transparent;
-    text-align: center;
   }
   
 .header h1 {
-      text-align: center;
       color: white;
       font-family: Rogue Sans;
       top: 18px;
@@ -44,7 +46,7 @@
 
 .bottom-center {
     position: absolute;
-    bottom: 90px;
+    bottom: 14%;
     left: 9%;
     font-size: 25px;
     font-family: Rogue Sans;
@@ -55,30 +57,7 @@
 
 .comingsoon {
     position: absolute;
-    bottom: 195px;
-    left: 31%;
-    font-size: 25px;
-    font-family: Rogue Sans;
-    font-weight: bold;
-    color: #8ecccc;
-    transform: matrix(0.72, -0.69, 0.69, 0.72, 0, 0);
-}
-
-.comingsoon2 {
-    position: absolute;
-    bottom: 195px;
-    left: 51%;
-    font-size: 25px;
-    font-family: Rogue Sans;
-    font-weight: bold;
-    color: #8ecccc;
-    transform: matrix(0.72, -0.69, 0.69, 0.72, 0, 0);
-}
-
-.comingsoon3 {
-    position: absolute;
-    bottom: 195px;
-    left: 71%;
+    bottom: 35%;
     font-size: 25px;
     font-family: Rogue Sans;
     font-weight: bold;
