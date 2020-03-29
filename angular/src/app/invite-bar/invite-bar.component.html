@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="invite-bar.component.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
+
 <body>
+  <div id="testSidebar" class="sidebar" *ngIf="showInviteBar">
+    <a href="javascript:void(0)" class="closebtn" (click)="showInviteBar = false">×</a>
+    <h2>Invite to Contest</h2>
+    <input type="text" placeholder="Search All EmuLadder usernames">
+    <h4>No Recent Invites</h4>
+  </div>
 
-<div id="testSidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <input type="text" placeholder="Search">
-  <button class="invitebtn">+ Invite</button>
-</div>
+  <div id="main" *ngIf="!showInviteBar">
+    <button class="openbtn" (click)="showInviteBar = true"><i class="glyphicon glyphicon-user"></i></button>
+  </div>
 
-<div id="main" style "display:none">
-  <button class="openbtn" onclick="openNav()"><i class="glyphicon glyphicon-user"></i></button> 
-</div>
-
-
-<script>
-function openNav() {
-  document.getElementById("testSidebar").style.width = "300px";
-  document.getElementById("main").style.marginRight = "300px";
-}
-
-function closeNav() {
-  document.getElementById("testSidebar").style.width = "0";
-  document.getElementById("main").style.marginRight= "0";
-}
-</script>
-   
 </body>
-</html> 
+
+</html>

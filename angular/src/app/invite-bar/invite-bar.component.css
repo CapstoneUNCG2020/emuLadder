@@ -4,12 +4,12 @@ body {
 
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 300px;
   position: fixed;
   direction: right;
   z-index: 1;
   top: 0;
-  background-color: #111;
+  background-color: #3e423e;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -29,13 +29,28 @@ body {
   color: #f1f1f1;
 }
 
+.sidebar h2{
+  margin-top: 0;
+  text-align: center;
+  color: whitesmoke;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sidebar i{
+  color: whitesmoke;
+    margin-top: 45px;
+}
+
 .sidebar input[type=text] {
   padding: 8px;
   border: none;
   margin-top: 8px;
-  margin-left: 16px;
-  margin-right: 16px;
-  font-size: 17px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 97%;
+  padding: 10px ;
+  font-size: 15px;
+  border-radius: 10px 10px;
   background-color: #d3d3d3; 
 }
 
@@ -50,7 +65,9 @@ body {
 .sidebar .invitebtn {
 	list-style-type: none;
 	margin-left: 110px;
-	margin-top: 600px;
+  margin-top: 600px;
+  padding: 10px 12px;
+  border-radius: 10px 10px;
 }
 
 .openbtn {

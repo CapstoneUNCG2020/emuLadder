@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { InviteBarComponent } from './invite-bar/invite-bar.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 const routes: Routes = [
-  { path: 'SignUp', component: SignUpComponent}
+  { path: 'SignUp', component: SignUpComponent},
+  { path: 'invite', component: InviteBarComponent},
+  { path: 'SignIn', component: SignInComponent}
 ];
 
 @NgModule({
