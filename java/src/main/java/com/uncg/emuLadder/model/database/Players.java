@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 public class Players {
     @Id
-    private int playerId;
+    private String playerId;
 
     private String firstName;
 
@@ -29,11 +29,11 @@ public class Players {
 
     private String region;
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
@@ -122,7 +122,7 @@ public class Players {
         if (this == o) return true;
         if (!(o instanceof Players)) return false;
         Players players = (Players) o;
-        return playerId == players.playerId &&
+        return Objects.equals(playerId, players.playerId) &&
                 salary == players.salary &&
                 Objects.equals(firstName, players.firstName) &&
                 Objects.equals(lastName, players.lastName) &&
