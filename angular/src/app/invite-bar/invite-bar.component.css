@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato", sans-serif;
+  font: Light 24px PT Serif;
 }
 
 .sidebar {
@@ -34,6 +34,11 @@ body {
   text-align: center;
   color: whitesmoke;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sidebar h4{
+  color: whitesmoke;
+  font: Pt Serif;
 }
 
 .sidebar i{
