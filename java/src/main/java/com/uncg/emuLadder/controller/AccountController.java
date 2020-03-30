@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("/account")
-public class AccountManagementController {
+public class AccountController {
 
     private final SignInHandler signInHandler;
     private final SignUpHandler signUpHandler;
@@ -46,7 +46,7 @@ public class AccountManagementController {
     }
 
     @Autowired
-    public AccountManagementController(SignInHandler signInHandler, SignUpHandler signUpHandler) {
+    public AccountController(SignInHandler signInHandler, SignUpHandler signUpHandler) {
         this.signInHandler = signInHandler;
         this.signUpHandler = signUpHandler;
     }
