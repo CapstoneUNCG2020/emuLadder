@@ -118,6 +118,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "emuLadder"
+    }
+  },
+  "defaultProject": "emuLadder",
+  "cli": {
+    "analytics": "419f2401-931f-4e27-8561-ecfafb842317"
+  }
 }

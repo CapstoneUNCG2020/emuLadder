@@ -1,0 +1,160 @@
+:host {
+    font-family: rogue-sans, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+      
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+      
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+    img.bg {
+      left: 50%;
+      margin-left: -512px;   /* 50% */
+    }
+  }
+
+
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+/*Logo*/
+#Layer_2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:40%;
+}
+
+@keyframes fill {
+    from{
+        fill: transparent;
+    }
+    to{
+        fill: white;
+    }
+}
+/*Mouse*/
+.scroll-downs {
+    margin: 0px 0 70px -34px;
+    line-height: 60px;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+  }
+  .mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 3.5px solid #fff;
+    border-radius: 25px;
+    opacity: 1;
+    box-sizing: content-box;
+  }
+  .scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #fff;
+    animation-name: scroll;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+  }
+  @keyframes scroll {
+    0% { opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
+  }
+/*Arrows*/
+.wrap {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .wrap2 {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  
+  img {
+    height: 50px;
+    width: auto;
+  }
+  
+  .wrap img {
+    margin: 0px 0 0 -40px;
+    line-height: 60px;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+  }
+
+  .wrap2 img {
+    margin: 0px 0 20px -40px;
+    line-height: 60px;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+  }
+  
+  .bounce {
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(43deg) brightness(105%) contrast(101%);
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+    animation: bounce 3.6s ease infinite;
+    transform-origin: 50% 50%;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    5.55556% {
+      transform: translateY(0);
+    }
+    11.11111% {
+      transform: translateY(0);
+    }
+    22.22222% {
+      transform: translateY(-15px);
+    }
+    27.77778% {
+      transform: translateY(0);
+    }
+    33.33333% {
+      transform: translateY(-15px);
+    }
+    44.44444% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

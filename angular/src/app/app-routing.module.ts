@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { GameCardComponent } from './landing-page/game-card/game-card.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { InviteBarComponent } from './invite-bar/invite-bar.component';
 import { DraftingPageComponent } from './drafting-page/drafting-page.component';
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'invite', component: InviteBarComponent},
   { path: 'drafting', component: DraftingPageComponent},
   { path: 'contests', component: ContestManagementComponent},
-  { path: 'LeagueOfLegends', component: LeagueOfLegendsPageComponent}
+  { path: 'LeagueOfLegends', component: LeagueOfLegendsPageComponent},
+  { path: 'landingPage', component: LandingPageComponent},
+  { path: 'gamecard', component: GameCardComponent}
 ];
 
 @NgModule({
