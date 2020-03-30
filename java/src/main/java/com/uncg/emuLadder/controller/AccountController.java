@@ -18,8 +18,6 @@ public class AccountController {
     private final SignInHandler signInHandler;
     private final SignUpHandler signUpHandler;
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
-
     /**
      * Validates the user's sign in credentials (user ID and password)
      * against the database.
@@ -29,8 +27,6 @@ public class AccountController {
      */
     @PostMapping("/signIn")
     public ResponseData<Boolean> signIn(@RequestBody SignInRequestData requestData) {
-        logger.info("Attempting sign in for {}", requestData.getUserId());
-
         return signInHandler.handle(requestData);
     }
 
