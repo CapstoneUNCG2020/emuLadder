@@ -11,10 +11,7 @@ import java.util.Objects;
 @IdClass(LeagueStatsId.class)
 public class LeagueStats {
     @Id
-    private String matchId;
-
-    @Id
-    private int participantNumber;
+    private LeagueStatsId leagueStatsId;
 
     private int kills;
 
@@ -32,20 +29,32 @@ public class LeagueStats {
 
     private int barons;
 
+    public LeagueStatsId getLeagueStatsId() {
+        return leagueStatsId;
+    }
+
+    public void setLeagueStatsId(LeagueStatsId leagueStatsId) {
+        this.leagueStatsId = leagueStatsId;
+    }
+
     public String getMatchId() {
-        return matchId;
+        return leagueStatsId.getMatchId();
     }
 
     public void setMatchId(String matchId) {
-        this.matchId = matchId;
+        if (leagueStatsId == null) leagueStatsId = new LeagueStatsId();
+
+        leagueStatsId.setMatchId(matchId);
     }
 
     public int getParticipantNumber() {
-        return participantNumber;
+        return leagueStatsId.getParticipantNumber();
     }
 
     public void setParticipantNumber(int participantNumber) {
-        this.participantNumber = participantNumber;
+        if (leagueStatsId == null) leagueStatsId = new LeagueStatsId();
+
+        leagueStatsId.setParticipantNumber(participantNumber);
     }
 
     public int getKills() {
@@ -117,28 +126,33 @@ public class LeagueStats {
         if (this == o) return true;
         if (!(o instanceof LeagueStats)) return false;
         LeagueStats that = (LeagueStats) o;
-        return participantNumber == that.participantNumber &&
-                kills == that.kills &&
+        return kills == that.kills &&
                 deaths == that.deaths &&
                 assists == that.assists &&
                 creepScore == that.creepScore &&
                 turrets == that.turrets &&
                 dragons == that.dragons &&
                 barons == that.barons &&
-                Objects.equals(matchId, that.matchId) &&
+                Objects.equals(leagueStatsId, that.leagueStatsId) &&
                 Objects.equals(teamId, that.teamId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(matchId, participantNumber, kills, deaths, assists, creepScore, teamId, turrets, dragons, barons);
+        return Objects.hash(leagueStatsId, kills, deaths, assists, creepScore, teamId, turrets, dragons, barons);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("LeagueStats{");
-        sb.append("matchId='").append(matchId).append('\'');
-        sb.append(", participantNumber=").append(participantNumber);
+
+        if (leagueStatsId != null) {
+            sb.append("matchId='").append(leagueStatsId.getMatchId()).append('\'');
+            sb.append(", participantNumber=").append(leagueStatsId.getParticipantNumber());
+        } else {
+            sb.append("leagueStatsId='").append(leagueStatsId).append('\'');
+        }
+
         sb.append(", kills=").append(kills);
         sb.append(", deaths=").append(deaths);
         sb.append(", assists=").append(assists);

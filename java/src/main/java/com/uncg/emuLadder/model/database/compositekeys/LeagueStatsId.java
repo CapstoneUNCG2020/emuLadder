@@ -1,8 +1,10 @@
 package com.uncg.emuLadder.model.database.compositekeys;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class LeagueStatsId implements Serializable {
     private String matchId;
 

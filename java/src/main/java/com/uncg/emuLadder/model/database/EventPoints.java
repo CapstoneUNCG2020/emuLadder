@@ -11,34 +11,40 @@ import java.util.Objects;
 @IdClass(EventPointsId.class)
 public class EventPoints {
     @Id
-    private String eventId;
-
-    @Id
-    private String matchId;
+    private EventPointsId eventPointsId;
 
     private String teamId;
 
     private String playerId;
 
-    @Id
-    private int participantNumber;
-
     private int points;
 
+    public EventPointsId getEventPointsId() {
+        return eventPointsId;
+    }
+
+    public void setEventPointsId(EventPointsId eventPointsId) {
+        this.eventPointsId = eventPointsId;
+    }
+
     public String getEventId() {
-        return eventId;
+        return eventPointsId.getEventId();
     }
 
     public void setEventId(String eventId) {
-        this.eventId = eventId;
+        if (eventPointsId == null) eventPointsId = new EventPointsId();
+
+        eventPointsId.setEventId(eventId);
     }
 
     public String getMatchId() {
-        return matchId;
+        return eventPointsId.getMatchId();
     }
 
     public void setMatchId(String matchId) {
-        this.matchId = matchId;
+        if (eventPointsId == null) eventPointsId = new EventPointsId();
+
+        eventPointsId.setMatchId(matchId);
     }
 
     public String getTeamId() {
@@ -58,11 +64,13 @@ public class EventPoints {
     }
 
     public int getParticipantNumber() {
-        return participantNumber;
+        return eventPointsId.getParticipantNumber();
     }
 
     public void setParticipantNumber(int participantNumber) {
-        this.participantNumber = participantNumber;
+        if (eventPointsId == null) eventPointsId = new EventPointsId();
+
+        eventPointsId.setParticipantNumber(participantNumber);
     }
 
     public int getPoints() {
@@ -78,27 +86,31 @@ public class EventPoints {
         if (this == o) return true;
         if (!(o instanceof EventPoints)) return false;
         EventPoints that = (EventPoints) o;
-        return participantNumber == that.participantNumber &&
-                points == that.points &&
-                Objects.equals(eventId, that.eventId) &&
-                Objects.equals(matchId, that.matchId) &&
+        return points == that.points &&
+                Objects.equals(eventPointsId, that.eventPointsId) &&
                 Objects.equals(teamId, that.teamId) &&
                 Objects.equals(playerId, that.playerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, matchId, teamId, playerId, participantNumber, points);
+        return Objects.hash(eventPointsId, teamId, playerId, points);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("EventPoints{");
-        sb.append("eventId='").append(eventId).append('\'');
-        sb.append(", matchId='").append(matchId).append('\'');
+
+        if (eventPointsId != null) {
+            sb.append("eventId='").append(eventPointsId.getEventId()).append('\'');
+            sb.append(", matchId='").append(eventPointsId.getMatchId()).append('\'');
+            sb.append(", participantNumber=").append(eventPointsId.getParticipantNumber());
+        } else {
+            sb.append("eventPointsId='").append(eventPointsId).append('\'');
+        }
+
         sb.append(", teamId='").append(teamId).append('\'');
         sb.append(", playerId='").append(playerId).append('\'');
-        sb.append(", participantNumber=").append(participantNumber);
         sb.append(", points=").append(points);
         sb.append('}');
         return sb.toString();
