@@ -1,42 +1,68 @@
 package com.uncg.emuLadder.model.database;
 
+import com.uncg.emuLadder.model.database.compositekeys.EventPointsId;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.util.Objects;
 
 @Entity
+@IdClass(EventPointsId.class)
 public class EventPoints {
     @Id
-    private int eventPointsId;
+    private String eventId;
 
-    private int eventId;
+    @Id
+    private String matchId;
 
-    private int playerId;
+    private String teamId;
+
+    private String playerId;
+
+    @Id
+    private int participantNumber;
 
     private int points;
 
-    public int getEventPointsId() {
-        return eventPointsId;
-    }
-
-    public void setEventPointsId(int eventPointsId) {
-        this.eventPointsId = eventPointsId;
-    }
-
-    public int getEventId() {
+    public String getEventId() {
         return eventId;
     }
 
-    public void setEventId(int eventId) {
+    public void setEventId(String eventId) {
         this.eventId = eventId;
     }
 
-    public int getPlayerId() {
+    public String getMatchId() {
+        return matchId;
+    }
+
+    public void setMatchId(String matchId) {
+        this.matchId = matchId;
+    }
+
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
+    }
+
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
+    }
+
+    public int getParticipantNumber() {
+        return participantNumber;
+    }
+
+    public void setParticipantNumber(int participantNumber) {
+        this.participantNumber = participantNumber;
     }
 
     public int getPoints() {
@@ -49,36 +75,30 @@ public class EventPoints {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (o == null) {
-            return false;
-        }
-
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-
+        if (this == o) return true;
+        if (!(o instanceof EventPoints)) return false;
         EventPoints that = (EventPoints) o;
-        return eventPointsId == that.eventPointsId &&
-                eventId == that.eventId &&
-                playerId == that.playerId &&
-                points == that.points;
+        return participantNumber == that.participantNumber &&
+                points == that.points &&
+                Objects.equals(eventId, that.eventId) &&
+                Objects.equals(matchId, that.matchId) &&
+                Objects.equals(teamId, that.teamId) &&
+                Objects.equals(playerId, that.playerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventPointsId, eventId, playerId, points);
+        return Objects.hash(eventId, matchId, teamId, playerId, participantNumber, points);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("EventPoints{");
-        sb.append("eventPointsId=").append(eventPointsId);
-        sb.append(", eventId=").append(eventId);
-        sb.append(", playerId=").append(playerId);
+        sb.append("eventId='").append(eventId).append('\'');
+        sb.append(", matchId='").append(matchId).append('\'');
+        sb.append(", teamId='").append(teamId).append('\'');
+        sb.append(", playerId='").append(playerId).append('\'');
+        sb.append(", participantNumber=").append(participantNumber);
         sb.append(", points=").append(points);
         sb.append('}');
         return sb.toString();
