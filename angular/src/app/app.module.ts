@@ -27,7 +27,6 @@ import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of
     NavBarComponent,
     CreateContestComponent,
     DraftingPageComponent,
-    landing-page,
     LandingPageComponent,
     GameCardComponent,
     InviteBarComponent,
