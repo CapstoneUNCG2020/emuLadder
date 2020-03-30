@@ -15,6 +15,8 @@ public class Accounts {
 
     private String lastName;
 
+    private String phoneNumber;
+
     public String getEmail() {
         return email;
     }
@@ -47,6 +49,14 @@ public class Accounts {
         this.lastName = lastName;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public boolean equals(final Object obj) {
         if (this == obj) {
@@ -65,12 +75,13 @@ public class Accounts {
         return Objects.equals(email, other.email) &&
                 Objects.equals(userId, other.userId) &&
                 Objects.equals(firstName, other.firstName) &&
-                Objects.equals(lastName, other.lastName);
+                Objects.equals(lastName, other.lastName) &&
+                Objects.equals(phoneNumber, other.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, userId, firstName, lastName);
+        return Objects.hash(email, userId, firstName, lastName, phoneNumber);
     }
 
     @Override
@@ -80,6 +91,7 @@ public class Accounts {
         sb.append(", userId='").append(userId).append('\'');
         sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", phoneNumber='").append(phoneNumber).append('\'');
         sb.append('}');
         return sb.toString();
     }
