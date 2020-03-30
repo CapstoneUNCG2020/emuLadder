@@ -8,6 +8,7 @@ public class SignUpRequestData {
     private String email;
     private String password;
     private String userId;
+    private String phoneNumber;
 
     public String getFirstName() {
         return firstName;
@@ -49,31 +50,30 @@ public class SignUpRequestData {
         this.userId = userId;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if (obj == null) {
-            return false;
-        }
-
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-
-        SignUpRequestData other = (SignUpRequestData) obj;
-        return Objects.equals(firstName, other.firstName) &&
-                Objects.equals(lastName, other.lastName) &&
-                Objects.equals(email, other.email) &&
-                Objects.equals(password, other.password) &&
-                Objects.equals(userId, other.userId);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SignUpRequestData)) return false;
+        SignUpRequestData that = (SignUpRequestData) o;
+        return Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(userId, that.userId) &&
+                Objects.equals(phoneNumber, that.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, email, password, userId);
+        return Objects.hash(firstName, lastName, email, password, userId, phoneNumber);
     }
 
     @Override
@@ -83,7 +83,8 @@ public class SignUpRequestData {
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", password='").append(password).append('\'');
-        sb.append(", username='").append(userId).append('\'');
+        sb.append(", userId='").append(userId).append('\'');
+        sb.append(", phoneNumber='").append(phoneNumber).append('\'');
         sb.append('}');
         return sb.toString();
     }

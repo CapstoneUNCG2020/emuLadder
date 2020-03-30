@@ -11,7 +11,7 @@ public class ContestPlayers {
 
     private int contestId;
 
-    private int playerId;
+    private String playerId;
 
     public int getContestPlayersId() {
         return contestPlayersId;
@@ -29,11 +29,11 @@ public class ContestPlayers {
         this.contestId = contestId;
     }
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
@@ -54,7 +54,7 @@ public class ContestPlayers {
         ContestPlayers that = (ContestPlayers) o;
         return contestPlayersId == that.contestPlayersId &&
                 contestId == that.contestId &&
-                playerId == that.playerId;
+                Objects.equals(playerId, that.playerId);
     }
 
     @Override

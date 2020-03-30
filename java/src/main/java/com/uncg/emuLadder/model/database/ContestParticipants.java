@@ -13,6 +13,8 @@ public class ContestParticipants {
 
     private int contestId;
 
+    private int points;
+
     public int getContestParticipantsId() {
         return contestParticipantsId;
     }
@@ -37,6 +39,14 @@ public class ContestParticipants {
         this.contestId = contestId;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -54,12 +64,12 @@ public class ContestParticipants {
         ContestParticipants that = (ContestParticipants) o;
         return contestParticipantsId == that.contestParticipantsId &&
                 Objects.equals(userId, that.userId) &&
-                contestId == that.contestId;
+                contestId == that.contestId && points == that.points;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestParticipantsId, userId, contestId);
+        return Objects.hash(contestParticipantsId, userId, contestId, points);
     }
 
     @Override
@@ -68,6 +78,7 @@ public class ContestParticipants {
         sb.append("contestParticipantsId=").append(contestParticipantsId);
         sb.append(", userId=").append(userId);
         sb.append(", contestId=").append(contestId);
+        sb.append(", points=").append(points);
         sb.append('}');
         return sb.toString();
     }

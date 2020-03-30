@@ -18,6 +18,14 @@ public class Contests {
 
     private int currentState;
 
+    private int contestType;
+
+    private int contestSize;
+
+    private double entreeFee;
+
+    private double prizeAmount;
+
     public int getContestId() {
         return contestId;
     }
@@ -58,23 +66,49 @@ public class Contests {
         this.currentState = currentState;
     }
 
+    public int getContestType() {
+        return contestType;
+    }
+
+    public void setContestType(int contestType) {
+        this.contestType = contestType;
+    }
+
+    public int getContestSize() {
+        return contestSize;
+    }
+
+    public void setContestSize(int contestSize) {
+        this.contestSize = contestSize;
+    }
+
+    public double getEntreeFee() {
+        return entreeFee;
+    }
+
+    public void setEntreeFee(double entreeFee) {
+        this.entreeFee = entreeFee;
+    }
+
+    public double getPrizeAmount() {
+        return prizeAmount;
+    }
+
+    public void setPrizeAmount(double prizeAmount) {
+        this.prizeAmount = prizeAmount;
+    }
+
     @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (o == null) {
-            return false;
-        }
-
-        if (getClass() != o.getClass()) {
-            return false;
-        }
-
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contests)) return false;
         Contests contests = (Contests) o;
-        return currentState == contests.currentState &&
-                contestId == contests.contestId &&
+        return contestId == contests.contestId &&
+                currentState == contests.currentState &&
+                contestType == contests.contestType &&
+                contestSize == contests.contestSize &&
+                Double.compare(contests.entreeFee, entreeFee) == 0 &&
+                Double.compare(contests.prizeAmount, prizeAmount) == 0 &&
                 Objects.equals(createdBy, contests.createdBy) &&
                 Objects.equals(startTime, contests.startTime) &&
                 Objects.equals(name, contests.name);
@@ -82,17 +116,21 @@ public class Contests {
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestId, createdBy, startTime, name, currentState);
+        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Contests{");
-        sb.append("contestId='").append(contestId).append('\'');
+        sb.append("contestId=").append(contestId);
         sb.append(", createdBy='").append(createdBy).append('\'');
         sb.append(", startTime=").append(startTime);
         sb.append(", name='").append(name).append('\'');
         sb.append(", currentState=").append(currentState);
+        sb.append(", contestType=").append(contestType);
+        sb.append(", contestSize=").append(contestSize);
+        sb.append(", entreeFee=").append(entreeFee);
+        sb.append(", prizeAmount=").append(prizeAmount);
         sb.append('}');
         return sb.toString();
     }

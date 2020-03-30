@@ -1,0 +1,68 @@
+.body {
+    color: white;
+    font-variant: small-caps;
+}
+
+/* ----------------- HEADER ----------------- */
+
+.header table {
+    width: 100%;
+}
+
+.header th {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 50px;
+    width: 85%;
+}
+
+/* --------------- DETAIL TABLE -----------------
+   ----------------------------------------------
+   ------- Shows a table with a top row ---------
+   ------- containing details and the bottom ----
+   ------- row being opauqe. -------------------- */
+
+.detail-table td {
+    text-align: right;
+}
+
+.detail-table tr:nth-child(2) {
+    opacity: 70%;
+}
+
+.contest-details {
+    width: 100%;
+}
+
+.contest-details th {
+    width: 85%;
+    font-size: 32px;
+    text-align: left;
+}
+
+.player-details-table {
+    width: 100%;
+}
+
+.player-details tr:nth-child(2), .player-details tr:nth-child(4) {
+    width: 100%;
+    text-align: center;
+}
+
+.player-details tr:nth-child(3) td:nth-child(2), .player-details tr:nth-child(3) td:nth-child(3) {
+    opacity: 70%;
+}
+
+.btn {
+    text-align: right;
+}
+
+.btn button {
+    background-color: #8ecccc;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    padding: 4px;
+    font-variant: small-caps;
+}
