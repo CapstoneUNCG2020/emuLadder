@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -12,8 +13,11 @@ import { ContestManagementComponent } from './contest-management/contest-managem
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { DraftingPageComponent } from './drafting-page/drafting-page.component';
+import { InviteBarComponent } from './invite-bar/invite-bar.component';
+import { FormsModule } from '@angular/forms'
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of
     NavBarComponent,
     CreateContestComponent,
     DraftingPageComponent,
+    InviteBarComponent,
     LandingPageComponent,
     LeagueOfLegendsPageComponent
   ],
@@ -31,7 +36,8 @@ import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

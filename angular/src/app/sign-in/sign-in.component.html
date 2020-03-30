@@ -1,1 +1,97 @@
-<p>sign-in works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-7">
+                <div class="row" id="Login">
+                  <div class="col-auto" style="color: #3A4042; font: Bold 42px PT Serif;
+                    letter-spacing: 1.61px;">Login</div>
+                </div>
+                <div class="row" id="Headers">
+                  <div class="col-auto" style="font: Light 24px PT Serif;
+                  letter-spacing: 0.74px;
+                  color: #3A4042;">Email</div>
+                </div>
+                <div class="row" id="TextBoxes">
+                  <div class="col-auto"><input id="TextBoxInput" type="email" placeholder="JohnDoe@email.com" name="uname" required
+                      style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
+                    border: 1px solid #818688; font: Light 24px PT Serif;
+    letter-spacing: 0.74px;
+    color: #3A4042;
+    opacity: 0.7;"></div>
+                </div>
+                <div class="row" id="Headers">
+                  <div class="col-lg-5 lg-auto" style="font: Light 24px PT Serif;
+                  letter-spacing: 0.74px;
+                  color: #3A4042;">Password</div>
+                </div>
+                <div class="row" id="TextBoxes">
+                  <div class="col-auto"><input id="TextBoxInput" type="password" placeholder="*************" name="psw" required
+                      style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
+                    border: 1px solid #818688; font: Light 24px PT Serif;
+    letter-spacing: 0.74px;
+    color: #3A4042;
+    opacity: 0.7;"></div>
+                </div>
+                <div class="row" id="ForgotPasswordTop">
+                  <div class="col-auto"><a id="ForgotPassword" href="">Forgot your password?</a></div>
+                </div>
+                <div class="row" id="SignUp">
+                  <div class="col-auto">
+                    <button type="button" class="button" id="SignUp" style="font: Light 24px PT Serif;
+                    letter-spacing: 0.74px;
+                    color: #FFFFFF;">Login</button>
+                    <button class="button" id=SignUp2>Login</button>
+                  </div>
+                </div>
+                <div class="row" id="HaveAccount">
+                  <div class="col-auto">Don't have an account?<a id="HaveAccountLink" href="">Sign Up</a></div>
+                </div>
+              </div>
+              <div class="col-5" style="padding-right: 0px;">
+                <a href=""><i class="far fa-times-circle" style="color:white; position: absolute; right: 0;"></i></a>
+                <img style="float: right; width: 100%; height: 100%;" src="../../assets/ladderAndPhotoMatingSignInDarker.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
