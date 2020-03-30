@@ -2,7 +2,7 @@ package com.uncg.emuLadder.service;
 
 import com.uncg.emuLadder.model.database.AccountCredentials;
 import com.uncg.emuLadder.model.request.SignInRequestData;
-import com.uncg.emuLadder.model.response.SignInResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import com.uncg.emuLadder.repository.AccountCredentialsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,14 +15,14 @@ import java.util.NoSuchElementException;
  * Service class for Sign In operations.
  */
 @Component
-public class SignInService implements IService<SignInRequestData, SignInResponseData> {
+public class SignInService implements IService<SignInRequestData, BooleanResponseData> {
 
     private final Logger logger = LoggerFactory.getLogger((getClass()));
     private final AccountCredentialsRepository repository;
 
     @Override
-    public SignInResponseData service(SignInRequestData requestData) {
-        SignInResponseData responseData = new SignInResponseData();
+    public BooleanResponseData service(SignInRequestData requestData) {
+        BooleanResponseData responseData = new BooleanResponseData();
 
         try {
             AccountCredentials credentials = repository.findById(requestData.getUserId()).get();

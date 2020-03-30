@@ -1,1 +1,142 @@
-<p>drafting-page works!</p>
+<div class="body">
+    <div id="contest-details">
+        <h1 style="color: #8ecccc">Public League of Legends Tournament 1</h1>
+
+        <table>
+            <tr>
+                <td>{{ contest.type }}</td>
+                <td>{{ contest.currentEntries }}/{{ contest.maxEntries }}</td>
+                <td style="color: #8ecccc">${{ contest.entryFee }}</td>
+                <td>${{ contest.prizeAmount }}</td>
+            </tr>
+            <tr>
+                <td>Contest Type</td>
+                <td>Entries</td>
+                <td>Entry Fee</td>
+                <td>Prize Amount</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id='contest-times'>
+        <table>
+            <tr>
+                <th>{{ countdown }}</th>
+            </tr>
+            <tr>
+                <td>Contest starts {{ contest.getStartTime() }}</td>
+            </tr>
+            <tr>
+                <button class="header-btn" style="color: #8ecccc" (click)="goToRules()">Rules & Scoring</button>
+            </tr>
+        </table>
+    </div>
+
+    <div id="error-messages" *ngIf="errorMessage != undefined">
+        <h3>{{ errorMessage }}</h3>
+    </div>
+
+    <div class="container" id="available-players">
+        <h3>Available Players</h3>
+        <table>
+            <tr>
+                <th></th>
+                <th>
+                    <button id="a-p-n" class="header-btn" (click)="sort('a-p-n', true)">Name</button>
+                </th>
+                <th>
+                    <button id="a-p-p" class="header-btn" (click)="sort('a-p-p', true)">Position</button>
+                </th>
+                <th>
+                    <button id="a-p-r" class="header-btn" (click)="sort('a-p-r', true)">Rank</button>
+                </th>
+                <th>
+                    <button id="a-p-s" class="header-btn" (click)="sort('a-p-s', true)">Salary</button>
+                </th>
+                <th>
+                    Add
+                </th>
+            </tr>
+            <tr *ngFor="let player of availablePlayers">
+                <td>
+                    <img src="../../assets/images/players/{{ player.id }}.png" >
+                </td>
+                <td>
+                    {{ player.name }}
+                </td>
+                <td>
+                    {{ player.position }}
+                </td>
+                <td>
+                    {{ player.rank }}
+                </td>
+                <td>
+                    ${{ player.salary.toLocaleString() }}
+                </td>
+                <td>
+                    <button (click)="addPlayer(player)">+</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container" id="selected-players">
+        <div id="selected-players-table-header">
+            <div style="float:left">
+                <h3>Selected Players</h3>
+            </div>
+            <div style="float:right">
+                <table>
+                    <tr>
+                        <td>
+                            ${{ currentSalary.toLocaleString() }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Salary Remaining
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <table class="player-details">
+            <tr>
+                <th>
+                    <button id="s-p-p" class="header-btn" (click)="sort('s-p-p', true)">Position</button>
+                </th>
+                <th>
+                    <button id="s-p-n" class="header-btn" (click)="sort('s-p-n', true)">Name</button>
+                </th>
+                <th>
+                    <button id="s-p-r" class="header-btn" (click)="sort('s-p-r', true)">Rank</button>
+                </th>
+                <th>
+                    <button id="s-p-s" class="header-btn" (click)="sort('s-p-s', true)">Salary</button>
+                </th>
+                <th>
+                    <button class="header-btn" (click)="resetPlayers()">Remove All</button>
+                </th>
+            </tr>
+            <tr *ngFor="let player of selectedPlayers">
+                <td>
+                    {{ player.position }}
+                </td>
+                <td>
+                    {{ player.name }}
+                </td>
+                <td>
+                    {{ player.rank }}
+                </td>
+                <td>
+                    ${{ player.salary }}
+                </td>
+                <td>
+                    <button (click)="removePlayer(player)">-</button>
+                </td>
+            </tr>
+        </table>
+
+        <button id="enter-lineup-button" (click)="saveLineup()">Save</button>
+    </div>
+</div>

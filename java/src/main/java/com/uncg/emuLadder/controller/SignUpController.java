@@ -2,7 +2,7 @@ package com.uncg.emuLadder.controller;
 
 import com.uncg.emuLadder.handler.SignUpHandler;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
-import com.uncg.emuLadder.model.response.SignUpResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +16,7 @@ public class SignUpController {
     private final SignUpHandler handler;
 
     @PostMapping("/signUp")
-    public SignUpResponseData signUp(@RequestBody SignUpRequestData requestData) {
+    public BooleanResponseData signUp(@RequestBody SignUpRequestData requestData) {
         return handler.handle(requestData);
     }
 

@@ -2,7 +2,7 @@ package com.uncg.emuLadder.controller;
 
 import com.uncg.emuLadder.handler.SignUpHandler;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
-import com.uncg.emuLadder.model.response.SignUpResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class SignUpControllerTest {
     private SignUpController controller;
     private SignUpHandler handler;
     private SignUpRequestData requestData;
-    private SignUpResponseData responseData;
+    private BooleanResponseData responseData;
 
     @Before
     public void setUp() {
@@ -26,7 +26,7 @@ public class SignUpControllerTest {
 
         requestData = new SignUpRequestData();
 
-        responseData = new SignUpResponseData();
+        responseData = new BooleanResponseData();
         responseData.setSuccess(true);
     }
 

@@ -1,7 +1,7 @@
 package com.uncg.emuLadder.handler;
 
 import com.uncg.emuLadder.model.request.SignInRequestData;
-import com.uncg.emuLadder.model.response.SignInResponseData;
+import com.uncg.emuLadder.model.response.BooleanResponseData;
 import com.uncg.emuLadder.sanitizer.SignInSanitizer;
 import com.uncg.emuLadder.service.SignInService;
 import org.junit.Before;
@@ -22,7 +22,7 @@ public class SignInHandlerTest {
     private SignInService service;
 
     private SignInRequestData requestData;
-    private SignInResponseData responseData;
+    private BooleanResponseData responseData;
 
     @BeforeClass
     public static void setUpBeforeClass() {
@@ -41,7 +41,7 @@ public class SignInHandlerTest {
         requestData.setUserId(EMAIL);
         requestData.setPassword(PASSWORD);
 
-        responseData = new SignInResponseData();
+        responseData = new BooleanResponseData();
         responseData.setSuccess(true);
     }
 
@@ -49,7 +49,7 @@ public class SignInHandlerTest {
     public void testHandle() {
         when(service.service(any())).thenReturn(responseData);
 
-        SignInResponseData response = handler.handle(requestData);
+        BooleanResponseData response = handler.handle(requestData);
 
         assertTrue(response.isSuccess());
     }
