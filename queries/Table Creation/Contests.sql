@@ -5,5 +5,9 @@ CREATE TABLE Contests (
 	FOREIGN KEY (createdBy) REFERENCES Accounts(userId),
 	startTime DATETIME,
 	name VARCHAR(50),
-	currentState INT
+	currentState INT,
+	contestType INT,
+	contestSize INT,
+	entreeFee DECIMAL(6,2),
+	prizeAmount DECIMAL(6,2)
 );

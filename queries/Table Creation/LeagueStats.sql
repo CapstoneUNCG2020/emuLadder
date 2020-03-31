@@ -1,9 +1,12 @@
 CREATE TABLE LeagueStats (
-	eventPointsId INT,
-	PRIMARY KEY (eventPointsId),
-	FOREIGN KEY (eventPointsId) REFERENCES EventPoints(eventPointsId),
+	matchId VARCHAR(20),
+	participantNumber INT,
+	kills INT,
 	deaths INT,
 	assists INT,
-	kills INT,
-	creepScore INT
+	creepScore INT,
+	teamId VARCHAR(20),
+	turrets INT,
+	dragons INT,
+	barons INT
 );
