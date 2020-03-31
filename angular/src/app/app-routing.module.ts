@@ -9,6 +9,7 @@ import { DraftingPageComponent } from './drafting-page/drafting-page.component';
 import { ContestManagementComponent } from './contest-management/contest-management.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
+import { GetStartedComponent } from './landing-page/get-started/get-started.component';
 
 const routes: Routes = [
   { path: 'account/signup', component: SignUpComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent},
   { path: 'gamecard', component: GameCardComponent},
   { path: 'contest/create', component: CreateContestComponent},
+  { path: 'getStarted', component: GetStartedComponent}
 ];
 
 @NgModule({
