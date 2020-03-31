@@ -12,4 +12,7 @@
 svg {
     padding: 2px;
     cursor: pointer;
+    background-size: contain;
+    width: 300px;
+    height: auto;
 }

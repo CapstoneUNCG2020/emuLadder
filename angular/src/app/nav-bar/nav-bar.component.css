@@ -11,8 +11,8 @@
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
+a {
+  /* float: left; */
   color: #f2f2f2;
   text-align: center;
   padding: 10px 16px;
@@ -23,13 +23,13 @@
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+a:hover {
   background-color: #ddd;
   color: black;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+a.active {
   background-color: black;
   color: white;
 }
@@ -47,11 +47,6 @@
 /* right-align faq withing the above alignment */
 .topnav-left a.right {
   float: right;
-}
-
-#sign-up-btn {
-    color: #8ECCCC;
-    
 }
   
 /* Dropdown Button */
@@ -91,10 +86,19 @@
   }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #ddd; color: black;}
+
+  table {
+    background-color: #212121;
+    width: 100%;
+    color: white;
+  }

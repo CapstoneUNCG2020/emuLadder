@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logo',
-  templateUrl: './logo.component.html',
+  templateUrl: './logo.component.svg',
   styleUrls: ['./logo.component.css']
 })
 export class LogoComponent implements OnInit {
