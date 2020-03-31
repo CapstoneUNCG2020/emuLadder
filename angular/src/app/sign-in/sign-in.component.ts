@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignInService } from '../service/rest/sign-in.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +15,11 @@ export class SignInComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  email: string;
+  password: string;
+  error: boolean;
+
+  constructor(private formBuilder: FormBuilder, private service: SignInService) {
     //show-hide modal check
     this.showLoginModal = true;
    }
@@ -30,18 +36,19 @@ export class SignInComponent implements OnInit {
     });
   }
 
-  get form(){
-    return this.registerForm.controls;
+  getErrorMessage(): string {
+    return 'Invalid username / password';
   }
 
-  onSubmit(){
-    this.submitted = true;
-    //checks if form is valid
-    if(this.registerForm.invalid){
-      return;
-    }
-    if(this.submitted){
-      this.showLoginModal = false;
-    }
+  login(): void {
+    let promise = this.service.signIn(this.email, this.password);
+
+    promise.then(success => {
+      if (success) {
+        console.log('SIGNED IN!!');
+      } else {
+        this.error = true;
+      }
+    });
   }
 }
