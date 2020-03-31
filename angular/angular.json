@@ -25,9 +25,10 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/fonts/fonts-fontname.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -117,6 +118,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "emuLadder"
+    }
+  },
+  "defaultProject": "emuLadder",
+  "cli": {
+    "analytics": "419f2401-931f-4e27-8561-ecfafb842317"
+  }
 }
