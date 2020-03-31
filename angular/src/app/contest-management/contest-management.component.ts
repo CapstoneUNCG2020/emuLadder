@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ContestManagementComponent implements OnInit {
 
   contests: Array<Contest>;
+  public showInviteBar: boolean;
 
   constructor(private router: Router) { }
 
@@ -86,5 +87,9 @@ export class ContestManagementComponent implements OnInit {
 
   editContest(contest: Contest) {
     this.router.navigateByUrl('contest/draft');
+  }
+
+  invite(): void {
+    this.showInviteBar = true;
   }
 }
