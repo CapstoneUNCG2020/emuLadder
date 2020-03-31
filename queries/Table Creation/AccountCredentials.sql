@@ -1,6 +1,6 @@
 CREATE TABLE AccountCredentials (
-	userId VARCHAR(50),
-	PRIMARY KEY (userId),
-	FOREIGN KEY (userId) REFERENCES Accounts(userId),
+	email VARCHAR(50),
+	PRIMARY KEY (email),
+	FOREIGN KEY (email) REFERENCES Accounts(email),
 	password VARCHAR(50)
 );

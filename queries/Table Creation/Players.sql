@@ -5,5 +5,10 @@ CREATE TABLE Players (
 	lastName VARCHAR(50),
 	displayName VARCHAR(50),
 	image VARCHAR(50),
-	salary INT
+	salary INT,
+	teamId VARCHAR(20),
+	teamName VARCHAR(255),
+	teamCode VARCHAR(10),
+	role VARCHAR(20),
+	region VARCHAR (20)
 );

@@ -3,7 +3,7 @@ CREATE TABLE ContestParticipants (
 	PRIMARY KEY (contestParticipantsId),
 	contestId INT,
 	FOREIGN KEY (contestId) REFERENCES Contests(contestId),
-	userId VARCHAR(50),
-	FOREIGN KEY (userId) REFERENCES Accounts(userId),
+	email VARCHAR(50),
+	FOREIGN KEY (email) REFERENCES Accounts(email),
 	points INT
 );
