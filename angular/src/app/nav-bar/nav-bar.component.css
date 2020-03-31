@@ -11,7 +11,7 @@
 }
 
 /* Style the links inside the navigation bar */
-a {
+a, button {
   /* float: left; */
   color: #f2f2f2;
   text-align: center;
@@ -20,10 +20,12 @@ a {
   font: lighter 26px Rogue Sans;
   font-family: RogueSans-Medium, Rogue Sans;
   font-weight: 500;
+  background-color: inherit;
+  border: none;
 }
 
 /* Change the color of links on hover */
-a:hover {
+a:hover, button:hover {
   background-color: #ddd;
   color: black;
 }

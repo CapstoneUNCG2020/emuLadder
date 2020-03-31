@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInService } from '../service/rest/sign-in.service';
 import { Router } from '@angular/router';
+import { SignedInService } from '../service/signed-in.service';
 
 
 @Component({
@@ -10,31 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  
-  showLoginModal: boolean;
-  registerForm: FormGroup;
-  submitted = false;
-
   email: string;
   password: string;
   error: boolean;
 
-  constructor(private formBuilder: FormBuilder, private service: SignInService) {
-    //show-hide modal check
-    this.showLoginModal = true;
-   }
+  constructor(private service: SignInService, private signedInService: SignedInService) { }
 
-   //Bootstrap Modal Close event
-   hide(){
-     this.showLoginModal = false
-   }
-
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
-    });
-  }
+  ngOnInit() { }
 
   getErrorMessage(): string {
     return 'Invalid username / password';
@@ -45,7 +28,7 @@ export class SignInComponent implements OnInit {
 
     promise.then(success => {
       if (success) {
-        console.log('SIGNED IN!!');
+        this.signedInService.signIn();
       } else {
         this.error = true;
       }

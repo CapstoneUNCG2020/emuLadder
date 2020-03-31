@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventEmitter } from 'events';
 import { stringify } from 'querystring';
 import { SignUpService } from '../service/rest/sign-up.service';
+import { SignedInService } from '../service/signed-in.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -24,7 +25,7 @@ export class SignUpComponent implements OnInit {
 
   errorMessage: string;
 
-  constructor(private service: SignUpService) { }
+  constructor(private service: SignUpService, private signedInService: SignedInService) { }
 
   ngOnInit() {
   }
@@ -44,9 +45,9 @@ export class SignUpComponent implements OnInit {
 
       promise.then(response => {
         if (response.response) {
-          console.log('Signed In!!');
+          this.signedInService.signIn();
         } else {
-          console.log(response.errors);
+          this.errorMessage = response.errors.toString();
         }
       })
     }

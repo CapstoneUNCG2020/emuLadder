@@ -37,13 +37,15 @@
     </div>
     <td>
       <app-logo></app-logo>
-      <!-- logo -->
     </td>
     <div style="float: right">
-      <td>
+      <td *ngIf="isSignedIn()">
+        <button (click)="logout()">LogOut</button>
+      </td>
+      <td *ngIf="!isSignedIn()">
         <app-sign-in></app-sign-in>
       </td>
-      <td>
+      <td *ngIf="!isSignedIn()">
         <app-sign-up></app-sign-up>
       </td>
     </div>
