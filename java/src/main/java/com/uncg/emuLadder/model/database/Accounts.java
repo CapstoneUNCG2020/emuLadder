@@ -6,9 +6,9 @@ import java.util.Objects;
 
 @Entity
 public class Accounts {
+    @Id
     private String email;
 
-    @Id
     private String userId;
 
     private String firstName;
