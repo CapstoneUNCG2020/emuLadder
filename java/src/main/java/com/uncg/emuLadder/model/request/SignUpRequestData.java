@@ -7,7 +7,6 @@ public class SignUpRequestData {
     private String lastName;
     private String email;
     private String password;
-    private String userId;
     private String phoneNumber;
 
     public String getFirstName() {
@@ -42,14 +41,6 @@ public class SignUpRequestData {
         this.password = password;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -67,23 +58,21 @@ public class SignUpRequestData {
                 Objects.equals(lastName, that.lastName) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(password, that.password) &&
-                Objects.equals(userId, that.userId) &&
                 Objects.equals(phoneNumber, that.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, email, password, userId, phoneNumber);
+        return Objects.hash(firstName, lastName, email, password, phoneNumber);
     }
 
     @Override
-    public String toString() {
+    public String   toString() {
         final StringBuilder sb = new StringBuilder("SignUpRequestData{");
         sb.append("firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", password='").append(password).append('\'');
-        sb.append(", userId='").append(userId).append('\'');
         sb.append(", phoneNumber='").append(phoneNumber).append('\'');
         sb.append('}');
         return sb.toString();

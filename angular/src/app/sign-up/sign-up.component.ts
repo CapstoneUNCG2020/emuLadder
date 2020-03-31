@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter } from 'events';
 import { stringify } from 'querystring';
+import { SignUpService } from '../service/rest/sign-up.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -23,7 +24,7 @@ export class SignUpComponent implements OnInit {
 
   errorMessage: string;
 
-  constructor() { }
+  constructor(private service: SignUpService) { }
 
   ngOnInit() {
   }
@@ -38,7 +39,16 @@ export class SignUpComponent implements OnInit {
     } else if (!this.agreed) {
       this.errorMessage = 'Please agree to terms';
     } else {
-      
+      let promise = this.service.signUp(this.firstName, this.lastName, 
+        this.email, this.phoneNumber, this.password);
+
+      promise.then(response => {
+        if (response.response) {
+          console.log('Signed In!!');
+        } else {
+          console.log(response.errors);
+        }
+      })
     }
   }
 
