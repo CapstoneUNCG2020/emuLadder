@@ -18,6 +18,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { GameCardComponent } from './landing-page/game-card/game-card.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { LogoComponent } from '../assets/logo/logo.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LogoComponent } from '../assets/logo/logo.component';
     InviteBarComponent,
     LandingPageComponent,
     LeagueOfLegendsPageComponent,
-    LogoComponent
+    LogoComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
