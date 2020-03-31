@@ -1,15 +1,3 @@
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #212121;
-    overflow: hidden;
-    height: 50px;
-}
-
-.topnav #Layer_1{
-  float: left;
-  padding: 2px 16px 2px 16px;
-}
-
 /* Style the links inside the navigation bar */
 a, button {
   /* float: left; */
@@ -36,21 +24,6 @@ a.active {
   color: white;
 }
 
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-  float: right;
-}
-
-/* Left-align games and faq*/
-.topnav-left {
-  float: left;
-}
-
-/* right-align faq withing the above alignment */
-.topnav-left a.right {
-  float: right;
-}
-  
 /* Dropdown Button */
 .dropbtn {
     background-color: #212121;
