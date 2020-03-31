@@ -135,3 +135,7 @@ input#TextBoxInput {
     border-color: #818688;
     background-color: #8ECCCC;
 }
+
+input[type=text], input[type=email], input[type=password], input[type=tel] {
+    padding: 5px;
+}
