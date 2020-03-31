@@ -1,0 +1,15 @@
+.cls-1, .cls-2 {
+    fill: #fff;
+}
+
+.cls-2 {
+    isolation: isolate;
+    font-size: 5.01px;
+    font-family: RogueSans-Medium, Rogue Sans;
+    font-weight: 500;
+}
+
+svg {
+    padding: 2px;
+    cursor: pointer;
+}
