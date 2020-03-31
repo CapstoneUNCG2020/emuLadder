@@ -27,7 +27,7 @@ export class SignInService {
    * @param requestData { email, password }
    */
   private async post(requestData): Promise<boolean> {
-    let promise = await this.rest.post<ResponseData<boolean>>(this.url, requestData).toPromise();
+    let promise = await this.rest.post<boolean>(this.url, requestData).toPromise();
 
     return promise.response;
   }
