@@ -4,11 +4,9 @@ import com.uncg.emuLadder.model.database.compositekeys.EventPointsId;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import java.util.Objects;
 
 @Entity
-@IdClass(EventPointsId.class)
 public class EventPoints {
     @Id
     private EventPointsId eventPointsId;

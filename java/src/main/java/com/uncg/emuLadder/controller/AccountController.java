@@ -5,14 +5,12 @@ import com.uncg.emuLadder.handler.SignUpHandler;
 import com.uncg.emuLadder.model.request.SignInRequestData;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
 import com.uncg.emuLadder.model.response.ResponseData;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/account")
+@CrossOrigin
+@RestController
+@RequestMapping("/account")
 public class AccountController {
 
     private final SignInHandler signInHandler;
@@ -25,7 +23,7 @@ public class AccountController {
      * @param requestData - { user ID, password }
      * @return - Boolean of true (sign in success) or false (sign in fail)
      */
-    @PostMapping("/signIn")
+    @PostMapping("/signin")
     public ResponseData<Boolean> signIn(@RequestBody SignInRequestData requestData) {
         return signInHandler.handle(requestData);
     }
@@ -36,7 +34,7 @@ public class AccountController {
      * @param requestData { user ID, first name, last name, email, phone number }
      * @return Boolean of true (account created) or error (account could not be created)
      */
-    @PostMapping("/signUp")
+    @PostMapping("/signup")
     public ResponseData<Boolean> signUp(@RequestBody SignUpRequestData requestData) {
         return signUpHandler.handle(requestData);
     }

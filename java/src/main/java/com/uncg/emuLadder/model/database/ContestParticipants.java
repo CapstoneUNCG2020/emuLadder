@@ -9,7 +9,7 @@ public class ContestParticipants {
     @Id
     private int contestParticipantsId;
 
-    private String userId;
+    private String email;
 
     private int contestId;
 
@@ -23,12 +23,12 @@ public class ContestParticipants {
         this.contestParticipantsId = contestParticipantsId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getContestId() {
@@ -63,20 +63,20 @@ public class ContestParticipants {
 
         ContestParticipants that = (ContestParticipants) o;
         return contestParticipantsId == that.contestParticipantsId &&
-                Objects.equals(userId, that.userId) &&
+                Objects.equals(email, that.email) &&
                 contestId == that.contestId && points == that.points;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestParticipantsId, userId, contestId, points);
+        return Objects.hash(contestParticipantsId, email, contestId, points);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("ContestParticipants{");
         sb.append("contestParticipantsId=").append(contestParticipantsId);
-        sb.append(", userId=").append(userId);
+        sb.append(", email=").append(email);
         sb.append(", contestId=").append(contestId);
         sb.append(", points=").append(points);
         sb.append('}');

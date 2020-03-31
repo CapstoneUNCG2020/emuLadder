@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignedInService } from '../service/signed-in.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,19 +9,17 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  public signedIn: boolean;
-
-  constructor(private router: Router) { }
+  constructor(private signedInService: SignedInService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  public signIn(): void {
-    this.signedIn = true;
+  logout(): void {
+    this.signedInService.signOut();
+    this.router.navigateByUrl('');
   }
 
-  public signOut(): void {
-    this.signedIn = false;
-    this.router.navigateByUrl('');
+  isSignedIn(): boolean {
+    return this.signedInService.getStatus();
   }
 }
