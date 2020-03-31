@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RestService {
 
-  private baseUrl: string;
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
