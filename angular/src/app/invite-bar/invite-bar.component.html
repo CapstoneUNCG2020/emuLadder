@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
 
-<body>
-  <div id="testSidebar" class="sidebar" *ngIf="showInviteBar">
-    <a href="javascript:void(0)" class="closebtn" (click)="showInviteBar = false">×</a>
-    <h2>Invite to Contest</h2>
-    
-    <input type="text" placeholder="Search All EmuLadder usernames" id="search-text-input"><i class="fas fa-search"></i>
-    <h4 style="text-align: center; margin-top: 400px;">No Recent Invites<i class="glyphicon glyphicon-user"></i></h4>
-  </div>
+<div id="testSidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" (click)="close()">×</a>
+  <h2>Invite to Contest</h2>
 
-  <div id="main" *ngIf="!showInviteBar">
-    <button class="openbtn" (click)="showInviteBar = true"><i class="glyphicon glyphicon-user"></i></button>
-  </div>
-
-</body>
-
-</html>
+  <input type="text" placeholder="Search All EmuLadder usernames" id="search-text-input"><i class="fas fa-search"></i>
+  <h4 style="text-align: center; margin-top: 400px;">No Recent Invites<i class="glyphicon glyphicon-user"></i></h4>
+</div>
