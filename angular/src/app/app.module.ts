@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms'
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { GameCardComponent } from './landing-page/game-card/game-card.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
+import { LogoComponent } from '../assets/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of
     GameCardComponent,
     InviteBarComponent,
     LandingPageComponent,
-    LeagueOfLegendsPageComponent
+    LeagueOfLegendsPageComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

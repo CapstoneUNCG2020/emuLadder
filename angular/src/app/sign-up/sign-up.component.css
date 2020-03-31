@@ -1,3 +1,18 @@
+button {
+    background-color: #212121;
+    color: white;
+    font: lighter 26px Rogue Sans;
+    font-family: RogueSans-Medium, Rogue Sans;
+    font-weight: 500;
+    padding: 10px 16px;
+    border: none;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+    color: black;
+  }  
+
 .modal-content {
     background-color: #8ECCCC;
  }
@@ -119,4 +134,8 @@ input#TextBoxInput {
     color: #8ECCCC;
     border-color: #818688;
     background-color: #8ECCCC;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=tel] {
+    padding: 5px;
 }
