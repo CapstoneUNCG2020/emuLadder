@@ -7,22 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  text: string;
-  bool: boolean;
-  something: string;
+  error: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.text = "emuLadder";
-
-    this.bool = false;
-    this.something = "something";
   }
 
-  show() {
-    console.log("hello");
-    this.bool = !this.bool;
+  getErrorMessage(): string {
+    return 'Error creating account.';
+  }
+
+  signUp(): void {
+    this.error = !this.error;
   }
 
 }

@@ -39,7 +39,12 @@
                   letter-spacing: 0.74px;
                   opacity: 0.8;">Log In</a></div>
               </div>
-              <div class="row" id="Headers">
+              <div class="row" *ngIf="error">
+                <div class="col-auto">
+                  <div class="error">{{ getErrorMessage() }}</div>
+                </div>
+              </div>
+              <div class="row headers">
                 <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
                   letter-spacing: 0.74px;
                   color: #3A4042;">First Name</div>
@@ -47,21 +52,21 @@
                   letter-spacing: 0.74px;
                   color: #3A4042;">Last Name</div>
               </div>
-              <div class="row" id="TextBoxes">
-                <div class="col-lg-5 lg-auto"><input id="TextBoxInput" type="text" placeholder="John" name="fname"
+              <div class="row text-boxes">
+                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="text" placeholder="John" name="fname"
                     required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
                     border: 1px solid #818688; font: Light 24px/28px PT Serif;
     letter-spacing: 0.74px;
     color: #3A4042;
     opacity: 0.7;"></div>
-                <div class="col-lg-5 lg-auto"><input id="TextBoxInput" type="text" placeholder="Doe" name="lname"
+                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="text" placeholder="Doe" name="lname"
                     required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
                     border: 1px solid #818688; font: Light 24px/28px PT Serif;
     letter-spacing: 0.74px;
     color: #3A4042;
     opacity: 0.7;"></div>
               </div>
-              <div class="row" id="Headers">
+              <div class="row headers">
                 <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
                   letter-spacing: 0.74px;
                   color: #3A4042;">Phone</div>
@@ -69,21 +74,21 @@
                   letter-spacing: 0.74px;
                   color: #3A4042;">Email</div>
               </div>
-              <div class="row" id="TextBoxes">
-                <div class="col-lg-5 lg-auto"><input id="TextBoxInput" type="tel" placeholder="(065)-941-6298"
+              <div class="row text-boxes">
+                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="tel" placeholder="(065)-941-6298"
                     name="pnum" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
                     border: 1px solid #818688; font: Light 24px/28px PT Serif;
     letter-spacing: 0.74px;
     color: #3A4042;
     opacity: 0.7;"></div>
-                <div class="col-lg-5 lg-auto"><input id="TextBoxInput" type="email" placeholder="JohnDoe@email.com"
+                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="email" placeholder="JohnDoe@email.com"
                     name="uname" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
                     border: 1px solid #818688; font: Light 24px/28px PT Serif;
     letter-spacing: 0.74px;
     color: #3A4042;
     opacity: 0.7;"></div>
               </div>
-              <div class="row" id="Headers">
+              <div class="row headers">
                 <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
                   letter-spacing: 0.74px;
                   color: #3A4042;">Password</div>
@@ -91,14 +96,14 @@
                   letter-spacing: 0.74px;
                   color: #3A4042;">Confirm Password</div>
               </div>
-              <div class="row" id="TextBoxes">
-                <div class="col-lg-5 lg-auto"><input id="TextBoxInput" type="password" placeholder="*************"
+              <div class="row text-boxes">
+                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="password" placeholder="*************"
                     name="psw" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
                     border: 1px solid #818688; font: Light 24px/28px PT Serif;
     letter-spacing: 0.74px;
     color: #3A4042;
     opacity: 0.7;"></div>
-                <div class="col-lg-5 lg-auto"><input id="TextBoxInput" type="password" placeholder="*************"
+                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="password" placeholder="*************"
                     name="psw" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
                     border: 1px solid #818688; font: Light 24px/28px PT Serif;
     letter-spacing: 0.74px;
@@ -120,12 +125,12 @@
                   </div>
                 </div>
               </div>
-              <div class="row" id="SignUp">
-                <div class="col-lg-5 lg-auto">
+              <div class="row" id="SignUpRow">
+                <div class="col-lg-5 lg-auto" (click)="signUp()">
                   <button type="button" class="button" id="SignUp" style="font: Light 24px/28px PT Serif;
                     letter-spacing: 0.74px;
                     color: #FFFFFF;">Sign Up</button>
-                  <button class="button" id=SignUp2>Sign Up</button>
+                  <button class="button" id="SignUp2">Sign Up</button>
 
                 </div>
               </div>

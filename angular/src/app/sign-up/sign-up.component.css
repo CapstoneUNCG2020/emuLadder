@@ -45,12 +45,12 @@ body {
     margin-top: 62px;
 }
 
-.row#Headers {
+.row .headers {
     margin-left: 90px;
     margin-top: 37px;
 }
 
-.row#TextBoxes {
+.row .text-boxes {
     margin-left: 90px;
 }
 
@@ -63,7 +63,7 @@ input#TextBoxInput {
     margin-top: 62px;
 }
 
-.row#SignUp {
+.row#SignUpRow {
     margin-left: 102px;
     margin-top: 69px;
 }
@@ -138,4 +138,13 @@ input#TextBoxInput {
 
 input[type=text], input[type=email], input[type=password], input[type=tel] {
     padding: 5px;
+}
+
+.error {
+    color: red;
+    margin-left: 95px;
+    margin-top: 10px;
+    font-family: 'PT Serif', serif;
+    font: Light 24px PT Serif;
+    letter-spacing: 0.74px;
 }
