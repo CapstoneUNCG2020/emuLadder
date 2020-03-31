@@ -362,6 +362,6 @@ export class DraftingPageComponent implements OnInit {
   }
 
   saveLineup(): void {
-    this.router.navigateByUrl('contests');
+    this.router.navigateByUrl('contest/view');
   }
 }

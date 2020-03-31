@@ -9,17 +9,19 @@ import { DraftingPageComponent } from './drafting-page/drafting-page.component';
 import { ContestManagementComponent } from './contest-management/contest-management.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
-  { path: 'SignUp', component: SignUpComponent},
-  { path: 'SignIn', component: SignInComponent},
-  { path: 'invite', component: InviteBarComponent},
-  { path: 'drafting', component: DraftingPageComponent},
-  { path: 'contests', component: ContestManagementComponent},
-  { path: 'LeagueOfLegends', component: LeagueOfLegendsPageComponent},
-  { path: 'landingPage', component: LandingPageComponent},
+  { path: 'account/signup', component: SignUpComponent},
+  { path: 'account/signin', component: SignInComponent},
+  { path: 'contest/invite', component: InviteBarComponent},
+  { path: 'contest/draft', component: DraftingPageComponent},
+  { path: 'contest/view', component: ContestManagementComponent},
+  { path: 'games/leagueoflegends', component: LeagueOfLegendsPageComponent},
+  { path: '', component: LandingPageComponent},
   { path: 'gamecard', component: GameCardComponent},
-  { path: 'create', component: CreateContestComponent}
+  { path: 'contest/create', component: CreateContestComponent},
+  { path: 'info/faq', component: FaqComponent }
 ];
 
 @NgModule({
