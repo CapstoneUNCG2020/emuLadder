@@ -30,8 +30,8 @@ public class SignUpService implements IService<SignUpRequestData, ResponseData<B
     public ResponseData<Boolean> service(SignUpRequestData requestData) {
         ResponseData<Boolean> responseData = new ResponseData<>();
 
-        if (accountsRepository.findById(requestData.getUserId()).isPresent()) {
-            String errorMessage = "User ID (" + requestData.getUserId() + ") already present.";
+        if (accountsRepository.findById(requestData.getEmail()).isPresent()) {
+            String errorMessage = "Email (" + requestData.getEmail() + ") already present.";
 
             responseData.setStatus(ResponseStatusType.ERROR.name());
 
@@ -47,7 +47,7 @@ public class SignUpService implements IService<SignUpRequestData, ResponseData<B
             account.setEmail(requestData.getEmail());
             account.setFirstName(requestData.getFirstName());
             account.setLastName(requestData.getLastName());
-            account.setUserId(requestData.getUserId());
+            account.setEmail(requestData.getEmail());
             account.setPhoneNumber(requestData.getPhoneNumber());
 
             accountsRepository.save(account);
