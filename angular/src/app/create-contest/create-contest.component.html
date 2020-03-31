@@ -53,51 +53,49 @@
 					<p>Time</p><br>
 					<p>LCS</p>
 				</div>
-				
+
 			</div>
-		</div>
-	
-		<h2 class="divider">Games</h2>
-		<div class="center">
-			<div class="test">
+			<h2 class="divider">Games</h2>
+			<div class="game-item">
 				<p>FLY v IMT</p><br>
 				<p>1/25 5:00 pm</p>
 			</div>
-			<div class="test">
+			<div class="game-item">
 				<p>FLY v IMT</p><br>
 				<p>1/25 5:00 pm</p>
 			</div>
-			<div class="test">
+			<div class="game-item">
 				<p>FLY v IMT</p><br>
 				<p>1/25 5:00 pm</p>
 			</div>
-			<div class="test">
+			<div class="game-item">
 				<p>FLY v IMT</p><br>
 				<p>1/25 5:00 pm</p>
 			</div>
 		</div>
-	
+
+
 		<div class="grid-container">
 			<div class="grid-item">
 				<h2 class="grid-h2">Contest Type</h2>
 				<div class="switch-field">
-					<input type="radio" id="head-to-head" name="contest-type" value="head-to-head" checked/>
+					<input type="radio" id="head-to-head" name="contest-type" value="head-to-head" checked />
 					<label for="head-to-head">Head-to-head</label>
 					<input type="radio" id="multiplayer" name="contest-type" value="multiplayer" />
 					<label for="multiplayer">Multiplayer</label>
 				</div>
 			</div>
-		
+
 			<div class="grid-item">
 				<h2 class="grid-h2">Opponent</h2>
 				<div class="switch-field">
-					<input type="radio" id="public" name="contest-opponent" value="public" checked/>
+					<input type="radio" id="public" name="contest-opponent" value="public" checked />
 					<label for="public">Public</label>
 					<input type="radio" id="private" name="contest-opponent" value="private" />
 					<label for="private">Private</label>
 				</div>
 			</div>
-	
+
 			<div class="grid-item">
 				<h2 class="grid-h2">Entry Fee</h2>
 				<select id="entry-fee">
@@ -107,7 +105,7 @@
 					<option value="fifteen">$15</option>
 				</select>
 			</div>
-		
+
 			<div class="grid-item entry">
 				<h2 class="grid-h2">Name your contest</h2>
 				<form action="">
@@ -115,7 +113,7 @@
 				</form>
 			</div>
 		</div>
-		<div id="yeet">
+		<div id="submit-button">
 			<button id="submit" type="submit" (click)="selectTeam()">Select Team</button>
 		</div>
 	</div>
