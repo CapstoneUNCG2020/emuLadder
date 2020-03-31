@@ -85,6 +85,6 @@ export class ContestManagementComponent implements OnInit {
   }
 
   editContest(contest: Contest) {
-    this.router.navigateByUrl('drafting');
+    this.router.navigateByUrl('contest/draft');
   }
 }
