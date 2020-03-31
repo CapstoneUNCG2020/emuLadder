@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-sign-up',
@@ -23,7 +24,15 @@ export class SignUpComponent implements OnInit {
   }
 
   openLogIn(): void {
-    console.log('How do I do this? hmmm')
+    // Close the Sign Up modal
+    document.getElementById('close-signup-btn').click();
+
+    // // Open the Log In modal
+    let element = document.body.children[0].children[0]
+      .children[0].children[0].children[2].children[0]
+      .children[0].children[1] as HTMLElement;
+
+    element.click();
   }
 
 }

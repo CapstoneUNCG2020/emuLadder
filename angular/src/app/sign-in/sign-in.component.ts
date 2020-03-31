@@ -51,4 +51,16 @@ export class SignInComponent implements OnInit {
       }
     });
   }
+
+  openSignUp(): void {
+    // Close the Sign Up modal
+    document.getElementById('close-login-btn').click();
+
+    // Open the Log In modal
+    let element = document.body.children[0].children[0]
+      .children[0].children[0].children[2].children[1]
+      .children[0].children[1] as HTMLElement;
+
+    element.click();
+  }
 }

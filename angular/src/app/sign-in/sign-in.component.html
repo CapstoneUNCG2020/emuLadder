@@ -60,11 +60,15 @@
                   </div>
                 </div>
                 <div class="row" id="HaveAccount">
-                  <div class="col-auto">Don't have an account?<a id="HaveAccountLink" href="">Sign Up</a></div>
+                  <div class="col-auto">
+                    Don't have an account? <a id="HaveAccountLink" style="cursor: pointer" (click)="openSignUp()">Sign Up</a>
+                  </div>
                 </div>
               </div>
               <div class="col-5" style="padding-right: 0px;">
-                <a class="close" data-dismiss="modal"><i class="far fa-times-circle" style="color:white; position: absolute; right: 0;"></i></a>
+                <a class="close" data-dismiss="modal" id="close-login-btn">
+                  <i class="far fa-times-circle" style="color:white; position: absolute; right: 0;"></i>
+                </a>
                 <img style="float: right; width: 100%; height: 100%;" src="../../assets/ladderAndPhotoMatingSignInDarker.png">
               </div>
             </div>
