@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'contest/draft', component: DraftingPageComponent},
   { path: 'contest/view', component: ContestManagementComponent},
   { path: 'games/leagueoflegends', component: LeagueOfLegendsPageComponent},
-  { path: '', component: LandingPageComponent},
+  { path: 'landingPage', component: LandingPageComponent},
   { path: 'gamecard', component: GameCardComponent},
   { path: 'contest/create', component: CreateContestComponent},
 ];
