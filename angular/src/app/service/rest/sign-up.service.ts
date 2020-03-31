@@ -7,7 +7,7 @@ import { RestService } from './rest.service';
 })
 export class SignUpService {
 
-  private url = 'account/signup';
+  private url = '/account/signup';
 
   constructor(private rest: RestService) { }
 
