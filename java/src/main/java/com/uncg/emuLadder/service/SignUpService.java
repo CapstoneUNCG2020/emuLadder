@@ -53,7 +53,7 @@ public class SignUpService implements IService<SignUpRequestData, ResponseData<B
             accountsRepository.save(account);
 
             final AccountCredentials accountCredentials = new AccountCredentials();
-            accountCredentials.setUserId(requestData.getUserId());
+            accountCredentials.setEmail(requestData.getEmail());
             accountCredentials.setPassword(requestData.getPassword());
 
             credentialsRepository.save(accountCredentials);
