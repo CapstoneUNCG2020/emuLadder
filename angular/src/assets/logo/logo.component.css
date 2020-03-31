@@ -1,17 +1,9 @@
-.hl, .vl, .cls-2 {
+.hl, .vl{
     fill: #fff;
 }
 
 .hl {
     width: 100%;
-}
-
-.cls-2 {
-    isolation: isolate;
-    font-size: 5.01px;
-    font-family: RogueSans-Medium, Rogue Sans;
-    font-weight: 500;
-    font-variant: small-caps;
 }
 
 svg {

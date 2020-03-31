@@ -1,31 +1,39 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 6.7" (click)="goHome()">
-    <title>EmuLadder</title>
-    <rect class="hl" data-name=" TopLong " class="vl" x="0.3" y="4.5" width="25.5" height="0.2" /> -->
-    <rect class="hl" data-name=" BottomLong " class="vl" x="0.3" y="6.4" width="25.5" height="0.2" /> -->
-    <rect class="vl" x="1" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="2" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="3" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="4" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="5" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="6" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="7" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="8" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="9" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="10" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="11" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="12" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="13" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="14" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="15" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="16" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="17" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="18" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="19" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="20" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="21" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="22" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="23" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="24" y="4.4" width="0.2" height="2.3" />
-    <rect class="vl" x="25" y="4.4" width="0.2" height="2.3" />
-    <text class="cls-2" transform="translate(0 4.15)">EmuLadder</text>
-</svg>
+<svg id="Layer_1" height="42" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 6.7" (click)="goHome()">
+      <defs>
+        <style>
+          .cls-1,
+          .cls-2 {
+            fill: #fff;
+          }
+    
+          .cls-2 {
+            isolation: isolate;
+            font-size: 3.52px;
+            font-family: PTSerif-Bold;
+            font-weight: 500;
+          }
+        </style>
+      </defs>
+      <title>LadderAnimFinalasdasda</title>
+      <rect id="_TopLong_" data-name=" TopLong " class="cls-1" x="0.3" y="4.5" width="21.7" height="0.2" />
+      <rect id="_BottomLong_" data-name=" BottomLong " class="cls-1" x="0.3" y="6.4" width="21.7" height="0.2" />
+      <rect class="cls-1" x="0.9" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="2.1" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="3.3" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="4.5" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="5.7" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="6.9" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="8.1" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="9.3" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="10.5" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="11.7" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="12.9" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="14.1" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="15.4" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="16.6" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="17.8" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="19" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="20.2" y="4.4" width="0.2" height="2.3" />
+      <rect class="cls-1" x="21.4" y="4.4" width="0.2" height="2.3" /><text class="cls-2"
+        transform="translate(0 4.15)">EMULADDER</text>
+    </svg>
