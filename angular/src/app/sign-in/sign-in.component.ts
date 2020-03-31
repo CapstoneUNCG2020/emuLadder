@@ -29,15 +29,19 @@ export class SignInComponent implements OnInit {
     promise.then(success => {
       if (success) {
         this.signedInService.signIn();
+        this.close();
       } else {
         this.error = true;
       }
     });
   }
 
-  openSignUp(): void {
-    // Close the Sign Up modal
+  close(): void {
     document.getElementById('close-login-btn').click();
+  }
+
+  openSignUp(): void {
+    this.close();
 
     // Open the Log In modal
     let element = document.body.children[0].children[0]
