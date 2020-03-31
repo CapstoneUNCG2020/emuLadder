@@ -55,7 +55,7 @@ table td, table th {
 table td button {
     background-color: #8ecccc;
     border-radius: 100%;
-    padding: 5px 10px;
+    padding: 0px 8px;
 }
 
 /* Center the buttons in each table */
