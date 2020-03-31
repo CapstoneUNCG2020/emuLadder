@@ -148,3 +148,17 @@ input[type=text], input[type=email], input[type=password], input[type=tel] {
     font: Light 24px PT Serif;
     letter-spacing: 0.74px;
 }
+
+#login-link {
+    color: white; 
+    font: Light 24px/28px PT Serif;
+    letter-spacing: 0.74px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.info-link {
+    font: Light 24px/28px PT Serif;
+    letter-spacing: 0.74px; 
+    color: #FFFFFF;
+}

@@ -22,4 +22,8 @@ export class SignUpComponent implements OnInit {
     this.error = !this.error;
   }
 
+  openLogIn(): void {
+    console.log('How do I do this? hmmm')
+  }
+
 }
