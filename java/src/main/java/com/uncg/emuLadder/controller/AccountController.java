@@ -6,11 +6,11 @@ import com.uncg.emuLadder.model.request.SignInRequestData;
 import com.uncg.emuLadder.model.request.SignUpRequestData;
 import com.uncg.emuLadder.model.response.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/account")
+@CrossOrigin
+@RestController
+@RequestMapping("/account")
 public class AccountController {
 
     private final SignInHandler signInHandler;
