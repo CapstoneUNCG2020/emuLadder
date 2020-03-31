@@ -19,15 +19,17 @@
     <td>
       <app-logo></app-logo>
     </td>
-    <div style="float: right">
-      <td *ngIf="isSignedIn()">
-        <button (click)="logout()">LogOut</button>
-      </td>
-      <td *ngIf="!isSignedIn()">
+    <div style="float: right" *ngIf="!isSignedIn()">
+      <td>
         <app-sign-in></app-sign-in>
       </td>
-      <td *ngIf="!isSignedIn()">
+      <td>
         <app-sign-up></app-sign-up>
+      </td>
+    </div>
+    <div style="float: right" *ngIf="isSignedIn()">
+      <td colspan="2">
+        <button (click)="logout()">LogOut</button>
       </td>
     </div>
   </tr>
