@@ -17,7 +17,7 @@
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog modal-lg" style="max-width: 1298px;">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 1298px;">
     <div class="modal-content">
       <div class="modal-body">
         <div class="container-fluid">
@@ -37,84 +37,54 @@
                   letter-spacing: 0.74px;
                   opacity: 0.8;">Already have an account? <a id="login-link">Log In</a></div>
               </div>
-              <div class="row" *ngIf="error">
+              <div class="row" *ngIf="errorMessage != undefined">
                 <div class="col-auto">
-                  <div class="error">{{ getErrorMessage() }}</div>
+                  <div class="error">{{ errorMessage }}</div>
                 </div>
               </div>
               <div class="row headers">
-                <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
-                  letter-spacing: 0.74px;
-                  color: #3A4042;">First Name</div>
-                <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
-                  letter-spacing: 0.74px;
-                  color: #3A4042;">Last Name</div>
+                <div class="col-lg-5 lg-auto">First Name</div>
+                <div class="col-lg-5 lg-auto">Last Name</div>
               </div>
               <div class="row text-boxes">
-                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="text" placeholder="John" name="fname"
-                    required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
-                    border: 1px solid #818688; font: Light 24px/28px PT Serif;
-    letter-spacing: 0.74px;
-    color: #3A4042;
-    opacity: 0.7;"></div>
-                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="text" placeholder="Doe" name="lname"
-                    required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
-                    border: 1px solid #818688; font: Light 24px/28px PT Serif;
-    letter-spacing: 0.74px;
-    color: #3A4042;
-    opacity: 0.7;"></div>
+                <div class="col-lg-5 lg-auto">
+                  <input class="TextBoxInput" type="text" placeholder="John" [(ngModel)]="firstName" required />
+                </div>
+                <div class="col-lg-5 lg-auto">
+                  <input class="TextBoxInput" type="text" placeholder="Doe" [(ngModel)]="lastName" required />
+                </div>
               </div>
               <div class="row headers">
-                <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
-                  letter-spacing: 0.74px;
-                  color: #3A4042;">Phone</div>
-                <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
-                  letter-spacing: 0.74px;
-                  color: #3A4042;">Email</div>
+                <div class="col-lg-5 lg-auto">Phone</div>
+                <div class="col-lg-5 lg-auto">Email</div>
               </div>
               <div class="row text-boxes">
-                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="tel" placeholder="(065)-941-6298"
-                    name="pnum" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
-                    border: 1px solid #818688; font: Light 24px/28px PT Serif;
-    letter-spacing: 0.74px;
-    color: #3A4042;
-    opacity: 0.7;"></div>
-                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="email" placeholder="JohnDoe@email.com"
-                    name="uname" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
-                    border: 1px solid #818688; font: Light 24px/28px PT Serif;
-    letter-spacing: 0.74px;
-    color: #3A4042;
-    opacity: 0.7;"></div>
+                <div class="col-lg-5 lg-auto">
+                  <input class="TextBoxInput" type="tel" placeholder="(065)-941-6298" [(ngModel)]="phoneNumber" required />
+                </div>
+                <div class="col-lg-5 lg-auto">
+                  <input class="TextBoxInput" type="email" placeholder="JohnDoe@email.com" [(ngModel)]="email" required />
+                  </div>
               </div>
               <div class="row headers">
-                <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
-                  letter-spacing: 0.74px;
-                  color: #3A4042;">Password</div>
-                <div class="col-lg-5 lg-auto" style="font: Light 24px/28px PT Serif;
-                  letter-spacing: 0.74px;
-                  color: #3A4042;">Confirm Password</div>
+                <div class="col-lg-5 lg-auto">Password</div>
+                <div class="col-lg-5 lg-auto">Confirm Password</div>
               </div>
               <div class="row text-boxes">
-                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="password" placeholder="*************"
-                    name="psw" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
-                    border: 1px solid #818688; font: Light 24px/28px PT Serif;
-    letter-spacing: 0.74px;
-    color: #3A4042;
-    opacity: 0.7;"></div>
-                <div class="col-lg-5 lg-auto"><input class="TextBoxInput" type="password" placeholder="*************"
-                    name="psw" required style="border-radius: 8px; background: #8ECCCC 0% 0% no-repeat padding-box;
-                    border: 1px solid #818688; font: Light 24px/28px PT Serif;
-    letter-spacing: 0.74px;
-    color: #3A4042;
-    opacity: 0.7;"></div>
+                <div class="col-lg-5 lg-auto">
+                  <input class="TextBoxInput" type="password" placeholder="*************" [(ngModel)]="password" required />
+                </div>
+                <div class="col-lg-5 lg-auto">
+                  <input class="TextBoxInput" type="password" placeholder="*************" [(ngModel)]="password2" required />
+                  </div>
               </div>
               <div class="row" id="Policy">
                 <div class="col-lg-8 lg-auto">
                   <div class="form-check">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                      <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="agreed">
                       <label class="custom-control-label" for="defaultUnchecked" style="font: Light 24px/28px PT Serif;
-                        letter-spacing: 0.74px; color: #3A4042; padding-left: 8px;">I agree to the 
+                        letter-spacing: 0.74px; color: #3A4042; padding-left: 8px;">I agree to the
                         <a href="info/terms" class="info-link">Terms</a>
                         and
                         <a href="info/privacy" class="info-link">Privacy Policy.</a>

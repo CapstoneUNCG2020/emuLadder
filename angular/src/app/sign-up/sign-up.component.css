@@ -162,3 +162,19 @@ input[type=text], input[type=email], input[type=password], input[type=tel] {
     letter-spacing: 0.74px; 
     color: #FFFFFF;
 }
+
+.TextBoxInput {
+    border-radius: 8px; 
+    background: #8ECCCC 0% 0% no-repeat padding-box;
+    border: 1px solid #818688; 
+    font: Light 24px/28px PT Serif;
+    letter-spacing: 0.74px;
+    color: #3A4042;
+    opacity: 0.7;
+}
+
+.headers {
+    font: Light 24px/28px PT Serif;
+    letter-spacing: 0.74px;
+    color: #3A4042;
+}
