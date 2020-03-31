@@ -46,6 +46,7 @@ export class SignUpComponent implements OnInit {
       promise.then(response => {
         if (response.response) {
           this.signedInService.signIn();
+          this.close();
         } else {
           this.errorMessage = response.errors.toString();
         }
@@ -77,9 +78,12 @@ export class SignUpComponent implements OnInit {
     return true;
   }
 
-  openLogIn(): void {
-    // Close the Sign Up modal
+  close(): void {
     document.getElementById('close-signup-btn').click();
+  }
+
+  openLogIn(): void {
+    this.close();
 
     // // Open the Log In modal
     let element = document.body.children[0].children[0]
