@@ -1,0 +1,18 @@
+.body {
+    background-color: transparent
+}
+
+.header h1 {
+    color: #8ceeee ;
+    font-family: Rogue Sans;
+    top: 18%;
+    left: 10%;
+    text-align: center;
+}
+
+.body img.logo {
+    height: 35%;
+    width: 35%;
+    margin-left: 60%;
+    margin-top: 5%;
+}
