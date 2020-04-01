@@ -11,3 +11,24 @@
     font-weight: bold;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Rogue Sans';
+    src: url('./light/RogueSansLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RogueSans-Medium';
+    src: url('./medium/RogueSansExtW00-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rogue Sans';
+    src: url('./bold/RogueSansBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}

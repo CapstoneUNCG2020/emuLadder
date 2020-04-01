@@ -2,43 +2,70 @@ body {
     font: lighter 22px PT Serif;
     font-family: 'PT Serif', serif;
     font-weight: 500;
+    /* background-image: url('./assets/lolRiftDarker.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-color: black; */
 }
 
-img.bg {
-    /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 1024px;
-      
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
-      
-    /* Set up positioning */
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+.background-image {
+  background-image: url("./assets/lolRiftDarker.png");
+  background-color: #000000;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
-  @media screen and (max-width: 1024px) { /* Specific to this particular image */
-    img.bg {
-      left: 50%;
-      margin-left: -512px;   /* 50% */
-    }
-  }
+.publicContests {
+  background: #212121 0% 0% no-repeat padding-box;
+  height: 1080px;
+}
 
-  .btn-primary {
+.rosterBreakdown {
+  background: #50717B 0% 0% no-repeat padding-box;
+  height: 1080px;
+}
+
+.scoringBreakdown {
+  background: #212121 0% 0% no-repeat padding-box;
+  height: 1080px;
+}
+
+.btn-primary {
     color: #fff;
     background-color: #8ECCCC;
     border-color: #8ECCCC;
     border-radius: 20px;
 }
 
+::placeholder {
+  color: white;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+button:focus, select:focus{
+  outline: none;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /*Mouse*/
 .scroll-downs {
-    margin: 0px 0 70px -22px;
+    /* margin: 0px 0 70px -22px; */
+    margin-bottom: 9%;
     line-height: 60px;
     position: absolute;
-    left: 50%;
+    left: 49%;
     bottom: 0px;
   }
   .mousey {
@@ -84,18 +111,20 @@ img.bg {
   }
   
   .wrap img {
-    margin: 0px 0 0 -28px;
+    /* margin: 0px 0 0 -28px; */
+    margin-bottom: 7%;
     line-height: 60px;
     position: absolute;
-    left: 50%;
+    left: 48.8%;
     bottom: 0px;
   }
 
   .wrap2 img {
-    margin: 0px 0 20px -28px;
+    /* margin: 0px 0 20px -28px; */
+    margin-bottom: 6%;
     line-height: 60px;
     position: absolute;
-    left: 50%;
+    left: 48.8%;
     bottom: 0px;
   }
   

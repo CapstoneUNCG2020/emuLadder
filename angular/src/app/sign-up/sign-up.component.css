@@ -32,26 +32,26 @@ body {
 }
 
 .row#Welcome {
-    margin-top: 86px;
-    margin-left: 90px;
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
 .row#Slogan{
-    margin-left: 90px;
+    margin-left: 5.5%;
 }
 
 .row#HaveAccount {
-    margin-left: 90px;
-    margin-top: 62px;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 
 .row .headers {
-    margin-left: 90px;
-    margin-top: 37px;
+    margin-left: 10%;
+    margin-top: 3%;
 }
 
 .row .text-boxes {
-    margin-left: 90px;
+    margin-left: 10%;
 }
 
 input#TextBoxInput {
@@ -59,13 +59,13 @@ input#TextBoxInput {
 }
 
 .row#Policy {
-    margin-left: 90px;
-    margin-top: 62px;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 
 .row#SignUpRow {
-    margin-left: 102px;
-    margin-top: 69px;
+    margin-left: 27%;
+    margin-top: 10%;
 }
 
 .custom-control {
