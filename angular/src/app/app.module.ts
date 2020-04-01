@@ -19,6 +19,7 @@ import { GameCardComponent } from './landing-page/game-card/game-card.component'
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { LogoComponent } from '../assets/logo/logo.component';
 import { FaqComponent } from './faq/faq.component';
+import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FaqComponent } from './faq/faq.component';
     LandingPageComponent,
     LeagueOfLegendsPageComponent,
     LogoComponent,
-    FaqComponent
+    FaqComponent,
+    ScoringRosterBreakdownComponent
   ],
   imports: [
     BrowserModule,
