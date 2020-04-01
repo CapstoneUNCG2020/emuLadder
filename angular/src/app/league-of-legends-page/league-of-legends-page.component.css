@@ -44,6 +44,11 @@ button:focus, select:focus{
   outline: none;
 }
 
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /*Mouse*/
 .scroll-downs {
     margin: 0px 0 70px -22px;
