@@ -13,13 +13,15 @@
 .body img.logo {
     height: 35%;
     width: 35%;
-    margin-left: 60%;
+    margin-left: 55%;
     margin-top: 5%;
 }
 
-.header h2 {
+.text p {
     color: #8ceeee ;
     font-family: Rogue Sans;
-    margin-top: -17%;
-    margin-left: 5%;
+    margin-top: -19%;
+    margin-left: 15%;
+    font-weight: bolder;
+    font-size: 130%;
 }
