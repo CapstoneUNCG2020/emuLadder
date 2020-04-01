@@ -23,69 +23,43 @@
 					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date5">
 					<i class="material-icons">calendar_today</i>
 				</label>
-				<div>
-					<p>Day</p><br>
-					<p>Date</p><br>
-					<p>Time</p><br>
-					<p>LCS</p>
-				</div>
-				<div>
-					<p>Day</p><br>
-					<p>Date</p><br>
-					<p>Time</p><br>
-					<p>LCS</p>
-				</div>
-				<div>
-					<p>Day</p><br>
-					<p>Date</p><br>
-					<p>Time</p><br>
-					<p>LCS</p>
-				</div>
-				<div>
-					<p>Day</p><br>
-					<p>Date</p><br>
-					<p>Time</p><br>
-					<p>LCS</p>
-				</div>
-				<div>
-					<p>Day</p><br>
-					<p>Date</p><br>
-					<p>Time</p><br>
+				<div *ngFor="let dateTime of dateTimes">
+					<p>{{dateTime.day}}</p><br>
+					<p>{{dateTime.date}}</p><br>
+					<p>{{dateTime.time}}</p><br>
 					<p>LCS</p>
 				</div>
 
 			</div>
 			<h2 class="divider">Games</h2>
 			<div *ngIf="date === 'date1'">
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
-				</div>
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
-				</div>
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
-				</div>
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
+				<div *ngFor="let teams of dateTimes[0].teams; let i = index" class="game-item">
+					<p>{{teams}}</p><br>
+					<p>{{dateTimes[0].dateAndTime[i]}}</p>
 				</div>
 			</div>
 			<div *ngIf="date === 'date2'">
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
+				<div *ngFor="let teams of dateTimes[1].teams; let i = index" class="game-item">
+					<p>{{teams}}</p><br>
+					<p>{{dateTimes[1].dateAndTime[i]}}</p>
 				</div>
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
+			</div>
+			<div *ngIf="date === 'date3'">
+				<div *ngFor="let teams of dateTimes[2].teams; let i = index" class="game-item">
+					<p>{{teams}}</p><br>
+					<p>{{dateTimes[2].dateAndTime[i]}}</p>
 				</div>
-				<div class="game-item">
-					<p>FLY v IMT</p><br>
-					<p>1/25 5:00 pm</p>
+			</div>
+			<div *ngIf="date === 'date4'">
+				<div *ngFor="let teams of dateTimes[3].teams; let i = index" class="game-item">
+					<p>{{teams}}</p><br>
+					<p>{{dateTimes[3].dateAndTime[i]}}</p>
+				</div>
+			</div>
+			<div *ngIf="date === 'date5'">
+				<div *ngFor="let teams of dateTimes[4].teams; let i = index" class="game-item">
+					<p>{{teams}}</p><br>
+					<p>{{dateTimes[4].dateAndTime[i]}}</p>
 				</div>
 			</div>
 		</div>
