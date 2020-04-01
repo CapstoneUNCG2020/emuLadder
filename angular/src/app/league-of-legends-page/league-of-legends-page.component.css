@@ -40,6 +40,10 @@ textarea:focus, input:focus{
   outline: none;
 }
 
+button:focus, select:focus{
+  outline: none;
+}
+
 /*Mouse*/
 .scroll-downs {
     margin: 0px 0 70px -22px;
