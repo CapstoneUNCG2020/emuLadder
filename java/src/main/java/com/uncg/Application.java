@@ -1,4 +1,4 @@
-package com.uncg.emuLadder;
+package com.uncg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

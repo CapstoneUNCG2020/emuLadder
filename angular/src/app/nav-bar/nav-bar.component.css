@@ -1,17 +1,5 @@
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #212121;
-    overflow: hidden;
-    height: 50px;
-}
-
-.topnav #Layer_1{
-  float: left;
-  padding: 2px 16px 2px 16px;
-}
-
 /* Style the links inside the navigation bar */
-a {
+a, button {
   /* float: left; */
   color: #f2f2f2;
   text-align: center;
@@ -20,10 +8,12 @@ a {
   font: lighter 26px Rogue Sans;
   font-family: RogueSans-Medium, Rogue Sans;
   font-weight: 500;
+  background-color: inherit;
+  border: none;
 }
 
 /* Change the color of links on hover */
-a:hover {
+a:hover, button:hover {
   background-color: #ddd;
   color: black;
 }
@@ -34,21 +24,6 @@ a.active {
   color: white;
 }
 
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-  float: right;
-}
-
-/* Left-align games and faq*/
-.topnav-left {
-  float: left;
-}
-
-/* right-align faq withing the above alignment */
-.topnav-left a.right {
-  float: right;
-}
-  
 /* Dropdown Button */
 .dropbtn {
     background-color: #212121;

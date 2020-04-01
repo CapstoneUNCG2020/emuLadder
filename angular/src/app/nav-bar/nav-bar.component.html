@@ -1,22 +1,3 @@
-<!-- <div class="topnav">
-  <div class="topnav-left">
-    <app-logo></app-logo>
-    <div class="dropdown">
-      <button class="dropbtn">Games</button>
-      <div class="dropdown-content">
-        <a href="games/leagueoflegends">League of Legends</a>
-        <a href="games/dota2">Dota 2(Coming Soon)</a>
-        <a href="games/overwatch">Overwatch(Coming Soon)</a>
-        <a href="games/csgo">CSGO(Coming Soon)</a>
-      </div>
-    </div>
-    <a class="right" href="info/faq">FAQ</a>
-  </div>
-  <div class="topnav-right">
-    <app-sign-up></app-sign-up>
-    <app-sign-in></app-sign-in>
-  </div>
-</div> -->
 <table>
   <tr>
     <div style="float: left">
@@ -24,27 +5,31 @@
         <div class="dropdown">
           <button class="dropbtn">Games</button>
           <div class="dropdown-content">
-            <a href="games/leagueoflegends">League of Legends</a>
-            <a href="games/dota2">Dota 2(Coming Soon)</a>
-            <a href="games/overwatch">Overwatch(Coming Soon)</a>
-            <a href="games/csgo">CSGO(Coming Soon)</a>
+            <a routerLink="games/leagueoflegends">League of Legends</a>
+            <a routerLink="games/dota2">Dota 2(Coming Soon)</a>
+            <a routerLink="games/overwatch">Overwatch(Coming Soon)</a>
+            <a routerLink="games/csgo">CSGO(Coming Soon)</a>
           </div>
         </div>
       </td>
       <td>
-        <a href="info/faq">FAQ</a>
+        <a routerLink="info/faq">FAQ</a>
       </td>
     </div>
     <td>
       <app-logo></app-logo>
-      <!-- logo -->
     </td>
-    <div style="float: right">
+    <div style="float: right" *ngIf="!isSignedIn()">
       <td>
         <app-sign-in></app-sign-in>
       </td>
       <td>
         <app-sign-up></app-sign-up>
+      </td>
+    </div>
+    <div style="float: right" *ngIf="isSignedIn()">
+      <td colspan="2">
+        <button (click)="logout()">LogOut</button>
       </td>
     </div>
   </tr>

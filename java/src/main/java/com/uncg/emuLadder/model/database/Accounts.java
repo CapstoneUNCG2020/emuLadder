@@ -6,10 +6,8 @@ import java.util.Objects;
 
 @Entity
 public class Accounts {
-    private String email;
-
     @Id
-    private String userId;
+    private String email;
 
     private String firstName;
 
@@ -23,14 +21,6 @@ public class Accounts {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -73,7 +63,6 @@ public class Accounts {
 
         Accounts other = (Accounts) obj;
         return Objects.equals(email, other.email) &&
-                Objects.equals(userId, other.userId) &&
                 Objects.equals(firstName, other.firstName) &&
                 Objects.equals(lastName, other.lastName) &&
                 Objects.equals(phoneNumber, other.phoneNumber);
@@ -81,14 +70,13 @@ public class Accounts {
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, userId, firstName, lastName, phoneNumber);
+        return Objects.hash(email, firstName, lastName, phoneNumber);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Accounts{");
         sb.append("email='").append(email).append('\'');
-        sb.append(", userId='").append(userId).append('\'');
         sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", phoneNumber='").append(phoneNumber).append('\'');

@@ -4,11 +4,9 @@ import com.uncg.emuLadder.model.database.compositekeys.LeagueStatsId;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import java.util.Objects;
 
 @Entity
-@IdClass(LeagueStatsId.class)
 public class LeagueStats {
     @Id
     private LeagueStatsId leagueStatsId;
