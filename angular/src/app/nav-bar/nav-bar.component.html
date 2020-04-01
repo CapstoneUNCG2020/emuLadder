@@ -2,6 +2,9 @@
   <tr>
     <div style="float: left">
       <td>
+        <app-logo></app-logo>
+      </td>
+      <td>
         <div class="dropdown">
           <button class="dropbtn">Games</button>
           <div class="dropdown-content">
@@ -16,9 +19,7 @@
         <a routerLink="info/faq">FAQ</a>
       </td>
     </div>
-    <td>
-      <app-logo></app-logo>
-    </td>
+    
     <div style="float: right" *ngIf="!isSignedIn()">
       <td>
         <app-sign-in></app-sign-in>
