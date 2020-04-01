@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-contest.component.css']
 })
 export class CreateContestComponent implements OnInit {
-
+  date = "date1"
   constructor(private router: Router) { }
 
   ngOnInit() {

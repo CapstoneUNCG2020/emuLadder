@@ -4,23 +4,23 @@
 			<h2>Choose a tournament</h2>
 			<div id="icons-grid">
 				<label>
-					<input type="radio" class="calendar" name="calendar" checked>
+					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date1" [checked]="true">
 					<i class="material-icons">calendar_today</i>
 				</label>
 				<label>
-					<input type="radio" class="calendar" name="calendar">
+					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date2">
 					<i class="material-icons">calendar_today</i>
 				</label>
 				<label>
-					<input type="radio" class="calendar" name="calendar">
+					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date3">
 					<i class="material-icons">calendar_today</i>
 				</label>
 				<label>
-					<input type="radio" class="calendar" name="calendar">
+					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date4">
 					<i class="material-icons">calendar_today</i>
 				</label>
 				<label>
-					<input type="radio" class="calendar" name="calendar">
+					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date5">
 					<i class="material-icons">calendar_today</i>
 				</label>
 				<div>
@@ -56,21 +56,37 @@
 
 			</div>
 			<h2 class="divider">Games</h2>
-			<div class="game-item">
-				<p>FLY v IMT</p><br>
-				<p>1/25 5:00 pm</p>
+			<div *ngIf="date === 'date1'">
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
 			</div>
-			<div class="game-item">
-				<p>FLY v IMT</p><br>
-				<p>1/25 5:00 pm</p>
-			</div>
-			<div class="game-item">
-				<p>FLY v IMT</p><br>
-				<p>1/25 5:00 pm</p>
-			</div>
-			<div class="game-item">
-				<p>FLY v IMT</p><br>
-				<p>1/25 5:00 pm</p>
+			<div *ngIf="date === 'date2'">
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
+				<div class="game-item">
+					<p>FLY v IMT</p><br>
+					<p>1/25 5:00 pm</p>
+				</div>
 			</div>
 		</div>
 
