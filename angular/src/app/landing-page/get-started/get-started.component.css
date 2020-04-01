@@ -12,16 +12,46 @@
 
 .body img.logo {
     height: 60%;
-    width: 45%;
-    margin-left: 48%;
-    margin-top: 4%;
+    width: 50%;
+    margin-left: 47%;
+    margin-top: 1.8%;
 }
 
-.text p {
-    color: #8ceeee ;
-    font-family: Rogue Sans;
-    margin-top: -20%;
-    margin-left: 15%;
+
+.text {
+    margin-left: 10%;
+    margin-top: -27%;
     font-weight: bolder;
-    font-size: 130%;
+}
+
+.line {
+    color: #8ceeee;
+    font-weight: bolder;
+    font-size: 200%;
+    margin-top: -0.6%;
+    margin-left: -1%;
+}
+
+
+.separator {
+    display: flex;
+    width: 16%;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 200%;
+}
+
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2.5px solid white;
+}
+
+.separator::before {
+    margin-right: .50em;
+}
+
+.separator::after {
+    margin-left: .50em;
 }
