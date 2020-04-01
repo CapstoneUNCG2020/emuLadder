@@ -22,7 +22,17 @@ body {
 
 .publicContests {
   background: #212121 0% 0% no-repeat padding-box;
-  height: 1180px;
+  height: 1080px;
+}
+
+.rosterBreakdown {
+  background: #50717B 0% 0% no-repeat padding-box;
+  height: 1080px;
+}
+
+.scoringBreakdown {
+  background: #212121 0% 0% no-repeat padding-box;
+  height: 1080px;
 }
 
 .btn-primary {
@@ -51,10 +61,11 @@ td {
 
 /*Mouse*/
 .scroll-downs {
-    margin: 0px 0 70px -22px;
+    /* margin: 0px 0 70px -22px; */
+    margin-bottom: 9%;
     line-height: 60px;
     position: absolute;
-    left: 50%;
+    left: 49%;
     bottom: 0px;
   }
   .mousey {
@@ -100,18 +111,20 @@ td {
   }
   
   .wrap img {
-    margin: 0px 0 0 -28px;
+    /* margin: 0px 0 0 -28px; */
+    margin-bottom: 7%;
     line-height: 60px;
     position: absolute;
-    left: 50%;
+    left: 48.8%;
     bottom: 0px;
   }
 
   .wrap2 img {
-    margin: 0px 0 20px -28px;
+    /* margin: 0px 0 20px -28px; */
+    margin-bottom: 6%;
     line-height: 60px;
     position: absolute;
-    left: 50%;
+    left: 48.8%;
     bottom: 0px;
   }
   
