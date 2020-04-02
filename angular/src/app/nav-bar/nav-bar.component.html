@@ -1,36 +1,38 @@
-<table>
-  <tr>
-    <div style="float: left">
-      <td>
-        <div class="dropdown">
-          <button class="dropbtn">Games</button>
-          <div class="dropdown-content">
-            <a routerLink="games/leagueoflegends">League of Legends</a>
-            <a routerLink="games/dota2">Dota 2(Coming Soon)</a>
-            <a routerLink="games/overwatch">Overwatch(Coming Soon)</a>
-            <a routerLink="games/csgo">CSGO(Coming Soon)</a>
-          </div>
+<ul>
+  <div>
+    <li style="margin-left: 5px; margin-right: 5px">
+      <div id="img-container">
+        <img src="../../assets/emuLadderAIWHITEOUT.png" height="50px" 
+          routerLink="" style="cursor: pointer" />
+      </div>
+    </li>
+    <li>
+      <div class="dropdown">
+        <button class="dropbtn">Games</button>
+        <div class="dropdown-content">
+          <a routerLink="games/leagueoflegends">League of Legends</a>
+          <a routerLink="games/dota2">Dota 2(Coming Soon)</a>
+          <a routerLink="games/overwatch">Overwatch(Coming Soon)</a>
+          <a routerLink="games/csgo">CSGO(Coming Soon)</a>
         </div>
-      </td>
-      <td>
-        <a routerLink="info/faq">FAQ</a>
-      </td>
-    </div>
-    <td>
-      <app-logo></app-logo>
-    </td>
-    <div style="float: right" *ngIf="!isSignedIn()">
-      <td>
-        <app-sign-in></app-sign-in>
-      </td>
-      <td>
-        <app-sign-up></app-sign-up>
-      </td>
-    </div>
-    <div style="float: right" *ngIf="isSignedIn()">
-      <td colspan="2">
-        <button (click)="logout()">LogOut</button>
-      </td>
-    </div>
-  </tr>
-</table>
+      </div>
+    </li>
+    <li>
+      <a routerLink="info/faq">FAQ</a>
+    </li>
+    <li>
+      <a routerLink="contest/view">Contests</a>
+    </li>
+  </div>
+  <div style="float:right">
+    <li *ngIf="isSignedIn()">
+      <button (click)="logout()">LogOut</button>
+    </li>
+    <li *ngIf="!isSignedIn()">
+      <app-sign-in></app-sign-in>
+    </li>
+    <li *ngIf="!isSignedIn()">
+      <app-sign-up></app-sign-up>
+    </li>
+  </div>
+</ul>
