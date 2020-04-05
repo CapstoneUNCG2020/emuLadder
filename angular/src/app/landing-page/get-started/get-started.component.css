@@ -17,17 +17,16 @@
     margin-top: 1.8%;
 }
 
-
 .text {
-    margin-left: 10%;
-    margin-top: -27%;
+    margin-left: 12%;
+    margin-top: -30%;
     font-weight: bolder;
 }
 
 .line {
     color: #8ceeee;
     font-weight: bolder;
-    font-size: 200%;
+    font-size: 250%;
     margin-top: -0.6%;
     margin-left: -1%;
 }
@@ -37,9 +36,9 @@
     display: flex;
     width: 16%;
     align-items: center;
-    text-align: center;
     color: white;
     font-size: 200%;
+    margin-left: 4%;
 }
 
 .separator::before, .separator::after {
