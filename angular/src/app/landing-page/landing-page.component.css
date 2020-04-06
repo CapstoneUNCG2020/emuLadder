@@ -104,7 +104,6 @@ body{
   }
 
   .wrap2 {
-    height: 100%;
     width: 100%;
     text-align: center;
   }
@@ -164,3 +163,94 @@ body{
       transform: translateY(0);
     }
   }
+
+  /* GameCard */
+  .gameCard {
+    background: #50717B 0% 0% no-repeat padding-box;
+    height: 1080px;
+  }
+
+  img#lol {
+    height: 100%;
+    width: 100%;
+  }
+
+  img.logo {
+    width: 40%; 
+    height: 40%;
+    position: absolute;
+    margin-top: 40%;
+    margin-left: -65%;
+    z-index: 1;
+  }
+
+  p.lolText {
+    color: white; 
+    font: bold 38px PT Serif; 
+    text-align: center;
+    letter-spacing: 1.61px;
+    margin-top: -20%;
+  }
+
+  p.dotaText {
+    color: black; 
+    font: bold 38px PT Serif; 
+    text-align: center;
+    letter-spacing: 1.61px;
+    margin-top: -20%;
+  }
+
+  img#dota {
+    height: 100%;
+    width: 100%;
+  }
+
+  img#overwatch {
+    height: 100%;
+    width: 100%;
+  }
+
+  img#csgo {
+    height: 100%;
+    width: 100%;
+  }
+
+  .comingsoon {
+    position: absolute;
+    top: 5%;
+    margin-top: 20%;
+    margin-left: 60%;
+    font: bold 38px PT Serif;
+    color: #8ecccc;
+    transform: matrix(0.82, -0.69, 0.69, 0.72, -218, 150);
+    z-index: 2;
+}
+
+  /* GettingStarted */
+  .gettingStarted {
+    background: #3A4042 0% 0% no-repeat padding-box;
+    height: 900px;
+  }
+
+  h1 {
+    color: #8ceeee;
+    font: bold 48px PT Serif;
+  }
+
+  img#getStartedImg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .line {
+    color: #8ceeee;
+    font: normal 38px PT Serif;
+    text-align: center;
+}
+
+.num {
+  margin-top: 1%;
+  color: white;
+  font: normal 38px PT Serif;
+  text-align: center;
+}
