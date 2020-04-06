@@ -26,13 +26,11 @@
 
 .container img {
     width: 105%;
-    margin-left: 70%;
-    margin-bottom: 30%;
   }
   
 .container .btn {
     position: absolute;
-    transform: translate(-100%, -35%);
+    transform: translate(40%, -45%);
     background-color: transparent;
     color: black;
     padding: 3%;
@@ -46,45 +44,37 @@
     color: white;
     padding: 5%;
 }
-    
 
-
-
-
-
-
-
+.container img.logo {
+    width: 60%; 
+    min-width: 2%;
+    position: absolute;
+    margin-top: -24%;
+    margin-left: 60%;
+}
 
 .bottom-center {
+    bottom: 25%;
     position: absolute;
-    bottom: 5%;
-    left: 11%;
-    font-size: 175%;
+    font-size: 155%;
     font-family: Rogue Sans;
     font-weight: bold;
-    transform: translate(-50%, -50%);
+    transform: translate(75%, 3%);
     color: white;
   }
 
 .comingsoon {
     position: absolute;
-    bottom: 20%;
-    margin-left: 3%;
-    font-size: 200%;
+    right: -20%;
+    top: 5%;
+    font-size: 180%;
     font-family: Rogue Sans;
     font-weight: bold;
     color: #8ecccc;
-    transform: matrix(0.72, -0.69, 0.69, 0.72, 0, 0);
+    transform: matrix(0.82, -0.69, 0.69, 0.72, 0, 0);
 }
 
 .row {
     display: flex;
   }
-
-.logo {
-    width: 40%; 
-    position: absolute;
-    margin-top: 7%;
-    margin-left: -20%;
-}
 
