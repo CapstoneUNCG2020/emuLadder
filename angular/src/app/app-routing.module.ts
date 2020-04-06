@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { GameCardComponent } from './landing-page/game-card/game-card.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { InviteBarComponent } from './invite-bar/invite-bar.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'contest/view', component: ContestManagementComponent},
   { path: 'games/leagueoflegends', component: LeagueOfLegendsPageComponent},
   { path: '', component: LandingPageComponent},
-  { path: 'gamecard', component: GameCardComponent},
   { path: 'games/leagueoflegends/contest/create', component: CreateContestComponent},
   { path: 'info/faq', component: FaqComponent },
   { path: 'games/leagueoflegends/breakdown', component: ScoringRosterBreakdownComponent}
