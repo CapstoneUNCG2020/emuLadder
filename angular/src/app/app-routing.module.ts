@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'games/leagueoflegends', component: LeagueOfLegendsPageComponent},
   { path: '', component: LandingPageComponent},
   { path: 'gamecard', component: GameCardComponent},
-  { path: 'contest/create', component: CreateContestComponent},
+  { path: 'games/leagueoflegends/contest/create', component: CreateContestComponent},
   { path: 'info/faq', component: FaqComponent },
   { path: 'games/leagueoflegends/breakdown', component: ScoringRosterBreakdownComponent}
 ];
