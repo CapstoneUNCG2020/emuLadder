@@ -50,10 +50,10 @@ h2 {
 
 .center {
     text-align: center;
-    margin-bottom: -4%;
+    margin-bottom: 0%;
 }
 
-.test {
+.game-item {
     display: inline-block;
     border: solid;
     border-color: #8ECCCC;
@@ -83,6 +83,7 @@ p {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     column-width: auto auto;
     justify-items: center;
+    margin-bottom: 1%;
 }
 
 #align {
@@ -154,8 +155,7 @@ p {
 .divider {
     overflow: hidden;
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: -4%;
+    margin-bottom: 1%;
 }
 
 .divider:before,
@@ -188,7 +188,7 @@ p {
     border-radius: 10px;
 }
 
-#yeet {
+#submit-button {
     text-align: right;
     margin-right: 20px;
 }

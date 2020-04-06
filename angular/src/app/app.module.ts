@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms'
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { GameCardComponent } from './landing-page/game-card/game-card.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
+import { FaqComponent } from './faq/faq.component';
+import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
 import { GetStartedComponent } from './landing-page/get-started/get-started.component';
 
 @NgModule({
@@ -33,6 +35,8 @@ import { GetStartedComponent } from './landing-page/get-started/get-started.comp
     InviteBarComponent,
     LandingPageComponent,
     LeagueOfLegendsPageComponent,
+    FaqComponent,
+    ScoringRosterBreakdownComponent,
     GetStartedComponent
   ],
   imports: [

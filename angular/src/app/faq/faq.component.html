@@ -1,0 +1,11 @@
+<body>
+    <div>
+        <h1>Frequently Asked Questions</h1>
+    </div>
+    <div *ngFor="let qa of qaList">
+        <hr />
+
+        <h3>{{ qa.question }}</h3>
+        <h6>{{ qa.answer }}</h6>
+    </div>
+</body>

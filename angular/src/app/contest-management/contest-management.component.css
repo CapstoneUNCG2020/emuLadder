@@ -1,6 +1,7 @@
 .body {
     color: white;
     font-variant: small-caps;
+    background-color: #212121;
 }
 
 /* ----------------- HEADER ----------------- */
@@ -63,6 +64,6 @@
     color: white;
     border-radius: 15px;
     border: none;
-    padding: 4px;
+    padding: 0 7px;
     font-variant: small-caps;
 }

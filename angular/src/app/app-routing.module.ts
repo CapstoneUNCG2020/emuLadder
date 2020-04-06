@@ -9,6 +9,8 @@ import { DraftingPageComponent } from './drafting-page/drafting-page.component';
 import { ContestManagementComponent } from './contest-management/contest-management.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
+import { FaqComponent } from './faq/faq.component';
+import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
 import { GetStartedComponent } from './landing-page/get-started/get-started.component';
 
 const routes: Routes = [
@@ -18,9 +20,11 @@ const routes: Routes = [
   { path: 'contest/draft', component: DraftingPageComponent},
   { path: 'contest/view', component: ContestManagementComponent},
   { path: 'games/leagueoflegends', component: LeagueOfLegendsPageComponent},
-  { path: 'landingPage', component: LandingPageComponent},
+  { path: '', component: LandingPageComponent},
   { path: 'gamecard', component: GameCardComponent},
-  { path: 'contest/create', component: CreateContestComponent},
+  { path: 'games/leagueoflegends/contest/create', component: CreateContestComponent},
+  { path: 'info/faq', component: FaqComponent },
+  { path: 'games/leagueoflegends/breakdown', component: ScoringRosterBreakdownComponent},
   { path: 'getStarted', component: GetStartedComponent}
 ];
 

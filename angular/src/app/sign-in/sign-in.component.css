@@ -1,3 +1,18 @@
+button {
+  background-color: #212121;
+  color: white;
+  font: lighter 26px Rogue Sans;
+  font-family: RogueSans-Medium, Rogue Sans;
+  font-weight: 500;
+  padding: 10px 16px;
+  border: none;
+}
+
+button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 .modal-content {
   background-color: #8ECCCC;
 }
@@ -23,7 +38,7 @@ a#ForgotPassword {
   width: 100%;
 }
 
-.row#Login {
+.row#login-modal {
   margin-top: 5px;
   margin-left: 8px;
 }
@@ -37,15 +52,16 @@ a#ForgotPassword {
   margin-top: 5px;
 }
 
-.row#Headers {
+.headers {
   margin-left: 8px;
   margin-top: 10px;
-  font: lighter 20px PT Serif;
   font-family: 'PT Serif', serif;
+  font: Light 24px PT Serif;
   letter-spacing: 0.74px;
+  color: #3A4042;
 }
 
-.row#TextBoxes {
+.row .text-boxes {
   margin-left: 8px;
   margin-top: 5px;
   font: lighter 20px PT Serif;
@@ -53,8 +69,15 @@ a#ForgotPassword {
   letter-spacing: 0.74px;
 }
 
-input#TextBoxInput {
+input {
   width: 98%;
+  border-radius: 8px; 
+  background: #8ECCCC 0% 0% no-repeat padding-box;
+  border: 1px solid #818688; 
+  font: Light 24px PT Serif;
+  letter-spacing: 0.74px;
+  color: #3A4042;
+  opacity: 0.7;
 }
 
 .row#Policy {
@@ -62,9 +85,12 @@ input#TextBoxInput {
   margin-top: 62px;
 }
 
-.row#SignUp {
+#SignUp {
   margin-left: 56px;
   margin-top: 5px;
+  font: Light 24px PT Serif;
+  letter-spacing: 0.74px;
+  color: #FFFFFF;
 }
 
 .row#HaveAccount {
@@ -84,7 +110,7 @@ a#HaveAccountLink {
   font-family: 'PT Serif', serif;
 }
 
-.button#SignUp {
+.button#front-signin-btn {
   background-color: #3A4042;
   border: none;
   color: white;
@@ -98,7 +124,7 @@ a#HaveAccountLink {
   z-index: 1;
 }
 
-.button#SignUp2 {
+.button#back-signin-btn {
   position: absolute;
   background-color: #8ECCCC;
   color: #8ECCCC;
@@ -108,4 +134,16 @@ a#HaveAccountLink {
   top: 5px;
   left: 30px;
   z-index: 0;
+}
+
+input[type=email], input[type=password] {
+  padding: 8px;
+}
+
+.row .error {
+  color: red;
+  margin-left: 8px;
+  font-family: 'PT Serif', serif;
+  font: Light 24px PT Serif;
+  letter-spacing: 0.74px;
 }

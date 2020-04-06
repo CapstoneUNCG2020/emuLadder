@@ -32,16 +32,16 @@ public class SignInService implements IService<SignInRequestData, ResponseData<B
     public ResponseData<Boolean> service(SignInRequestData requestData) {
         ResponseData<Boolean> responseData = new ResponseData<>();
 
-        Optional<AccountCredentials> op = repository.findById(requestData.getUserId());
+        Optional<AccountCredentials> op = repository.findById(requestData.getEmail());
 
         if (!op.isPresent()) {
-            String errorMessage = "Could not find user ID";
+            String errorMessage = "Could not find email";
 
             Map<String, String> errors = new HashMap<>();
-            errors.put("ERROR", errorMessage + " (" + requestData.getUserId() + ").");
+            errors.put("ERROR", errorMessage + " (" + requestData.getEmail() + ").");
             responseData.setErrors(errors);
 
-            logger.error(errorMessage + ": {}", requestData.getUserId());
+            logger.error(errorMessage + ": {}", requestData.getEmail());
             responseData.setResponse(false);
             responseData.setStatus(ResponseStatusType.ERROR.name());
             return responseData;
