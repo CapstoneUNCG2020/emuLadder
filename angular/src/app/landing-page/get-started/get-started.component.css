@@ -27,8 +27,11 @@
     color: #8ceeee;
     font-weight: bolder;
     font-size: 250%;
-    margin-top: -0.6%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     margin-left: -1%;
+    margin-right: 75%;
+    text-align: center;
 }
 
 
