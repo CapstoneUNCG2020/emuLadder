@@ -18,6 +18,43 @@
     left: 10%;
 }
 
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 21%;  
+}
+
+.container img {
+    width: 105%;
+    margin-left: 70%;
+    margin-bottom: 30%;
+  }
+  
+.container .btn {
+    position: absolute;
+    transform: translate(-100%, -35%);
+    background-color: transparent;
+    color: black;
+    padding: 3%;
+    border: none;
+    cursor: pointer;
+    border-radius: 5%;
+}
+  
+.container .btn:hover {
+    background-color: black;
+    color: white;
+    padding: 5%;
+}
+    
+
+
+
+
+
+
+
+
 .bottom-center {
     position: absolute;
     bottom: 5%;
@@ -43,14 +80,9 @@
 .row {
     display: flex;
   }
-  
-.column {
-    flex: 33.33%;
-    padding-right: -3%;
-  }
 
 .logo {
-    width: 15%; 
+    width: 40%; 
     position: absolute;
     margin-top: 7%;
     margin-left: -20%;
