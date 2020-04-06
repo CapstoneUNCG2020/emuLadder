@@ -51,7 +51,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     contest.type = 'Head-to-Head';
     contest.entryFee = 10;
     contest.prizeAmount = 20;
-    schedule.startTime = this.getTime();
+    schedule.startTime = this.getTime2();
     schedule.region = 'LCS';
     schedule.teamCode1 = 'C9';
     schedule.teamCode2 = 'TSM';
@@ -70,16 +70,16 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     contest.type = 'Multiplayer';
     contest.entryFee = 100;
     contest.prizeAmount = 1000;
-    schedule.startTime = this.getTime();
-    schedule.region = 'LCK';
-    schedule.teamCode1 = 'POG';
-    schedule.teamCode2 = 'SKT';
-    schedule.slateTime = schedule.getStartTime();
-    schedules.push(schedule);
+    // schedule.startTime = this.getTime();
+    // schedule.region = 'LCK';
+    // schedule.teamCode1 = 'POG';
+    // schedule.teamCode2 = 'SKT';
+    // schedule.slateTime = schedule.getStartTime();
+    // schedules.push(schedule);
 
-    contest.schedules = schedules;
+    // contest.schedules = schedules;
     contests.push(contest);
-    schedules = [];
+    // schedules = [];
 
     contest = new Contest();
     schedule = new Schedule();
@@ -89,16 +89,16 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     contest.type = 'Multiplayer';
     contest.entryFee = 50;
     contest.prizeAmount = 500;
-    schedule.startTime = this.getTime();
-    schedule.region = 'OCE';
-    schedule.teamCode1 = 'RAM';
-    schedule.teamCode2 = 'UND';
-    schedule.slateTime = schedule.getStartTime();
-    schedules.push(schedule);
+    // schedule.startTime = this.getTime();
+    // schedule.region = 'OCE';
+    // schedule.teamCode1 = 'RAM';
+    // schedule.teamCode2 = 'UND';
+    // schedule.slateTime = schedule.getStartTime();
+    // schedules.push(schedule);
 
-    contest.schedules = schedules;
+    // contest.schedules = schedules;
     contests.push(contest);
-    schedules = [];
+    // schedules = [];
     
     return contests;
   }
@@ -111,6 +111,18 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     time.setMilliseconds(0);
     time.setMonth(4);
     time.setDate(8);
+    time.setFullYear(2020);
+
+    return time;
+  }
+
+  private getTime2(): Date {
+    let time = new Date();
+    time.setHours(18);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMonth(4);
+    time.setDate(9);
     time.setFullYear(2020);
 
     return time;
