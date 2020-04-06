@@ -105,7 +105,7 @@
                       letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 415px">
                         </div>
                         <div class="col-7">
-                    <select id="filter" style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                    <select id="filter" style="padding-left: 1%; padding-right: 1%; background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                     letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px; float: right;">
                         <option value="low" style="background: #212121;">Lowest Entry Fee</option>
                         <option value="high" style="background: #212121;">Highest Entry Fee</option>
@@ -124,18 +124,18 @@
                     <!-- 1st fcn box -->
                     <div id="gameStylesBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <!-- Game State -->
-                                <span style="color: white; font: normal 36px PT Serif;
+                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
                                                 letter-spacing: 1.61px;">Game Styles</span>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-auto" style="align-self: center;">
+                            <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                 <!-- Radio1 -->
                                 <input type="radio" id="male" name="gender" value="male">
                             </div>
-                            <div class="col-11">
+                            <div class="col-10">
                                 <!-- Head to Head -->
                                 <span style="color: white; font: normal 24px PT Serif;
                                                     letter-spacing: 1.61px;">Head-to-Head</span>
@@ -149,11 +149,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-auto" style="align-self: center;">
+                            <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                 <!-- Radio1 -->
                                 <input type="radio" id="male" name="gender" value="male">
                             </div>
-                            <div class="col-11">
+                            <div class="col-10">
                                 <!-- Multiplayer -->
                                 <span style="color: white; font: normal 24px PT Serif;
                                                     letter-spacing: 1.61px;">Multiplayer</span>
@@ -170,20 +170,20 @@
                     <!-- Slate Box -->
                     <div id="slateBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px; margin-top: 6%;">
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <!-- Slate -->
-                                <span style="color: white; font: normal 36px PT Serif;
+                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
                                                 letter-spacing: 1.61px;">Slates</span>
                             </div>
                         </div>
                         <ng-container *ngFor="let contest of contests; let i = index">
                             <ng-container *ngFor="let schedule of contest.schedules; let j = index">
                                 <div class="row">
-                                    <div class="col-auto" style="align-self: center;">
+                                    <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                         <!-- Radio1 -->
                                         <input type="radio" id="male" name="gender" value="male">
                                     </div>
-                                    <div class="col-11">
+                                    <div class="col-10">
                                         <!-- Date -->
                                         <span
                                             style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ schedule.slateTime }}</span>
@@ -197,7 +197,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <select id="filter"
-                                            style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                                            style="padding-left: 1%; padding-right: 1%; background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                                                             letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
                                             <option value="low" style="background: #212121;">{{ schedule.slateTime + ' ET Schedule' }}</option>
                                             <option value="high" style="background: #212121;">{{ schedule.teamCode1 + ' @ ' + schedule.teamCode2 }}</option>
@@ -211,9 +211,9 @@
                     <!-- Entry Fee Box -->
                     <div id="entryFeeBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px; margin-top: 6%;">
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <!-- Entry Fee -->
-                                <span style="color: white; font: normal 36px PT Serif;
+                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
                                                 letter-spacing: 1.61px;">Entry Fee</span>
                             </div>
                         </div>
@@ -225,15 +225,11 @@
                                             letter-spacing: 1.61px; float: right;">$50,000</span>
                             <div class="col-12" style="padding-left: 0%; padding-right: 0%;">
                                 <!-- Max and Min Inputs (Should be sliders) -->
-                                <input id="TextBoxInput" type="text" placeholder="Min" name="psw" required style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                                <input id="TextBoxInput" type="text" placeholder="Min" name="psw" required style="background: transparent 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                                                 letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 50px;">
                                 <input id="TextBoxInput" type="text" placeholder="Max" name="psw" required
-                                    style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                                    style="background: transparent 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                                                 letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 50px; float: right;">
-                                <!-- <span style="color: white; font: normal 24px PT Serif;
-                                                letter-spacing: 1.61px; opacity: .7;">Min</span>
-                                                <span style="color: white; font: normal 24px PT Serif;
-                                                letter-spacing: 1.61px; opacity: .7; float: right;">Max</span> -->
                             </div>
                         </div>
                     </div>
