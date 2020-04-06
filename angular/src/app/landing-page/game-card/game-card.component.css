@@ -26,7 +26,7 @@
 
 .container img {
     width: 105%;
-  }
+}
   
 .container .btn {
     position: absolute;
@@ -61,7 +61,7 @@
     font-weight: bold;
     transform: translate(75%, 3%);
     color: white;
-  }
+}
 
 .comingsoon {
     position: absolute;
@@ -76,5 +76,4 @@
 
 .row {
     display: flex;
-  }
-
+}
