@@ -254,29 +254,3 @@ body{
   font: normal 38px PT Serif;
   text-align: center;
 }
-
-/* .separator {
-  display: flex;
-  width: 16%;
-  align-items: center;
-  color: white;
-  font-size: 200%;
-}
-
-.separator::before, .separator::after {
-  content: '';
-  flex: 1;
-  border-bottom: 2.5px solid white;
-}
-
-.separator::before {
-  margin-right: .50em;
-}
-
-.separator::after {
-  margin-left: .50em;
-} */
-
-div.wrapWords {
- 
-}
