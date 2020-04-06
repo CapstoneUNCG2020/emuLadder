@@ -8,4 +8,9 @@ export class Game {
      * The url of the link to the rules page.
      */
     rulesLink: string;
+
+    /**
+     * The id of the game
+     */
+    gameId: string;
 }

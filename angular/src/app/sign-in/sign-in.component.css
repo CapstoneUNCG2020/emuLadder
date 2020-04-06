@@ -4,7 +4,10 @@ button {
   font: lighter 26px Rogue Sans;
   font-family: RogueSans-Medium, Rogue Sans;
   font-weight: 500;
-  padding: 10px 16px;
+  padding-top: 14px;
+  padding-bottom: 13px;
+  padding-left: 16px;
+  padding-right: 16px;
   border: none;
 }
 
