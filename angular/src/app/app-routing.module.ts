@@ -11,6 +11,7 @@ import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { FaqComponent } from './faq/faq.component';
 import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
+import { GetStartedComponent } from './landing-page/get-started/get-started.component';
 
 const routes: Routes = [
   { path: 'account/signup', component: SignUpComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'gamecard', component: GameCardComponent},
   { path: 'games/leagueoflegends/contest/create', component: CreateContestComponent},
   { path: 'info/faq', component: FaqComponent },
-  { path: 'games/leagueoflegends/breakdown', component: ScoringRosterBreakdownComponent}
+  { path: 'games/leagueoflegends/breakdown', component: ScoringRosterBreakdownComponent},
+  { path: 'getStarted', component: GetStartedComponent}
 ];
 
 @NgModule({

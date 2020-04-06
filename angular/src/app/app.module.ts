@@ -19,6 +19,7 @@ import { GameCardComponent } from './landing-page/game-card/game-card.component'
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { FaqComponent } from './faq/faq.component';
 import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
+import { GetStartedComponent } from './landing-page/get-started/get-started.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scor
     LandingPageComponent,
     LeagueOfLegendsPageComponent,
     FaqComponent,
-    ScoringRosterBreakdownComponent
+    ScoringRosterBreakdownComponent,
+    GetStartedComponent
   ],
   imports: [
     BrowserModule,
