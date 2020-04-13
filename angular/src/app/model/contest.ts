@@ -1,5 +1,6 @@
 import { Game } from './game';
 import { Player } from './player';
+import { Schedule } from './schedule';
 import { DateUtil } from '../util/date-util';
 
 export class Contest {
@@ -54,8 +55,14 @@ export class Contest {
      */
     players: Array<Player>;
 
+    /**
+     * 
+     */
+    schedules: Array<Schedule>;
+
     constructor() {
         this.players = new Array<Player>();
+        this.schedules = new Array<Schedule>();
     }
 
     /**

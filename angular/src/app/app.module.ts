@@ -15,10 +15,10 @@ import { DraftingPageComponent } from './drafting-page/drafting-page.component';
 import { InviteBarComponent } from './invite-bar/invite-bar.component';
 import { FormsModule } from '@angular/forms'
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { GameCardComponent } from './landing-page/game-card/game-card.component';
 import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of-legends-page.component';
 import { FaqComponent } from './faq/faq.component';
 import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,6 @@ import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scor
     CreateContestComponent,
     DraftingPageComponent,
     LandingPageComponent,
-    GameCardComponent,
     InviteBarComponent,
     LandingPageComponent,
     LeagueOfLegendsPageComponent,
@@ -42,7 +41,8 @@ import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scor
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

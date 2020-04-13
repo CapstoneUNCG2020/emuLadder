@@ -105,7 +105,7 @@
                       letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 415px">
                         </div>
                         <div class="col-7">
-                    <select id="filter" style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                    <select id="filter" style="padding-left: 1%; padding-right: 1%; background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                     letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px; float: right;">
                         <option value="low" style="background: #212121;">Lowest Entry Fee</option>
                         <option value="high" style="background: #212121;">Highest Entry Fee</option>
@@ -124,18 +124,18 @@
                     <!-- 1st fcn box -->
                     <div id="gameStylesBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <!-- Game State -->
-                                <span style="color: white; font: normal 36px PT Serif;
+                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
                                                 letter-spacing: 1.61px;">Game Styles</span>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-auto" style="align-self: center;">
+                            <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                 <!-- Radio1 -->
                                 <input type="radio" id="male" name="gender" value="male">
                             </div>
-                            <div class="col-11">
+                            <div class="col-10">
                                 <!-- Head to Head -->
                                 <span style="color: white; font: normal 24px PT Serif;
                                                     letter-spacing: 1.61px;">Head-to-Head</span>
@@ -149,11 +149,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-auto" style="align-self: center;">
+                            <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                 <!-- Radio1 -->
                                 <input type="radio" id="male" name="gender" value="male">
                             </div>
-                            <div class="col-11">
+                            <div class="col-10">
                                 <!-- Multiplayer -->
                                 <span style="color: white; font: normal 24px PT Serif;
                                                     letter-spacing: 1.61px;">Multiplayer</span>
@@ -170,47 +170,50 @@
                     <!-- Slate Box -->
                     <div id="slateBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px; margin-top: 6%;">
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <!-- Slate -->
-                                <span style="color: white; font: normal 36px PT Serif;
+                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
                                                 letter-spacing: 1.61px;">Slates</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-auto" style="align-self: center;">
-                                <!-- Radio1 -->
-                                <input type="radio" id="male" name="gender" value="male">
-                            </div>
-                            <div class="col-11">
-                                <!-- Date -->
-                                <span style="color: white; font: normal 24px PT Serif;
-                                                    letter-spacing: 1.61px;">Thu 7:00pm ET</span>
-                                <div class="col-10" style="padding-left: 0%;">
-                                    <!-- Event Name -->
-                                    <span style="color: white; font: normal 24px PT Serif;
-                                                                            letter-spacing: 1.61px; opacity: .7;">LCS</span>
+                        <ng-container *ngFor="let contest of contests; let i = index">
+                            <ng-container *ngFor="let schedule of contest.schedules; let j = index">
+                                <div class="row">
+                                    <div class="col-auto" style="align-self: center; padding-left: 4%;">
+                                        <!-- Radio1 -->
+                                        <input type="radio" id="male" name="gender" value="male">
+                                    </div>
+                                    <div class="col-10">
+                                        <!-- Date -->
+                                        <span
+                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ schedule.slateTime }}</span>
+                                        <div class="col-10" style="padding-left: 0%;">
+                                            <!-- Event Name -->
+                                            <span
+                                                style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px; opacity: .7;">{{ schedule.region }}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <select id="filter"
-                                    style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
-                                                                    letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
-                                    <option value="low" style="background: #212121;">Thu 7:00pm ET Schedule</option>
-                                    <option value="high" style="background: #212121;">G2 @ 100 <br> Thu 7:00pm ET</option>
-                                    <option value="open" style="background: #212121;">C9 @ EVL <br> Thu 9:00pm ET</option>
-                                </select>
-                            </div>
-                        </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <select id="filter"
+                                            style="padding-left: 1%; padding-right: 1%; background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                                                            letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
+                                            <option value="low" style="background: #212121;">{{ schedule.slateTime + ' ET Schedule' }}</option>
+                                            <option value="high" style="background: #212121;">{{ schedule.teamCode1 + ' @ ' + schedule.teamCode2 }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
                     </div>
 
                     <!-- Entry Fee Box -->
                     <div id="entryFeeBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px; margin-top: 6%;">
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col-8">
                                 <!-- Entry Fee -->
-                                <span style="color: white; font: normal 36px PT Serif;
+                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
                                                 letter-spacing: 1.61px;">Entry Fee</span>
                             </div>
                         </div>
@@ -222,15 +225,11 @@
                                             letter-spacing: 1.61px; float: right;">$50,000</span>
                             <div class="col-12" style="padding-left: 0%; padding-right: 0%;">
                                 <!-- Max and Min Inputs (Should be sliders) -->
-                                <input id="TextBoxInput" type="text" placeholder="Min" name="psw" required style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                                <input id="TextBoxInput" type="text" placeholder="Min" name="psw" required style="background: transparent 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                                                 letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 50px;">
                                 <input id="TextBoxInput" type="text" placeholder="Max" name="psw" required
-                                    style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
+                                    style="background: transparent 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
                                                 letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 50px; float: right;">
-                                <!-- <span style="color: white; font: normal 24px PT Serif;
-                                                letter-spacing: 1.61px; opacity: .7;">Min</span>
-                                                <span style="color: white; font: normal 24px PT Serif;
-                                                letter-spacing: 1.61px; opacity: .7; float: right;">Max</span> -->
                             </div>
                         </div>
                     </div>
@@ -242,43 +241,40 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="col-8">
+                <div class="col-8" style="overflow-y:auto; max-height: 800px;">
                     <table style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
+                        <!-- <div *ngFor="let item of tableShit"> -->
+                        <tr *ngFor="let contest of contests" style="border-bottom:2pt solid #8ECCCC;">
                             <td style="padding-left: 5px; padding-right: 10px;">
                                 <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
                             </td>
                             <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
+                                <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ contest.name }}</span>
+                                <!-- <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public League of Legends Tournament 1</span> -->
                             </td>
                             <td style="padding-left: 80px;">
-                                <div class="row">
+                                <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
+                                        <span style="color: white; font: normal 20px PT Serif;
+                                                                                            letter-spacing: 1.61px;">{{ contest.currentEntries + ' of ' + contest.maxEntries}}</span>
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
+                                        <span style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">{{ contest.maxEntries + '% Full'}}</span>
                                     </div>
                                 </div>
                             </td>
                             <td style="padding-left: 80px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
+                                        <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ contest.prizeAmount }}</span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
+                                        <span style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed
+                                            in Prizes</span>
                                     </div>
                                 </div>
                             </td>
@@ -288,14 +284,13 @@
                             <td style="padding-left: 40px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
+                                        <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ contest.entryFee }}</span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
+                                        <span style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry
+                                            Fee</span>
                                     </div>
                                 </div>
                             </td>
@@ -303,546 +298,7 @@
                                 <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
                             </td>
                         </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
-
-                        <tr style="border-bottom:2pt solid #8ECCCC;">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
-                            </td>
-                            <td>
-                                <span
-                                    style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public
-                                    League of Legends Tournament 1</span>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px;">10 of 20</span>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">50% Full</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed in Prizes</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">$0</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span
-                                            style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry Fee</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
-                            </td>
-                        </tr>
+                        <!-- </div> -->
                     </table>
                 </div>
             </div>

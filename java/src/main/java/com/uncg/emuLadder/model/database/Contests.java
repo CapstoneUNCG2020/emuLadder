@@ -26,6 +26,8 @@ public class Contests {
 
     private double prizeAmount;
 
+    private int opponent;
+
     public int getContestId() {
         return contestId;
     }
@@ -98,6 +100,14 @@ public class Contests {
         this.prizeAmount = prizeAmount;
     }
 
+    public int getOpponent() {
+        return opponent;
+    }
+
+    public void setOpponent(int opponent) {
+        this.opponent = opponent;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,12 +121,13 @@ public class Contests {
                 Double.compare(contests.prizeAmount, prizeAmount) == 0 &&
                 Objects.equals(createdBy, contests.createdBy) &&
                 Objects.equals(startTime, contests.startTime) &&
-                Objects.equals(name, contests.name);
+                Objects.equals(name, contests.name) &&
+                opponent == contests.opponent;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount);
+        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, opponent);
     }
 
     @Override
@@ -131,6 +142,7 @@ public class Contests {
         sb.append(", contestSize=").append(contestSize);
         sb.append(", entreeFee=").append(entreeFee);
         sb.append(", prizeAmount=").append(prizeAmount);
+        sb.append(", opponent=").append(opponent);
         sb.append('}');
         return sb.toString();
     }
