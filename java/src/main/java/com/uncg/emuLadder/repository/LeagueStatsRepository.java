@@ -9,5 +9,4 @@ import java.util.List;
 
 @Repository
 public interface LeagueStatsRepository extends JpaRepository<LeagueStats, LeagueStatsId> {
-    List<LeagueStats> findByMatchIdAndTeamId(String matchId, String teamId);
 }
