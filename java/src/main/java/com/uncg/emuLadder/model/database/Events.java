@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Events {
     @Id
-    private int eventId;
+    private String eventId;
 
     private String name;
 
@@ -26,11 +26,11 @@ public class Events {
 
     private String teamCode2;
 
-    public int getEventId() {
+    public String getEventId() {
         return eventId;
     }
 
-    public void setEventId(int eventId) {
+    public void setEventId(String eventId) {
         this.eventId = eventId;
     }
 
@@ -103,8 +103,8 @@ public class Events {
         if (this == o) return true;
         if (!(o instanceof Events)) return false;
         Events events = (Events) o;
-        return eventId == events.eventId &&
-                currentState == events.currentState &&
+        return currentState == events.currentState &&
+                Objects.equals(eventId, events.eventId) &&
                 Objects.equals(name, events.name) &&
                 Objects.equals(startTime, events.startTime) &&
                 Objects.equals(link, events.link) &&
@@ -116,8 +116,7 @@ public class Events {
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, name, startTime, currentState, link, teamName, teamCode, teamName2,
-                teamCode2);
+        return Objects.hash(eventId, name, startTime, currentState, link, teamName, teamCode, teamName2, teamCode2);
     }
 
     @Override
