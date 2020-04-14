@@ -3,9 +3,11 @@ package com.uncg.emuLadder.controller;
 import com.uncg.emuLadder.service.bl.UpdatePointsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/update")
+@RestController
+@RequestMapping("/update")
 public class UpdateController {
 
     private final UpdatePointsService updatePointsService;

@@ -6,9 +6,11 @@ import com.uncg.emuLadder.model.response.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/drafting")
+@RestController
+@RequestMapping("/drafting")
 public class DraftingController {
 
     private final DraftingDataHandler draftingDataHandler;
@@ -19,7 +21,7 @@ public class DraftingController {
      * @param contestId { contestId }
      * @return - DraftingData { contest, players[] }
      */
-    @GetMapping("/{contestId}")
+    @GetMapping("{contestId}")
     public ResponseData<DraftingData> getContestData(@PathVariable Integer contestId) {
         return draftingDataHandler.handle(contestId);
     }
