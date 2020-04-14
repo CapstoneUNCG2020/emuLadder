@@ -32,6 +32,11 @@ public class CreateContestRequestData {
      */
     private String createdBy;
 
+    /**
+     * Region for the event.
+     */
+    private String region;
+
     public Date getStart() {
         return start;
     }
@@ -72,6 +77,14 @@ public class CreateContestRequestData {
         this.createdBy = createdBy;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,13 +93,14 @@ public class CreateContestRequestData {
         return entreeFee == that.entreeFee &&
                 contestType == that.contestType &&
                 Objects.equals(start, that.start) &&
+                Objects.equals(name, that.name) &&
                 Objects.equals(createdBy, that.createdBy) &&
-                Objects.equals(name, that.name);
+                Objects.equals(region, that.region);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(start, entreeFee, contestType, name, createdBy);
+        return Objects.hash(start, entreeFee, contestType, name, createdBy, region);
     }
 
     @Override
@@ -97,6 +111,7 @@ public class CreateContestRequestData {
         sb.append(", contestType=").append(contestType);
         sb.append(", name='").append(name).append('\'');
         sb.append(", createdBy='").append(createdBy).append('\'');
+        sb.append(", region='").append(region).append('\'');
         sb.append('}');
         return sb.toString();
     }
