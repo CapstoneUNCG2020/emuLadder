@@ -27,6 +27,11 @@ public class CreateContestRequestData {
      */
     private String name;
 
+    /**
+     * Email of person who created the event.
+     */
+    private String createdBy;
+
     public Date getStart() {
         return start;
     }
@@ -59,6 +64,14 @@ public class CreateContestRequestData {
         this.name = name;
     }
 
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,12 +80,13 @@ public class CreateContestRequestData {
         return entreeFee == that.entreeFee &&
                 contestType == that.contestType &&
                 Objects.equals(start, that.start) &&
+                Objects.equals(createdBy, that.createdBy) &&
                 Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(start, entreeFee, contestType, name);
+        return Objects.hash(start, entreeFee, contestType, name, createdBy);
     }
 
     @Override
@@ -82,6 +96,7 @@ public class CreateContestRequestData {
         sb.append(", entreeFee=").append(entreeFee);
         sb.append(", contestType=").append(contestType);
         sb.append(", name='").append(name).append('\'');
+        sb.append(", createdBy='").append(createdBy).append('\'');
         sb.append('}');
         return sb.toString();
     }
