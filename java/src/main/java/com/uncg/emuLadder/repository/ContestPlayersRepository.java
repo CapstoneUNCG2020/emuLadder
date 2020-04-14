@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ContestPlayersRepository extends JpaRepository<ContestPlayers, Integer> {
-    List<ContestPlayers> findAllByContestId(int ContestId);
+    List<ContestPlayers> findAllByContestId(int contestId);
+    ContestPlayers findByContestIdAndPlayerId(int contestId, String playerId);
 }
