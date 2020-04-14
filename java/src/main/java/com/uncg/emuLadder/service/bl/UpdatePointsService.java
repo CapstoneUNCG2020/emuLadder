@@ -30,7 +30,7 @@ public class UpdatePointsService {
         this.leagueStatsRepository = leagueStatsRepository;
     }
 
-    public void updatePoints() {
+    public boolean updatePoints() {
         logger.info("Updating event points");
 
         List<EventPoints> eventPointsList = eventPointsRepository.findAll();
@@ -57,5 +57,6 @@ public class UpdatePointsService {
         }
 
         logger.info("Updating successful.");
+        return true;
     }
 }
