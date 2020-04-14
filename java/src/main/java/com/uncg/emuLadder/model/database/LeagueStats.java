@@ -5,6 +5,7 @@ import com.uncg.emuLadder.model.database.compositekeys.LeagueStatsId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
+import static com.uncg.emuLadder.enums.LeagueScoring.*;
 
 @Entity
 public class LeagueStats {
@@ -161,5 +162,24 @@ public class LeagueStats {
         sb.append(", barons=").append(barons);
         sb.append('}');
         return sb.toString();
+    }
+
+    /**
+     * Return the point value for the league match.
+     *
+     * @return - int value of the sum of points
+     */
+    public int calculate() {
+        int points = 0;
+
+        points += kills * KILL.getValue();
+        points += deaths * DEATH.getValue();
+        points += assists * ASSIST.getValue();
+        points += creepScore * CREEP_SCORE.getValue();
+        points += TURRETS.getValue();
+        points += DRAGONS.getValue();
+        points += BARONS.getValue();
+
+        return points;
     }
 }
