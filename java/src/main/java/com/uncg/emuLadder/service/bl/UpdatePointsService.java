@@ -2,6 +2,7 @@ package com.uncg.emuLadder.service.bl;
 
 import com.uncg.emuLadder.model.database.EventPoints;
 import com.uncg.emuLadder.model.database.LeagueStats;
+import com.uncg.emuLadder.model.database.compositekeys.LeagueStatsId;
 import com.uncg.emuLadder.repository.EventPointsRepository;
 import com.uncg.emuLadder.repository.LeagueStatsRepository;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UpdatePointsService {
@@ -34,23 +36,20 @@ public class UpdatePointsService {
         List<EventPoints> eventPointsList = eventPointsRepository.findAll();
 
         for (EventPoints eventPoints : eventPointsList) {
-            String matchId = eventPoints.getMatchId();
-            String teamId = eventPoints.getTeamId();
+            LeagueStatsId id = new LeagueStatsId();
+            id.setMatchId(eventPoints.getMatchId());
+            id.setParticipantNumber(eventPoints.getParticipantNumber());
 
-            /* Check to see if duplicates or no values for match ID and team ID */
-            List<LeagueStats> leagueStatsList = leagueStatsRepository.findByMatchIdAndTeamId(
-                    matchId, teamId);
+            /* Check to see exists */
+            Optional<LeagueStats> optional = leagueStatsRepository.findById(id);
 
-            if (leagueStatsList.size() == 0) {
-                logger.error("No league stats with match ID {} and team ID {}", matchId, teamId);
-                continue; // Skip due to error
-            } else if (leagueStatsList.size() > 1) {
-                logger.error("Multiple matching league stats with match ID {} and team ID {}", matchId, teamId);
+            if (!optional.isPresent()) {
+                logger.error("No league stats with ID: {}", id);
                 continue; // Skip due to error
             }
 
             /* Set the point values */
-            LeagueStats leagueStats = leagueStatsList.get(0);
+            LeagueStats leagueStats = optional.get();
             eventPoints.setPoints(leagueStats.calculate());
 
             // Save the new information to the DB table
