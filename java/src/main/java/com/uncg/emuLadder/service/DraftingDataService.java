@@ -55,12 +55,14 @@ public class DraftingDataService implements IService<Integer, ResponseData<Draft
         if (contest == null) {
             responseData.setStatus(ResponseStatusType.ERROR.name());
             errors.put("CONTEST ERROR", "No contest data to display.");
+            logger.error("No contest data to display for contest ID {}", contestId);
         }
 
         /* Check for errors in getting player information */
         if (players == null || players.length == 0) {
             responseData.setStatus(ResponseStatusType.ERROR.name());
             errors.put("PLAYER ERROR", "No players available to draft.");
+            logger.error("No players available to draft for contest ID {}", contestId);
         }
 
         responseData.setErrors(errors);
