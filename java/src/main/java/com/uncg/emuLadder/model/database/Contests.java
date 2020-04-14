@@ -28,6 +28,8 @@ public class Contests {
 
     private int opponent;
 
+    private String region;
+
     public int getContestId() {
         return contestId;
     }
@@ -108,6 +110,14 @@ public class Contests {
         this.opponent = opponent;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -119,15 +129,16 @@ public class Contests {
                 contestSize == contests.contestSize &&
                 Double.compare(contests.entreeFee, entreeFee) == 0 &&
                 Double.compare(contests.prizeAmount, prizeAmount) == 0 &&
+                opponent == contests.opponent &&
                 Objects.equals(createdBy, contests.createdBy) &&
                 Objects.equals(startTime, contests.startTime) &&
                 Objects.equals(name, contests.name) &&
-                opponent == contests.opponent;
+                Objects.equals(region, contests.region);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, opponent);
+        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, opponent, region);
     }
 
     @Override
@@ -143,6 +154,7 @@ public class Contests {
         sb.append(", entreeFee=").append(entreeFee);
         sb.append(", prizeAmount=").append(prizeAmount);
         sb.append(", opponent=").append(opponent);
+        sb.append(", region='").append(region).append('\'');
         sb.append('}');
         return sb.toString();
     }
