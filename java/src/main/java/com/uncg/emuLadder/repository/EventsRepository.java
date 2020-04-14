@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface EventsRepository extends JpaRepository<Events, Integer> {
-    List<Events> findAllByStartTimeAndName(Date startTime, String name);
+    List<Events> findAllByStartTimeAfterAndStartTimeBeforeAndName(Date start, Date end, String name);
 }
