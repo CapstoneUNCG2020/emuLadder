@@ -16,8 +16,8 @@ public class UpdateController {
      * Update the event points table with values from League Stats
      */
     @GetMapping("/points")
-    public void updatePoints() {
-        updatePointsService.updatePoints();
+    public boolean updatePoints() {
+        return updatePointsService.updatePoints();
     }
 
     @Autowired
