@@ -13,6 +13,8 @@ public class ContestPlayers {
 
     private String playerId;
 
+    private int rank;
+
     public int getContestPlayersId() {
         return contestPlayersId;
     }
@@ -27,6 +29,14 @@ public class ContestPlayers {
 
     public void setContestId(int contestId) {
         this.contestId = contestId;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public String getPlayerId() {
@@ -54,12 +64,13 @@ public class ContestPlayers {
         ContestPlayers that = (ContestPlayers) o;
         return contestPlayersId == that.contestPlayersId &&
                 contestId == that.contestId &&
+                rank == that.rank &&
                 Objects.equals(playerId, that.playerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestPlayersId, contestId, playerId);
+        return Objects.hash(contestPlayersId, contestId, playerId, rank);
     }
 
     @Override
@@ -68,6 +79,7 @@ public class ContestPlayers {
         sb.append("contestPlayersId=").append(contestPlayersId);
         sb.append(", contestId=").append(contestId);
         sb.append(", playerId=").append(playerId);
+        sb.append(", rank=").append(rank);
         sb.append('}');
         return sb.toString();
     }
