@@ -1,13 +1,13 @@
 package com.uncg.emuLadder.enums;
 
-public enum ContestTypes {
-    HEAD_TO_HEAD(0),
-    PUBLIC(1),
-    PRIVATE(2);
+public enum ContestStates {
+    NOT_STARTED(0),
+    IN_PROGRESS(1),
+    FINISHED(2);
 
     private final int value;
 
-    ContestTypes(int value) {
+    ContestStates(int value) {
         this.value = value;
     }
 
