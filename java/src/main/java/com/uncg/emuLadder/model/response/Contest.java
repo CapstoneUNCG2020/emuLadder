@@ -8,7 +8,7 @@ public class Contest {
 
     private Timestamp start;
 
-    private String contestType;
+    private int contestType;
 
     private int currentEntries;
 
@@ -34,11 +34,11 @@ public class Contest {
         this.start = start;
     }
 
-    public String getContestType() {
+    public int getContestType() {
         return contestType;
     }
 
-    public void setContestType(String contestType) {
+    public void setContestType(int contestType) {
         this.contestType = contestType;
     }
 
@@ -79,13 +79,13 @@ public class Contest {
         if (this == o) return true;
         if (!(o instanceof Contest)) return false;
         Contest contest = (Contest) o;
-        return currentEntries == contest.currentEntries &&
+        return contestType == contest.contestType &&
+                currentEntries == contest.currentEntries &&
                 totalEntries == contest.totalEntries &&
                 Double.compare(contest.entreeFee, entreeFee) == 0 &&
                 Double.compare(contest.prizeAmount, prizeAmount) == 0 &&
                 Objects.equals(name, contest.name) &&
-                Objects.equals(start, contest.start) &&
-                Objects.equals(contestType, contest.contestType);
+                Objects.equals(start, contest.start);
     }
 
     @Override

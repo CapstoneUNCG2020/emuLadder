@@ -21,7 +21,7 @@ public class ContestData {
     /**
      * Head-to-Head, Public, or Private
      */
-    private String contestType;
+    private int contestType;
 
     /**
      * Amount of spaces left in the contest to join.
@@ -60,11 +60,11 @@ public class ContestData {
         this.name = name;
     }
 
-    public String getContestType() {
+    public int getContestType() {
         return contestType;
     }
 
-    public void setContestType(String contestType) {
+    public void setContestType(int contestType) {
         this.contestType = contestType;
     }
 
@@ -146,12 +146,12 @@ public class ContestData {
         if (!(o instanceof ContestData)) return false;
         ContestData that = (ContestData) o;
         return contestId == that.contestId &&
+                contestType == that.contestType &&
                 remainingSpaces == that.remainingSpaces &&
                 totalSpaces == that.totalSpaces &&
                 Double.compare(that.entryFee, entryFee) == 0 &&
                 Double.compare(that.prizeAmount, prizeAmount) == 0 &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(contestType, that.contestType) &&
                 Objects.equals(startTime, that.startTime) &&
                 Objects.equals(players, that.players) &&
                 Objects.equals(events, that.events);
