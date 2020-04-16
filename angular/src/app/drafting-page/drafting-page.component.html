@@ -4,7 +4,7 @@
 
         <table>
             <tr>
-                <td>{{ contest.type }}</td>
+                <td>{{ contest.getContestType() }}</td>
                 <td>{{ contest.currentEntries }}/{{ contest.maxEntries }}</td>
                 <td style="color: #8ecccc">${{ contest.entryFee }}</td>
                 <td>${{ contest.prizeAmount }}</td>

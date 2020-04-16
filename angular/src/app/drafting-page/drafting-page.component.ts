@@ -38,9 +38,9 @@ export class DraftingPageComponent implements OnInit {
 
     contest = new Contest();
     contest.name = 'Public League of Legends Tournament 1';
-    contest.currentEntries = 0;
-    contest.maxEntries = 2;
-    contest.type = 'Head-to-Head';
+    contest.remainingSpaces = 0;
+    contest.totalSpaces = 2;
+    contest.contestType = 0;
     contest.entryFee = 0;
     contest.prizeAmount = 0;
     contest.startingSalary = 40000;
