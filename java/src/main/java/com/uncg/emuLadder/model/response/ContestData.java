@@ -1,6 +1,7 @@
 package com.uncg.emuLadder.model.response;
 
-import java.sql.Date;
+import com.uncg.emuLadder.model.database.Events;
+
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
@@ -42,6 +43,8 @@ public class ContestData {
     private Timestamp startTime;
 
     private List<Player> players;
+
+    private List<Events> events;
 
     public String getName() {
         return name;
@@ -107,6 +110,22 @@ public class ContestData {
         this.players = players;
     }
 
+    public double getEntryFee() {
+        return entryFee;
+    }
+
+    public void setEntryFee(double entryFee) {
+        this.entryFee = entryFee;
+    }
+
+    public List<Events> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Events> events) {
+        this.events = events;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -119,13 +138,13 @@ public class ContestData {
                 Objects.equals(name, that.name) &&
                 Objects.equals(contestType, that.contestType) &&
                 Objects.equals(startTime, that.startTime) &&
-                Objects.equals(players, that.players);
+                Objects.equals(players, that.players) &&
+                Objects.equals(events, that.events);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, contestType, remainingSpaces, totalSpaces, entryFee, prizeAmount,
-                startTime, players);
+        return Objects.hash(name, contestType, remainingSpaces, totalSpaces, entryFee, prizeAmount, startTime, players, events);
     }
 
     @Override
@@ -135,10 +154,11 @@ public class ContestData {
         sb.append(", contestType='").append(contestType).append('\'');
         sb.append(", remainingSpaces=").append(remainingSpaces);
         sb.append(", totalSpaces=").append(totalSpaces);
-        sb.append(", entreeFee=").append(entryFee);
+        sb.append(", entryFee=").append(entryFee);
         sb.append(", prizeAmount=").append(prizeAmount);
         sb.append(", startTime=").append(startTime);
         sb.append(", players=").append(players);
+        sb.append(", events=").append(events);
         sb.append('}');
         return sb.toString();
     }
