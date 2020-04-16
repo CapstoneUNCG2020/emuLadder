@@ -41,6 +41,7 @@ public class ContestDataService implements IService<Integer, ResponseData<Contes
         contestData.setStartTime(contest.getStart());
         contestData.setRemainingSpaces(contest.getCurrentEntries());
         contestData.setTotalSpaces(contest.getTotalEntries());
+        contestData.setContestId(requestData);
 
         Player[] players = playerDetailService.getPlayers(requestData);
         contestData.setPlayers(Arrays.asList(players));

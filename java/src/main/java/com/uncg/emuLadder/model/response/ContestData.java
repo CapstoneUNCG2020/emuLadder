@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class ContestData {
+
+    /**
+     * Unique ID for the contest.
+     */
+    private int contestId;
+
     /**
      * The name of the contest.
      */
@@ -126,12 +132,21 @@ public class ContestData {
         this.events = events;
     }
 
+    public int getContestId() {
+        return contestId;
+    }
+
+    public void setContestId(int contestId) {
+        this.contestId = contestId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ContestData)) return false;
         ContestData that = (ContestData) o;
-        return remainingSpaces == that.remainingSpaces &&
+        return contestId == that.contestId &&
+                remainingSpaces == that.remainingSpaces &&
                 totalSpaces == that.totalSpaces &&
                 Double.compare(that.entryFee, entryFee) == 0 &&
                 Double.compare(that.prizeAmount, prizeAmount) == 0 &&
@@ -144,13 +159,14 @@ public class ContestData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, contestType, remainingSpaces, totalSpaces, entryFee, prizeAmount, startTime, players, events);
+        return Objects.hash(contestId, name, contestType, remainingSpaces, totalSpaces, entryFee, prizeAmount, startTime, players, events);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("ContestData{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("contestId=").append(contestId);
+        sb.append(", name='").append(name).append('\'');
         sb.append(", contestType='").append(contestType).append('\'');
         sb.append(", remainingSpaces=").append(remainingSpaces);
         sb.append(", totalSpaces=").append(totalSpaces);
