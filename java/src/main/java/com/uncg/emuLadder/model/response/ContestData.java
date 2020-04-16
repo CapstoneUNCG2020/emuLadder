@@ -1,6 +1,7 @@
 package com.uncg.emuLadder.model.response;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,7 +39,7 @@ public class ContestData {
     /**
      * Date and time the contest starts.
      */
-    private Date startTime;
+    private Timestamp startTime;
 
     private List<Player> players;
 
@@ -90,11 +91,11 @@ public class ContestData {
         this.prizeAmount = prizeAmount;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
