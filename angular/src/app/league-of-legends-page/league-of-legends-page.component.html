@@ -12,18 +12,15 @@
     <div class="background-image">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-auto" style="font: Bold 121px BeaufortforLOL; color: white;">FANTASY</div>
+                <div class="col-auto" id="FANTASY">FANTASY</div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <img class="LOLlogo" src="../../assets/LOLlogo.png" style="width: 50%; height: 90%; margin: auto;    
-                        display: block;">
+                    <img class="LOLlogo" src="../../assets/LOLlogo.png">
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 4%;">
-                <a routerLink="contest/create" class="btn btn-primary" href="#" role="button" style=" z-index: 1; font: lighter 34px PT Serif;
-                    letter-spacing: 0.74px;
-                    color: #FFFFFF;">Create Contest</a>
+                <a id="CreateContest1" routerLink="contest/create" class="btn btn-primary" href="#" role="button">Create Contest</a>
             </div>
             <div class="row justify-content-center">
                 <div class="scroll-downs">
@@ -46,8 +43,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <span style="color: white; font: Bold 42px PT Serif;
-                    letter-spacing: 1.61px;">Public Contests</span>
+                    <span id="publicContests">Public Contests</span>
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 4 22 3" style="enable-background:new 0 0 22 6.7;" xml:space="preserve">
                     <style type="text/css">
@@ -81,14 +77,12 @@
                     <!-- Stuff on Left -->
                     <div class="row">
                         <div class="col-auto">
-                            <a routerLink="contest/create" class="btn btn-primary" href="#" role="button" style=" z-index: 1; font: lighter 34px PT Serif;
-                                                    letter-spacing: 0.74px; color: #FFFFFF; margin-top: 9%;">Create Contest</a>
+                            <a id="CreateContest2" routerLink="contest/create" class="btn btn-primary" href="#" role="button">Create Contest</a>
                         </div>
                         <div class="col-auto">
-                            <span style="color: white; font: normal 42px PT Serif; letter-spacing: 1.61px; float: left;">4:19:17:51</span>
+                            <span id="ContestStartTime">4:19:17:51</span>
                             <div class="col-auto align-self-end">
-                                <span style="color: white; font: normal 24px PT Serif;
-                                                letter-spacing: 1.61px; opacity: 0.7; float: right;">Contest Starts</span>
+                                <span id="ContestStart">Contest Starts</span>
                             </div>
                         </div>
                     </div>
@@ -97,22 +91,18 @@
                     <!-- Stuff on Right -->
                     <div class="row">
                         <div class="col-auto">
-                            <i class="fas fa-search" style="color:white; opacity: 0.7;"></i>
+                            <i class="fas fa-search"></i>
                         </div>
                         <div class="col-4">
-                            <input id="TextBoxInput" type="text" placeholder="Search League of Legends Tournaments" name="psw" required
-                      style="background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
-                      letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 415px">
+                            <input id="TournamentSearch" type="text" placeholder="Search League of Legends Tournaments" name="psw" required>
                         </div>
                         <div class="col-7">
-                    <select id="filter" style="padding-left: 1%; padding-right: 1%; background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
-                    letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px; float: right;">
+                    <select id="filterFee">
                         <option value="low" style="background: #212121;">Lowest Entry Fee</option>
                         <option value="high" style="background: #212121;">Highest Entry Fee</option>
                         <option value="open" style="background: #212121;">Open Slots</option>
                     </select>
-                            <span style="color: white; font: normal 24px PT Serif;
-                    letter-spacing: 1.61px; opacity: 0.7; float: right;">Sort Contest By:</span>
+                            <span id="SortContest">Sort Contest By:</span>
                         </div>
                     </div>
                 </div>
@@ -122,12 +112,11 @@
                 <!-- Left Side -->
                 <div class="col-4">
                     <!-- 1st fcn box -->
-                    <div id="gameStylesBox" style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
+                    <div id="gameStylesBox">
                         <div class="row">
                             <div class="col-8">
                                 <!-- Game State -->
-                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
-                                                letter-spacing: 1.61px;">Game Styles</span>
+                                <span id="LeftSideHeaders">Game Styles</span>
                             </div>
                         </div>
                         <div class="row">
@@ -137,12 +126,10 @@
                             </div>
                             <div class="col-10">
                                 <!-- Head to Head -->
-                                <span style="color: white; font: normal 24px PT Serif;
-                                                    letter-spacing: 1.61px;">Head-to-Head</span>
+                                <span id="GameStylesSubHeaders">Head-to-Head</span>
                                 <div class="col-10" style="padding-left: 0%;">
                                     <!-- Sentence -->
-                                    <span style="color: white; font: normal 24px PT Serif;
-                                                                            letter-spacing: 1.61px; opacity: .7;">1v1 style contest with
+                                    <span id="opponentTypeSubheading">1v1 style contest with
                                         salary cap and winner
                                         takes all</span>
                                 </div>
@@ -155,12 +142,10 @@
                             </div>
                             <div class="col-10">
                                 <!-- Multiplayer -->
-                                <span style="color: white; font: normal 24px PT Serif;
-                                                    letter-spacing: 1.61px;">Multiplayer</span>
+                                <span id="GameStylesSubHeaders">Multiplayer</span>
                                 <div class="col-10" style="padding-left: 0%;">
                                     <!-- Sentence -->
-                                    <span style="color: white; font: normal 24px PT Serif;
-                                                                            letter-spacing: 1.61px; opacity: .7;">3-10 player contest with
+                                    <span id="opponentTypeSubheading">3-10 player contest with
                                         salary cap and division of winnings</span>
                                 </div>
                             </div>
@@ -172,8 +157,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <!-- Slate -->
-                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
-                                                letter-spacing: 1.61px;">Slates</span>
+                                <span id="LeftSideHeaders">Slates</span>
                             </div>
                         </div>
                         <ng-container *ngFor="let contest of contests; let i = index">
@@ -185,20 +169,16 @@
                                     </div>
                                     <div class="col-10">
                                         <!-- Date -->
-                                        <span
-                                            style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ schedule.slateTime }}</span>
+                                        <span id="slateTime">{{ schedule.slateTime }}</span>
                                         <div class="col-10" style="padding-left: 0%;">
                                             <!-- Event Name -->
-                                            <span
-                                                style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px; opacity: .7;">{{ schedule.region }}</span>
+                                            <span id="slateRegion">{{ schedule.region }}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <select id="filter"
-                                            style="padding-left: 1%; padding-right: 1%; background: #212121 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
-                                                            letter-spacing: 0.74px; color: white; border: none; background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
+                                        <select id="slateFilter">
                                             <option value="low" style="background: #212121;">{{ schedule.slateTime + ' ET Schedule' }}</option>
                                             <option value="high" style="background: #212121;">{{ schedule.teamCode1 + ' @ ' + schedule.teamCode2 }}</option>
                                         </select>
@@ -213,30 +193,20 @@
                         <div class="row">
                             <div class="col-8">
                                 <!-- Entry Fee -->
-                                <span style="padding-left: 4%; color: white; font: normal 36px PT Serif;
-                                                letter-spacing: 1.61px;">Entry Fee</span>
+                                <span id="LeftSideHeaders">Entry Fee</span>
                             </div>
                         </div>
                         <div class="col-10">
                             <!-- Max and Min -->
-                            <span style="color: white; font: normal 24px PT Serif;
-                                                letter-spacing: 1.61px;">$0</span>
-                            <span style="color: white; font: normal 24px PT Serif;
-                                            letter-spacing: 1.61px; float: right;">$50,000</span>
+                            <span id="entryMoneyLeft">$0</span>
+                            <span id="entryMoneyRight">$50,000</span>
                             <div class="col-12" style="padding-left: 0%; padding-right: 0%;">
                                 <!-- Max and Min Inputs (Should be sliders) -->
-                                <input id="TextBoxInput" type="text" placeholder="Min" name="psw" required style="background: transparent 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
-                                                letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 50px;">
-                                <input id="TextBoxInput" type="text" placeholder="Max" name="psw" required
-                                    style="background: transparent 0% 0% no-repeat padding-box; font: Light 24px PT Serif; 
-                                                letter-spacing: 0.74px; color: white; opacity: 0.7; border: none; width: 50px; float: right;">
+                                <input id="TextBoxInputEntryMoneyLeft" type="text" placeholder="Min" name="psw" required>
+                                <input id="TextBoxInputEntryMoneyRight" type="text" placeholder="Max" name="psw" required>
                             </div>
                         </div>
                     </div>
-
-
-                    
-
                 <!-- End of Left Side -->
                 </div>
 
@@ -246,56 +216,54 @@
                         <!-- <div *ngFor="let item of tableShit"> -->
                         <tr *ngFor="let contest of contests" style="border-bottom:2pt solid #8ECCCC;">
                             <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg" style="transform: rotate(-90deg); color: #8ECCCC;"></i>
+                                <i class="fas fa-bookmark fa-lg"></i>
                             </td>
                             <td>
-                                <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ contest.name }}</span>
-                                <!-- <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">Public League of Legends Tournament 1</span> -->
+                                <span id="tableContestName">{{ contest.name }}</span>
                             </td>
                             <td style="padding-left: 80px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span style="color: white; font: normal 20px PT Serif;
-                                                                                            letter-spacing: 1.61px;">{{ contest.remainingSpaces + ' of ' + contest.totalSpaces}}</span>
+                                        <span id="tableContestSpace">{{ contest.remainingSpaces + ' of ' + contest.totalSpaces}}</span>
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">{{ contest.totalSpaces + '% Full'}}</span>
+                                        <span id="tableContestSpacePercent">{{ contest.totalSpaces + '% Full'}}</span>
                                     </div>
                                 </div>
                             </td>
                             <td style="padding-left: 80px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ contest.prizeAmount }}</span>
+                                        <span id="tableContestPrizeAmount">{{ contest.prizeAmount }}</span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-auto">
-                                        <span style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Guaranteed
+                                        <span id="tableContestGuaranteed">Guaranteed
                                             in Prizes</span>
                                     </div>
                                 </div>
                             </td>
                             <td style="padding-left: 40px;">
-                                <i class="fas fa-coins" style="color: #8ECCCC;"></i>
+                                <i class="fas fa-coins"></i>
                             </td>
                             <td style="padding-left: 40px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span style="color: white; font: normal 24px PT Serif; letter-spacing: 1.61px;">{{ contest.entryFee }}</span>
+                                        <span id="tableContestEntryFee">{{ contest.entryFee }}</span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-auto">
-                                        <span style="color: white; font: normal 18px PT Serif; letter-spacing: 1.61px; opacity: .7;">Entry
+                                        <span id="tableContestEntryFeeText">Entry
                                             Fee</span>
                                     </div>
                                 </div>
                             </td>
                             <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right" style="color: #8ECCCC;"></i>
+                                <i class="fas fa-chevron-right"></i>
                             </td>
                         </tr>
                         <!-- </div> -->
@@ -309,8 +277,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <span style="color: white; font: Bold 42px PT Serif;
-                    letter-spacing: 1.61px;">Roster Breakdown</span>
+                    <span id="rosterBreakdown">Roster Breakdown</span>
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 4 22 3" style="enable-background:new 0 0 22 6.7;" xml:space="preserve">
                     <style type="text/css">
@@ -348,15 +315,12 @@
             <!-- Roster Slogan Paragraph -->
             <div class="row justify-content-center">
                 <div class="col-5">
-                    <p style="color: white; font: normal 42px PT Serif; text-align: center;
-                    letter-spacing: 1.61px;">Pick one player from each position to fill your team!</p>
+                    <p id="RosterBreakdownText">Pick one player from each position to fill your team!</p>
                 </div>
             </div>
             <!-- Button to Roster Breakdown -->
             <div class="row justify-content-center">
-                <a routerLink="breakdown" class="btn btn-primary" href="#" role="button" style=" z-index: 1; font: lighter 44px PT Serif;
-                    letter-spacing: 0.74px;
-                    color: #FFFFFF;">In Depth Roster Breakdown</a>
+                <a id="rosterBreakdownButton" routerLink="breakdown" class="btn btn-primary" href="#" role="button">In Depth Roster Breakdown</a>
             </div>
         </div>
     </div>
@@ -365,8 +329,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <span style="color: white; font: Bold 42px PT Serif;
-                    letter-spacing: 1.61px;">Scoring Breakdown</span>
+                    <span id="scoringBreakdown">Scoring Breakdown</span>
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 4 22 3" style="enable-background:new 0 0 22 6.7;" xml:space="preserve">
                     <style type="text/css">
@@ -403,9 +366,7 @@
             </div>
             <!-- Button to Roster Breakdown -->
             <div class="row justify-content-center" style="margin-top: 4%;">
-                <a routerLink="breakdown" class="btn btn-primary" href="#" role="button" style=" z-index: 1; font: lighter 44px PT Serif;
-                    letter-spacing: 0.74px;
-                    color: #FFFFFF;">In Depth Scoring Breakdown</a>
+                <a id="scoringBreakdownButton" routerLink="breakdown" class="btn btn-primary" href="#" role="button">In Depth Scoring Breakdown</a>
             </div>
         </div>
     </div>
