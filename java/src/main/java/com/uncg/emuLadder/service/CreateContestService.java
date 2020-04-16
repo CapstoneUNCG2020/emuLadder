@@ -7,12 +7,14 @@ import com.uncg.emuLadder.model.request.CreateContestRequestData;
 import com.uncg.emuLadder.model.response.ContestData;
 import com.uncg.emuLadder.model.response.ResponseData;
 import com.uncg.emuLadder.repository.*;
+import com.uncg.emuLadder.service.bl.ContestDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.*;
 
 @Component
@@ -36,6 +38,8 @@ public class CreateContestService implements IService<CreateContestRequestData, 
     private final ContestPlayersRepository contestPlayersRepository;
     private final PlayersRepository playersRepository;
 
+    private final ContestDataService contestDataService;
+
     /**
      * Error map.
      */
@@ -44,6 +48,8 @@ public class CreateContestService implements IService<CreateContestRequestData, 
     @Override
     public ResponseData<ContestData> service(CreateContestRequestData requestData) {
         ResponseData<ContestData> responseData = new ResponseData<>();
+
+        logger.info("Saving initial details: {}", requestData);
 
         // Create the contest object for the database
         Contests dbContest = createContestObj(requestData);
@@ -58,35 +64,32 @@ public class CreateContestService implements IService<CreateContestRequestData, 
         Contests contest = contestsRepository.saveAndFlush(dbContest);
         logger.info("Saved contest: {}", contest);
 
-        // Select the events for the contest
-        List<Events> events = getNextEvents(contest);
+//        // Select the events for the contest
+//        List<Events> events = getNextEvents(contest);
+//
+//        for (Events event : events) {
+//            ContestEvents contestEvent = new ContestEvents();
+//            contestEvent.setContestId(contest.getContestId());
+//            contestEvent.setEventId(event.getEventId());
+//
+//            contestEventsRepository.saveAndFlush(contestEvent);
+//        }
+//
+//        logger.info("Successfully saved events for new contest: {}", events);
+//
+//        List<Players> players = getPlayers(events);
+//
+//        for (Players player : players) {
+//            ContestPlayers contestPlayers = new ContestPlayers();
+//            contestPlayers.setContestId(contest.getContestId());
+//            contestPlayers.setPlayerId(player.getPlayerId());
+//
+//            contestPlayersRepository.saveAndFlush(contestPlayers);
+//        }
+//
+//        logger.info("Successfully saved all players for new contest: {}", players);
 
-        for (Events event : events) {
-            ContestEvents contestEvent = new ContestEvents();
-            contestEvent.setContestId(contest.getContestId());
-            contestEvent.setEventId(event.getEventId());
-
-            contestEventsRepository.save(contestEvent);
-        }
-
-        // Send changes to database
-        contestEventsRepository.flush();
-        logger.info("Successfully saved events for new contest: {}", events);
-
-        List<Players> players = getPlayers(events);
-
-        for (Players player : players) {
-            ContestPlayers contestPlayers = new ContestPlayers();
-            contestPlayers.setContestId(contest.getContestId());
-            contestPlayers.setPlayerId(player.getPlayerId());
-
-            contestPlayersRepository.save(contestPlayers);
-        }
-
-        contestPlayersRepository.flush();
-        logger.info("Successfully saved all players for new contest: {}", players);
-
-        return responseData;
+        return contestDataService.service(contest.getContestId());
     }
 
     /**
@@ -124,8 +127,8 @@ public class CreateContestService implements IService<CreateContestRequestData, 
      * @return - The list of events that are in the contest.
      */
     private List<Events> getNextEvents(Contests contest) {
-        Date start = contest.getStartTime();
-        Date end = Date.valueOf(start.toLocalDate().plusDays(1));
+        Timestamp start = contest.getStartTime();
+        Timestamp end = Timestamp.valueOf(start.toLocalDateTime().plusDays(1));
         String region = contest.getRegion();
 
         List<Events> events = eventsRepository.findAllByStartTimeAfterAndStartTimeBeforeAndName(start, end, region);
@@ -184,12 +187,14 @@ public class CreateContestService implements IService<CreateContestRequestData, 
         final EventsRepository eventsRepository,
         final ContestEventsRepository contestEventsRepository,
         final ContestPlayersRepository contestPlayersRepository,
-        final PlayersRepository playersRepository
+        final PlayersRepository playersRepository,
+        final ContestDataService contestDataService
     ) {
         this.contestsRepository = contestsRepository;
         this.eventsRepository = eventsRepository;
         this.contestEventsRepository = contestEventsRepository;
         this.contestPlayersRepository = contestPlayersRepository;
         this.playersRepository = playersRepository;
+        this.contestDataService = contestDataService;
     }
 }

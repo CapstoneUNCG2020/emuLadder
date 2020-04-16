@@ -1,12 +1,12 @@
 package com.uncg.emuLadder.model.response;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Contest {
     private String name;
 
-    private Date start;
+    private Timestamp start;
 
     private String contestType;
 
@@ -26,11 +26,11 @@ public class Contest {
         this.name = name;
     }
 
-    public Date getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(Timestamp start) {
         this.start = start;
     }
 

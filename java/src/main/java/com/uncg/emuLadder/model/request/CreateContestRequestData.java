@@ -1,6 +1,7 @@
 package com.uncg.emuLadder.model.request;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
@@ -10,7 +11,7 @@ public class CreateContestRequestData {
     /**
      * The date that the contest starts
      */
-    private Date start;
+    private Timestamp start;
 
     /**
      * The price to enter contest
@@ -37,11 +38,11 @@ public class CreateContestRequestData {
      */
     private String region;
 
-    public Date getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(Timestamp start) {
         this.start = start;
     }
 
