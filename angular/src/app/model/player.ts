@@ -22,5 +22,5 @@ export class Player {
     /**
      * The unique player ID
      */
-    id: number;
+    playerId: string;
 }

@@ -275,6 +275,26 @@ export class DraftingPageComponent implements OnInit {
   }
 
   saveLineup(): void {
-    this.router.navigateByUrl('contest/view');
+    if (this.selectedPlayers.length != 5) {
+      this.errorMessage = 'Please select a player of each position.';
+    } else {
+      let playerIdList = new Array<string>();
+
+      // Comparator
+      this.selectedPlayers.sort(function(a,b) {
+        if (a.role < b.role) {
+          return -1;
+        } else if (a.role > b.role) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      .forEach(player => playerIdList.push(player.playerId));
+
+      
+
+      // this.router.navigateByUrl('contest/view');
+    }
   }
 }
