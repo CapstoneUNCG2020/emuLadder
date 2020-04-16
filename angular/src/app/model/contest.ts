@@ -12,18 +12,18 @@ export class Contest {
     /**
      * Type of Contest: Multiplayer or Head-to-Head.
      */
-    type: string;
+    contestType: string;
 
     /**
      * Maximum number of users who can sign up for
      * this contest.
      */
-    maxEntries: number;
+    totalSpaces: number;
 
     /**
      * Current number of users who have signed up for this contest.
      */
-    currentEntries: number;
+    remainingSpaces: number;
 
     /**
      * The price to enter this contest.
