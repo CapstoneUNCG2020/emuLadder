@@ -42,7 +42,6 @@ export class DraftingPageComponent implements OnInit {
         let contestObj = Object.assign(new Contest(), JSON.parse(contestString));
 
         this.contest = contestObj;
-        console.log(this.contest);
 
         this.resetPlayers();
 
