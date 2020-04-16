@@ -7,13 +7,10 @@ import com.uncg.emuLadder.model.request.CreateContestRequestData;
 import com.uncg.emuLadder.model.response.ContestData;
 import com.uncg.emuLadder.model.response.ResponseData;
 import com.uncg.emuLadder.repository.*;
-import com.uncg.emuLadder.service.bl.ContestDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -49,8 +46,6 @@ public class CreateContestService implements IService<CreateContestRequestData, 
     public ResponseData<ContestData> service(CreateContestRequestData requestData) {
         ResponseData<ContestData> responseData = new ResponseData<>();
 
-        logger.info("Saving initial details: {}", requestData);
-
         // Create the contest object for the database
         Contests dbContest = createContestObj(requestData);
 
@@ -62,32 +57,41 @@ public class CreateContestService implements IService<CreateContestRequestData, 
 
         // Save the contest to the database
         Contests contest = contestsRepository.saveAndFlush(dbContest);
-        logger.info("Saved contest: {}", contest);
+        final int CONTEST_ID = contest.getContestId();
+        logger.info("Saved contest: {}", CONTEST_ID);
 
-//        // Select the events for the contest
-//        List<Events> events = getNextEvents(contest);
-//
-//        for (Events event : events) {
-//            ContestEvents contestEvent = new ContestEvents();
-//            contestEvent.setContestId(contest.getContestId());
-//            contestEvent.setEventId(event.getEventId());
-//
-//            contestEventsRepository.saveAndFlush(contestEvent);
-//        }
-//
-//        logger.info("Successfully saved events for new contest: {}", events);
-//
-//        List<Players> players = getPlayers(events);
-//
-//        for (Players player : players) {
-//            ContestPlayers contestPlayers = new ContestPlayers();
-//            contestPlayers.setContestId(contest.getContestId());
-//            contestPlayers.setPlayerId(player.getPlayerId());
-//
-//            contestPlayersRepository.saveAndFlush(contestPlayers);
-//        }
-//
-//        logger.info("Successfully saved all players for new contest: {}", players);
+        // Select the events for the contest
+        List<Events> events = getNextEvents(contest);
+        List<ContestEvents> contestEventsList = new ArrayList<>();
+
+        for (Events event : events) {
+            ContestEvents contestEvent = new ContestEvents();
+            contestEvent.setContestId(CONTEST_ID);
+            contestEvent.setEventId(event.getEventId());
+
+            contestEventsList.add(contestEvent);
+        }
+        contestEventsRepository.saveAll(contestEventsList);
+
+        logger.info("Successfully saved events for new contest: {}", CONTEST_ID);
+
+        List<Players> players = getPlayers(events);
+        List<ContestPlayers> contestPlayersList = new ArrayList<>();
+
+        for (Players player : players) {
+            ContestPlayers contestPlayers = new ContestPlayers();
+            contestPlayers.setContestId(CONTEST_ID);
+            contestPlayers.setPlayerId(player.getPlayerId());
+
+            contestPlayersList.add(contestPlayers);
+        }
+
+        contestPlayersRepository.saveAll(contestPlayersList);
+
+        logger.info("Successfully saved all players for new contest: {}", CONTEST_ID);
+
+        contestEventsRepository.flush();
+        contestPlayersRepository.flush();
 
         return contestDataService.service(contest.getContestId());
     }
@@ -106,14 +110,10 @@ public class CreateContestService implements IService<CreateContestRequestData, 
             teamCodes.add(event.getTeamCode2());
         }
 
-        List<Players> playersList = playersRepository.findAll();
-
         Set<Players> playersSet = new HashSet<>();
 
-        for (Players player : playersList) {
-            if (teamCodes.contains(player.getTeamCode())) {
-                playersSet.add(player);
-            }
+        for (String teamCode : teamCodes) {
+            playersSet.addAll(playersRepository.findAllByTeamCode(teamCode));
         }
 
         return new ArrayList<>(playersSet);
