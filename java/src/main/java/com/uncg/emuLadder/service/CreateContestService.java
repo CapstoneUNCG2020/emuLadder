@@ -7,6 +7,7 @@ import com.uncg.emuLadder.model.request.CreateContestRequestData;
 import com.uncg.emuLadder.model.response.ContestData;
 import com.uncg.emuLadder.model.response.ResponseData;
 import com.uncg.emuLadder.repository.*;
+import com.uncg.emuLadder.service.bl.ContestEventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class CreateContestService implements IService<CreateContestRequestData, 
     private final PlayersRepository playersRepository;
 
     private final ContestDataService contestDataService;
+    private final ContestEventService contestEventService;
 
     /**
      * Error map.
@@ -61,7 +63,7 @@ public class CreateContestService implements IService<CreateContestRequestData, 
         logger.info("Saved contest: {}", CONTEST_ID);
 
         // Select the events for the contest
-        List<Events> events = getNextEvents(contest);
+        List<Events> events = contestEventService.getNextEvents(contest.getStartTime(), contest.getRegion());
         List<ContestEvents> contestEventsList = new ArrayList<>();
 
         for (Events event : events) {
@@ -119,24 +121,6 @@ public class CreateContestService implements IService<CreateContestRequestData, 
         return new ArrayList<>(playersSet);
     }
 
-    /**
-     * Returns the events that start on the same day as
-     * the contest, capped at 5, in the same region.
-     *
-     * @param contest - The contest being created.
-     * @return - The list of events that are in the contest.
-     */
-    private List<Events> getNextEvents(Contests contest) {
-        Timestamp start = contest.getStartTime();
-        Timestamp end = Timestamp.valueOf(start.toLocalDateTime().plusDays(1));
-        String region = contest.getRegion();
-
-        List<Events> events = eventsRepository.findAllByStartTimeAfterAndStartTimeBeforeAndName(start, end, region);
-
-        // Return only 5 events max
-        return events.size() <= 5 ? events :  events.subList(0, 5);
-    }
-
     private Contests createContestObj(CreateContestRequestData requestData) {
         Contests dbContest = new Contests();
 
@@ -188,7 +172,8 @@ public class CreateContestService implements IService<CreateContestRequestData, 
         final ContestEventsRepository contestEventsRepository,
         final ContestPlayersRepository contestPlayersRepository,
         final PlayersRepository playersRepository,
-        final ContestDataService contestDataService
+        final ContestDataService contestDataService,
+        final ContestEventService contestEventService
     ) {
         this.contestsRepository = contestsRepository;
         this.eventsRepository = eventsRepository;
@@ -196,5 +181,6 @@ public class CreateContestService implements IService<CreateContestRequestData, 
         this.contestPlayersRepository = contestPlayersRepository;
         this.playersRepository = playersRepository;
         this.contestDataService = contestDataService;
+        this.contestEventService = contestEventService;
     }
 }
