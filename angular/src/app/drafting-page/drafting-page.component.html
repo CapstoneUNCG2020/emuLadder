@@ -38,45 +38,49 @@
 
     <div class="container" id="available-players">
         <h3>Available Players</h3>
-        <table>
-            <tr>
-                <th></th>
-                <th>
-                    <button id="a-p-n" class="header-btn" (click)="sort('a-p-n', true)">Name</button>
-                </th>
-                <th>
-                    <button id="a-p-p" class="header-btn" (click)="sort('a-p-p', true)">Position</button>
-                </th>
-                <th>
-                    <button id="a-p-r" class="header-btn" (click)="sort('a-p-r', true)">Rank</button>
-                </th>
-                <th>
-                    <button id="a-p-s" class="header-btn" (click)="sort('a-p-s', true)">Salary</button>
-                </th>
-                <th>
-                    Add
-                </th>
-            </tr>
-            <tr *ngFor="let player of availablePlayers">
-                <td>
-                    <img src="{{ player.image }}" width="100" >
-                </td>
-                <td>
-                    {{ player.name }}
-                </td>
-                <td>
-                    {{ player.role }}
-                </td>
-                <td>
-                    {{ player.rank }}
-                </td>
-                <td>
-                    ${{ player.salary }}
-                </td>
-                <td>
-                    <button (click)="addPlayer(player)">+</button>
-                </td>
-            </tr>
+        <table style="width: 100%;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        <button id="a-p-n" class="header-btn" (click)="sort('a-p-n', true)">Name</button>
+                    </th>
+                    <th>
+                        <button id="a-p-p" class="header-btn" (click)="sort('a-p-p', true)">Position</button>
+                    </th>
+                    <th>
+                        <button id="a-p-r" class="header-btn" (click)="sort('a-p-r', true)">Rank</button>
+                    </th>
+                    <th>
+                        <button id="a-p-s" class="header-btn" (click)="sort('a-p-s', true)">Salary</button>
+                    </th>
+                    <th>
+                        Add
+                    </th>
+                </tr>
+            </thead>
+            <tbody style="display: block; overflow:auto; height: 800px;">
+                <tr *ngFor="let player of availablePlayers">
+                    <td>
+                        <img src="{{ player.image }}" width="100">
+                    </td>
+                    <td>
+                        {{ player.name }}
+                    </td>
+                    <td>
+                        {{ player.role }}
+                    </td>
+                    <td>
+                        {{ player.rank }}
+                    </td>
+                    <td>
+                        ${{ player.salary }}
+                    </td>
+                    <td>
+                        <button (click)="addPlayer(player)">+</button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
