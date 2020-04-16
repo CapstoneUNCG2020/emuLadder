@@ -48,7 +48,6 @@ public class ContestDataService implements IService<Integer, ResponseData<Contes
 
         List<Events> events = contestEventService.getNextEvents(contest.getStart(), "LCS");
         contestData.setEvents(events);
-        logger.info("Contest data: {}", contestData );
 
         responseData.setStatus(ResponseStatusType.SUCCESS.name());
         responseData.setResponse(contestData);
