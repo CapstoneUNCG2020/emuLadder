@@ -1,18 +1,21 @@
 package com.uncg.emuLadder.model.database;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 public class Contests {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contestId;
 
     private String createdBy;
 
-    private Date startTime;
+    private Timestamp startTime;
 
     private String name;
 
@@ -44,11 +47,11 @@ public class Contests {
         this.createdBy = createdBy;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
