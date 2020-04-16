@@ -297,6 +297,15 @@ export class DraftingPageComponent implements OnInit {
 
       let promise = this.draftingService.draftPlayers(playerIdList, this.contestId);
 
+      promise.then(success => {
+        if (success) {
+          console.log("SUCCESS");
+        } else {
+          this.errorMessage = 'something went wrong';
+          console.log("NOT SUCCESS");
+        }
+      });
+
       // this.router.navigateByUrl('contest/view');
     }
   }
