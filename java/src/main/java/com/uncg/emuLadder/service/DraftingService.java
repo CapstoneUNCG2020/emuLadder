@@ -32,7 +32,8 @@ public class DraftingService implements IService<DraftingRequestData, ResponseDa
         ResponseData<Boolean> responseData = new ResponseData<>();
 
         // Delete existing drafting information
-        contestParticipantsRepository.deleteAllByContestIdAndEmail(requestData.getContestId(), requestData.getEmail());
+        int x = contestParticipantsRepository.deleteAllByContestIdAndEmail(requestData.getContestId(), requestData.getEmail());
+        logger.info("return value from deletion: {}", x);
 
         ContestParticipants contestParticipants = new ContestParticipants();
         contestParticipants.setContestId(requestData.getContestId());

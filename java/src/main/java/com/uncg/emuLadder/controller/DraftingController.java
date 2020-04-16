@@ -2,7 +2,6 @@ package com.uncg.emuLadder.controller;
 
 import com.uncg.emuLadder.handler.DraftingHandler;
 import com.uncg.emuLadder.model.request.DraftingRequestData;
-import com.uncg.emuLadder.model.response.DraftingData;
 import com.uncg.emuLadder.model.response.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,7 @@ public class DraftingController {
      * @param requestData { email, contestId, bottom, jungle, mid, support, top }
      * @return - DraftingData { contest, players[] }
      */
-    @GetMapping("/draft")
+    @PostMapping("/draft")
     public ResponseData<Boolean> draftPlayers(@RequestBody DraftingRequestData requestData) {
         return draftingHandler.handle(requestData);
     }
