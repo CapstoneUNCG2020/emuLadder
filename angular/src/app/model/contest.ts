@@ -69,6 +69,7 @@ export class Contest {
     constructor() {
         this.players = new Array<Player>();
         this.schedules = new Array<Schedule>();
+        this.startingSalary = 25000;
     }
 
     /**
