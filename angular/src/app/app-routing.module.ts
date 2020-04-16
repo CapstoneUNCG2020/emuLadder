@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'account/signup', component: SignUpComponent},
   { path: 'account/signin', component: SignInComponent},
   { path: 'contest/invite', component: InviteBarComponent},
-  { path: 'contest/draft', component: DraftingPageComponent},
+  { path: 'contest/draft/:contestId', component: DraftingPageComponent},
   { path: 'contest/view', component: ContestManagementComponent},
   { path: 'games/leagueoflegends', component: LeagueOfLegendsPageComponent},
   { path: '', component: LandingPageComponent},
