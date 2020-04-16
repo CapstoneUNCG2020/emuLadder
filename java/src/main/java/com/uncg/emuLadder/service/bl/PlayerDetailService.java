@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class PlayerDetailService {
@@ -57,16 +58,21 @@ public class PlayerDetailService {
     }
 
     public Player[] getPlayers(int contestId) {
-        List<ContestPlayers> contestPlayersList = contestPlayersRepository.findAllByContestId(contestId);
-        Player[] players = new Player[contestPlayersList.size()];
+        // Get a list of all player IDs
+        List<String> playerIds = contestPlayersRepository.findAllByContestId(contestId).stream()
+                .map(ContestPlayers::getPlayerId).collect(Collectors.toList());
 
-        for (int i = 0; i < players.length; i++) {
-            String playerId = contestPlayersList.get(i).getPlayerId();
-            players[i] = getPlayerDetails(playerId);
+        Player[] players = new Player[playerIds.size()];
 
-            int rank = getRank(contestId, playerId);
-            players[i].setRank(rank);
-        }
+//        for (int i = 0; i < players.length; i++) {
+//            String playerId = contestPlayersList.get(i).getPlayerId();
+//            players[i] = getPlayerDetails(playerId);
+//
+//            players[i] = new Player();
+//
+//            int rank = getRank(contestId, playerId);
+//            players[i].setRank(rank);
+//        }
 
         return players;
     }
