@@ -43,6 +43,7 @@ public class PlayerDetailService {
         player.setName(dbPlayer.getFirstName() + " " + dbPlayer.getLastName());
         player.setRole(dbPlayer.getRole());
         player.setSalary(dbPlayer.getSalary());
+        player.setPlayerId(dbPlayer.getPlayerId());
 
         return player;
     }
