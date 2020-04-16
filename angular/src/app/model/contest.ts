@@ -12,7 +12,7 @@ export class Contest {
     /**
      * Type of Contest: Multiplayer or Head-to-Head.
      */
-    contestType: string;
+    contestType: number;
 
     /**
      * Maximum number of users who can sign up for
@@ -77,5 +77,13 @@ export class Contest {
         let time = t.toLocaleTimeString();
 
         return DateUtil.DAYS[day] + ', ' + DateUtil.MONTHS[month] + ' ' + date + ' at ' + time;   
+    }
+
+    public getContestType(): string {
+        switch (this.contestType) {
+            case 0: return 'Head-to-Head';
+            case 1: return 'Public';
+            case 2: return 'Private';
+        }
     }
 }
