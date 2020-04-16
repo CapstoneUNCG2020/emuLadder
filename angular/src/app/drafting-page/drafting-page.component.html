@@ -1,11 +1,11 @@
-<div class="body">
+<div class="body" *ngIf="contest != undefined">
     <div id="contest-details">
-        <h1 style="color: #8ecccc">Public League of Legends Tournament 1</h1>
+        <h1 style="color: #8ecccc">{{ contest.name }}</h1>
 
         <table>
             <tr>
                 <td>{{ contest.getContestType() }}</td>
-                <td>{{ contest.currentEntries }}/{{ contest.maxEntries }}</td>
+                <td>{{ contest.remainingSpaces }}/{{ contest.totalSpaces }}</td>
                 <td style="color: #8ecccc">${{ contest.entryFee }}</td>
                 <td>${{ contest.prizeAmount }}</td>
             </tr>
@@ -59,19 +59,19 @@
             </tr>
             <tr *ngFor="let player of availablePlayers">
                 <td>
-                    <img src="../../assets/images/players/{{ player.id }}.png" >
+                    <img src="{{ player.image }}" width="100" >
                 </td>
                 <td>
                     {{ player.name }}
                 </td>
                 <td>
-                    {{ player.position }}
+                    {{ player.role }}
                 </td>
                 <td>
                     {{ player.rank }}
                 </td>
                 <td>
-                    ${{ player.salary.toLocaleString() }}
+                    ${{ player.salary }}
                 </td>
                 <td>
                     <button (click)="addPlayer(player)">+</button>
@@ -89,7 +89,7 @@
                 <table>
                     <tr>
                         <td>
-                            ${{ currentSalary.toLocaleString() }}
+                            ${{ currentSalary }}
                         </td>
                     </tr>
                     <tr>

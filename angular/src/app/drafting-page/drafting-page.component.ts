@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Contest } from '../model/contest';
 import { Player } from '../model/player';
 import { Game } from '../model/game';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ContestDetailsService } from '../service/rest/contest-details.service';
 
 @Component({
   selector: 'app-drafting-page',
@@ -23,14 +24,29 @@ export class DraftingPageComponent implements OnInit {
   private spSort: string;
   private errorMessage: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+    private contestDetailService: ContestDetailsService) { }
 
   ngOnInit() {
-    this.contest = this.testContest();
-    this.resetPlayers();
+    // Get the contest based on route param for contest ID
+    this.route.paramMap.subscribe(params => {
+      let contestId = params.get('contestId');
 
-    // Updates every second
-    setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
+      let promise = this.contestDetailService.getContestDetails(contestId);
+
+      promise.then(contest => {
+        let contestString = JSON.stringify(contest);
+        let contestObj = Object.assign(new Contest(), JSON.parse(contestString));
+
+        this.contest = contestObj;
+        console.log(this.contest);
+
+        this.resetPlayers();
+
+        // Updates every second
+        // setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
+      });
+    })
   }
 
   private testContest(): Contest {
@@ -72,7 +88,7 @@ export class DraftingPageComponent implements OnInit {
 
     let player = new Player();
     player.name = 'Player 1';
-    player.position = 'Mid';
+    player.role = 'Mid';
     player.rank = 2;
     player.salary = 17000;
     player.id = 0;
@@ -81,7 +97,7 @@ export class DraftingPageComponent implements OnInit {
 
     player = new Player();
     player.name = 'Player 2';
-    player.position = 'Front';
+    player.role = 'Front';
     player.rank = 3;
     player.salary = 15000;
     player.id = 0;
@@ -90,7 +106,7 @@ export class DraftingPageComponent implements OnInit {
 
     player = new Player();
     player.name = 'Player 3';
-    player.position = 'Back';
+    player.role = 'Back';
     player.rank = 1;
     player.salary = 20000;
     player.id = 0;
@@ -99,7 +115,7 @@ export class DraftingPageComponent implements OnInit {
 
     player = new Player();
     player.name = 'Player 4';
-    player.position = 'Mid';
+    player.role = 'Mid';
     player.rank = 4;
     player.salary = 8000;
     player.id = 0;
@@ -108,7 +124,7 @@ export class DraftingPageComponent implements OnInit {
 
     player = new Player();
     player.name = 'Player 5';
-    player.position = 'Front';
+    player.role = 'Front';
     player.rank = 6;
     player.salary = 9000;
     player.id = 0;
@@ -117,7 +133,7 @@ export class DraftingPageComponent implements OnInit {
 
     player = new Player();
     player.name = 'Player 6';
-    player.position = 'Back';
+    player.role = 'Back';
     player.rank = 5;
     player.salary = 10000;
     player.id = 0;
@@ -126,7 +142,7 @@ export class DraftingPageComponent implements OnInit {
 
     player = new Player();
     player.name = 'Player 7';
-    player.position = 'Mid';
+    player.role = 'Mid';
     player.rank = 7;
     player.salary = 12000;
     player.id = 0;
@@ -182,18 +198,18 @@ export class DraftingPageComponent implements OnInit {
   addPlayer(player: Player): void {
     let canAdd = true;
     let error: string;
-    
+
     if (this.currentSalary - player.salary < 0) {
       canAdd = false;
       error = 'Not enough money';
     }
-    
-    /* Check to see if already hired someone of that position */
+
+    /* Check to see if already hired someone of that role */
     if (canAdd) {
       this.selectedPlayers.forEach(p => {
-        if (p.position == player.position) {
+        if (p.role == player.role) {
           canAdd = false;
-          error = p.position + ' player already selected';
+          error = p.role + ' player already selected';
         }
       });
     }
@@ -333,7 +349,7 @@ export class DraftingPageComponent implements OnInit {
       switch (id) {
         case 'a-p-n': this.availablePlayers.sort((a, b) => a.name.localeCompare(b.name));
           break;
-        case 'a-p-p': this.availablePlayers.sort((a, b) => a.position.localeCompare(b.position));
+        case 'a-p-p': this.availablePlayers.sort((a, b) => a.role.localeCompare(b.role));
           break;
         case 'a-p-r': this.availablePlayers.sort((a, b) => a.rank - b.rank);
           break;
@@ -341,7 +357,7 @@ export class DraftingPageComponent implements OnInit {
           break;
         case 's-p-n': this.selectedPlayers.sort((a, b) => a.name.localeCompare(b.name));
           break;
-        case 's-p-p': this.selectedPlayers.sort((a, b) => a.position.localeCompare(b.position));
+        case 's-p-p': this.selectedPlayers.sort((a, b) => a.role.localeCompare(b.role));
           break;
         case 's-p-r': this.selectedPlayers.sort((a, b) => a.rank - b.rank);
           break;

@@ -76,7 +76,8 @@ export class Contest {
      * { DayofWeek, Month Date at LocalTime }
      */
     public getStartTime(): string {
-        let t = this.startTime;
+        let t = Object.assign(new Date(), JSON.parse(JSON.stringify(this.startTime)));
+
         let day = t.getDay();
         let month = t.getMonth();
         let date = t.getDate();
