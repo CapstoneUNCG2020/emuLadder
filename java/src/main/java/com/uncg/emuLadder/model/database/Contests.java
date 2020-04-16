@@ -26,8 +26,6 @@ public class Contests {
 
     private double prizeAmount;
 
-    private int opponent;
-
     private String region;
 
     public int getContestId() {
@@ -102,14 +100,6 @@ public class Contests {
         this.prizeAmount = prizeAmount;
     }
 
-    public int getOpponent() {
-        return opponent;
-    }
-
-    public void setOpponent(int opponent) {
-        this.opponent = opponent;
-    }
-
     public String getRegion() {
         return region;
     }
@@ -129,7 +119,6 @@ public class Contests {
                 contestSize == contests.contestSize &&
                 Double.compare(contests.entreeFee, entreeFee) == 0 &&
                 Double.compare(contests.prizeAmount, prizeAmount) == 0 &&
-                opponent == contests.opponent &&
                 Objects.equals(createdBy, contests.createdBy) &&
                 Objects.equals(startTime, contests.startTime) &&
                 Objects.equals(name, contests.name) &&
@@ -138,7 +127,7 @@ public class Contests {
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, opponent, region);
+        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, region);
     }
 
     @Override
@@ -153,7 +142,6 @@ public class Contests {
         sb.append(", contestSize=").append(contestSize);
         sb.append(", entreeFee=").append(entreeFee);
         sb.append(", prizeAmount=").append(prizeAmount);
-        sb.append(", opponent=").append(opponent);
         sb.append(", region='").append(region).append('\'');
         sb.append('}');
         return sb.toString();
