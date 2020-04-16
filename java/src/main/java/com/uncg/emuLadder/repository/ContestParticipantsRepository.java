@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ContestParticipantsRepository extends JpaRepository<ContestParticipants, Integer> {
     int countByContestId(int contestId);
+    boolean deleteAllByContestIdAndEmail(int contestId, String email);
 }
