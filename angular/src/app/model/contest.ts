@@ -4,6 +4,12 @@ import { Schedule } from './schedule';
 import { DateUtil } from '../util/date-util';
 
 export class Contest {
+
+    /**
+     * Unique ID for the contest
+     */
+    contestId: number
+
     /**
      * Name of the contest.
      */

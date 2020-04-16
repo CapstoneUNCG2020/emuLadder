@@ -71,8 +71,7 @@ export class CreateContestComponent implements OnInit {
     let promise = this.service.createContest(contestType, this.entryFee, this.name, this.startTime);
 
     promise.then(contest => {
-      console.log(contest);
-      // this.router.navigateByUrl('contest/draft/' + contest.contestId)
+      this.router.navigateByUrl('contest/draft/' + contest.contestId)
     })
   }
 }
