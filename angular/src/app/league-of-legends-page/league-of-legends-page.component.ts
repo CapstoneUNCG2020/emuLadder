@@ -1,4 +1,4 @@
-import { Component, OnInit, wtfStartTimeRange } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contest } from '../model/contest';
 import { Schedule } from '../model/schedule';
 import { Game } from '../model/game';
