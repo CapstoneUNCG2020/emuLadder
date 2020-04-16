@@ -4,6 +4,7 @@ import { Player } from '../model/player';
 import { Game } from '../model/game';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ContestDetailsService } from '../service/rest/contest-details.service';
+import { DraftingService } from '../service/rest/drafting.service';
 
 @Component({
   selector: 'app-drafting-page',
@@ -15,6 +16,7 @@ export class DraftingPageComponent implements OnInit {
   // Symbols for seeing which item is being sorted by
   private sortSymbols = ['▲', '▼'];
 
+  private contestId: string;
   private contest: Contest;
   private availablePlayers: Array<Player>;
   private selectedPlayers: Array<Player>;
@@ -25,14 +27,15 @@ export class DraftingPageComponent implements OnInit {
   private errorMessage: string;
 
   constructor(private router: Router, private route: ActivatedRoute,
-    private contestDetailService: ContestDetailsService) { }
+    private contestDetailService: ContestDetailsService,
+    private draftingService: DraftingService) { }
 
   ngOnInit() {
     // Get the contest based on route param for contest ID
     this.route.paramMap.subscribe(params => {
-      let contestId = params.get('contestId');
+      this.contestId = params.get('contestId');
 
-      let promise = this.contestDetailService.getContestDetails(contestId);
+      let promise = this.contestDetailService.getContestDetails(this.contestId);
 
       promise.then(contest => {
         let contestString = JSON.stringify(contest);
@@ -292,7 +295,7 @@ export class DraftingPageComponent implements OnInit {
       })
       .forEach(player => playerIdList.push(player.playerId));
 
-      
+      let promise = this.draftingService.draftPlayers(playerIdList, this.contestId);
 
       // this.router.navigateByUrl('contest/view');
     }

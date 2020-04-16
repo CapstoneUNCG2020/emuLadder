@@ -12,13 +12,13 @@ export class DraftingService {
 
   constructor(private rest: RestService, private signedInService: SignedInService) { }
 
-  public draftPlayers(players: Array<Player>, contestId: number): Promise<boolean> {
+  public draftPlayers(players: Array<string>, contestId: string): Promise<boolean> {
     let requestData = this.getRequestData(players, contestId);
 
     return this.post(requestData);
   }
 
-  private getRequestData(players: Array<Player>, contestId: number) {
+  private getRequestData(players: Array<string>, contestId: string) {
     return {
       email: this.signedInService.getEmail(),
       contestId: contestId,
