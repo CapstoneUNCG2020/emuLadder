@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Contest } from '../model/contest';
 
 @Component({
   selector: 'app-create-contest',
@@ -8,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class CreateContestComponent implements OnInit {
   date = "date1"
+
+  private contests: Array<Contest>;
+  private events: Array<Contest>;
 
   dateTimes = [
     {
@@ -50,6 +54,86 @@ export class CreateContestComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  getContests(): Array<Contest> {
+    let contests = new Array<Contest>;
+
+    let contest = new Contest();
+    let time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    return contests;
+  }
+
+  getEvents(): Array<Event> {
+    
+  }
+
+  getDay(date: Date): string {
+    let days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    return days[date.getDay()];
   }
 
   selectTeam(): void {
