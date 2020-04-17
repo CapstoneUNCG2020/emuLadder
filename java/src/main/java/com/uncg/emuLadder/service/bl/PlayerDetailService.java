@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class PlayerDetailService {
@@ -31,20 +32,10 @@ public class PlayerDetailService {
 
     /**
      * Get details of Player by their unique player ID.
-     * @param playerId - Unique Player ID
+     * @param dbPlayer - Database player object
      * @return - Player { image, name, role, rank, salary }
      */
-    public Player getPlayerDetails(String playerId) {
-        /* Attempt to get database info on the player */
-        Optional<Players> optional = playersRepository.findById(playerId);
-
-        if (!optional.isPresent()) {
-            logger.error("Invalid player ID: {}", playerId);
-            return null;
-        }
-
-        Players dbPlayer = optional.get();
-
+    public Player getPlayerDetails(Players dbPlayer) {
         // Convert to Player object needed by UI
         Player player = new Player();
 
@@ -52,42 +43,35 @@ public class PlayerDetailService {
         player.setName(dbPlayer.getFirstName() + " " + dbPlayer.getLastName());
         player.setRole(dbPlayer.getRole());
         player.setSalary(dbPlayer.getSalary());
+        player.setPlayerId(dbPlayer.getPlayerId());
 
         return player;
     }
 
     public Player[] getPlayers(int contestId) {
+
+        // Get a list of all Players in the contest
         List<ContestPlayers> contestPlayersList = contestPlayersRepository.findAllByContestId(contestId);
+
+        // Create an array to store all the player information
         Player[] players = new Player[contestPlayersList.size()];
 
-        for (int i = 0; i < players.length; i++) {
-            String playerId = contestPlayersList.get(i).getPlayerId();
-            players[i] = getPlayerDetails(playerId);
+        // Convert list of all players to a list of all player IDs
+        List<String> playerIdList = contestPlayersList.stream()
+                .map(ContestPlayers::getPlayerId).collect(Collectors.toList());
 
-            int rank = getRank(contestId, playerId);
+        // Query DB for a list of all players who's ID in playerIdList
+        List<Players> playerList = playersRepository.findAllByPlayerIdIn(playerIdList);
+
+        // Convert DB Players object into UI Player object
+        for (int i = 0; i < players.length; i++) {
+            ContestPlayers contestPlayer = contestPlayersList.get(i);
+            players[i] = getPlayerDetails(playerList.get(i));
+
+            int rank = contestPlayer.getRank();
             players[i].setRank(rank);
         }
 
         return players;
-    }
-
-    /**
-     * Get the rank of the player in the specified contest.
-     *
-     * @param contestId - Primary key for the contest
-     * @param playerId - Primary key for the player
-     * @return - int rank of the player in the contest
-     */
-    private int getRank(int contestId, String playerId) {
-        Optional<ContestPlayers> optional = contestPlayersRepository.findByContestIdAndPlayerId(contestId, playerId);
-
-        if (!optional.isPresent()) {
-            logger.error("Error finding entry with contest ID {} and player ID {}", contestId, playerId);
-            return -1;
-        }
-
-        ContestPlayers contestPlayers = optional.get();
-
-        return contestPlayers.getRank();
     }
 }

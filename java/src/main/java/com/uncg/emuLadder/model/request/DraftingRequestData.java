@@ -1,22 +1,12 @@
-package com.uncg.emuLadder.model.database;
+package com.uncg.emuLadder.model.request;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
-public class ContestParticipants {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int contestParticipantsId;
+public class DraftingRequestData {
 
     private String email;
 
     private int contestId;
-
-    private int points;
 
     private String bottom;
 
@@ -27,14 +17,6 @@ public class ContestParticipants {
     private String support;
 
     private String top;
-
-    public int getContestParticipantsId() {
-        return contestParticipantsId;
-    }
-
-    public void setContestParticipantsId(int contestParticipantsId) {
-        this.contestParticipantsId = contestParticipantsId;
-    }
 
     public String getEmail() {
         return email;
@@ -50,14 +32,6 @@ public class ContestParticipants {
 
     public void setContestId(int contestId) {
         this.contestId = contestId;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 
     public String getBottom() {
@@ -103,11 +77,9 @@ public class ContestParticipants {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ContestParticipants)) return false;
-        ContestParticipants that = (ContestParticipants) o;
-        return contestParticipantsId == that.contestParticipantsId &&
-                contestId == that.contestId &&
-                points == that.points &&
+        if (!(o instanceof DraftingRequestData)) return false;
+        DraftingRequestData that = (DraftingRequestData) o;
+        return contestId == that.contestId &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(bottom, that.bottom) &&
                 Objects.equals(jungle, that.jungle) &&
@@ -118,16 +90,14 @@ public class ContestParticipants {
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestParticipantsId, email, contestId, points, bottom, jungle, mid, support, top);
+        return Objects.hash(email, contestId, bottom, jungle, mid, support, top);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ContestParticipants{");
-        sb.append("contestParticipantsId=").append(contestParticipantsId);
-        sb.append(", email='").append(email).append('\'');
+        final StringBuilder sb = new StringBuilder("DraftingRequestData{");
+        sb.append("email='").append(email).append('\'');
         sb.append(", contestId=").append(contestId);
-        sb.append(", points=").append(points);
         sb.append(", bottom='").append(bottom).append('\'');
         sb.append(", jungle='").append(jungle).append('\'');
         sb.append(", mid='").append(mid).append('\'');

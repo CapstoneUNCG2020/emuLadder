@@ -1,10 +1,18 @@
 package com.uncg.emuLadder.model.response;
 
-import java.sql.Date;
+import com.uncg.emuLadder.model.database.Events;
+
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
 public class ContestData {
+
+    /**
+     * Unique ID for the contest.
+     */
+    private int contestId;
+
     /**
      * The name of the contest.
      */
@@ -13,7 +21,7 @@ public class ContestData {
     /**
      * Head-to-Head, Public, or Private
      */
-    private String contestType;
+    private int contestType;
 
     /**
      * Amount of spaces left in the contest to join.
@@ -28,7 +36,7 @@ public class ContestData {
     /**
      * Amount it costs to join the contest
      */
-    private double entreeFee;
+    private double entryFee;
 
     /**
      * Amount that is received if contest is won.
@@ -38,9 +46,11 @@ public class ContestData {
     /**
      * Date and time the contest starts.
      */
-    private Date startTime;
+    private Timestamp startTime;
 
     private List<Player> players;
+
+    private List<Events> events;
 
     public String getName() {
         return name;
@@ -50,11 +60,11 @@ public class ContestData {
         this.name = name;
     }
 
-    public String getContestType() {
+    public int getContestType() {
         return contestType;
     }
 
-    public void setContestType(String contestType) {
+    public void setContestType(int contestType) {
         this.contestType = contestType;
     }
 
@@ -75,11 +85,11 @@ public class ContestData {
     }
 
     public double getEntreeFee() {
-        return entreeFee;
+        return entryFee;
     }
 
     public void setEntreeFee(double entreeFee) {
-        this.entreeFee = entreeFee;
+        this.entryFee = entreeFee;
     }
 
     public double getPrizeAmount() {
@@ -90,11 +100,11 @@ public class ContestData {
         this.prizeAmount = prizeAmount;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
@@ -106,38 +116,65 @@ public class ContestData {
         this.players = players;
     }
 
+    public double getEntryFee() {
+        return entryFee;
+    }
+
+    public void setEntryFee(double entryFee) {
+        this.entryFee = entryFee;
+    }
+
+    public List<Events> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Events> events) {
+        this.events = events;
+    }
+
+    public int getContestId() {
+        return contestId;
+    }
+
+    public void setContestId(int contestId) {
+        this.contestId = contestId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ContestData)) return false;
         ContestData that = (ContestData) o;
-        return remainingSpaces == that.remainingSpaces &&
+        return contestId == that.contestId &&
+                contestType == that.contestType &&
+                remainingSpaces == that.remainingSpaces &&
                 totalSpaces == that.totalSpaces &&
-                Double.compare(that.entreeFee, entreeFee) == 0 &&
+                Double.compare(that.entryFee, entryFee) == 0 &&
                 Double.compare(that.prizeAmount, prizeAmount) == 0 &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(contestType, that.contestType) &&
                 Objects.equals(startTime, that.startTime) &&
-                Objects.equals(players, that.players);
+                Objects.equals(players, that.players) &&
+                Objects.equals(events, that.events);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, contestType, remainingSpaces, totalSpaces, entreeFee, prizeAmount,
-                startTime, players);
+        return Objects.hash(contestId, name, contestType, remainingSpaces, totalSpaces, entryFee, prizeAmount, startTime, players, events);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("ContestData{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("contestId=").append(contestId);
+        sb.append(", name='").append(name).append('\'');
         sb.append(", contestType='").append(contestType).append('\'');
         sb.append(", remainingSpaces=").append(remainingSpaces);
         sb.append(", totalSpaces=").append(totalSpaces);
-        sb.append(", entreeFee=").append(entreeFee);
+        sb.append(", entryFee=").append(entryFee);
         sb.append(", prizeAmount=").append(prizeAmount);
         sb.append(", startTime=").append(startTime);
         sb.append(", players=").append(players);
+        sb.append(", events=").append(events);
         sb.append('}');
         return sb.toString();
     }

@@ -1,18 +1,21 @@
 package com.uncg.emuLadder.model.database;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 public class Events {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String eventId;
 
     private String name;
 
-    private Date startTime;
+    private Timestamp startTime;
 
     private int currentState;
 
@@ -42,11 +45,11 @@ public class Events {
         this.name = name;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 

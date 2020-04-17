@@ -1,18 +1,21 @@
 package com.uncg.emuLadder.model.database;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 public class Contests {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contestId;
 
     private String createdBy;
 
-    private Date startTime;
+    private Timestamp startTime;
 
     private String name;
 
@@ -25,8 +28,6 @@ public class Contests {
     private double entreeFee;
 
     private double prizeAmount;
-
-    private int opponent;
 
     private String region;
 
@@ -46,11 +47,11 @@ public class Contests {
         this.createdBy = createdBy;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
@@ -102,14 +103,6 @@ public class Contests {
         this.prizeAmount = prizeAmount;
     }
 
-    public int getOpponent() {
-        return opponent;
-    }
-
-    public void setOpponent(int opponent) {
-        this.opponent = opponent;
-    }
-
     public String getRegion() {
         return region;
     }
@@ -129,7 +122,6 @@ public class Contests {
                 contestSize == contests.contestSize &&
                 Double.compare(contests.entreeFee, entreeFee) == 0 &&
                 Double.compare(contests.prizeAmount, prizeAmount) == 0 &&
-                opponent == contests.opponent &&
                 Objects.equals(createdBy, contests.createdBy) &&
                 Objects.equals(startTime, contests.startTime) &&
                 Objects.equals(name, contests.name) &&
@@ -138,7 +130,7 @@ public class Contests {
 
     @Override
     public int hashCode() {
-        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, opponent, region);
+        return Objects.hash(contestId, createdBy, startTime, name, currentState, contestType, contestSize, entreeFee, prizeAmount, region);
     }
 
     @Override
@@ -153,7 +145,6 @@ public class Contests {
         sb.append(", contestSize=").append(contestSize);
         sb.append(", entreeFee=").append(entreeFee);
         sb.append(", prizeAmount=").append(prizeAmount);
-        sb.append(", opponent=").append(opponent);
         sb.append(", region='").append(region).append('\'');
         sb.append('}');
         return sb.toString();

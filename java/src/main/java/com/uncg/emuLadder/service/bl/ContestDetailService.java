@@ -48,25 +48,10 @@ public class ContestDetailService {
         // Get the contests data from database
         Contests dbContest = optional.get();
 
-        /* Set the contest type */
-        switch (dbContest.getContestType()) {
-            case 0:
-                contest.setContestType(ContestTypes.HEAD_TO_HEAD.name());
-                break;
-            case 1:
-                contest.setContestType(ContestTypes.PUBLIC.name());
-                break;
-            case 2:
-                contest.setContestType(ContestTypes.PRIVATE.name());
-                break;
-            default:
-                logger.error("Unsupported contest type: {}", dbContest.getContestType());
-                return null;
-        }
-
         // Get the number of people signed up for the contest
         contest.setCurrentEntries(contestParticipantsRepository.countByContestId(contestId));
 
+        contest.setContestType(dbContest.getContestType());
         contest.setTotalEntries(dbContest.getContestSize());
         contest.setEntreeFee(dbContest.getEntreeFee());
         contest.setName(dbContest.getName());

@@ -162,3 +162,262 @@ td {
       transform: translateY(0);
     }
   }
+
+div#FANTASY.col-auto {
+  font: Bold 121px BeaufortforLOL; 
+  color: white;
+}
+
+img.LOLlogo {
+  width: 50%; 
+  height: 90%; 
+  margin: auto;    
+  display: block;
+}
+
+a#CreateContest1.btn.btn-primary {
+  z-index: 1; 
+  font: lighter 34px PT Serif;
+  letter-spacing: 0.74px;
+  color: #FFFFFF;
+}
+
+span#publicContests {
+  color: white; 
+  font: Bold 42px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+a#CreateContest2.btn.btn-primary {
+  z-index: 1; 
+  font: lighter 34px PT Serif;
+  letter-spacing: 0.74px; 
+  color: #FFFFFF; 
+  margin-top: 9%;
+}
+
+span#ContestStartTime {
+  color: white; 
+  font: normal 42px PT Serif; 
+  letter-spacing: 1.61px; 
+  float: left;
+}
+
+span#ContestStart {
+  color: white; 
+  font: normal 24px PT Serif;
+  letter-spacing: 1.61px; 
+  opacity: 0.7; 
+  float: right;
+}
+
+i.fas.fa-search {
+  color:white;
+  opacity: 0.7;
+}
+
+input#TournamentSearch {
+  background: #212121 0% 0% no-repeat padding-box; 
+  font: Light 24px PT Serif; 
+  letter-spacing: 0.74px; 
+  color: white; 
+  opacity: 0.7; 
+  border: none; 
+  width: 415px
+}
+
+select#filterFee {
+  padding-left: 1%; 
+  padding-right: 1%; 
+  background: #212121 0% 0% no-repeat padding-box; 
+  font: Light 24px PT Serif; 
+  letter-spacing: 0.74px; 
+  color: white; 
+  border: none; 
+  background-color: rgb(58, 64, 66, .5); 
+  border-radius: 14px; 
+  float: right;
+}
+
+span#SortContest {
+  color: white; 
+  font: normal 24px PT Serif;
+  letter-spacing: 1.61px; 
+  opacity: 0.7; 
+  float: right;
+}
+
+span#LeftSideHeaders {
+  padding-left: 4%; 
+  color: white; 
+  font: normal 36px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+div#gameStylesBox {
+  background-color: rgb(58, 64, 66, .5); 
+  border-radius: 14px;
+}
+
+span#GameStylesSubHeaders {
+  color: white; 
+  font: normal 24px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+span#opponentTypeSubheading {
+  color: white; 
+  font: normal 24px PT Serif;
+  letter-spacing: 1.61px; 
+  opacity: .7;
+}
+
+span#slateTime {
+  color: white; 
+  font: normal 24px PT Serif; 
+  letter-spacing: 1.61px;
+}
+
+span#slateRegion {
+  color: white; 
+  font: normal 24px PT Serif; 
+  letter-spacing: 1.61px; 
+  opacity: .7;
+}
+
+select#slateFilter {
+  padding-left: 1%; 
+  padding-right: 1%; 
+  background: #212121 0% 0% no-repeat padding-box; 
+  font: Light 24px PT Serif; 
+  letter-spacing: 0.74px; 
+  color: white; 
+  border: none; 
+  background-color: rgb(58, 64, 66, .5); 
+  border-radius: 14px;
+}
+
+span#entryMoneyLeft {
+  color: white; 
+  font: normal 24px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+span#entryMoneyRight {
+  color: white; 
+  font: normal 24px PT Serif;
+  letter-spacing: 1.61px;
+  float: right;
+}
+
+input#TextBoxInputEntryMoneyLeft {
+  background: transparent 0% 0% no-repeat padding-box; 
+  font: Light 24px PT Serif; 
+  letter-spacing: 0.74px; 
+  color: white; 
+  opacity: 0.7; 
+  border: none; 
+  width: 50px;
+}
+
+input#TextBoxInputEntryMoneyRight {
+  background: transparent 0% 0% no-repeat padding-box; 
+  font: Light 24px PT Serif; 
+  letter-spacing: 0.74px; 
+  color: white; 
+  opacity: 0.7; 
+  border: none; 
+  width: 50px; 
+  float: right;
+}
+
+i.fas.fa-bookmark.fa-lg {
+  transform: rotate(-90deg); 
+  color: #8ECCCC;
+}
+
+span#tableContestName {
+  color: white; 
+  font: normal 24px PT Serif; 
+  letter-spacing: 1.61px;
+}
+
+span#tableContestSpace {
+  color: white; 
+  font: normal 20px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+span#tableContestSpacePercent {
+  color: white; 
+  font: normal 18px PT Serif; 
+  letter-spacing: 1.61px; 
+  opacity: .7;
+}
+
+span#tableContestPrizeAmount {
+  color: white; 
+  font: normal 24px PT Serif; 
+  letter-spacing: 1.61px;
+}
+
+span#tableContestGuaranteed {
+  color: white; 
+  font: normal 18px PT Serif; 
+  letter-spacing: 1.61px; 
+  opacity: .7;
+}
+
+i.fas.fa-coins {
+  color: #8ECCCC;
+}
+
+span#tableContestEntryFee {
+  color: white; 
+  font: normal 24px PT Serif; 
+  letter-spacing: 1.61px;
+}
+
+span#tableContestEntryFeeText {
+  color: white; 
+  font: normal 18px PT Serif; 
+  letter-spacing: 1.61px; 
+  opacity: .7;
+}
+
+i.fas.fa-chevron-right {
+  color: #8ECCCC;
+}
+
+span#rosterBreakdown {
+  color: white; 
+  font: Bold 42px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+p#RosterBreakdownText {
+  color: white; 
+  font: normal 42px PT Serif; 
+  text-align: center;
+  letter-spacing: 1.61px;
+}
+
+a#rosterBreakdownButton {
+  z-index: 1; 
+  font: lighter 44px PT Serif;
+  letter-spacing: 0.74px;
+  color: #FFFFFF;
+}
+
+span#scoringBreakdown {
+  color: white; 
+  font: Bold 42px PT Serif;
+  letter-spacing: 1.61px;
+}
+
+a#scoringBreakdownButton {
+  z-index: 1; 
+  font: lighter 44px PT Serif;
+  letter-spacing: 0.74px;
+  color: #FFFFFF;
+}
