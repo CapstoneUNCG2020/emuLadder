@@ -421,3 +421,7 @@ a#scoringBreakdownButton {
   letter-spacing: 0.74px;
   color: #FFFFFF;
 }
+
+tr:not(:last-child) {
+  border-bottom:2pt solid #8ECCCC;
+}
