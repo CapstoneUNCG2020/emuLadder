@@ -14,13 +14,66 @@ export class LeagueOfLegendsPageComponent implements OnInit {
 
   private contests: Array<Contest>;
   private slate: Array<Schedule>;
+  private contest: Contest;
 
   constructor(private router: Router,
     private publicContestDetails: PublicContestDetailsService) { }
 
   ngOnInit() {
     let promise = this.publicContestDetails.getPublicContestDetails();
+    promise.then(contest => {
+      const test = JSON.parse(JSON.stringify(contest));
+      console.log(test);
+      console.log("SPACE");
+      console.log(test.contests[0]);
+
+      this.contests = this.testing(test);
+
+
+      // let contestString = JSON.stringify(contest);
+      // console.log(contestString);
+      // let contestObj = Object.assign(new Contest(), JSON.parse(contestString));
+
+      // this.contest = contestObj;
+      // console.log(this.contest);
+      // console.log("SPACE");
+      // console.log(this.contest[0]);
+
+      // this.contests = this.testBackendResponse();
+
+      // Updates every second
+      // setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
+    });
   }
+
+  private testing(test): Array<Contest> {
+    let contests = new Array<Contest>();
+    let schedules = new Array<Schedule>();
+
+    let contest = new Contest();
+    contest.name = test.contests[0].name;
+    contest.remainingSpaces = (test.contests[0].totalEntries - test.contests[0].currentEntries);
+    contest.totalSpaces = test.contests[0].totalEntries;
+    contest.contestType = 2;
+    contest.entryFee = test.contests[0].entreeFee;
+    contest.prizeAmount = test.contests[0].prizeAmount;
+    contests.push(contest);
+
+    return contests;
+  }
+
+  // private testBackendResponse(): Array<Contest> {
+  //   let contests = new Array<Contest>();
+  //   let schedules = new Array<Schedule>();
+
+  //   let tempContest = new Contest();
+  //   tempContest.name = this.contest.name;
+  //   tempContest.remainingSpaces = this.contest.remainingSpaces;
+  //   tempContest.totalSpaces = 20;
+  //   tempContest.contestType = 1;
+  //   tempContest.entryFee = 1000;
+  //   tempContest.prizeAmount = 100000;
+  // } 
 
   // private getPublicContest(): Array<Contest> {
   //   let contests = new Array<Contest>();

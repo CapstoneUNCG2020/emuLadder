@@ -7,7 +7,7 @@ import { RestService } from './rest.service';
 })
 export class PublicContestDetailsService {
 
-  private url = '/games/leagueoflegends';
+  private url = '/games/leagueoflegends/public';
 
   constructor(private rest: RestService) { }
 
