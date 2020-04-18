@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Contest } from '../model/contest';
 import { CreateContestService } from '../service/rest/create-contest.service';
+import { ContestDetailsService } from '../service/rest/contest-details.service';
 
 @Component({
   selector: 'app-create-contest',
@@ -14,8 +16,12 @@ export class CreateContestComponent implements OnInit {
   entryFee: number;
   name: string;
   startTime: string;
+  promise: Promise<any>;
 
   date = "date1"
+
+  private contests: Array<Contest>;
+  private events: Array<Contest>;
 
   dateTimes = [
     {
@@ -55,13 +61,95 @@ export class CreateContestComponent implements OnInit {
     }
   ]
 
-  constructor(private router: Router, private service: CreateContestService) { }
+  constructor(private router: Router, private service: CreateContestService, private details: ContestDetailsService) { }
 
   ngOnInit() {
     this.contestType = 0;
     this.opponent = 0;
     this.entryFee = 0;
-    this.startTime = '2020-02-09T12:00:00'
+    this.promise = this.details.getContestDetails('14');
+    this.promise.then(result => this.startTime = result.events[1].startTime)
+    
+  }
+
+  getContests(): Array<Contest> {
+    let contests = new Array<Contest>();
+
+    let contest = new Contest();
+    let time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    contest = new Contest();
+    time = new Date();
+    time.setHours(17);
+    time.setMinutes(0);
+    time.setSeconds(0);
+    time.setMilliseconds(0);
+    time.setMonth(1);
+    time.setDate(26);
+    time.setFullYear(2020);
+
+    contest.startTime = time;
+    contests.push(contest);
+
+    return contests;
+  }
+
+  // getEvents(): Array<Event> {
+    
+  // }
+
+  getDay(date: Date): string {
+    let days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    return days[date.getDay()];
   }
 
   selectTeam(): void {
