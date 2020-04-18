@@ -4,6 +4,7 @@ import { Schedule } from '../model/schedule';
 import { Game } from '../model/game';
 import { Router } from '@angular/router';
 import { PublicContestDetailsService } from '../service/rest/public-contest-details.service';
+import { ContestDetailsService } from '../service/rest/contest-details.service';
 
 @Component({
   selector: 'app-league-of-legends-page',
@@ -17,50 +18,58 @@ export class LeagueOfLegendsPageComponent implements OnInit {
   private contest: Contest;
 
   constructor(private router: Router,
-    private publicContestDetails: PublicContestDetailsService) { }
+    private publicContestDetails: PublicContestDetailsService,
+    private contestDetailsService: ContestDetailsService) { }
 
   ngOnInit() {
     let promise = this.publicContestDetails.getPublicContestDetails();
     promise.then(contest => {
-      const test = JSON.parse(JSON.stringify(contest));
-      console.log(test);
-      console.log("SPACE");
-      console.log(test.contests[0]);
-
-      this.contests = this.testing(test);
-
-
-      // let contestString = JSON.stringify(contest);
-      // console.log(contestString);
-      // let contestObj = Object.assign(new Contest(), JSON.parse(contestString));
-
-      // this.contest = contestObj;
-      // console.log(this.contest);
-      // console.log("SPACE");
-      // console.log(this.contest[0]);
-
-      // this.contests = this.testBackendResponse();
+      const contestJSON = JSON.parse(JSON.stringify(contest));
+      this.contests = this.testing(contestJSON);
 
       // Updates every second
       // setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
     });
   }
 
-  private testing(test): Array<Contest> {
+  private testing(contestJSON): Array<Contest> {
     let contests = new Array<Contest>();
     let schedules = new Array<Schedule>();
 
-    let contest = new Contest();
-    contest.name = test.contests[0].name;
-    contest.remainingSpaces = (test.contests[0].totalEntries - test.contests[0].currentEntries);
-    contest.totalSpaces = test.contests[0].totalEntries;
-    contest.contestType = 2;
-    contest.entryFee = test.contests[0].entreeFee;
-    contest.prizeAmount = test.contests[0].prizeAmount;
-    contests.push(contest);
-
+    for(let i = 0; i < contestJSON.contests.length; i++){
+      let contest = new Contest();
+      contest.contestId = contestJSON.contests[i].contestId;
+      contest.name = contestJSON.contests[i].name;
+      contest.remainingSpaces = contestJSON.contests[i].currentEntries;
+      contest.totalSpaces = contestJSON.contests[i].totalEntries;
+      contest.spacePercent = ((contestJSON.contests[i].currentEntries / contestJSON.contests[i].totalEntries) * 100);
+      contest.contestType = 1;
+      contest.entryFee = contestJSON.contests[i].entreeFee;
+      contest.prizeAmount = contestJSON.contests[i].prizeAmount;
+      contests.push(contest);
+    }
+    
     return contests;
   }
+
+
+
+  selectContest(contestId): void {
+    console.log(contestId);
+    
+    let promise = this.contestDetailsService.getContestDetails(contestId);
+
+    promise.then(contest => {
+      this.router.navigateByUrl('contest/draft/' + contest.contestId);
+    })
+  }
+
+
+
+
+/**
+ * OLD CODE THAT I'M STILL REFERENCING
+ */
 
   // private testBackendResponse(): Array<Contest> {
   //   let contests = new Array<Contest>();

@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Contest {
+    private int contestId;
+
     private String name;
 
     private Timestamp start;
@@ -17,6 +19,14 @@ public class Contest {
     private double entreeFee;
 
     private double prizeAmount;
+
+    public int getContestId() {
+        return contestId;
+    }
+
+    public void setContestId(int contestId) {
+        this.contestId = contestId;
+    }
 
     public String getName() {
         return name;

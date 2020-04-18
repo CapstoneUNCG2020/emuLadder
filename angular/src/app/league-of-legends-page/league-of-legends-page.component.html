@@ -229,14 +229,14 @@
                                 </div>
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span id="tableContestSpacePercent">{{ contest.totalSpaces + '% Full'}}</span>
+                                        <span id="tableContestSpacePercent">{{ contest.spacePercent + '% Full'}}</span>
                                     </div>
                                 </div>
                             </td>
                             <td style="padding-left: 80px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span id="tableContestPrizeAmount">{{ contest.prizeAmount }}</span>
+                                        <span id="tableContestPrizeAmount">{{ '$ ' + contest.prizeAmount }}</span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -252,7 +252,7 @@
                             <td style="padding-left: 40px;">
                                 <div class="row justify-content-end">
                                     <div class="col-auto">
-                                        <span id="tableContestEntryFee">{{ contest.entryFee }}</span>
+                                        <span id="tableContestEntryFee">{{ '$ ' + contest.entryFee }}</span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -263,7 +263,7 @@
                                 </div>
                             </td>
                             <td style="padding-left: 20px; padding-right: 20px;">
-                                <i class="fas fa-chevron-right"></i>
+                                <a (click)="selectContest(this.contest.contestId)"><i class="fas fa-chevron-right"></i></a>
                             </td>
                         </tr>
                         <!-- </div> -->

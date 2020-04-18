@@ -34,9 +34,10 @@ public class PublicContestService {
         ArrayList<Contests> contestsArrayList = new ArrayList<>(contestsRepository.findAll());
 
         for(Contests contests: contestsArrayList) {
-            if(contests.getContestType() == ContestTypes.PRIVATE.getValue()) {
-                logger.info("Found Private Contest {} contest type equals {}", contests.getName(), contests.getContestType());
+            if(contests.getContestType() == ContestTypes.PUBLIC.getValue()) {
+                logger.info("Found Public Contest {} contest type equals {}", contests.getName(), contests.getContestType());
                 Contest contest = new Contest();
+                contest.setContestId(contests.getContestId());
                 contest.setName(contests.getName());
                 contest.setStart(contests.getStartTime());
                 contest.setContestType(contests.getContestType());

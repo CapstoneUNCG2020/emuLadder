@@ -32,6 +32,11 @@ export class Contest {
     remainingSpaces: number;
 
     /**
+     * Percentage of the contest that is full.
+     */
+    spacePercent: number;
+
+    /**
      * The price to enter this contest.
      */
     entryFee: number;
