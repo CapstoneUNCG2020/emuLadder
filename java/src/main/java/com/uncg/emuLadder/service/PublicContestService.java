@@ -34,7 +34,7 @@ public class PublicContestService {
         ArrayList<Contests> contestsArrayList = new ArrayList<>(contestsRepository.findAll());
 
         for(Contests contests: contestsArrayList) {
-            if(contests.getContestType() == ContestTypes.PUBLIC.getValue()) {
+            if(contests.getContestType() == ContestTypes.PUBLIC.getValue() || contests.getContestType() == ContestTypes.HEAD_TO_HEAD.getValue()) {
                 logger.info("Found Public Contest {} contest type equals {}", contests.getName(), contests.getContestType());
                 Contest contest = new Contest();
                 contest.setContestId(contests.getContestId());
@@ -43,9 +43,10 @@ public class PublicContestService {
                 contest.setContestType(contests.getContestType());
                 contest.setEntreeFee(contests.getEntreeFee());
                 contest.setPrizeAmount(contests.getPrizeAmount());
-                contest.setEntreeFee(10.00);
-                contest.setCurrentEntries(2);
-                contest.setTotalEntries(10);
+                contest.setEntreeFee(contests.getEntreeFee());
+                contest.setCurrentEntries(1);
+                contest.setTotalEntries(contests.getContestSize());
+                contest.setRegion(contests.getRegion());
 
                 tempContestList.add(contest);
             }

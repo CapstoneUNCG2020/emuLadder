@@ -25,28 +25,47 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     let promise = this.publicContestDetails.getPublicContestDetails();
     promise.then(contest => {
       const contestJSON = JSON.parse(JSON.stringify(contest));
-      this.contests = this.testing(contestJSON);
+      console.log(contestJSON);
+      this.contests = this.DTOConversion(contestJSON);
 
       // Updates every second
       // setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
     });
   }
 
-  private testing(contestJSON): Array<Contest> {
+  private DTOConversion(contestJSON): Array<Contest> {
     let contests = new Array<Contest>();
     let schedules = new Array<Schedule>();
 
     for(let i = 0; i < contestJSON.contests.length; i++){
       let contest = new Contest();
+      let schedule = new Schedule();
       contest.contestId = contestJSON.contests[i].contestId;
-      contest.name = contestJSON.contests[i].name;
+      contest.name = (contestJSON.contests[i].name == null) ? "Default Name": contestJSON.contests[i].name;
       contest.remainingSpaces = contestJSON.contests[i].currentEntries;
       contest.totalSpaces = contestJSON.contests[i].totalEntries;
       contest.spacePercent = ((contestJSON.contests[i].currentEntries / contestJSON.contests[i].totalEntries) * 100);
       contest.contestType = 1;
       contest.entryFee = contestJSON.contests[i].entreeFee;
       contest.prizeAmount = contestJSON.contests[i].prizeAmount;
-      contests.push(contest);
+      schedule.startTime = new Date(contestJSON.contests[i].start);
+      //Checking if any of the times returned from the DB are the same, as we don't want to display 30 of the same times on the screen.
+      var flag = true;
+      for(let j = 0; j < contests.length; j++){
+        if(contests[j].schedules[0].startTime.getTime() === (new Date(contestJSON.contests[i].start)).getTime()){
+          flag = false;
+        }
+      }
+      console.log(flag);
+      schedule.flag = flag;
+      schedule.slateTime = schedule.getStartTime();
+      schedule.region = contestJSON.contests[i].region;
+      schedules.push(schedule);
+      contest.schedules = schedules;
+      if(contest.spacePercent != 100){
+        contests.push(contest);
+      }
+      schedules = [];
     }
     
     return contests;

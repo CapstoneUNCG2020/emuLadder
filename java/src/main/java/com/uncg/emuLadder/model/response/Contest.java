@@ -20,6 +20,8 @@ public class Contest {
 
     private double prizeAmount;
 
+    private String region;
+
     public int getContestId() {
         return contestId;
     }
@@ -82,6 +84,14 @@ public class Contest {
 
     public void setPrizeAmount(double prizeAmount) {
         this.prizeAmount = prizeAmount;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     @Override
