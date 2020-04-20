@@ -21,9 +21,12 @@ public class EventService {
 
     private final EventsRepository eventsRepository;
 
-    public List<Events> test() {
+    public ResponseData<List<Events>> test() {
+        ResponseData<List<Events>> responseData = new ResponseData<>();
         List<Events> events = eventsRepository.findFiveLatestEvents();
-        return events;
+        responseData.setStatus(ResponseStatusType.SUCCESS.name());
+        responseData.setResponse(events);
+        return responseData;
     }
 
     public EventService(final EventsRepository eventsRepository) {

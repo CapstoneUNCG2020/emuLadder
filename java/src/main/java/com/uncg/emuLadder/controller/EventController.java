@@ -21,7 +21,7 @@ public class EventController {
     private final EventService eventService;
 
     @GetMapping("/test")
-    public List<Events> getEvent() throws ParseException {
+    public ResponseData<List<Events>> getEvent() {
         return eventService.test();
     }
 

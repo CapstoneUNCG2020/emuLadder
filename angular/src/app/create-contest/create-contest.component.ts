@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contest } from '../model/contest';
 import { CreateContestService } from '../service/rest/create-contest.service';
-import { ContestDetailsService } from '../service/rest/contest-details.service';
+import { EventService } from '../service/rest/event.service';
 
 @Component({
   selector: 'app-create-contest',
@@ -23,133 +23,17 @@ export class CreateContestComponent implements OnInit {
   private contests: Array<Contest>;
   private events: Array<Contest>;
 
-  dateTimes = [
-    {
-      day: 'Saturday',
-      date: 'Jan 25th',
-      time: '5:00pm',
-      teams: ["FLY v IMT", "C9 v NRG", "G2 v FaZe"],
-      dateAndTime: ["1/25 5:00pm", "1/25 5:50pm", "1/25 6:40pm"]
-    },
-    {
-      day: 'Sunday',
-      date: 'Jan 26th',
-      time: '6:00pm',
-      teams: ["GG v 100", "CLG v GG", "TSM v DIG", "C9 v G2"],
-      dateAndTime: ["1/26 5:00pm", "1/26 5:50pm", "1/26 6:40pm", "1/26 7:30pm"]
-    },
-    {
-      day: 'Friday',
-      date: 'Jan 30th',
-      time: '5:00pm',
-      teams: ["FLY v IMT", "C9 v TSM", "DIG v CLG", "GG v 100", "NRG v eU"],
-      dateAndTime: ["1/30 3:00pm", "1/30 3:50pm", "1/30 4:40pm", "1/30 5:30pm", "1/30 6:20pm"]
-    },
-    {
-      day: 'Friday',
-      date: 'Feb 7th',
-      time: '7:00pm',
-      teams: ["G2 v NRG", "TSM v DIG", "eU v C9", "100 v FaZe"],
-      dateAndTime: ["2/7 3:00pm", "2/7 3:50pm", "2/7 4:40pm", "2/7 5:30pm"]
-    },
-    {
-      day: 'Saturday',
-      date: 'Feb 15th',
-      time: '6:00pm',
-      teams: ["TSM v 100", "eU v GG", "C9 v DIG"],
-      dateAndTime: ["2/15 5:00pm", "2/15 5:50pm", "2/15 6:40pm"]
-    }
-  ]
-
-  constructor(private router: Router, private service: CreateContestService, private details: ContestDetailsService) { }
+  constructor(private router: Router, private service: CreateContestService, private event: EventService) { }
 
   ngOnInit() {
     this.contestType = 0;
     this.opponent = 0;
     this.entryFee = 0;
-    this.promise = this.details.getContestDetails('14');
-    this.promise.then(result => this.startTime = result.events[1].startTime)
+    this.promise = this.event.getEvents();
+    this.promise.then(result => {
+      console.log(result);
+    })
     
-  }
-
-  getContests(): Array<Contest> {
-    let contests = new Array<Contest>();
-
-    let contest = new Contest();
-    let time = new Date();
-    time.setHours(17);
-    time.setMinutes(0);
-    time.setSeconds(0);
-    time.setMilliseconds(0);
-    time.setMonth(1);
-    time.setDate(26);
-    time.setFullYear(2020);
-
-    contest.startTime = time;
-    contests.push(contest);
-
-    contest = new Contest();
-    time = new Date();
-    time.setHours(17);
-    time.setMinutes(0);
-    time.setSeconds(0);
-    time.setMilliseconds(0);
-    time.setMonth(1);
-    time.setDate(26);
-    time.setFullYear(2020);
-
-    contest.startTime = time;
-    contests.push(contest);
-
-    contest = new Contest();
-    time = new Date();
-    time.setHours(17);
-    time.setMinutes(0);
-    time.setSeconds(0);
-    time.setMilliseconds(0);
-    time.setMonth(1);
-    time.setDate(26);
-    time.setFullYear(2020);
-
-    contest.startTime = time;
-    contests.push(contest);
-
-    contest = new Contest();
-    time = new Date();
-    time.setHours(17);
-    time.setMinutes(0);
-    time.setSeconds(0);
-    time.setMilliseconds(0);
-    time.setMonth(1);
-    time.setDate(26);
-    time.setFullYear(2020);
-
-    contest.startTime = time;
-    contests.push(contest);
-
-    contest = new Contest();
-    time = new Date();
-    time.setHours(17);
-    time.setMinutes(0);
-    time.setSeconds(0);
-    time.setMilliseconds(0);
-    time.setMonth(1);
-    time.setDate(26);
-    time.setFullYear(2020);
-
-    contest.startTime = time;
-    contests.push(contest);
-
-    return contests;
-  }
-
-  // getEvents(): Array<Event> {
-    
-  // }
-
-  getDay(date: Date): string {
-    let days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    return days[date.getDay()];
   }
 
   selectTeam(): void {
