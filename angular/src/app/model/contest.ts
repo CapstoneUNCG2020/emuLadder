@@ -67,9 +67,19 @@ export class Contest {
     players: Array<Player>;
 
     /**
-     * 
+     * The times that the contest starts, etc...
      */
     schedules: Array<Schedule>;
+
+    /**
+     * The flag that controlls if the contest is shown on the public table via Slates.
+     */
+    showFlagSlate: boolean;
+
+    /**
+     * The flag that controlls if the contest is shown on the public table via Game Styles.
+     */
+    showFlagStyle: boolean;
 
     constructor() {
         this.players = new Array<Player>();

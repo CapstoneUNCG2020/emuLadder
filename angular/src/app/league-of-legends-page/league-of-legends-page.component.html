@@ -113,6 +113,8 @@
                 <div class="col-4">
                     <!-- 1st fcn box -->
                     <div id="gameStylesBox">
+                        <!-- <ng-container *ngFor="let contest of contests; let i = index">
+                            <ng-container *ngFor="let schedule of contest.schedules; let j = index"> -->
                         <div class="row">
                             <div class="col-8">
                                 <!-- Game State -->
@@ -122,7 +124,7 @@
                         <div class="row">
                             <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                 <!-- Radio1 -->
-                                <input type="radio" id="male" name="gender" value="male">
+                                <input (click)="styleSelect('Head2Head')" type="radio" id="male" name="gender" value="male">
                             </div>
                             <div class="col-10">
                                 <!-- Head to Head -->
@@ -138,7 +140,7 @@
                         <div class="row">
                             <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                 <!-- Radio1 -->
-                                <input type="radio" id="male" name="gender" value="male">
+                                <input (click)="styleSelect('Multiplayer')" type="radio" id="male" name="gender" value="male">
                             </div>
                             <div class="col-10">
                                 <!-- Multiplayer -->
@@ -150,6 +152,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- </ng-container>
+                        </ng-container> -->
                     </div>
 
                     <!-- Slate Box -->
@@ -166,9 +170,9 @@
                                 <div class="row">
                                     <div class="col-auto" style="align-self: center; padding-left: 4%;">
                                         <!-- Radio1 -->
-                                        <input type="radio" id="male" name="gender" value="male">
+                                        <input (click)="slateSelect(this.schedule.slateTime)" type="radio" id="test" name="test" value="testOne">
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-auto">
                                         <!-- Date -->
                                         <span id="slateTime">{{ schedule.slateTime }}</span>
                                         <div class="col-10" style="padding-left: 0%;">
@@ -217,56 +221,58 @@
                     <table style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
                         <!-- <div *ngFor="let item of tableShit"> -->
                         <tr *ngFor="let contest of contests">
-                            <td style="padding-left: 5px; padding-right: 10px;">
-                                <i class="fas fa-bookmark fa-lg"></i>
-                            </td>
-                            <td>
-                                <a (click)="selectContest(this.contest.contestId)"><span id="tableContestName">{{ contest.name }}</span></a>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span id="tableContestSpace">{{ contest.remainingSpaces + ' of ' + contest.totalSpaces}}</span>
+                            <ng-container *ngIf="contest.showFlagSlate">
+                                <td style="padding-left: 5px; padding-right: 10px;">
+                                    <i class="fas fa-bookmark fa-lg"></i>
+                                </td>
+                                <td>
+                                    <a (click)="selectContest(this.contest.contestId)"><span id="tableContestName">{{ contest.name }}</span></a>
+                                </td>
+                                <td style="padding-left: 80px;">
+                                    <div class="row justify-content-end">
+                                        <div class="col-auto">
+                                            <span id="tableContestSpace">{{ contest.remainingSpaces + ' of ' + contest.totalSpaces}}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span id="tableContestSpacePercent">{{ contest.spacePercent + '% Full'}}</span>
+                                    <div class="row justify-content-end">
+                                        <div class="col-auto">
+                                            <span id="tableContestSpacePercent">{{ contest.spacePercent + '% Full'}}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 80px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span id="tableContestPrizeAmount">{{ '$ ' + contest.prizeAmount }}</span>
+                                </td>
+                                <td style="padding-left: 80px;">
+                                    <div class="row justify-content-end">
+                                        <div class="col-auto">
+                                            <span id="tableContestPrizeAmount">{{ '$ ' + contest.prizeAmount }}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span id="tableContestGuaranteed">Guaranteed
-                                            in Prizes</span>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <span id="tableContestGuaranteed">Guaranteed
+                                                in Prizes</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <i class="fas fa-coins"></i>
-                            </td>
-                            <td style="padding-left: 40px;">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <span id="tableContestEntryFee">{{ '$ ' + contest.entryFee }}</span>
+                                </td>
+                                <td style="padding-left: 40px;">
+                                    <i class="fas fa-coins"></i>
+                                </td>
+                                <td style="padding-left: 40px;">
+                                    <div class="row justify-content-end">
+                                        <div class="col-auto">
+                                            <span id="tableContestEntryFee">{{ '$ ' + contest.entryFee }}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <span id="tableContestEntryFeeText">Entry
-                                            Fee</span>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <span id="tableContestEntryFeeText">Entry
+                                                Fee</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 20px; padding-right: 20px;">
-                                <a (click)="selectContest(this.contest.contestId)"><i class="fas fa-chevron-right"></i></a>
-                            </td>
+                                </td>
+                                <td style="padding-left: 20px; padding-right: 20px;">
+                                    <a (click)="selectContest(this.contest.contestId)"><i class="fas fa-chevron-right"></i></a>
+                                </td>
+                            </ng-container>
                         </tr>
                         <!-- </div> -->
                     </table>

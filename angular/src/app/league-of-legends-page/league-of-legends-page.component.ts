@@ -5,6 +5,7 @@ import { Game } from '../model/game';
 import { Router } from '@angular/router';
 import { PublicContestDetailsService } from '../service/rest/public-contest-details.service';
 import { ContestDetailsService } from '../service/rest/contest-details.service';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-league-of-legends-page',
@@ -14,12 +15,13 @@ import { ContestDetailsService } from '../service/rest/contest-details.service';
 export class LeagueOfLegendsPageComponent implements OnInit {
 
   private contests: Array<Contest>;
+  private tempContests = new Array<Contest>();
   private slate: Array<Schedule>;
   private contest: Contest;
 
   constructor(private router: Router,
     private publicContestDetails: PublicContestDetailsService,
-    private contestDetailsService: ContestDetailsService) { }
+    private contestDetailsService: ContestDetailsService) {}
 
   ngOnInit() {
     let promise = this.publicContestDetails.getPublicContestDetails();
@@ -45,9 +47,11 @@ export class LeagueOfLegendsPageComponent implements OnInit {
       contest.remainingSpaces = contestJSON.contests[i].currentEntries;
       contest.totalSpaces = contestJSON.contests[i].totalEntries;
       contest.spacePercent = ((contestJSON.contests[i].currentEntries / contestJSON.contests[i].totalEntries) * 100);
-      contest.contestType = 1;
+      contest.contestType = contestJSON.contests[i].contestType;
       contest.entryFee = contestJSON.contests[i].entreeFee;
       contest.prizeAmount = contestJSON.contests[i].prizeAmount;
+      contest.showFlagSlate = true;
+      contest.showFlagStyle = true;
       schedule.startTime = new Date(contestJSON.contests[i].start);
       //Checking if any of the times returned from the DB are the same, as we don't want to display 30 of the same times on the screen.
       var flag = true;
@@ -56,7 +60,6 @@ export class LeagueOfLegendsPageComponent implements OnInit {
           flag = false;
         }
       }
-      console.log(flag);
       schedule.flag = flag;
       schedule.slateTime = schedule.getStartTime();
       schedule.region = contestJSON.contests[i].region;
@@ -71,8 +74,6 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     return contests;
   }
 
-
-
   selectContest(contestId): void {
     console.log(contestId);
     
@@ -83,8 +84,57 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     })
   }
 
+  slateSelect(clickedSlateTime): void {
+    console.log(this.contests);
+    // this.contests.concat(this.tempContests);
+    // this.tempContests = [];
 
+    // let tempIndex = 0;
+    for(let i = 0; i < this.contests.length; i++) {
+      if(this.contests[i].schedules[0].slateTime == clickedSlateTime){
+        this.contests[i].showFlagSlate = true;
+        // console.log("Item that is removed: " + this.contests[i].name);
+        // this.tempContests[tempIndex] = this.contests[i];
+        // tempIndex++;
+        // this.contests = this.contests.splice(i, 1);
+      } else {
+        this.contests[i].showFlagSlate = false;
+      }
+    }
+  }
 
+  styleSelect(gameStyle): void {
+    console.log(this.contests);
+
+    console.log(gameStyle);
+    console.log(gameStyle == 'Head2Head');
+    console.log(gameStyle == 'Multiplayer');
+    if(gameStyle == 'Head2Head') {
+      for(let i = 0; i < this.contests.length; i++) {
+        console.log(this.contests[i].name + " name " + (this.contests[i].contestType == 0) + " ContestType " + this.contests[i].contestType);
+        if(this.contests[i].contestType == 0) {
+          console.log("In head to head: " + this.contests[i].name);
+          this.contests[i].showFlagSlate = true;
+        } else {
+          this.contests[i].showFlagSlate = false;
+        }
+      }
+    } else if(gameStyle == 'Multiplayer') {
+      for(let i = 0; i < this.contests.length; i++) {
+        if(this.contests[i].contestType == 1) {
+          this.contests[i].showFlagSlate = true;
+        } else {
+          this.contests[i].showFlagSlate = false;
+        }
+      }
+    }
+  }
+
+  /** TODO 
+   * ~ Sorting and Filtering Methods
+   *  ~ Maybe make a default object that contains everything originally and then when a filter is added move things 
+   *    that don't fit in the filter to the secondary object... We display based on this default object....
+   */
 
 /**
  * OLD CODE THAT I'M STILL REFERENCING
