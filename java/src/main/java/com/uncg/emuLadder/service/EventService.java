@@ -21,14 +21,8 @@ public class EventService {
 
     private final EventsRepository eventsRepository;
 
-    public List<Events> test() throws ParseException {
-        Timestamp timestamp = new Timestamp(2020, 1, 18, 0, 0, 0, 0);
-        Timestamp timestamp1 = new Timestamp(2020, 2, 19, 0, 0, 0, 0);
-        List<Events> events = eventsRepository.findAllByStartTimeAfterAndStartTimeBeforeAndName(timestamp, timestamp1, "LCS");
-
-//        responseData.setStatus(ResponseStatusType.SUCCESS.name());
-//        responseData.setResponse(events);
-
+    public List<Events> test() {
+        List<Events> events = eventsRepository.findFiveLatestEvents();
         return events;
     }
 
