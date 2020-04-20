@@ -4,6 +4,8 @@ import { ContestManagementComponent } from '../contest-management/contest-manage
 import { Contest } from '../model/contest';
 //import { SendEmailService } from '../service/send-email.service';
 import { SendEmailService } from '../service/rest/send-email.service';
+import { SentEmailService } from '../service/sent-email.service';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-invite-bar',
@@ -18,7 +20,7 @@ export class InviteBarComponent implements OnInit {
   subject: string;
   error: boolean;
   
-  constructor(@Host() private parent: ContestManagementComponent, private sendEmailService: SendEmailService) { }
+  constructor(@Host() private parent: ContestManagementComponent, private sendEmailService: SendEmailService, private sentEmailService: SentEmailService) { }
   
   ngOnInit() {
   }
@@ -29,6 +31,15 @@ export class InviteBarComponent implements OnInit {
 
   sendEmail(): void {
       let promise = this.sendEmailService.sendEmail(this.toEmail, this.message);
+
+      promise.then(success => {
+        if (success) {
+          this.sentEmailService.sent();
+          this.close();
+        } else {
+          this.error = true;
+        }
+      });
   }
 
   close() {

@@ -8,4 +8,12 @@ export class SentEmailService {
   private isSent:boolean;
   
   constructor() { }
+
+  public sent(): void{
+    this.isSent = true;
+  }
+
+  public sentStatus(): boolean{
+    return this.isSent;
+  }
 }
