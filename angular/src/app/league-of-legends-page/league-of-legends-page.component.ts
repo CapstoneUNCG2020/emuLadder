@@ -52,6 +52,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
       contest.prizeAmount = contestJSON.contests[i].prizeAmount;
       contest.showFlagSlate = true;
       contest.showFlagStyle = true;
+      contest.showFlagNameSearch = true;
       schedule.startTime = new Date(contestJSON.contests[i].start);
       //Checking if any of the times returned from the DB are the same, as we don't want to display 30 of the same times on the screen.
       var flag = true;
@@ -133,6 +134,20 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     }
     console.log("Array after click on Game Styles");
     console.log(this.contests);
+  }
+
+  nameSearch(): void {
+    var typedValue = (<HTMLInputElement>document.getElementById("TournamentSearch")).value;
+    console.log(typedValue);
+
+    for(let i = 0; i < this.contests.length; i++) {
+      //If value in x matches any part of the name of a contest display it....
+      if(this.contests[i].name.includes(typedValue)) {
+        this.contests[i].showFlagNameSearch = true;
+      } else {
+        this.contests[i].showFlagNameSearch = false;
+      }
+    }
   }
 
   /** TODO 

@@ -94,7 +94,7 @@
                             <i class="fas fa-search"></i>
                         </div>
                         <div class="col-4">
-                            <input id="TournamentSearch" type="text" placeholder="Search League of Legends Tournaments" name="psw" required>
+                            <input (keyup)="nameSearch()" id="TournamentSearch" type="text" placeholder="Search League of Legends Tournaments" name="psw" required>
                         </div>
                         <div class="col-7">
                     <select id="filterFee">
@@ -221,7 +221,7 @@
                     <table style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
                         <!-- <div *ngFor="let item of tableShit"> -->
                         <tr *ngFor="let contest of contests">
-                            <ng-container *ngIf="(contest.showFlagSlate && contest.showFlagStyle)">
+                            <ng-container *ngIf="(contest.showFlagSlate && contest.showFlagStyle && contest.showFlagNameSearch)">
                                 <td style="padding-left: 5px; padding-right: 10px;">
                                     <i class="fas fa-bookmark fa-lg"></i>
                                 </td>

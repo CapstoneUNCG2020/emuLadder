@@ -81,6 +81,11 @@ export class Contest {
      */
     showFlagStyle: boolean;
 
+    /**
+     * The flag that controlls if the contest is shown on the public table via Search Feature.
+     */
+    showFlagNameSearch: boolean;
+
     constructor() {
         this.players = new Array<Player>();
         this.schedules = new Array<Schedule>();
