@@ -104,7 +104,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
   }
 
   styleSelect(gameStyle): void {
-    console.log(this.contests);
+    
 
     console.log(gameStyle);
     console.log(gameStyle == 'Head2Head');
@@ -114,20 +114,25 @@ export class LeagueOfLegendsPageComponent implements OnInit {
         console.log(this.contests[i].name + " name " + (this.contests[i].contestType == 0) + " ContestType " + this.contests[i].contestType);
         if(this.contests[i].contestType == 0) {
           console.log("In head to head: " + this.contests[i].name);
-          this.contests[i].showFlagSlate = true;
+          this.contests[i].showFlagStyle = true;
         } else {
-          this.contests[i].showFlagSlate = false;
+          this.contests[i].showFlagStyle = false;
         }
       }
     } else if(gameStyle == 'Multiplayer') {
       for(let i = 0; i < this.contests.length; i++) {
+        console.log(this.contests[i].name + " name " + (this.contests[i].contestType == 0) + " ContestType " + this.contests[i].contestType);
         if(this.contests[i].contestType == 1) {
-          this.contests[i].showFlagSlate = true;
+          console.log("In Multiplayer TRUE: " + this.contests[i].name);
+          this.contests[i].showFlagStyle = true;
         } else {
-          this.contests[i].showFlagSlate = false;
+          console.log("In Multiplayer FALSE: " + this.contests[i].name);
+          this.contests[i].showFlagStyle = false;
         }
       }
     }
+    console.log("Array after click on Game Styles");
+    console.log(this.contests);
   }
 
   /** TODO 
