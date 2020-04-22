@@ -13,6 +13,10 @@ import java.util.List;
 public interface EventsRepository extends JpaRepository<Events, String> {
     List<Events> findAllByStartTimeAfterAndStartTimeBeforeAndName(Timestamp start, Timestamp end, String name);
 
-    @Query(value = "SELECT * FROM Events WHERE Events.name = 'LCS' AND Events.startTime > '2020-02-09 01:00:00' GROUP BY startTime ORDER BY startTime LIMIT 5", nativeQuery = true)
-    List<Events> findFiveLatestEvents();
+    @Query(value = "SELECT startTime FROM Events WHERE startTime >= '2020-02-09' and name = 'LCS' GROUP BY DATE(startTime) ORDER BY startTime LIMIT 5", nativeQuery = true)
+    List<Timestamp> getLatestDates();
+
+
+//    @Query(value = "SELECT * FROM Events WHERE Events.name = 'LCS' AND Events.startTime > '2020-02-09 01:00:00' GROUP BY startTime ORDER BY startTime LIMIT 5", nativeQuery = true)
+//    List<Events> findFiveLatestEvents();
 }

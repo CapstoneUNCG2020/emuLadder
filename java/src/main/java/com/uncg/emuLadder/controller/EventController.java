@@ -7,6 +7,7 @@ import com.uncg.emuLadder.service.EventService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.List;
@@ -20,9 +21,14 @@ public class EventController {
     private final EventsRepository eventsRepository;
     private final EventService eventService;
 
+//    @GetMapping("/test")
+//    public ResponseData<List<Events>> getEvent() {
+//        return eventService.test();
+//    }
+
     @GetMapping("/test")
-    public ResponseData<List<Events>> getEvent() {
-        return eventService.test();
+    public ResponseData<List<Timestamp>> getLatestDates() {
+        return eventService.getLatestDates();
     }
 
     public EventController(final EventsRepository eventsRepository, final EventService eventService) {
