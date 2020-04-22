@@ -16,8 +16,8 @@ export class InviteBarComponent implements OnInit {
 
   toEmail: string;
   userEmail: string;
-  message: string;
-  subject: string;
+  message: string = "Link Goes here!";
+  subject: string = "You've Been invited to EmuLadder!";
   error: boolean;
   
   constructor(@Host() private parent: ContestManagementComponent, private sendEmailService: SendEmailService, private sentEmailService: SentEmailService) { }
@@ -41,6 +41,7 @@ export class InviteBarComponent implements OnInit {
         }
       });
   }
+
 
   close() {
     this.parent.showInviteBar = false;
