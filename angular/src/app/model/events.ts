@@ -1,6 +1,7 @@
 import { DateUtil } from '../util/date-util';
 
 export class Events {
+    eventId: string;
     /**
      * Name of the region/league.
      */
@@ -10,6 +11,10 @@ export class Events {
      * When the contest officially starts.
      */
     startTime: Date;
+
+    currentState: number;
+
+    link: string;
 
     /**
      * Name of the first team.
