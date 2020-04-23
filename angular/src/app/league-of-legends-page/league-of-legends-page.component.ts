@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { PublicContestDetailsService } from '../service/rest/public-contest-details.service';
 import { ContestDetailsService } from '../service/rest/contest-details.service';
 import { TestBed } from '@angular/core/testing';
+import { SignedInService } from '../service/signed-in.service';
 
 @Component({
   selector: 'app-league-of-legends-page',
@@ -22,7 +23,8 @@ export class LeagueOfLegendsPageComponent implements OnInit {
 
   constructor(private router: Router,
     private publicContestDetails: PublicContestDetailsService,
-    private contestDetailsService: ContestDetailsService) {}
+    private contestDetailsService: ContestDetailsService,
+    private signedInService: SignedInService) {}
 
   ngOnInit() {
     this.minus = 0;
@@ -89,11 +91,15 @@ export class LeagueOfLegendsPageComponent implements OnInit {
   selectContest(contestId): void {
     console.log(contestId);
     
-    let promise = this.contestDetailsService.getContestDetails(contestId);
-
-    promise.then(contest => {
-      this.router.navigateByUrl('contest/draft/' + contest.contestId);
-    })
+    if(!this.signedInService.getStatus()) {
+      alert('USER NOT SIGNED IN');
+    } else {
+      let promise = this.contestDetailsService.getContestDetails(contestId);
+  
+      promise.then(contest => {
+        this.router.navigateByUrl('contest/draft/' + contest.contestId);
+      })
+    }
   }
 
   /**
