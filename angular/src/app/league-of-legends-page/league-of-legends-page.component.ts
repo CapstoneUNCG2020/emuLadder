@@ -31,7 +31,6 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     let promise = this.publicContestDetails.getPublicContestDetails();
     promise.then(contest => {
       const contestJSON = JSON.parse(JSON.stringify(contest));
-      console.log(contestJSON);
       this.contests = this.DTOConversion(contestJSON);
 
       //Updates every second
@@ -207,9 +206,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
 
     for(let i = 0; i < this.contests.length; i++) {
       if(this.contests[i].showFlagSlate && this.contests[i].showFlagStyle && this.contests[i].showFlagNameSearch && this.contests[i].showFlagEntryFee) {
-        // this.contests[i].startTime //get startTime and start a countdown and then break after we find the first one.
         // Get milliseconds until contest starts
-        console.log(this.contests[i].name + ' ' + this.contests[i].schedules[0].startTime + ' ' + minus);
         let ms = new Date(2020, 4, 8, 14, 33, 30 + minus, 0).getTime() - this.contests[i].schedules[0].startTime.getTime();
     
         /* Days */
