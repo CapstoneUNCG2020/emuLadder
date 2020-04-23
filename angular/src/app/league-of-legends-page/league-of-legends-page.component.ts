@@ -15,7 +15,6 @@ import { TestBed } from '@angular/core/testing';
 export class LeagueOfLegendsPageComponent implements OnInit {
 
   private contests: Array<Contest>;
-  private tempContests = new Array<Contest>();
   private slate: Array<Schedule>;
   private contest: Contest;
 
@@ -86,18 +85,9 @@ export class LeagueOfLegendsPageComponent implements OnInit {
   }
 
   slateSelect(clickedSlateTime): void {
-    console.log(this.contests);
-    // this.contests.concat(this.tempContests);
-    // this.tempContests = [];
-
-    // let tempIndex = 0;
     for(let i = 0; i < this.contests.length; i++) {
       if(this.contests[i].schedules[0].slateTime == clickedSlateTime){
         this.contests[i].showFlagSlate = true;
-        // console.log("Item that is removed: " + this.contests[i].name);
-        // this.tempContests[tempIndex] = this.contests[i];
-        // tempIndex++;
-        // this.contests = this.contests.splice(i, 1);
       } else {
         this.contests[i].showFlagSlate = false;
       }
@@ -105,16 +95,9 @@ export class LeagueOfLegendsPageComponent implements OnInit {
   }
 
   styleSelect(gameStyle): void {
-    
-
-    console.log(gameStyle);
-    console.log(gameStyle == 'Head2Head');
-    console.log(gameStyle == 'Multiplayer');
     if(gameStyle == 'Head2Head') {
       for(let i = 0; i < this.contests.length; i++) {
-        console.log(this.contests[i].name + " name " + (this.contests[i].contestType == 0) + " ContestType " + this.contests[i].contestType);
         if(this.contests[i].contestType == 0) {
-          console.log("In head to head: " + this.contests[i].name);
           this.contests[i].showFlagStyle = true;
         } else {
           this.contests[i].showFlagStyle = false;
@@ -122,30 +105,50 @@ export class LeagueOfLegendsPageComponent implements OnInit {
       }
     } else if(gameStyle == 'Multiplayer') {
       for(let i = 0; i < this.contests.length; i++) {
-        console.log(this.contests[i].name + " name " + (this.contests[i].contestType == 0) + " ContestType " + this.contests[i].contestType);
         if(this.contests[i].contestType == 1) {
-          console.log("In Multiplayer TRUE: " + this.contests[i].name);
           this.contests[i].showFlagStyle = true;
         } else {
-          console.log("In Multiplayer FALSE: " + this.contests[i].name);
           this.contests[i].showFlagStyle = false;
         }
       }
     }
-    console.log("Array after click on Game Styles");
-    console.log(this.contests);
   }
 
   nameSearch(): void {
     var typedValue = (<HTMLInputElement>document.getElementById("TournamentSearch")).value;
-    console.log(typedValue);
 
     for(let i = 0; i < this.contests.length; i++) {
-      //If value in x matches any part of the name of a contest display it....
       if(this.contests[i].name.includes(typedValue)) {
         this.contests[i].showFlagNameSearch = true;
       } else {
         this.contests[i].showFlagNameSearch = false;
+      }
+    }
+  }
+
+  entryFee(): void {
+    var min = (<HTMLInputElement>document.getElementById("TextBoxInputEntryMoneyLeft")).value;
+    var max = (<HTMLInputElement>document.getElementById("TextBoxInputEntryMoneyRight")).value;
+    var minNum = 0;
+    var maxNum = 0;
+    if(min == "") {
+      min = "0";
+      minNum = 0;
+    } else {
+      minNum = parseInt(min, 10);
+    }
+    if(max == "") {
+      max = "50000";
+      maxNum = 50000;
+    } else {
+      maxNum = parseInt(max, 10);
+    }
+
+    for(let i = 0; i < this.contests.length; i++) {
+      if(this.contests[i].entryFee >= minNum && this.contests[i].entryFee <= maxNum ) {
+        this.contests[i].showFlagEntryFee = true;
+      } else {
+        this.contests[i].showFlagEntryFee = false;
       }
     }
   }

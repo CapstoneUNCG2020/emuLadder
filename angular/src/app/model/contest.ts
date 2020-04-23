@@ -86,6 +86,11 @@ export class Contest {
      */
     showFlagNameSearch: boolean;
 
+    /**
+     * The flag that controlls if the contest is show on the public table via Entry Fee.
+     */
+    showFlagEntryFee: boolean;
+
     constructor() {
         this.players = new Array<Player>();
         this.schedules = new Array<Schedule>();

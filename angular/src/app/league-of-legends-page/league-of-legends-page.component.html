@@ -204,12 +204,12 @@
                         </div>
                         <div class="col-10">
                             <!-- Max and Min -->
-                            <span id="entryMoneyLeft">$0</span>
-                            <span id="entryMoneyRight">$50,000</span>
+                            <span style="color: white;">$</span><input (keyup)="entryFee()" id="TextBoxInputEntryMoneyLeft" type="text" placeholder="0">
+                            <div style="float: right;"><span style="color: white;">$</span><input (keyup)="entryFee()" id="TextBoxInputEntryMoneyRight" type="text" placeholder="50,000"></div>
                             <div class="col-12" style="padding-left: 0%; padding-right: 0%;">
                                 <!-- Max and Min Inputs (Should be sliders) -->
-                                <input id="TextBoxInputEntryMoneyLeft" type="text" placeholder="Min" name="psw" required>
-                                <input id="TextBoxInputEntryMoneyRight" type="text" placeholder="Max" name="psw" required>
+                                <span id="entryMoneyLeft">Min</span>
+                                <span id="entryMoneyRight">Max</span>
                             </div>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                     <table style="background-color: rgb(58, 64, 66, .5); border-radius: 14px;">
                         <!-- <div *ngFor="let item of tableShit"> -->
                         <tr *ngFor="let contest of contests">
-                            <ng-container *ngIf="(contest.showFlagSlate && contest.showFlagStyle && contest.showFlagNameSearch)">
+                            <ng-container *ngIf="(contest.showFlagSlate && contest.showFlagStyle && contest.showFlagNameSearch && contest.showFlagEntryFee)">
                                 <td style="padding-left: 5px; padding-right: 10px;">
                                     <i class="fas fa-bookmark fa-lg"></i>
                                 </td>
