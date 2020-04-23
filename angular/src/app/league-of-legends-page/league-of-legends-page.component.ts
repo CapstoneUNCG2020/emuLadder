@@ -52,6 +52,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
       contest.showFlagSlate = true;
       contest.showFlagStyle = true;
       contest.showFlagNameSearch = true;
+      contest.showFlagEntryFee = true;
       schedule.startTime = new Date(contestJSON.contests[i].start);
       //Checking if any of the times returned from the DB are the same, as we don't want to display 30 of the same times on the screen.
       var flag = true;
@@ -152,201 +153,15 @@ export class LeagueOfLegendsPageComponent implements OnInit {
       }
     }
   }
-
-  /** TODO 
-   * ~ Sorting and Filtering Methods
-   *  ~ Maybe make a default object that contains everything originally and then when a filter is added move things 
-   *    that don't fit in the filter to the secondary object... We display based on this default object....
-   */
-
-/**
- * OLD CODE THAT I'M STILL REFERENCING
- */
-
-  // private testBackendResponse(): Array<Contest> {
-  //   let contests = new Array<Contest>();
-  //   let schedules = new Array<Schedule>();
-
-  //   let tempContest = new Contest();
-  //   tempContest.name = this.contest.name;
-  //   tempContest.remainingSpaces = this.contest.remainingSpaces;
-  //   tempContest.totalSpaces = 20;
-  //   tempContest.contestType = 1;
-  //   tempContest.entryFee = 1000;
-  //   tempContest.prizeAmount = 100000;
-  // } 
-
-  // private getPublicContest(): Array<Contest> {
-  //   let contests = new Array<Contest>();
-  //   let schedules = new Array<Schedule>();
-
-  //   let contest = new Contest();
-  //   let schedule = new Schedule();
-  //   contest.name = 'JACKPOT LOL Tournament';
-  //   contest.remainingSpaces = 10;
-  //   contest.totalSpaces = 20;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 1000;
-  //   contest.prizeAmount = 100000;
-  //   schedule.startTime = this.getTime();
-  //   schedule.region = 'LCS';
-  //   schedule.teamCode1 = 'MAD';
-  //   schedule.teamCode2 = 'G2';
-  //   schedule.slateTime = schedule.getStartTime();
-  //   schedules.push(schedule);
-
-  //   contest.schedules = schedules;
-  //   contests.push(contest);
-  //   schedules = [];
-
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 1';
-  //   contest.remainingSpaces = 1;
-  //   contest.totalSpaces = 2;
-  //   contest.contestType = 0;
-  //   contest.entryFee = 10;
-  //   contest.prizeAmount = 20;
-  //   schedule.startTime = this.getTime2();
-  //   schedule.region = 'LCS';
-  //   schedule.teamCode1 = 'C9';
-  //   schedule.teamCode2 = 'TSM';
-  //   schedule.slateTime = schedule.getStartTime();
-  //   schedules.push(schedule);
-
-  //   contest.schedules = schedules;
-  //   contests.push(contest);
-  //   schedules = [];
-
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Wilmoth LOL Tournament';
-  //   contest.remainingSpaces = 5;
-  //   contest.totalSpaces = 12;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 100;
-  //   contest.prizeAmount = 1000;
-  //   // schedule.startTime = this.getTime();
-  //   // schedule.region = 'LCK';
-  //   // schedule.teamCode1 = 'POG';
-  //   // schedule.teamCode2 = 'SKT';
-  //   // schedule.slateTime = schedule.getStartTime();
-  //   // schedules.push(schedule);
-
-  //   // contest.schedules = schedules;
-  //   contests.push(contest);
-  //   // schedules = [];
-
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   // schedule.startTime = this.getTime();
-  //   // schedule.region = 'OCE';
-  //   // schedule.teamCode1 = 'RAM';
-  //   // schedule.teamCode2 = 'UND';
-  //   // schedule.slateTime = schedule.getStartTime();
-  //   // schedules.push(schedule);
-
-  //   // contest.schedules = schedules;
-  //   contests.push(contest);
-  //   // schedules = [];
-
-  //   //REPEAT
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-  //   contest = new Contest();
-  //   schedule = new Schedule();
-  //   contest.name = 'Public League of Legends Tournament 2';
-  //   contest.remainingSpaces = 4;
-  //   contest.totalSpaces = 10;
-  //   contest.contestType = 1;
-  //   contest.entryFee = 50;
-  //   contest.prizeAmount = 500;
-  //   contests.push(contest);
-    
-  //   return contests;
-  // }
-
-  // private getTime(): Date {
-  //   let time = new Date();
-  //   time.setHours(12);
-  //   time.setMinutes(0);
-  //   time.setSeconds(0);
-  //   time.setMilliseconds(0);
-  //   time.setMonth(4);
-  //   time.setDate(8);
-  //   time.setFullYear(2020);
-
-  //   return time;
-  // }
-
-  // private getTime2(): Date {
-  //   let time = new Date();
-  //   time.setHours(18);
-  //   time.setMinutes(0);
-  //   time.setSeconds(0);
-  //   time.setMonth(4);
-  //   time.setDate(9);
-  //   time.setFullYear(2020);
-
-  //   return time;
-  // }
+  
+  sortFee(sortValue): void {
+    if(sortValue == "low") {
+      //Sort the public games list Low to High
+      this.contests.sort((a, b) => a.entryFee < b.entryFee ? -1 : a.name > b.name ? 1 : 0)
+    } else if(sortValue == "high") {
+      //Sort the public games list High to Low
+      this.contests.sort((a, b) => a.entryFee > b.entryFee ? -1 : a.name < b.name ? 1 : 0)
+    }
+  }
 
 }

@@ -97,10 +97,10 @@
                             <input (keyup)="nameSearch()" id="TournamentSearch" type="text" placeholder="Search League of Legends Tournaments" name="psw" required>
                         </div>
                         <div class="col-7">
-                    <select id="filterFee">
+                    <select id="filterFee" (change)="sortFee($event.target.value)">
+                        <option value="none" style="background: #212121;">Entry Fee Sorting</option>
                         <option value="low" style="background: #212121;">Lowest Entry Fee</option>
                         <option value="high" style="background: #212121;">Highest Entry Fee</option>
-                        <option value="open" style="background: #212121;">Open Slots</option>
                     </select>
                             <span id="SortContest">Sort Contest By:</span>
                         </div>
