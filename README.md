@@ -42,3 +42,6 @@ The application, emuLadder, is a Fantasy eSports game similar to ESPN’s Fantas
   
   ### Contest Drafting Page
   ![EMULADDER Contest Drafting Page](https://github.com/CapstoneUNCG2020/emuLadder/blob/master/documents/Images/ScreenGrabs/lolDrafting.png)
+
+## [Data Collection Service](https://github.com/CapstoneUNCG2020/Data-Collection)
+The Data Collection service is built upon the unofficial League of Legends API which is documented and maintained [here](https://vickz84259.github.io/lolesports-api-docs/).
