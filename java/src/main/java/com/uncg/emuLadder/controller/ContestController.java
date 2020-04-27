@@ -35,8 +35,8 @@ public class ContestController {
         return createContestHandler.handle(requestData);
     }
 
-    @GetMapping("/registered/{email}")
-    public ResponseData<RegisteredContestsData> getRegisteredContests(@PathVariable String email) {
+    @PostMapping("/registered")
+    public ResponseData<RegisteredContestsData> getRegisteredContests(@RequestBody String email) {
         return registeredContestsHandler.handle(email);
     }
 
