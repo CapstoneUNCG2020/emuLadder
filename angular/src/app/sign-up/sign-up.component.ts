@@ -85,12 +85,8 @@ export class SignUpComponent implements OnInit {
   openLogIn(): void {
     this.close();
 
-    // // Open the Log In modal
-    let element = document.body.children[0].children[0]
-      .children[0].children[0].children[2].children[0]
-      .children[0].children[1] as HTMLElement;
-
-    element.click();
+    let el = document.getElementById('app-sign-in-btn');
+    el.click();
   }
 
 }
