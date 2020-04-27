@@ -4,6 +4,12 @@ import { Schedule } from './schedule';
 import { DateUtil } from '../util/date-util';
 
 export class Contest {
+
+    /**
+     * Unique ID for the contest
+     */
+    contestId: number
+
     /**
      * Name of the contest.
      */
@@ -12,18 +18,23 @@ export class Contest {
     /**
      * Type of Contest: Multiplayer or Head-to-Head.
      */
-    type: string;
+    contestType: number;
 
     /**
      * Maximum number of users who can sign up for
      * this contest.
      */
-    maxEntries: number;
+    totalSpaces: number;
 
     /**
      * Current number of users who have signed up for this contest.
      */
-    currentEntries: number;
+    remainingSpaces: number;
+
+    /**
+     * Percentage of the contest that is full.
+     */
+    spacePercent: number;
 
     /**
      * The price to enter this contest.
@@ -56,13 +67,34 @@ export class Contest {
     players: Array<Player>;
 
     /**
-     * 
+     * The times that the contest starts, etc...
      */
     schedules: Array<Schedule>;
+
+    /**
+     * The flag that controlls if the contest is shown on the public table via Slates.
+     */
+    showFlagSlate: boolean;
+
+    /**
+     * The flag that controlls if the contest is shown on the public table via Game Styles.
+     */
+    showFlagStyle: boolean;
+
+    /**
+     * The flag that controlls if the contest is shown on the public table via Search Feature.
+     */
+    showFlagNameSearch: boolean;
+
+    /**
+     * The flag that controlls if the contest is show on the public table via Entry Fee.
+     */
+    showFlagEntryFee: boolean;
 
     constructor() {
         this.players = new Array<Player>();
         this.schedules = new Array<Schedule>();
+        this.startingSalary = 25000;
     }
 
     /**
@@ -70,12 +102,21 @@ export class Contest {
      * { DayofWeek, Month Date at LocalTime }
      */
     public getStartTime(): string {
-        let t = this.startTime;
+        let t = new Date(this.startTime);
+
         let day = t.getDay();
         let month = t.getMonth();
         let date = t.getDate();
         let time = t.toLocaleTimeString();
 
         return DateUtil.DAYS[day] + ', ' + DateUtil.MONTHS[month] + ' ' + date + ' at ' + time;   
+    }
+
+    public getContestType(): string {
+        switch (this.contestType) {
+            case 0: return 'Head-to-Head';
+            case 1: return 'Public';
+            case 2: return 'Private';
+        }
     }
 }

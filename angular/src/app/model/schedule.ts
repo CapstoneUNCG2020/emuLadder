@@ -22,6 +22,11 @@ export class Schedule {
     slateTime: string;
 
     /**
+     * flag, used to mark times that are the same from the DB so we know to only display one.
+     */
+    flag: boolean;
+
+    /**
      * The region in which the game is to be played
      */
     region: string;

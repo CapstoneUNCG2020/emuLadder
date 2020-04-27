@@ -1,0 +1,36 @@
+body {
+    font: lighter 22px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+}
+
+.background-image {
+  background-image: url("./assets/emuLadderBackground.png");
+  background-color: #000000;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+span#slogan {
+    font: bolder 80px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+    color: white;
+}
+
+a#slogan2 {
+    font: bolder 42px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #8ECCCC;
+    border-color: #8ECCCC;
+    border-radius: 20px;
+}

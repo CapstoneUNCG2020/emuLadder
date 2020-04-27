@@ -28,6 +28,11 @@ public class Player {
      */
     private double salary;
 
+    /**
+     * The unique ID for the player.
+     */
+    private String playerId;
+
     public String getImage() {
         return image;
     }
@@ -68,6 +73,14 @@ public class Player {
         this.salary = salary;
     }
 
+    public String getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,12 +90,13 @@ public class Player {
                 Double.compare(player.salary, salary) == 0 &&
                 Objects.equals(image, player.image) &&
                 Objects.equals(name, player.name) &&
-                Objects.equals(role, player.role);
+                Objects.equals(role, player.role) &&
+                Objects.equals(playerId, player.playerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(image, name, role, rank, salary);
+        return Objects.hash(image, name, role, rank, salary, playerId);
     }
 
     @Override
@@ -93,7 +107,9 @@ public class Player {
         sb.append(", role='").append(role).append('\'');
         sb.append(", rank=").append(rank);
         sb.append(", salary=").append(salary);
+        sb.append(", playerId='").append(playerId).append('\'');
         sb.append('}');
         return sb.toString();
     }
+
 }

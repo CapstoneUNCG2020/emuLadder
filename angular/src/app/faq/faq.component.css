@@ -1,13 +1,73 @@
 body {
     background-color: #212121;
-    min-height: 100%;
+    height: 1080px;
     color: white;
+    font: lighter 20px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
 }
 
-h1, h3, h6 {
+h2 {
+    font: bold 64px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+}
+
+h2#title, p#title {
     text-align: center;
 }
 
-hr {
-    background-color: white;
+.accordion {
+    background-color: #212121;
+    border-radius: 20px;
+    color: #8ECCCC;
+    cursor: pointer;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font: lighter 32px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: #212121;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #8ECCCC;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    font-size: 3em;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding-left: 60px;
+    padding-right: 120px;
+    margin-top: -2%;
+    background-color: #212121;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+p {
+    font: lighter 30px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
+}
+
+p#title {
+    opacity: .7;
 }

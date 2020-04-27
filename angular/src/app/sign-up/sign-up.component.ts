@@ -45,7 +45,7 @@ export class SignUpComponent implements OnInit {
 
       promise.then(response => {
         if (response.response) {
-          this.signedInService.signIn();
+          this.signedInService.signIn(this.email);
           this.close();
         } else {
           this.errorMessage = response.errors.toString();

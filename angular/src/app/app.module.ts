@@ -19,6 +19,7 @@ import { LeagueOfLegendsPageComponent } from './league-of-legends-page/league-of
 import { FaqComponent } from './faq/faq.component';
 import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LandingPageComponent,
     LeagueOfLegendsPageComponent,
     FaqComponent,
-    ScoringRosterBreakdownComponent
-
+    ScoringRosterBreakdownComponent,
+    ComingSoonPageComponent
   ],
   imports: [
     BrowserModule,
