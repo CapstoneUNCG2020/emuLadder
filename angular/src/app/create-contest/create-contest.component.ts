@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Contest } from '../model/contest';
 import { CreateContestService } from '../service/rest/create-contest.service';
+import { EventService } from '../service/rest/event.service';
+import { Events } from 'src/app/model/events';
 
 @Component({
   selector: 'app-create-contest',
@@ -14,60 +17,126 @@ export class CreateContestComponent implements OnInit {
   entryFee: number;
   name: string;
   startTime: string;
+  promise: Promise<any>;
+  dateArray: Array<Date>;
+  test: Array<string>
+  dateObject: Array<object>;
+  eventArray: Array<Events>;
+  groupedEvents: Array<Array<object>>;
+  dates: string;
 
-  date = "date1"
 
-  dateTimes = [
-    {
-      day: 'Saturday',
-      date: 'Jan 25th',
-      time: '5:00pm',
-      teams: ["FLY v IMT", "C9 v NRG", "G2 v FaZe"],
-      dateAndTime: ["1/25 5:00pm", "1/25 5:50pm", "1/25 6:40pm"]
-    },
-    {
-      day: 'Sunday',
-      date: 'Jan 26th',
-      time: '6:00pm',
-      teams: ["GG v 100", "CLG v GG", "TSM v DIG", "C9 v G2"],
-      dateAndTime: ["1/26 5:00pm", "1/26 5:50pm", "1/26 6:40pm", "1/26 7:30pm"]
-    },
-    {
-      day: 'Friday',
-      date: 'Jan 30th',
-      time: '5:00pm',
-      teams: ["FLY v IMT", "C9 v TSM", "DIG v CLG", "GG v 100", "NRG v eU"],
-      dateAndTime: ["1/30 3:00pm", "1/30 3:50pm", "1/30 4:40pm", "1/30 5:30pm", "1/30 6:20pm"]
-    },
-    {
-      day: 'Friday',
-      date: 'Feb 7th',
-      time: '7:00pm',
-      teams: ["G2 v NRG", "TSM v DIG", "eU v C9", "100 v FaZe"],
-      dateAndTime: ["2/7 3:00pm", "2/7 3:50pm", "2/7 4:40pm", "2/7 5:30pm"]
-    },
-    {
-      day: 'Saturday',
-      date: 'Feb 15th',
-      time: '6:00pm',
-      teams: ["TSM v 100", "eU v GG", "C9 v DIG"],
-      dateAndTime: ["2/15 5:00pm", "2/15 5:50pm", "2/15 6:40pm"]
-    }
-  ]
+  private contests: Array<Contest>;
+  private events: Array<Contest>;
 
-  constructor(private router: Router, private service: CreateContestService) { }
+  constructor(private router: Router, private service: CreateContestService, private event: EventService) { }
 
   ngOnInit() {
     this.contestType = 0;
     this.opponent = 0;
     this.entryFee = 0;
-    this.startTime = '2020-02-09T12:00:00'
+    this.name = "";
+    this.dateObject = []
+    this.promise = this.event.getEvents();
+    this.promise.then(result => {
+      let i: number = 1;
+      for (let res of result) {
+        console.log(res)
+        this.dateObject.push({
+          id: i,
+          timestamp: res,
+          day: this.getDay(new Date(res)),
+          date: new Date(res).toLocaleDateString(),
+          time: this.getRegularTime(new Date(res)),
+        });
+        i++;
+      }
+      
+      let eventsPromise = this.event.getLatestEvents();
+      eventsPromise.then(eventsData => {
+        this.dates = '';
+        let x: number = 1;
+        let object: object = {};
+        this.groupedEvents = [];
+        let tempDate: string = new Date(eventsData[0].startTime).toUTCString().substring(0, 16)
+        let tempDate2: string = new Date(eventsData[10].startTime).toUTCString().substring(0, 16)
+        // console.log(eventsData)
+        // console.log("test")
+        // console.log(tempDate == tempDate2)
+        // console.log(eventsData.length)
+
+        for (let i = 0; i < result.length; i++) {
+          let tempObject: Array<object> = [];
+          for (let j = x; j < eventsData.length; j++) {
+            console.log(j)
+            if (tempDate == new Date(eventsData[j].startTime).toUTCString().substring(0, 16)) { // compare actual UTC date
+              tempObject.push({
+                teamCode: eventsData[j].teamCode,
+                teamCode2: eventsData[j].teamCode2,
+                date: new Date(eventsData[j].startTime).toLocaleDateString(),
+                time: this.getRegularTime(new Date(eventsData[j].startTime))
+              });
+            }
+            else {
+              x = j; // save current index
+              // console.log(x);
+              tempDate = new Date(eventsData[j].startTime).toUTCString().substring(0, 16); // set tempDate to date that mismatched
+              break;
+            }
+          }
+          this.groupedEvents.push(tempObject);
+          tempObject = []; // remove all data from inner loop that was stored in tempObject
+        }
+
+        console.log(this.groupedEvents)
+      });
+    }) ;  
+
+  }
+
+  getDay(date: Date): string {
+    let days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    return days[date.getDay()];
+  }
+
+  getRegularTime(date: Date): string {
+    let hour: number = date.getHours();
+    let min: number = date.getMinutes();
+    let stringMin: string = "";
+    let realTimeNum: string = "";
+    let amOrPm: string = "";
+    if (hour > 11) {
+      amOrPm = "pm"
+    }
+    else {
+      amOrPm = "am";
+    }
+
+    if (min < 10) {
+      stringMin = "0" + min;
+    }
+    else {
+      stringMin = "" + min;
+    }
+
+    if (hour === 0) {
+      return "12:" + stringMin + " " + amOrPm;
+    }
+    if (hour === 12) {
+      return "12:" + stringMin + " " + amOrPm;
+    }
+
+    return hour - 12 + ":" + stringMin + " " + amOrPm;
   }
 
   selectTeam(): void {
     // Head-to-Head -> 0, Public -> 1, Private -> 2
     let contestType = this.contestType == 0 ? 0 : this.opponent == 0 ? 1 : 2;
-    
+    console.log(this.contestType);
+    console.log(this.entryFee);
+    console.log(this.name);
+    console.log(this.startTime);
+    console.log(this.opponent);
     let promise = this.service.createContest(contestType, this.entryFee, this.name, this.startTime);
 
     promise.then(contest => {

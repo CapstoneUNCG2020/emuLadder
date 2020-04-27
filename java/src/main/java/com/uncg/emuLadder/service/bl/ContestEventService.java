@@ -26,6 +26,7 @@ public class ContestEventService {
      * @return - The list of events that are in the contest.
      */
     public List<Events> getNextEvents(Timestamp start, String region) {
+        logger.info("Starttime: {}", start);
         Timestamp end = Timestamp.valueOf(start.toLocalDateTime().plusDays(1));
 
         List<Events> events = eventsRepository.findAllByStartTimeAfterAndStartTimeBeforeAndName(start, end, region);
