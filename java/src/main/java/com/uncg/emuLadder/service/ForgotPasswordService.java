@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 public class ForgotPasswordService implements IService<String, ResponseData<Boolean>> {
 
     private final String SUBJECT = "EmuLadder - FORGOT PASSWORD";
-    private final String CONTENT1 = "You have selected to reset your password. Your new password is ";
-    private final String CONTENT2 = " . Please login to www.emuLadder.com/resetPassword to reset your password.";
+    private final String CONTENT1 = "You have selected to reset your password. Your new password is <b>";
+    private final String CONTENT2 = "</b>. Please login to www.emuLadder.com/resetPassword to reset your password.";
 
     private final Logger logger = LoggerFactory.getLogger((getClass()));
 
