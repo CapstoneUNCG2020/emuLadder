@@ -7,8 +7,8 @@ import { ForgotPasswordService } from '../service/rest/forgot-password.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-
   email: string;
+  oldEmail: string;
   status: string;
 
   constructor(private service: ForgotPasswordService) { }
@@ -20,11 +20,13 @@ export class ForgotPasswordComponent implements OnInit {
 
     promise.then(response => {
       if (response) {
-        this.status = "SUCCESS!";
+        this.status = 'SUCCESS!';
       } else {
-        this.status = "ERROR";
+        this.status = 'ERROR';
+        this.oldEmail = this.email;
+        this.email = undefined;
       }
-    })
+    });
   }
 
 }
