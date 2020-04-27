@@ -4,24 +4,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class RegisteredContestsData {
-    private Contest contest;
+    private List<RegisteredContest> registeredContests;
 
-    private List<Player> players;
-
-    public Contest getContest() {
-        return contest;
+    public List<RegisteredContest> getRegisteredContests() {
+        return registeredContests;
     }
 
-    public void setContest(Contest contest) {
-        this.contest = contest;
-    }
-
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(List<Player> players) {
-        this.players = players;
+    public void setRegisteredContests(List<RegisteredContest> registeredContests) {
+        this.registeredContests = registeredContests;
     }
 
     @Override
@@ -29,20 +19,18 @@ public class RegisteredContestsData {
         if (this == o) return true;
         if (!(o instanceof RegisteredContestsData)) return false;
         RegisteredContestsData that = (RegisteredContestsData) o;
-        return Objects.equals(contest, that.contest) &&
-                Objects.equals(players, that.players);
+        return Objects.equals(registeredContests, that.registeredContests);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contest, players);
+        return Objects.hash(registeredContests);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("RegisteredContestsData{");
-        sb.append("contest=").append(contest);
-        sb.append(", players=").append(players);
+        sb.append("registeredContests=").append(registeredContests);
         sb.append('}');
         return sb.toString();
     }
