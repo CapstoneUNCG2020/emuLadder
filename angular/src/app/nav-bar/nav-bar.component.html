@@ -20,7 +20,7 @@
     <li>
       <a routerLink="info/faq">FAQ</a>
     </li>
-    <li>
+    <li *ngIf="isSignedIn()">
       <a routerLink="contest/view">Contests</a>
     </li>
   </div>

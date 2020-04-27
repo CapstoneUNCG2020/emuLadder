@@ -1,68 +1,51 @@
-<div class="body">
+<div class="body" *ngIf="dateObject != undefined">
 	<div class="center">
 		<h2>Choose a tournament</h2>
 		<div id="icons-grid">
-			<label>
-				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date1" [checked]="true">
+			<label *ngFor="let date of dateObject">
+				<input type="radio" [(ngModel)]="startTime" class="calendar" name="calendar" value={{date.timestamp}} [checked]="true">
 				<i class="material-icons">calendar_today</i>
 			</label>
-			<label>
-				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date2">
-				<i class="material-icons">calendar_today</i>
-			</label>
-			<label>
-				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date3">
-				<i class="material-icons">calendar_today</i>
-			</label>
-			<label>
-				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date4">
-				<i class="material-icons">calendar_today</i>
-			</label>
-			<label>
-				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date5">
-				<i class="material-icons">calendar_today</i>
-			</label>
-			<div *ngFor="let dateTime of dateTimes">
-				<p>{{dateTime.day}}</p><br>
-				<p>{{dateTime.date}}</p><br>
-				<p>{{dateTime.time}}</p><br>
+			<div *ngFor="let date of dateObject">
+				<p>{{date.day}}</p><br>
+				<p>{{date.date}}</p><br>
+				<p>{{date.time}}</p><br>
 				<p>LCS</p>
 			</div>
 
 		</div>
 		<h2 class="divider">Games</h2>
-		<div *ngIf="date === 'date1'">
-			<div *ngFor="let teams of dateTimes[0].teams; let i = index" class="game-item">
-				<p>{{teams}}</p><br>
-				<p>{{dateTimes[0].dateAndTime[i]}}</p>
+		<div *ngIf="startTime === dateObject[0].timestamp">
+			<div *ngFor="let game of groupedEvents[0]" class="game-item">
+				<p>{{game.teamCode}} v {{game.teamCode2}}</p><br>
+				<p>{{game.date}} {{game.time}}</p>
 			</div>
 		</div>
-		<div *ngIf="date === 'date2'">
-			<div *ngFor="let teams of dateTimes[1].teams; let i = index" class="game-item">
-				<p>{{teams}}</p><br>
-				<p>{{dateTimes[1].dateAndTime[i]}}</p>
+		<div *ngIf="startTime === dateObject[1].timestamp">
+			<div *ngFor="let game of groupedEvents[1]" class="game-item">
+				<p>{{game.teamCode}} v {{game.teamCode2}}</p><br>
+				<p>{{game.date}} {{game.time}}</p>
 			</div>
 		</div>
-		<div *ngIf="date === 'date3'">
-			<div *ngFor="let teams of dateTimes[2].teams; let i = index" class="game-item">
-				<p>{{teams}}</p><br>
-				<p>{{dateTimes[2].dateAndTime[i]}}</p>
+		<div *ngIf="startTime === dateObject[2].timestamp">
+			<div *ngFor="let game of groupedEvents[2]" class="game-item">
+				<p>{{game.teamCode}} v {{game.teamCode2}}</p><br>
+				<p>{{game.date}} {{game.time}}</p>
 			</div>
 		</div>
-		<div *ngIf="date === 'date4'">
-			<div *ngFor="let teams of dateTimes[3].teams; let i = index" class="game-item">
-				<p>{{teams}}</p><br>
-				<p>{{dateTimes[3].dateAndTime[i]}}</p>
+		<div *ngIf="startTime === dateObject[3].timestamp">
+			<div *ngFor="let game of groupedEvents[3]" class="game-item">
+				<p>{{game.teamCode}} v {{game.teamCode2}}</p><br>
+				<p>{{game.date}} {{game.time}}</p>
 			</div>
 		</div>
-		<div *ngIf="date === 'date5'">
-			<div *ngFor="let teams of dateTimes[4].teams; let i = index" class="game-item">
-				<p>{{teams}}</p><br>
-				<p>{{dateTimes[4].dateAndTime[i]}}</p>
+		<div *ngIf="startTime === dateObject[4].timestamp">
+			<div *ngFor="let game of groupedEvents[4]" class="game-item">
+				<p>{{game.teamCode}} v {{game.teamCode2}}</p><br>
+				<p>{{game.date}} {{game.time}}</p>
 			</div>
 		</div>
 	</div>
-
 
 	<div class="grid-container">
 		<div class="grid-item">
@@ -108,4 +91,7 @@
 	<div id="submit-button">
 		<button id="submit" type="submit" (click)="selectTeam()">Select Team</button>
 	</div>
+</div>
+<div *ngIf="dateObject == undefined" style="color: red;">
+	{{ error }}
 </div>

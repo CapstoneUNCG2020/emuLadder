@@ -16,7 +16,7 @@ public class Contest {
 
     private int totalEntries;
 
-    private double entreeFee;
+    private double entryFee;
 
     private double prizeAmount;
 
@@ -70,12 +70,12 @@ public class Contest {
         this.totalEntries = totalEntries;
     }
 
-    public double getEntreeFee() {
-        return entreeFee;
+    public double getEntryFee() {
+        return entryFee;
     }
 
-    public void setEntreeFee(double entreeFee) {
-        this.entreeFee = entreeFee;
+    public void setEntryFee(double entryFee) {
+        this.entryFee = entryFee;
     }
 
     public double getPrizeAmount() {
@@ -102,7 +102,7 @@ public class Contest {
         return contestType == contest.contestType &&
                 currentEntries == contest.currentEntries &&
                 totalEntries == contest.totalEntries &&
-                Double.compare(contest.entreeFee, entreeFee) == 0 &&
+                Double.compare(contest.entryFee, entryFee) == 0 &&
                 Double.compare(contest.prizeAmount, prizeAmount) == 0 &&
                 Objects.equals(name, contest.name) &&
                 Objects.equals(start, contest.start);
@@ -110,7 +110,7 @@ public class Contest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, start, contestType, currentEntries, totalEntries, entreeFee, prizeAmount);
+        return Objects.hash(name, start, contestType, currentEntries, totalEntries, entryFee, prizeAmount);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class Contest {
         sb.append(", contestType='").append(contestType).append('\'');
         sb.append(", currentEntries=").append(currentEntries);
         sb.append(", totalEntries=").append(totalEntries);
-        sb.append(", entreeFee=").append(entreeFee);
+        sb.append(", entreeFee=").append(entryFee);
         sb.append(", prizeAmount=").append(prizeAmount);
         sb.append('}');
         return sb.toString();

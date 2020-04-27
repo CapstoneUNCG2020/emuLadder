@@ -35,7 +35,7 @@ public class ContestDataService implements IService<Integer, ResponseData<Contes
 
         ContestData contestData = new ContestData();
         contestData.setContestType(contest.getContestType());
-        contestData.setEntreeFee(contest.getEntreeFee());
+        contestData.setEntreeFee(contest.getEntryFee());
         contestData.setName(contest.getName());
         contestData.setPrizeAmount(contest.getPrizeAmount());
         contestData.setStartTime(contest.getStart());

@@ -1,6 +1,5 @@
 package com.uncg.emuLadder.service.bl;
 
-import com.uncg.emuLadder.enums.ContestTypes;
 import com.uncg.emuLadder.model.database.Contests;
 import com.uncg.emuLadder.model.response.Contest;
 import com.uncg.emuLadder.repository.ContestParticipantsRepository;
@@ -35,6 +34,7 @@ public class ContestDetailService {
     public Contest getContest(int contestId) {
         // Response Object
         Contest contest = new Contest();
+        contest.setContestId(contestId);
 
         /* Attempt to resolve the contests data */
         Optional<Contests> optional = contestsRepository.findById(contestId);
@@ -53,10 +53,11 @@ public class ContestDetailService {
 
         contest.setContestType(dbContest.getContestType());
         contest.setTotalEntries(dbContest.getContestSize());
-        contest.setEntreeFee(dbContest.getEntreeFee());
+        contest.setEntryFee(dbContest.getEntreeFee());
         contest.setName(dbContest.getName());
         contest.setPrizeAmount(dbContest.getPrizeAmount());
         contest.setStart(dbContest.getStartTime());
+
 
         return contest;
     }

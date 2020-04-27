@@ -240,4 +240,12 @@ export class LeagueOfLegendsPageComponent implements OnInit {
     }
     return 'Countdown Error';
   }
+
+  public createContest() {
+    if (this.signedInService.getStatus()) {
+      this.router.navigateByUrl("games/leagueoflegends/contest/create");
+    } else {
+      alert("SIGN IN");
+    }
+  }
 }

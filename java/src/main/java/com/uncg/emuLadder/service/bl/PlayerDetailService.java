@@ -31,7 +31,8 @@ public class PlayerDetailService {
     }
 
     /**
-     * Get details of Player by their unique player ID.
+     * Get details of Player by their Database object.
+     *
      * @param dbPlayer - Database player object
      * @return - Player { image, name, role, rank, salary }
      */
@@ -46,6 +47,24 @@ public class PlayerDetailService {
         player.setPlayerId(dbPlayer.getPlayerId());
 
         return player;
+    }
+
+    /**
+     * Get details about player by their unique player ID.
+     *
+     * @param playerId - Unique player ID
+     * @return = Player details
+     */
+    public Player getPlayerDetails(String playerId) {
+        Optional<Players> optional = playersRepository.findById(playerId);
+
+        if (!optional.isPresent()) {
+            logger.error("Invalid player ID {}", playerId);
+
+            return null;
+        }
+
+        return getPlayerDetails(optional.get());
     }
 
     public Player[] getPlayers(int contestId) {

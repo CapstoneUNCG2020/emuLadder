@@ -6,6 +6,7 @@
   <a href="javascript:void(0)" class="closebtn" (click)="close()">×</a>
   <h2>Invite to Contest</h2>
 
-  <input type="text" placeholder="Search All EmuLadder usernames" id="search-text-input"><i class="fas fa-search"></i>
+  <input type="toEmail" class = "form-control" placeholder="Send Email to invite" id="search-text-input" name = "toEmail" [(ngModel)] = "toEmail" >
+  <button id="invitebtn" type="submit" (click) = "sendEmail()">Invite</button>
   <h4 style="text-align: center; margin-top: 400px;">No Recent Invites<i class="glyphicon glyphicon-user"></i></h4>
 </div>

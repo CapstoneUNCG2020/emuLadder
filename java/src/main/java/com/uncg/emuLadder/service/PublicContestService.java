@@ -3,7 +3,6 @@ package com.uncg.emuLadder.service;
 import com.uncg.emuLadder.enums.ContestTypes;
 import com.uncg.emuLadder.model.database.Contests;
 import com.uncg.emuLadder.model.response.Contest;
-import com.uncg.emuLadder.model.response.ContestData;
 import com.uncg.emuLadder.model.response.ResponseData;
 import com.uncg.emuLadder.repository.ContestParticipantsRepository;
 import com.uncg.emuLadder.repository.ContestsRepository;
@@ -44,9 +43,8 @@ public class PublicContestService {
                 contest.setName(contests.getName());
                 contest.setStart(contests.getStartTime());
                 contest.setContestType(contests.getContestType());
-                contest.setEntreeFee(contests.getEntreeFee());
+                contest.setEntryFee(contests.getEntreeFee());
                 contest.setPrizeAmount(contests.getPrizeAmount());
-                contest.setEntreeFee(contests.getEntreeFee());
                 contest.setCurrentEntries(contestParticipantsRepository.countByContestId(contests.getContestId()));
                 contest.setTotalEntries(contests.getContestSize());
                 contest.setRegion(contests.getRegion());
