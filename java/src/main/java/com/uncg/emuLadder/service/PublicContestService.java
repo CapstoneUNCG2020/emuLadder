@@ -5,6 +5,7 @@ import com.uncg.emuLadder.model.database.Contests;
 import com.uncg.emuLadder.model.response.Contest;
 import com.uncg.emuLadder.model.response.ContestData;
 import com.uncg.emuLadder.model.response.ResponseData;
+import com.uncg.emuLadder.repository.ContestParticipantsRepository;
 import com.uncg.emuLadder.repository.ContestsRepository;
 import com.uncg.emuLadder.model.response.PublicContests;
 import org.slf4j.Logger;
@@ -20,10 +21,12 @@ public class PublicContestService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final ContestsRepository contestsRepository;
+    private final ContestParticipantsRepository contestParticipantsRepository;
 
     @Autowired
-    public PublicContestService(final ContestsRepository contestsRepository) {
+    public PublicContestService(final ContestsRepository contestsRepository, final ContestParticipantsRepository contestParticipantsRepository) {
         this.contestsRepository = contestsRepository;
+        this.contestParticipantsRepository = contestParticipantsRepository;
     }
 
     public ResponseData<PublicContests> getContestData() {
@@ -44,7 +47,7 @@ public class PublicContestService {
                 contest.setEntreeFee(contests.getEntreeFee());
                 contest.setPrizeAmount(contests.getPrizeAmount());
                 contest.setEntreeFee(contests.getEntreeFee());
-                contest.setCurrentEntries(1);
+                contest.setCurrentEntries(contestParticipantsRepository.countByContestId(contests.getContestId()));
                 contest.setTotalEntries(contests.getContestSize());
                 contest.setRegion(contests.getRegion());
 
