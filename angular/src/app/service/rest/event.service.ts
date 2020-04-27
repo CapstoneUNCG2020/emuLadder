@@ -8,6 +8,7 @@ import { Events } from 'src/app/model/events';
 export class EventService {
 
   private url = '/event/test'
+  private url2 = '/event/latest'
 
   constructor(private rest: RestService) { } 
 
@@ -15,8 +16,18 @@ export class EventService {
     return this.get();
   }
 
+  public getLatestEvents(): Promise<Array<Events>> {
+    return this.get2();
+  }
+
   private async get(): Promise<Array<Events>> {
     let promise = await this.rest.get<Array<Events>>(this.url).toPromise()
+
+    return promise.response;
+  }
+
+  private async get2(): Promise<Array<Events>> {
+    let promise = await this.rest.get<Array<Events>>(this.url2).toPromise()
 
     return promise.response;
   }
