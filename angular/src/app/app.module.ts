@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { TermsComponent } from './terms/terms.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ScoringRosterBreakdownComponent,
     ComingSoonPageComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    TermsComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
