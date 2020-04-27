@@ -13,6 +13,9 @@ public interface ContestParticipantsRepository extends JpaRepository<ContestPart
 
     List<ContestParticipants> findAllByEmail(String email);
 
+    // Used to determine rank
+    List<ContestParticipants> findAllByContestIdOrderByPointsAsc(int contestId);
+
     @Transactional
     int deleteAllByContestIdAndEmail(int contestId, String email);
 }
