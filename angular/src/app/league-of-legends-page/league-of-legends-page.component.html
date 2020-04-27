@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 4%;">
-                <a id="CreateContest1" routerLink="contest/create" class="btn btn-primary" href="#" role="button">Create Contest</a>
+                <a id="CreateContest1" (click)="createContest()" class="btn btn-primary" role="button">Create Contest</a>
             </div>
             <div class="row justify-content-center">
                 <div class="scroll-downs">
@@ -77,7 +77,7 @@
                     <!-- Stuff on Left -->
                     <div class="row">
                         <div class="col-auto">
-                            <a id="CreateContest2" routerLink="contest/create" class="btn btn-primary" href="#" role="button">Create Contest</a>
+                            <a id="CreateContest2" (click)="createContest()" class="btn btn-primary" role="button">Create Contest</a>
                         </div>
                         <div class="col-auto">
                             <span id="ContestStartTime">{{ countdown }}</span>
