@@ -34,6 +34,7 @@ public class ContestDetailService {
     public Contest getContest(int contestId) {
         // Response Object
         Contest contest = new Contest();
+        contest.setContestId(contestId);
 
         /* Attempt to resolve the contests data */
         Optional<Contests> optional = contestsRepository.findById(contestId);
@@ -56,6 +57,7 @@ public class ContestDetailService {
         contest.setName(dbContest.getName());
         contest.setPrizeAmount(dbContest.getPrizeAmount());
         contest.setStart(dbContest.getStartTime());
+
 
         return contest;
     }
