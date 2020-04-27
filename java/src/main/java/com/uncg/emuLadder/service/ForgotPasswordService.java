@@ -39,6 +39,13 @@ public class ForgotPasswordService implements IService<String, ResponseData<Bool
     public ResponseData<Boolean> service(String email) {
         ResponseData<Boolean> responseData = new ResponseData<>();
 
+        if (!accountCredentialsRepository.findById(email).isPresent()) {
+            responseData.setStatus(ResponseStatusType.ERROR.name());
+            responseData.setResponse(false);
+
+            return responseData;
+        }
+
         String newPwd = generateNewPassword();
 
         accountCredentialsRepository.resetPassword(newPwd, email);
