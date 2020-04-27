@@ -21,8 +21,10 @@ export class CreateContestComponent implements OnInit {
   dateArray: Array<Date>;
   test: Array<string>
   dateObject: Array<object>;
+  eventArray: Array<Events>;
+  groupedEvents: Array<Array<object>>;
+  dates: string;
 
-  date = "date1"
 
   private contests: Array<Contest>;
   private events: Array<Contest>;
@@ -33,23 +35,62 @@ export class CreateContestComponent implements OnInit {
     this.contestType = 0;
     this.opponent = 0;
     this.entryFee = 0;
+    this.name = "";
     this.dateObject = []
     this.promise = this.event.getEvents();
     this.promise.then(result => {
+      let i: number = 1;
       for (let res of result) {
-        let utc: Date = new Date(res);
-        let utcString = utc.toISOString();
-        console.log(utcString);
+        console.log(res)
         this.dateObject.push({
-          timestamp: new Date(utcString),
+          id: i,
+          timestamp: res,
           day: this.getDay(new Date(res)),
-          date: new Date(res).getUTCDate(),
+          date: new Date(res).toLocaleDateString(),
           time: this.getRegularTime(new Date(res)),
         });
+        i++;
       }
-      console.log(this.dateObject);
-      console.log(new Date(result[1]).getMinutes())
-    })   
+      
+      let eventsPromise = this.event.getLatestEvents();
+      eventsPromise.then(eventsData => {
+        this.dates = '';
+        let x: number = 1;
+        let object: object = {};
+        this.groupedEvents = [];
+        let tempDate: string = new Date(eventsData[0].startTime).toUTCString().substring(0, 16)
+        let tempDate2: string = new Date(eventsData[10].startTime).toUTCString().substring(0, 16)
+        // console.log(eventsData)
+        // console.log("test")
+        // console.log(tempDate == tempDate2)
+        // console.log(eventsData.length)
+
+        for (let i = 0; i < result.length; i++) {
+          let tempObject: Array<object> = [];
+          for (let j = x; j < eventsData.length; j++) {
+            console.log(j)
+            if (tempDate == new Date(eventsData[j].startTime).toUTCString().substring(0, 16)) { // compare actual UTC date
+              tempObject.push({
+                teamCode: eventsData[j].teamCode,
+                teamCode2: eventsData[j].teamCode2,
+                date: new Date(eventsData[j].startTime).toLocaleDateString(),
+                time: this.getRegularTime(new Date(eventsData[j].startTime))
+              });
+            }
+            else {
+              x = j; // save current index
+              // console.log(x);
+              tempDate = new Date(eventsData[j].startTime).toUTCString().substring(0, 16); // set tempDate to date that mismatched
+              break;
+            }
+          }
+          this.groupedEvents.push(tempObject);
+          tempObject = []; // remove all data from inner loop that was stored in tempObject
+        }
+
+        console.log(this.groupedEvents)
+      });
+    }) ;  
 
   }
 
@@ -91,7 +132,11 @@ export class CreateContestComponent implements OnInit {
   selectTeam(): void {
     // Head-to-Head -> 0, Public -> 1, Private -> 2
     let contestType = this.contestType == 0 ? 0 : this.opponent == 0 ? 1 : 2;
+    console.log(this.contestType);
+    console.log(this.entryFee);
+    console.log(this.name);
     console.log(this.startTime);
+    console.log(this.opponent);
     let promise = this.service.createContest(contestType, this.entryFee, this.name, this.startTime);
 
     promise.then(contest => {
