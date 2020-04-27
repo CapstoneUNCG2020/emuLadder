@@ -31,6 +31,11 @@ public class EventController {
         return eventService.getLatestDates();
     }
 
+    @GetMapping("/latest")
+    public ResponseData<List<Events>> getLatestEvents() {
+        return eventService.getLatestEvents();
+    }
+
     public EventController(final EventsRepository eventsRepository, final EventService eventService) {
         this.eventsRepository = eventsRepository;
         this.eventService = eventService;
