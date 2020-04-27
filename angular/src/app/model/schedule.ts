@@ -41,8 +41,9 @@ export class Schedule {
         let month = t.getMonth();
         let date = t.getDate();
         let time = t.toLocaleTimeString();
+        let monthOfYear = isNaN(month) ? null : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month];
         let dayOfWeek = isNaN(day) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day];
 
-        return dayOfWeek + ' ' + time;
+        return dayOfWeek + ', ' + monthOfYear + ' ' + date + ' at ' + time;
     }
 }
