@@ -6,7 +6,7 @@ import { RestService } from './rest.service';
 })
 export class ForgotPasswordService {
 
-  private url = 'account/forgotPassword'
+  private url = '/account/forgotPassword'
 
   constructor(private rest: RestService) { }
 
