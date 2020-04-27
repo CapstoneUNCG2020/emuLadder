@@ -7,10 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 @Repository
 public interface AccountCredentialsRepository extends JpaRepository<AccountCredentials, String> {
 
     @Modifying
+    @Transactional
     @Query("UPDATE AccountCredentials SET password=:password WHERE email=:email")
-    boolean resetPassword(@Param("password") String password, @Param("email") String email);
+    void resetPassword(@Param("password") String password, @Param("email") String email);
 }
