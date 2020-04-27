@@ -1,8 +1,17 @@
 ![Image of EMULADDER](https://github.com/CapstoneUNCG2020/emuLadder/blob/master/documents/Images/GitHubEmuLogo.png)
 
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+<p align="center">
+  <a href="#team-members">Team Members</a> •
+  <a href="#project-definition">Project Definition</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#class-diagram">Class Diagram</a> •
+  <a href="#entity-relationship-diagram">Entity Relationship Diagram</a> •
+  <a href="#user-interface">User Interface</a> •
+  <a href="#how-to-install">How To Install</a> •
+  <a href="#license">License</a>
+</p>
 
-## Team Members (GitHub Links)
+## Team Members
 - [Daniel Frye](https://github.com/danfrye)
 - [Gabriel Wilmoth](https://github.com/GabeWilmoth)
 - [Mckenzie Moize](https://github.com/mckenziemoize)
@@ -42,6 +51,10 @@ The application, emuLadder, is a Fantasy eSports game similar to ESPN’s Fantas
   
   ### Contest Drafting Page
   ![EMULADDER Contest Drafting Page](https://github.com/CapstoneUNCG2020/emuLadder/blob/master/documents/Images/ScreenGrabs/lolDrafting.png)
+  
+## How To Install
+  ### [Data Collection Service](https://github.com/CapstoneUNCG2020/Data-Collection)
+  The Data Collection service is built upon the unofficial League of Legends API which is documented and maintained [here](https://vickz84259.github.io/lolesports-api-docs/).
 
-## [Data Collection Service](https://github.com/CapstoneUNCG2020/Data-Collection)
-The Data Collection service is built upon the unofficial League of Legends API which is documented and maintained [here](https://vickz84259.github.io/lolesports-api-docs/).
+## License
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
