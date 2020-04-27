@@ -22,19 +22,20 @@ public class EventService {
 
     private final EventsRepository eventsRepository;
 
-//    public ResponseData<List<Events>> test() {
-//        ResponseData<List<Events>> responseData = new ResponseData<>();
-//        List<Events> events = eventsRepository.findFiveLatestEvents();
-//        responseData.setStatus(ResponseStatusType.SUCCESS.name());
-//        responseData.setResponse(events);
-//        return responseData;
-//    }
-
     public ResponseData<List<Timestamp>> getLatestDates() {
         ResponseData<List<Timestamp>> responseData = new ResponseData<>();
         List<Timestamp> dates = eventsRepository.getLatestDates();
         responseData.setStatus(ResponseStatusType.SUCCESS.name());
         responseData.setResponse(dates);
+
+        return responseData;
+    }
+
+    public ResponseData<List<Events>> getLatestEvents() {
+        ResponseData<List<Events>> responseData = new ResponseData<>();
+        List<Events> events = eventsRepository.getLatestEvents();
+        responseData.setStatus(ResponseStatusType.SUCCESS.name());
+        responseData.setResponse(events);
 
         return responseData;
     }
