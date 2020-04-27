@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ForgotPasswordService } from '../service/rest/forgot-password.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
+  email: string;
+  status: string;
 
-  ngOnInit() {
+  constructor(private service: ForgotPasswordService) { }
+
+  ngOnInit() { }
+
+  forgotPassword(): void {
+    let promise = this.service.forgotPassword(this.email);
+
+    promise.then(response => {
+      if (response) {
+        this.status = "SUCCESS!";
+      } else {
+        this.status = "ERROR";
+      }
+    })
   }
 
 }
