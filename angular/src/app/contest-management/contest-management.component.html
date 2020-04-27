@@ -22,7 +22,7 @@
         <hr />
         <table class="contest-details">
             <tr>
-                <th>{{ contest.contest.name }}</th>
+                <th>{{ contest.contest.name }} <span style="color: green">({{ getRank(contest) }})</span></th>
                 <td>
                     <div>
                         <table class="detail-table">

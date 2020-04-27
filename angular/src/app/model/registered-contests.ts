@@ -5,4 +5,6 @@ export class RegisteredContests {
     contest: Contest;
 
     players: Array<Player>;
+
+    rank: number;
 }
