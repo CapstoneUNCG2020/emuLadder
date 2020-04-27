@@ -49,8 +49,12 @@ public class RegisteredContestsService implements IService<String, ResponseData<
 
         List<ContestParticipants> contestParticipantsList = contestParticipantsRepository.findAllByEmail(email);
 
+        logger.info("List of registered contests: {}", contestParticipantsList);
+
         for (ContestParticipants contestParticipants : contestParticipantsList) {
             RegisteredContest registeredContest = getRegisteredContest(contestParticipants);
+
+            logger.info("Registered contest: {}", registeredContest);
 
             registeredContestList.add(registeredContest);
         }
@@ -74,9 +78,17 @@ public class RegisteredContestsService implements IService<String, ResponseData<
         int contestId = contestParticipants.getContestId();
         String email = contestParticipants.getEmail();
 
+        logger.info("Getting registered contest for contest {} and email {}", contestId, email);
+
         Contest contest = contestDetailService.getContest(contestId);
-        List<Player> players = Arrays.asList(playerDetailService.getPlayers(contestId));
+        logger.info("Contest: {}", contest);
+
+        List<Player> players = getPlayers(contestParticipants);
+        logger.info("Players: {}", players);
+
+
         int rank = getRank(contestId, email);
+        logger.info("Rank: {}", rank);
 
         if (rank == -1) {
             logger.error("Error determining rank. Could not find player {} in contest {}.", email, contestId);
@@ -105,5 +117,24 @@ public class RegisteredContestsService implements IService<String, ResponseData<
         }
 
         return -1;
+    }
+
+    /**
+     * Get information about each player that was drafted.
+     *
+     * @param contestParticipants - Contains each player and role.
+     * @return - List of all players selected
+     */
+    private List<Player> getPlayers(ContestParticipants contestParticipants) {
+        List<Player> players = new ArrayList<>();
+
+        /* Get each player by position. */
+        players.add(playerDetailService.getPlayerDetails(contestParticipants.getBottom()));
+        players.add(playerDetailService.getPlayerDetails(contestParticipants.getJungle()));
+        players.add(playerDetailService.getPlayerDetails(contestParticipants.getMid()));
+        players.add(playerDetailService.getPlayerDetails(contestParticipants.getSupport()));
+        players.add(playerDetailService.getPlayerDetails(contestParticipants.getTop()));
+
+        return players;
     }
 }
