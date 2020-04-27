@@ -20,6 +20,7 @@ import { FaqComponent } from './faq/faq.component';
 import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.com
     LeagueOfLegendsPageComponent,
     FaqComponent,
     ScoringRosterBreakdownComponent,
-    ComingSoonPageComponent
+    ComingSoonPageComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
