@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Contest } from '../model/contest';
-import { Player } from '../model/player';
 import { Router } from '@angular/router';
+import { RegisteredContestService } from '../service/rest/registered-contest.service';
+import { RegisteredContests } from '../model/registered-contests';
+import { SignedInService } from '../service/signed-in.service';
 
 @Component({
   selector: 'app-contest-management',
@@ -10,69 +12,24 @@ import { Router } from '@angular/router';
 })
 export class ContestManagementComponent implements OnInit {
 
-  contests: Array<Contest>;
+  contests: Array<RegisteredContests>;
   public showInviteBar: boolean;
+  error = "Loading contests...";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: RegisteredContestService,
+    private signedInService: SignedInService) { }
 
   ngOnInit() {
-    this.contests = new Array<Contest>();
-    
-    let c = new Contest();
-    c.name = "Public League of Legends Tournament 1";
-    c.entryFee = 20000;
-    c.prizeAmount = 50000;
+    // Only work if signed in.
+    if (this.signedInService.getStatus()) {
+      let promise = this.service.getRegisteredContests();
 
-    let p = new Player();
-    p.name = "Player 1";
-    p.salary = 12000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    p = new Player();
-    p.name = "Player 2";
-    p.salary = 7000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    p = new Player();
-    p.name = "Player 3";
-    p.salary = 15000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    p = new Player();
-    p.name = "Player 4";
-    p.salary = 20000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    p = new Player();
-    p.name = "Player 5";
-    p.salary = 11000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    p = new Player();
-    p.name = "Player 6";
-    p.salary = 2000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    p = new Player();
-    p.name = "Player 7";
-    p.salary = 120000;
-    p.playerId = '';
-
-    c.players.push(p);
-
-    this.contests.push(c);
+      promise.then(response => {
+        this.contests = response;
+      });
+    } else {
+      this.error = "You must be signed in.";
+    }
   }
 
   valueOf(n: number): string {
@@ -80,13 +37,15 @@ export class ContestManagementComponent implements OnInit {
   }
 
   getEntryFees(): string {
-    let sum = this.contests.map(x => x.entryFee).reduce((a,b) => a = b);
+    let sum = this.contests.map(x => x.contest.entryFee).reduce((a, b) => a = b);
 
     return this.valueOf(sum);
   }
 
   editContest(contest: Contest) {
-    this.router.navigateByUrl('contest/draft');
+    let url = 'contest/draft/' + contest.contestId;
+
+    this.router.navigateByUrl(url);
   }
 
   invite(): void {

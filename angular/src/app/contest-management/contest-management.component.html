@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="contests != undefined">
     <div class="header">
         <table>
             <tr>
@@ -22,13 +22,13 @@
         <hr />
         <table class="contest-details">
             <tr>
-                <th>{{ contest.name }}</th>
+                <th>{{ contest.contest.name }}</th>
                 <td>
                     <div>
                         <table class="detail-table">
                             <tr>
-                                <td>${{ valueOf(contest.entryFee) }}</td>
-                                <td>${{ valueOf(contest.prizeAmount) }}</td>
+                                <td>${{ valueOf(contest.contest.entryFee) }}</td>
+                                <td>${{ valueOf(contest.contest.prizeAmount) }}</td>
                             </tr>
                             <tr>
                                 <td>Entry Fee</td>
@@ -45,20 +45,18 @@
                     <div class="player-details">
                         <table>
                             <tr>
-                                <td colspan="3">
-                                    <img src="../../assets/images/players/{{ player.id }}.png">
+                                <td style="text-align: center">
+                                    <img src="{{ player.image }}" width="100">
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3">{{ player.name }}</td>
+                                <td>{{ player.name }}</td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td>{{ player.role }}</td>
                             </tr>
                             <tr>
-                                <td>TSM v C9</td>
-                                <td>1/25</td>
-                                <td>5:50pm</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">${{ valueOf(player.salary) }}</td>
+                                <td>${{ valueOf(player.salary) }}</td>
                             </tr>
                         </table>
                     </div>
@@ -69,10 +67,13 @@
             <button (click)="invite()">Invite</button>
         </div>
         <div class="btn">
-            <button (click)="editContest(contest)">Edit Lineup</button>
+            <button (click)="editContest(contest.contest)">Edit Lineup</button>
         </div>
     </div>
     <div *ngIf="showInviteBar">
         <app-invite-bar></app-invite-bar>
     </div>
+</div>
+<div *ngIf="contests == undefined" style="color: red">
+    {{ error }}
 </div>
