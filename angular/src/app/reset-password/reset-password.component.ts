@@ -26,19 +26,17 @@ export class ResetPasswordComponent implements OnInit {
     console.log('password: ' + this.password);
 
     if (this.confirmPassword()) {
-      // let promise = this.service.resetPassword(this.email, this.oldPassword, this.password);
+      let promise = this.service.resetPassword(this.email, this.oldPassword, this.password);
 
-      // promise.then(response => {
-      //   if (response) {
-      //     this.status = 'SUCCESS!';
-      //   } else {
-      //     this.status = 'ERROR';
-      //     this.errorMsg = 'Invalid email/password combination.'
-      //     this.clearPasswords();
-      //   }
-      // });
-      this.status = 'ERROR';
-      this.errorMsg = 'Invalid email/password combination.'
+      promise.then(response => {
+        if (response) {
+          this.status = 'SUCCESS!';
+        } else {
+          this.status = 'ERROR';
+          this.errorMsg = 'Invalid email/password combination.'
+          this.clearPasswords();
+        }
+      });
     } else {
       this.status = 'ERROR';
       this.clearPasswords();
