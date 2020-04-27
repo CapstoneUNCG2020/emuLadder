@@ -10,6 +10,8 @@ import javax.transaction.Transactional;
 public interface ContestParticipantsRepository extends JpaRepository<ContestParticipants, Integer> {
     int countByContestId(int contestId);
 
+    ContestParticipants findByEmail(String email);
+
     @Transactional
     int deleteAllByContestIdAndEmail(int contestId, String email);
 }
