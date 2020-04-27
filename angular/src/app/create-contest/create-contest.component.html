@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="dateObject != undefined">
 	<div class="center">
 		<h2>Choose a tournament</h2>
 		<div id="icons-grid">
@@ -91,4 +91,7 @@
 	<div id="submit-button">
 		<button id="submit" type="submit" (click)="selectTeam()">Select Team</button>
 	</div>
+</div>
+<div *ngIf="dateObject == undefined" style="color: red;">
+	{{ error }}
 </div>
