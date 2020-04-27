@@ -23,4 +23,9 @@ export class Player {
      * The unique player ID
      */
     playerId: string;
+
+    /**
+     * Image URL for the player profile pic.
+     */
+    image: String
 }
