@@ -15,7 +15,8 @@ export class SignInComponent implements OnInit {
   password: string;
   error: boolean;
 
-  constructor(private service: SignInService, private signedInService: SignedInService) { }
+  constructor(private service: SignInService, private signedInService: SignedInService, 
+    private router: Router) { }
 
   ngOnInit() { }
 
@@ -49,5 +50,11 @@ export class SignInComponent implements OnInit {
       .children[0].children[1] as HTMLElement;
 
     element.click();
+  }
+
+  forgotPassword(): void {
+    this.close();
+
+    this.router.navigateByUrl('account/forgotPassword');
   }
 }
