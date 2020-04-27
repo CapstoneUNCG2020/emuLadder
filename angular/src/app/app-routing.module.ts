@@ -11,6 +11,8 @@ import { CreateContestComponent } from './create-contest/create-contest.componen
 import { FaqComponent } from './faq/faq.component';
 import { ScoringRosterBreakdownComponent } from './scoring-roster-breakdown/scoring-roster-breakdown.component';
 import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'account/signup', component: SignUpComponent},
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'games/leagueoflegends/contest/create', component: CreateContestComponent},
   { path: 'info/faq', component: FaqComponent },
   { path: 'games/leagueoflegends/breakdown', component: ScoringRosterBreakdownComponent},
-  { path: 'games/comingsoon', component: ComingSoonPageComponent}
+  { path: 'games/comingsoon', component: ComingSoonPageComponent},
+  { path: 'account/forgotPassword', component: ForgotPasswordComponent},
+  { path: 'account/resetPassword', component: ResetPasswordComponent}
 ];
 
 @NgModule({
