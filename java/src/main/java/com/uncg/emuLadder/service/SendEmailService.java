@@ -14,6 +14,7 @@ import java.util.Properties;
 
 /**
  * Service class for Sign In operations.
+ * using gmail account and javaMail api
  */
 @Component
 public class SendEmailService implements IService<SendEmailRequestData, ResponseData<Boolean>> {
@@ -26,6 +27,8 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
     @Override
     public ResponseData<Boolean> service(SendEmailRequestData requestData) {
         ResponseData<Boolean> responseData = new ResponseData<>();
+
+        logger.info("Request data: {}", requestData);
 
         //seting up smtp properties for gmail account
         Properties properties = new Properties();
@@ -43,9 +46,9 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
             }
         };
 
-        //creates session to get properties -- need more understanding of the host property server
+        //creates session to get properties
         Session session = Session.getDefaultInstance(properties, auth);
-
+        //sendEmail(session);
         try {
             //mimeMessage object
             MimeMessage message = new MimeMessage(session);
@@ -72,7 +75,9 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
         } catch (MessagingException e) {
             responseData.setResponse(false);
             responseData.setStatus(ResponseStatusType.ERROR.name());
+            logger.info("requestData: {}", requestData);
         }
+
 
         return responseData;
     }
