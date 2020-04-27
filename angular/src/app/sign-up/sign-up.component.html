@@ -85,9 +85,9 @@
                       <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="agreed">
                       <label class="custom-control-label" for="defaultUnchecked" style="font: Light 24px/28px PT Serif;
                         letter-spacing: 0.74px; color: #3A4042; padding-left: 8px;">I agree to the
-                        <a routerLink="info/terms" class="info-link">Terms</a>
+                        <a routerLink="info/terms" class="info-link" (click)="close()">Terms</a>
                         and
-                        <a routerLink="info/privacy" class="info-link">Privacy Policy.</a>
+                        <a routerLink="info/privacy" class="info-link" (click)="close()">Privacy Policy.</a>
                       </label>
                     </div>
                   </div>
