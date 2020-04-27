@@ -5,11 +5,11 @@ import { RestService } from './rest.service';
   providedIn: 'root'
 })
 export class SendEmailService {
-  private url = '/contest/invite';
+  private url = '/email/send';
   constructor(private rest: RestService) { }
 
-  public sendEmail(email: string, message: string): Promise<boolean> {
-    let requestData = this.createReqData(email, message);
+  public sendEmail(email: string, message: string, subject:string): Promise<boolean> {
+    let requestData = this.createReqData(email, subject, message);
     
     return this.post(requestData);
   }
@@ -31,10 +31,11 @@ export class SendEmailService {
    * @param email 
    * @param message
    */
-  private createReqData(email: string, message: string) {
+  private createReqData(email: string, subject: string, message: string) {
     return {
-      email: email,
-      message: message
+      recipient: email,
+      content: message,
+      subject: subject
     }
   }
 

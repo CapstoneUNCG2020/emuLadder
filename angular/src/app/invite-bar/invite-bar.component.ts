@@ -6,6 +6,7 @@ import { Contest } from '../model/contest';
 import { SendEmailService } from '../service/rest/send-email.service';
 import { SentEmailService } from '../service/sent-email.service';
 import { EmailValidator } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-invite-bar',
@@ -16,7 +17,8 @@ export class InviteBarComponent implements OnInit {
 
   toEmail: string;
   userEmail: string;
-  message: string = "Link Goes here!";
+  message: string = "www.emuLadder.com";
+  //needs to get added
   subject: string = "You've Been invited to EmuLadder!";
   error: boolean;
   
@@ -30,7 +32,8 @@ export class InviteBarComponent implements OnInit {
   }
 
   sendEmail(): void {
-      let promise = this.sendEmailService.sendEmail(this.toEmail, this.message);
+      console.log(this.toEmail);
+      let promise = this.sendEmailService.sendEmail(this.toEmail, this.message, this.subject);
 
       promise.then(success => {
         if (success) {
@@ -38,6 +41,7 @@ export class InviteBarComponent implements OnInit {
           this.close();
         } else {
           this.error = true;
+          this.getErrorMessage;
         }
       });
   }
