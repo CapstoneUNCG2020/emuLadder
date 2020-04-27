@@ -243,7 +243,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
 
   public createContest() {
     if (this.signedInService.getStatus()) {
-      this.router.navigateByUrl("contest/create")
+      this.router.navigateByUrl("games/leagueoflegends/contest/create");
     } else {
       alert("SIGN IN");
     }
