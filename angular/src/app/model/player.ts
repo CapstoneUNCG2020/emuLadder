@@ -7,7 +7,7 @@ export class Player {
     /**
      * The position the player plays in.
      */
-    position: string;
+    role: string;
 
     /**
      * The rank of the player.
@@ -22,5 +22,5 @@ export class Player {
     /**
      * The unique player ID
      */
-    id: number;
+    playerId: string;
 }

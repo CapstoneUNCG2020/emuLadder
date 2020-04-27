@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CreateContestService } from '../service/rest/create-contest.service';
 
 @Component({
   selector: 'app-create-contest',
@@ -7,6 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-contest.component.css']
 })
 export class CreateContestComponent implements OnInit {
+
+  contestType: number;
+  opponent: number;
+  entryFee: number;
+  name: string;
+  startTime: string;
+
   date = "date1"
 
   dateTimes = [
@@ -47,12 +55,23 @@ export class CreateContestComponent implements OnInit {
     }
   ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: CreateContestService) { }
 
   ngOnInit() {
+    this.contestType = 0;
+    this.opponent = 0;
+    this.entryFee = 0;
+    this.startTime = '2020-02-09T12:00:00'
   }
 
   selectTeam(): void {
-    this.router.navigateByUrl('contest/draft')
+    // Head-to-Head -> 0, Public -> 1, Private -> 2
+    let contestType = this.contestType == 0 ? 0 : this.opponent == 0 ? 1 : 2;
+    
+    let promise = this.service.createContest(contestType, this.entryFee, this.name, this.startTime);
+
+    promise.then(contest => {
+      this.router.navigateByUrl('contest/draft/' + contest.contestId)
+    })
   }
 }

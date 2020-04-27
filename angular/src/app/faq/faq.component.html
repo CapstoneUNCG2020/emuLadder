@@ -1,11 +1,50 @@
 <body>
-    <div>
-        <h1>Frequently Asked Questions</h1>
+    <h2 id="title">Frequently Asked Questions (FAQ)</h2>
+    <p id="title">Click on the topic to expand and see the answers to our most frequent questions.</p>
+    <button (click)="onClickers()" class="accordion">How do I reset my password?</button>
+    <div class="panel">
+        <p>When attempting to login, you may click the 'forgot password' link.</p>
     </div>
-    <div *ngFor="let qa of qaList">
-        <hr />
 
-        <h3>{{ qa.question }}</h3>
-        <h6>{{ qa.answer }}</h6>
+    <button (click)="onClickers()" class="accordion">What games are supported?</button>
+    <div class="panel">
+        <p>We currently support League of Legends, but Dota 2, Overwatch, and CS:GO will be coming soon.</p>
+    </div>
+
+    <button (click)="onClickers()" class="accordion">What are the different game modes?</button>
+    <div class="panel">
+        <p>We currently support Head-to-Head (where a player can challenge one other person to a one-on-one competition) 
+            and Multiplayer (where you can choose a Public or Private match to compete against a group of opponents).</p>
+    </div>
+
+    <button (click)="onClickers()" class="accordion">How can I invite friends to join so I can play against them?</button>
+    <div class="panel">
+        <p>When viewing a contest you have signed up for, you can click the invite button to invite friends by their 
+            email address. They will be sent a link to the contest and can sign up through there.</p>
+    </div>
+
+    <button (click)="onClickers()" class="accordion">Can I win actual money by winning tournaments?</button>
+    <div class="panel">
+        <p>Currently, we do not support real-time betting due to the restrictions of our
+             development team. However, in the future this content may be supported.</p>
+    </div>
+
+    <button (click)="onClickers()" class="accordion">How soon after a match is complete will I be able to view my scores?</button>
+    <div class="panel">
+        <p>Ideally you will know the second after the match finishes. However, we are 
+            using the unofficial League of Legends API so there may be issues with latency.</p>
+    </div>
+
+    <button (click)="onClickers()" class="accordion">Why does the sign up page ask for my phone number?</button>
+    <div class="panel">
+        <p>In case we decide to implement the usage of real money into our platform, we 
+            would like to know the contact information of the big winners in case we need to borrow some money.</p>
+    </div>
+
+    <button (click)="onClickers()" class="accordion">Is my security information secure when being transmitted on the web?</button>
+    <div class="panel">
+        <p>We do our best to ensure all credential information is stored properly. We pride ourselves in our 
+            plain-text storage and unencrypted transmissions where your private information will be stored 
+            securely in some database even we don't know the password to.</p>
     </div>
 </body>

@@ -57,8 +57,11 @@ body {
     margin-left: 10%;
 }
 
-input#TextBoxInput {
-    width: 98%;
+input.TextBoxInput {
+    width: 99%;
+    font: lighter 20px PT Serif;
+    font-family: 'PT Serif', serif;
+    font-weight: 500;
 }
 
 .row#Policy {

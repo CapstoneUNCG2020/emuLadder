@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Contest } from '../model/contest';
 import { Player } from '../model/player';
 import { Game } from '../model/game';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ContestDetailsService } from '../service/rest/contest-details.service';
+import { DraftingService } from '../service/rest/drafting.service';
 
 @Component({
   selector: 'app-drafting-page',
@@ -14,6 +16,7 @@ export class DraftingPageComponent implements OnInit {
   // Symbols for seeing which item is being sorted by
   private sortSymbols = ['▲', '▼'];
 
+  private contestId: string;
   private contest: Contest;
   private availablePlayers: Array<Player>;
   private selectedPlayers: Array<Player>;
@@ -23,117 +26,29 @@ export class DraftingPageComponent implements OnInit {
   private spSort: string;
   private errorMessage: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+    private contestDetailService: ContestDetailsService,
+    private draftingService: DraftingService) { }
 
   ngOnInit() {
-    this.contest = this.testContest();
-    this.resetPlayers();
+    // Get the contest based on route param for contest ID
+    this.route.paramMap.subscribe(params => {
+      this.contestId = params.get('contestId');
 
-    // Updates every second
-    setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
-  }
+      let promise = this.contestDetailService.getContestDetails(this.contestId);
 
-  private testContest(): Contest {
-    let contest = new Contest();
+      promise.then(contest => {
+        let contestString = JSON.stringify(contest);
+        let contestObj = Object.assign(new Contest(), JSON.parse(contestString));
 
-    contest = new Contest();
-    contest.name = 'Public League of Legends Tournament 1';
-    contest.currentEntries = 0;
-    contest.maxEntries = 2;
-    contest.type = 'Head-to-Head';
-    contest.entryFee = 0;
-    contest.prizeAmount = 0;
-    contest.startingSalary = 40000;
+        this.contest = contestObj;
 
-    let time = new Date();
-    time.setHours(12);
-    time.setMinutes(0);
-    time.setSeconds(0);
-    time.setMilliseconds(0);
-    time.setMonth(3);
-    time.setDate(1);
-    time.setFullYear(2020);
+        this.resetPlayers();
 
-    contest.startTime = time;
-
-    let game = new Game();
-    game.name = 'League of Legends';
-    game.rulesLink = 'leagueOfLegends';
-
-    contest.game = game;
-
-    contest.players = this.testPlayers();
-
-    return contest;
-  }
-
-  private testPlayers(): Array<Player> {
-    let players = new Array<Player>();
-
-    let player = new Player();
-    player.name = 'Player 1';
-    player.position = 'Mid';
-    player.rank = 2;
-    player.salary = 17000;
-    player.id = 0;
-
-    players.push(player);
-
-    player = new Player();
-    player.name = 'Player 2';
-    player.position = 'Front';
-    player.rank = 3;
-    player.salary = 15000;
-    player.id = 0;
-
-    players.push(player);
-
-    player = new Player();
-    player.name = 'Player 3';
-    player.position = 'Back';
-    player.rank = 1;
-    player.salary = 20000;
-    player.id = 0;
-
-    players.push(player);
-
-    player = new Player();
-    player.name = 'Player 4';
-    player.position = 'Mid';
-    player.rank = 4;
-    player.salary = 8000;
-    player.id = 0;
-
-    players.push(player);
-
-    player = new Player();
-    player.name = 'Player 5';
-    player.position = 'Front';
-    player.rank = 6;
-    player.salary = 9000;
-    player.id = 0;
-
-    players.push(player);
-
-    player = new Player();
-    player.name = 'Player 6';
-    player.position = 'Back';
-    player.rank = 5;
-    player.salary = 10000;
-    player.id = 0;
-
-    players.push(player);
-
-    player = new Player();
-    player.name = 'Player 7';
-    player.position = 'Mid';
-    player.rank = 7;
-    player.salary = 12000;
-    player.id = 0;
-
-    players.push(player);
-
-    return players;
+        // Updates every second
+        // setInterval(() => { this.countdown = this.getCountdown(); }, 1000);
+      });
+    })
   }
 
   /**
@@ -182,18 +97,18 @@ export class DraftingPageComponent implements OnInit {
   addPlayer(player: Player): void {
     let canAdd = true;
     let error: string;
-    
+
     if (this.currentSalary - player.salary < 0) {
       canAdd = false;
       error = 'Not enough money';
     }
-    
-    /* Check to see if already hired someone of that position */
+
+    /* Check to see if already hired someone of that role */
     if (canAdd) {
       this.selectedPlayers.forEach(p => {
-        if (p.position == player.position) {
+        if (p.role == player.role) {
           canAdd = false;
-          error = p.position + ' player already selected';
+          error = p.role + ' player already selected';
         }
       });
     }
@@ -333,7 +248,7 @@ export class DraftingPageComponent implements OnInit {
       switch (id) {
         case 'a-p-n': this.availablePlayers.sort((a, b) => a.name.localeCompare(b.name));
           break;
-        case 'a-p-p': this.availablePlayers.sort((a, b) => a.position.localeCompare(b.position));
+        case 'a-p-p': this.availablePlayers.sort((a, b) => a.role.localeCompare(b.role));
           break;
         case 'a-p-r': this.availablePlayers.sort((a, b) => a.rank - b.rank);
           break;
@@ -341,7 +256,7 @@ export class DraftingPageComponent implements OnInit {
           break;
         case 's-p-n': this.selectedPlayers.sort((a, b) => a.name.localeCompare(b.name));
           break;
-        case 's-p-p': this.selectedPlayers.sort((a, b) => a.position.localeCompare(b.position));
+        case 's-p-p': this.selectedPlayers.sort((a, b) => a.role.localeCompare(b.role));
           break;
         case 's-p-r': this.selectedPlayers.sort((a, b) => a.rank - b.rank);
           break;
@@ -362,6 +277,33 @@ export class DraftingPageComponent implements OnInit {
   }
 
   saveLineup(): void {
-    this.router.navigateByUrl('contest/view');
+    if (this.selectedPlayers.length != 5) {
+      this.errorMessage = 'Please select a player of each position.';
+    } else {
+      let playerIdList = new Array<string>();
+
+      // Comparator
+      this.selectedPlayers.sort(function (a, b) {
+        if (a.role < b.role) {
+          return -1;
+        } else if (a.role > b.role) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+        .forEach(player => playerIdList.push(player.playerId));
+
+      let promise = this.draftingService.draftPlayers(playerIdList, this.contestId);
+
+      promise.then(success => {
+        if (success) {
+          this.router.navigateByUrl('contest/view');
+        } else {
+          this.errorMessage = 'something went wrong';
+        }
+      });
+
+    }
   }
 }

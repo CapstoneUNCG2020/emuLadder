@@ -1,110 +1,111 @@
-<form>
-	<div class="body">
-		<div class="center">
-			<h2>Choose a tournament</h2>
-			<div id="icons-grid">
-				<label>
-					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date1" [checked]="true">
-					<i class="material-icons">calendar_today</i>
-				</label>
-				<label>
-					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date2">
-					<i class="material-icons">calendar_today</i>
-				</label>
-				<label>
-					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date3">
-					<i class="material-icons">calendar_today</i>
-				</label>
-				<label>
-					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date4">
-					<i class="material-icons">calendar_today</i>
-				</label>
-				<label>
-					<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date5">
-					<i class="material-icons">calendar_today</i>
-				</label>
-				<div *ngFor="let dateTime of dateTimes">
-					<p>{{dateTime.day}}</p><br>
-					<p>{{dateTime.date}}</p><br>
-					<p>{{dateTime.time}}</p><br>
-					<p>LCS</p>
-				</div>
+<div class="body">
+	<div class="center">
+		<h2>Choose a tournament</h2>
+		<div id="icons-grid">
+			<label>
+				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date1" [checked]="true">
+				<i class="material-icons">calendar_today</i>
+			</label>
+			<label>
+				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date2">
+				<i class="material-icons">calendar_today</i>
+			</label>
+			<label>
+				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date3">
+				<i class="material-icons">calendar_today</i>
+			</label>
+			<label>
+				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date4">
+				<i class="material-icons">calendar_today</i>
+			</label>
+			<label>
+				<input type="radio" [(ngModel)]="date" class="calendar" name="calendar" value="date5">
+				<i class="material-icons">calendar_today</i>
+			</label>
+			<div *ngFor="let dateTime of dateTimes">
+				<p>{{dateTime.day}}</p><br>
+				<p>{{dateTime.date}}</p><br>
+				<p>{{dateTime.time}}</p><br>
+				<p>LCS</p>
+			</div>
 
-			</div>
-			<h2 class="divider">Games</h2>
-			<div *ngIf="date === 'date1'">
-				<div *ngFor="let teams of dateTimes[0].teams; let i = index" class="game-item">
-					<p>{{teams}}</p><br>
-					<p>{{dateTimes[0].dateAndTime[i]}}</p>
-				</div>
-			</div>
-			<div *ngIf="date === 'date2'">
-				<div *ngFor="let teams of dateTimes[1].teams; let i = index" class="game-item">
-					<p>{{teams}}</p><br>
-					<p>{{dateTimes[1].dateAndTime[i]}}</p>
-				</div>
-			</div>
-			<div *ngIf="date === 'date3'">
-				<div *ngFor="let teams of dateTimes[2].teams; let i = index" class="game-item">
-					<p>{{teams}}</p><br>
-					<p>{{dateTimes[2].dateAndTime[i]}}</p>
-				</div>
-			</div>
-			<div *ngIf="date === 'date4'">
-				<div *ngFor="let teams of dateTimes[3].teams; let i = index" class="game-item">
-					<p>{{teams}}</p><br>
-					<p>{{dateTimes[3].dateAndTime[i]}}</p>
-				</div>
-			</div>
-			<div *ngIf="date === 'date5'">
-				<div *ngFor="let teams of dateTimes[4].teams; let i = index" class="game-item">
-					<p>{{teams}}</p><br>
-					<p>{{dateTimes[4].dateAndTime[i]}}</p>
-				</div>
+		</div>
+		<h2 class="divider">Games</h2>
+		<div *ngIf="date === 'date1'">
+			<div *ngFor="let teams of dateTimes[0].teams; let i = index" class="game-item">
+				<p>{{teams}}</p><br>
+				<p>{{dateTimes[0].dateAndTime[i]}}</p>
 			</div>
 		</div>
-
-
-		<div class="grid-container">
-			<div class="grid-item">
-				<h2 class="grid-h2">Contest Type</h2>
-				<div class="switch-field">
-					<input type="radio" id="head-to-head" name="contest-type" value="head-to-head" checked />
-					<label for="head-to-head">Head-to-head</label>
-					<input type="radio" id="multiplayer" name="contest-type" value="multiplayer" />
-					<label for="multiplayer">Multiplayer</label>
-				</div>
-			</div>
-
-			<div class="grid-item">
-				<h2 class="grid-h2">Opponent</h2>
-				<div class="switch-field">
-					<input type="radio" id="public" name="contest-opponent" value="public" checked />
-					<label for="public">Public</label>
-					<input type="radio" id="private" name="contest-opponent" value="private" />
-					<label for="private">Private</label>
-				</div>
-			</div>
-
-			<div class="grid-item">
-				<h2 class="grid-h2">Entry Fee</h2>
-				<select id="entry-fee">
-					<option value="free">Free</option>
-					<option value="five">$5</option>
-					<option value="ten">$10</option>
-					<option value="fifteen">$15</option>
-				</select>
-			</div>
-
-			<div class="grid-item entry">
-				<h2 class="grid-h2">Name your contest</h2>
-				<form action="">
-					<input type="text" id="contest-name" placeholder="Public League of Legends Tournament 1">
-				</form>
+		<div *ngIf="date === 'date2'">
+			<div *ngFor="let teams of dateTimes[1].teams; let i = index" class="game-item">
+				<p>{{teams}}</p><br>
+				<p>{{dateTimes[1].dateAndTime[i]}}</p>
 			</div>
 		</div>
-		<div id="submit-button">
-			<button id="submit" type="submit" (click)="selectTeam()">Select Team</button>
+		<div *ngIf="date === 'date3'">
+			<div *ngFor="let teams of dateTimes[2].teams; let i = index" class="game-item">
+				<p>{{teams}}</p><br>
+				<p>{{dateTimes[2].dateAndTime[i]}}</p>
+			</div>
+		</div>
+		<div *ngIf="date === 'date4'">
+			<div *ngFor="let teams of dateTimes[3].teams; let i = index" class="game-item">
+				<p>{{teams}}</p><br>
+				<p>{{dateTimes[3].dateAndTime[i]}}</p>
+			</div>
+		</div>
+		<div *ngIf="date === 'date5'">
+			<div *ngFor="let teams of dateTimes[4].teams; let i = index" class="game-item">
+				<p>{{teams}}</p><br>
+				<p>{{dateTimes[4].dateAndTime[i]}}</p>
+			</div>
 		</div>
 	</div>
-</form>
+
+
+	<div class="grid-container">
+		<div class="grid-item">
+			<h2 class="grid-h2">Contest Type</h2>
+			<div class="switch-field">
+				<input type="radio" id="head-to-head" name="contest-type" value="head-to-head" [(ngModel)]="contestType"
+					value="0" />
+				<label for="head-to-head">Head-to-head</label>
+				<input type="radio" id="multiplayer" name="contest-type" value="multiplayer" [(ngModel)]="contestType"
+					value="1" />
+				<label for="multiplayer">Multiplayer</label>
+			</div>
+		</div>
+
+		<div class="grid-item">
+			<h2 class="grid-h2">Opponent</h2>
+			<div class="switch-field">
+				<input type="radio" id="public" name="contest-opponent" value="public" [(ngModel)]="opponent"
+					value="0" />
+				<label for="public">Public</label>
+				<input type="radio" id="private" name="contest-opponent" value="private" [(ngModel)]="opponent"
+					value="1" />
+				<label for="private">Private</label>
+			</div>
+		</div>
+
+		<div class="grid-item">
+			<h2 class="grid-h2">Entry Fee</h2>
+			<select id="entry-fee" [(ngModel)]="entryFee">
+				<option [ngValue]="0">Free</option>
+				<option [ngValue]="5">$5</option>
+				<option [ngValue]="10">$10</option>
+				<option [ngValue]="15">$15</option>
+			</select>
+		</div>
+
+		<div class="grid-item entry">
+			<h2 class="grid-h2">Name your contest</h2>
+			<input type="text" id="contest-name" placeholder="Public League of Legends Tournament 1"
+				[(ngModel)]="name" />
+		</div>
+	</div>
+	<div id="submit-button">
+		<button id="submit" type="submit" (click)="selectTeam()">Select Team</button>
+	</div>
+</div>
