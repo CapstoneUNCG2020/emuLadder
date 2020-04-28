@@ -1,4 +1,18 @@
 body {
+    height: 100%;
     background-color: #212121;
     color: white;
+}
+
+h2 {
+    text-align: center;
+}
+
+h2#header {
+    padding-top: 1%;
+}
+
+p {
+    padding-left: 2%;
+    padding-right: 2%;
 }
