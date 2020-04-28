@@ -38,23 +38,23 @@
 
     <div class="container" id="available-players">
         <h3>Available Players</h3>
-        <table style="width: 100%;">
-            <thead>
+        <table style="width:auto">
+            <thead style="width:auto">
                 <tr>
                     <th></th>
                     <th>
-                        <button id="a-p-n" class="header-btn" (click)="sort('a-p-n', true)">Name</button>
+                        <button id="a-p-n" class="header-btn" (click)="sort('a-p-n', true)" style="padding-left: 170%;">Name</button>
                     </th>
                     <th>
-                        <button id="a-p-p" class="header-btn" (click)="sort('a-p-p', true)">Position</button>
+                        <button id="a-p-p" class="header-btn" (click)="sort('a-p-p', true)" style="padding-left: 430%;">Position</button>
                     </th>
                     <th>
-                        <button id="a-p-r" class="header-btn" (click)="sort('a-p-r', true)">Rank</button>
+                        <button id="a-p-r" class="header-btn" (click)="sort('a-p-r', true)" style="padding-left: 700%;">Rank</button>
                     </th>
                     <th>
-                        <button id="a-p-s" class="header-btn" (click)="sort('a-p-s', true)">Salary</button>
+                        <button id="a-p-s" class="header-btn" (click)="sort('a-p-s', true)" style="padding-left: 555%;">Salary</button>
                     </th>
-                    <th>
+                    <th style="padding-left: 90%;">
                         Add
                     </th>
                 </tr>
@@ -64,16 +64,16 @@
                     <td>
                         <img src="{{ player.image }}" width="100">
                     </td>
-                    <td>
+                    <td width="250px">
                         {{ player.name }}
                     </td>
-                    <td>
+                    <td width="100px">
                         {{ player.role }}
                     </td>
-                    <td>
+                    <td width="30px">
                         {{ player.rank }}
                     </td>
-                    <td>
+                    <td width="80px">
                         ${{ player.salary }}
                     </td>
                     <td>
