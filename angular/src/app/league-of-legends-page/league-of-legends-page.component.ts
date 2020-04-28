@@ -55,7 +55,7 @@ export class LeagueOfLegendsPageComponent implements OnInit {
       contest.totalSpaces = contestJSON.contests[i].totalEntries;
       contest.spacePercent = ((contestJSON.contests[i].currentEntries / contestJSON.contests[i].totalEntries) * 100);
       contest.contestType = contestJSON.contests[i].contestType;
-      contest.entryFee = contestJSON.contests[i].entreeFee;
+      contest.entryFee = contestJSON.contests[i].entryFee;
       contest.prizeAmount = contestJSON.contests[i].prizeAmount;
       contest.showFlagSlate = true;
       contest.showFlagStyle = true;

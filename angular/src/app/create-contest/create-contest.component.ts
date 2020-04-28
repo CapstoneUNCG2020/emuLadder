@@ -36,9 +36,9 @@ export class CreateContestComponent implements OnInit {
       this.opponent = 0;
       this.entryFee = 0;
       this.name = "";
-      this.dateObject = [];
       let promise: Promise<any> = this.event.getEvents();
       promise.then(result => {
+        this.dateObject = [];
         let i: number = 1;
         for (let res of result) {
           this.dateObject.push({

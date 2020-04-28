@@ -10,7 +10,7 @@
 </head>
 
 <!-- Button trigger modal -->
-  <button data-toggle="modal" data-target=".bd-example-modal">
+  <button data-toggle="modal" data-target=".bd-example-modal" id="app-sign-in-btn">
     LogIn
   </button>
 
@@ -50,7 +50,7 @@
                 </div>
                 <div class="row" id="ForgotPasswordTop">
                   <div class="col-auto">
-                    <a id="ForgotPassword" href="">Forgot your password?</a>
+                    <a id="ForgotPassword" (click)="forgotPassword()">Forgot your password?</a>
                   </div>
                 </div>
                 <div class="row" id="SignUp">

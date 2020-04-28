@@ -28,8 +28,6 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
     public ResponseData<Boolean> service(SendEmailRequestData requestData) {
         ResponseData<Boolean> responseData = new ResponseData<>();
 
-        logger.info("Request data: {}", requestData);
-
         //seting up smtp properties for gmail account
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -48,7 +46,6 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
 
         //creates session to get properties
         Session session = Session.getDefaultInstance(properties, auth);
-        //sendEmail(session);
         try {
             //mimeMessage object
             MimeMessage message = new MimeMessage(session);
@@ -59,13 +56,9 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
             //Set to--> adding to email
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(requestData.getRecipient()));
 
-
             //Set subject of email--> subject to change
             message.setSubject(requestData.getSubject());
             message.setContent(requestData.getContent(), "text/html;  charset=utf-8");
-            //BodyPart messageBodyPart = new MimeBodyPart();
-            //set sent date
-            //messageBodyPart.setText(body);
 
             //Send email
             Transport.send(message);
@@ -75,9 +68,7 @@ public class SendEmailService implements IService<SendEmailRequestData, Response
         } catch (MessagingException e) {
             responseData.setResponse(false);
             responseData.setStatus(ResponseStatusType.ERROR.name());
-            logger.info("requestData: {}", requestData);
         }
-
 
         return responseData;
     }
