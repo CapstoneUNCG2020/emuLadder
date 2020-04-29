@@ -37,11 +37,11 @@
     </div>
 
     <div class="container" id="available-players">
-        <h3>Available Players</h3>
-        <table style="width:auto">
-            <thead style="width:auto">
-                <tr>
-                    <th></th>
+        <h3 style="text-align:center">Available Players</h3>
+        <div id="draft-table">
+            <table>
+                <tr class="header">
+                    <th>Picture</th>
                     <th>
                         <button id="a-p-n" class="header-btn" (click)="sort('a-p-n', true)" style="padding-left: 170%;">Name</button>
                     </th>
@@ -54,12 +54,8 @@
                     <th>
                         <button id="a-p-s" class="header-btn" (click)="sort('a-p-s', true)" style="padding-left: 555%;">Salary</button>
                     </th>
-                    <th style="padding-left: 90%;">
-                        Add
-                    </th>
+                    <th>Add</th>
                 </tr>
-            </thead>
-            <tbody style="display: block; overflow:auto; height: 800px;">
                 <tr *ngFor="let player of availablePlayers">
                     <td>
                         <img src="{{ player.image }}" width="100">
@@ -80,8 +76,8 @@
                         <button (click)="addPlayer(player)">+</button>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+            </table>
+        </div>
     </div>
 
     <div class="container" id="selected-players">

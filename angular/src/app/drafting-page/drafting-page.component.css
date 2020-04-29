@@ -159,3 +159,15 @@ thead>tr {
     color: white;
     margin-top: 10px;
 }
+
+#draft-table {
+    overflow-y: auto;
+    height: 800px;
+    table-layout: fixed;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: black;
+}
