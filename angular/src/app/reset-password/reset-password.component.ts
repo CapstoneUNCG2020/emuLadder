@@ -21,16 +21,12 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void { }
 
   resetPassword(): void {
-    console.log('email: ' + this.email);
-    console.log('old password: ' + this.oldPassword);
-    console.log('password: ' + this.password);
-
     if (this.confirmPassword()) {
       let promise = this.service.resetPassword(this.email, this.oldPassword, this.password);
 
       promise.then(response => {
         if (response) {
-          this.status = 'SUCCESS!';
+          this.status = 'SUCCESS';
         } else {
           this.status = 'ERROR';
           this.errorMsg = 'Invalid email/password combination.'
@@ -67,4 +63,15 @@ export class ResetPasswordComponent implements OnInit {
     this.oldPassword = undefined;
   }
 
+  getColor(): string {
+    let color: string;
+
+    if (this.status == 'SUCCESS') {
+      color = 'green';
+    } else {
+      color = 'red';
+    }
+
+    return 'color: ' + color;
+  }
 }
