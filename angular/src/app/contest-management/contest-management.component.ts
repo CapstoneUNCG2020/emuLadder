@@ -15,6 +15,7 @@ export class ContestManagementComponent implements OnInit {
   contests: Array<RegisteredContests>;
   public showInviteBar: boolean;
   error = "Loading contests...";
+  public selectedContestId: number;
 
   constructor(private router: Router, private service: RegisteredContestService,
     private signedInService: SignedInService) { }
@@ -41,7 +42,7 @@ export class ContestManagementComponent implements OnInit {
       return this.valueOf(0);
     }
 
-    
+
     let sum = this.contests.map(x => x.contest.entryFee).reduce((a, b) => a = b);
 
     return this.valueOf(sum);
@@ -53,8 +54,10 @@ export class ContestManagementComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  invite(): void {
+  invite(contest: RegisteredContests): void {
     this.showInviteBar = true;
+    this.selectedContestId = contest.contest.contestId;
+    console.log(this.selectedContestId);
   }
 
   getRank(contest: RegisteredContests): string {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Host } from '@angular/core';
-import { Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 import { ContestManagementComponent } from '../contest-management/contest-management.component';
 import { Contest } from '../model/contest';
 //import { SendEmailService } from '../service/send-email.service';
@@ -21,29 +21,31 @@ export class InviteBarComponent implements OnInit {
   //needs to get added
   subject: string = "You've Been invited to EmuLadder!";
   error: boolean;
-  
+
   constructor(@Host() private parent: ContestManagementComponent, private sendEmailService: SendEmailService, private sentEmailService: SentEmailService) { }
-  
+
   ngOnInit() {
   }
 
   getErrorMessage(): string {
-      return 'Failed To Send'
+    return 'Failed To Send'
   }
 
   sendEmail(): void {
-      console.log(this.toEmail);
-      let promise = this.sendEmailService.sendEmail(this.toEmail, this.message, this.subject);
+    let contestId = this.parent.selectedContestId;
+    let url = 'localhost:4200/contest/draft/' + contestId;
+    let message = "Join your friends here: " + url;;
+    let promise = this.sendEmailService.sendEmail(this.toEmail, message, this.subject);
 
-      promise.then(success => {
-        if (success) {
-          this.sentEmailService.sent();
-          this.close();
-        } else {
-          this.error = true;
-          this.getErrorMessage;
-        }
-      });
+    promise.then(success => {
+      if (success) {
+        this.sentEmailService.sent();
+        this.close();
+      } else {
+        this.error = true;
+        this.getErrorMessage;
+      }
+    });
   }
 
 
