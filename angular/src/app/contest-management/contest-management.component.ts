@@ -37,6 +37,11 @@ export class ContestManagementComponent implements OnInit {
   }
 
   getEntryFees(): string {
+    if (this.contests == undefined || this.contests.length == 0) {
+      return this.valueOf(0);
+    }
+
+    
     let sum = this.contests.map(x => x.contest.entryFee).reduce((a, b) => a = b);
 
     return this.valueOf(sum);
