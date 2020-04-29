@@ -21,7 +21,7 @@ public class EventController {
     private final EventsRepository eventsRepository;
     private final EventService eventService;
 
-    @GetMapping("/test")
+    @GetMapping("/dates")
     public ResponseData<List<Timestamp>> getLatestDates() {
         return eventService.getLatestDates();
     }

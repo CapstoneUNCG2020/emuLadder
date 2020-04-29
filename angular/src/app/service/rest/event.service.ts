@@ -7,7 +7,7 @@ import { Events } from 'src/app/model/events';
 })
 export class EventService {
 
-  private url = '/event/test'
+  private url = '/event/dates'
   private url2 = '/event/latest'
 
   constructor(private rest: RestService) { } 
