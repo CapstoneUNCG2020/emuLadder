@@ -50,11 +50,11 @@ export class CreateContestComponent implements OnInit {
           });
           i++;
         }
-
+        console.log("hello")
         let eventsPromise = this.event.getLatestEvents();
         eventsPromise.then(eventsData => {
           this.dates = '';
-          let x: number = 1;
+          let x: number = 0;
           this.groupedEvents = [];
           let tempDate: string = new Date(eventsData[0].startTime).toUTCString().substring(0, 16)
 
