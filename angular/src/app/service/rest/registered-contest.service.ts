@@ -19,7 +19,7 @@ export class RegisteredContestService {
 
   public getRegisteredContests(): Promise<Array<RegisteredContests>> {
     // let email = this.signedInService.getEmail();
-    let email = "mrmoize@uncg.edu";
+    let email = this.signedInService.getEmail();
 
     return this.post(email);
   }

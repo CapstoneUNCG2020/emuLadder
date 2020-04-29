@@ -21,11 +21,6 @@ public class EventController {
     private final EventsRepository eventsRepository;
     private final EventService eventService;
 
-//    @GetMapping("/test")
-//    public ResponseData<List<Events>> getEvent() {
-//        return eventService.test();
-//    }
-
     @GetMapping("/test")
     public ResponseData<List<Timestamp>> getLatestDates() {
         return eventService.getLatestDates();
